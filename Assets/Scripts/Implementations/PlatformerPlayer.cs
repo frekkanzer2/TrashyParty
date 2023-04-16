@@ -27,12 +27,13 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
     // Start is called before the first frame update
     void Start()
     {
-        Initialize();
+        Invoke("Initialize", 0.5f);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (!IsInitialized) return;
         if (gamepad == null) throw new System.NullReferenceException("No gamepad is connected");
         if (gamepad.IsConnected())
         {
@@ -47,6 +48,7 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
 
     void FixedUpdate()
     {
+        if (!IsInitialized) return;
         rigidbody.velocity = new Vector2(movementData.x * Constants.PLAYER_MOVEMENT_SPEED, rigidbody.velocity.y);
     }
 

@@ -19,6 +19,7 @@ public class GamepadManager : MonoBehaviour
     {
         get
         {
+            if (_instance == null) throw new System.NullReferenceException("Trying to get the Gamepad Manager, but it's not attached as a component!");
             return _instance;
         }
     }
