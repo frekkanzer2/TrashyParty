@@ -63,8 +63,14 @@ public class GamepadManager : MonoBehaviour
     }
 
     public void AddAssociation(int playerNumber, int gamepadId) => this.associations.Add(new PlayerControllerAssociationDto() { PlayerNumber = playerNumber, ControllerId = gamepadId });
+    public PlayerControllerAssociationDto? GetAssociationByPlayerNumber(int playerNumber) => this.associations.Find(association => association.PlayerNumber == playerNumber);
+    public PlayerControllerAssociationDto? GetAssociationByGamepadId(int gamepadId) => this.associations.Find(association => association.ControllerId == gamepadId);
 
     public void RemoveAssociation(int playerNumber) => this.associations.RemoveAll(association => association.PlayerNumber == playerNumber);
+
+    public IGamepad? GetGamepadById(int id) => this.gamepads.Find(gamepad => gamepad.Id == id);
+    public IGamepad? GetGamepadByIndex(int index) => this.gamepads[index];
+    public IGamepad? GetGamepadByAssociation(PlayerControllerAssociationDto pcaDto) => this.gamepads.Find(gamepad => gamepad.Id == pcaDto.ControllerId);
 
     public IGamepad? MainGamepad
     {
@@ -74,6 +80,33 @@ public class GamepadManager : MonoBehaviour
             for (int i = 0; i < gamepads.Count; i++)
                 if (gamepads[i].IsConnected()) return gamepads[i];
             return null;
+        }
+    }
+
+    public void ReloadAvailableGamepads()
+    {
+        gamepads = new();
+        associations = new();
+        int lastGamepadId = 1;
+        JoyconManager.Instance.ReloadJoycons();
+        if (!JoyconManager.Instance.j.IsEmpty())
+            foreach (Joycon j in JoyconManager.Instance.j)
+            {
+                gamepads.Add(new JoyconGamepad(lastGamepadId, j));
+                lastGamepadId++;
+            }
+        Gamepad[] gamepadsFromInputSystem = Gamepad.all.ToArray();
+        foreach (Gamepad gp in gamepadsFromInputSystem)
+        {
+            if (gp is XInputController)
+            {
+                gamepads.Add(new XboxGamepad(lastGamepadId, (XInputController)gp));
+                lastGamepadId++;
+            }
+            else if (gp is DualShockGamepad)
+            {
+
+            }
         }
     }
 
@@ -91,32 +124,6 @@ public class GamepadManager : MonoBehaviour
         {
             ReloadAvailableGamepads();
         };
-    }
-
-    private void ReloadAvailableGamepads()
-    {
-        gamepads = new();
-        associations = new();
-        int lastGamepadId = 1;
-        JoyconManager.Instance.ReloadJoycons();
-        if (!JoyconManager.Instance.j.IsEmpty())
-            foreach (Joycon j in JoyconManager.Instance.j)
-            {
-                gamepads.Add(new JoyconGamepad(lastGamepadId, j));
-                lastGamepadId++;
-            }
-        Gamepad[] gamepadsFromInputSystem = Gamepad.all.ToArray();
-        foreach(Gamepad gp in gamepadsFromInputSystem)
-        {
-            if (gp is XInputController)
-            {
-                gamepads.Add(new XboxGamepad(lastGamepadId, (XInputController)gp));
-                lastGamepadId++;
-            } else if (gp is DualShockGamepad)
-            {
-
-            }
-        }
     }
 
     private void GamepadPressDetection()

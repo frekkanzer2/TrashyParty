@@ -1,18 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class IPlayer : MonoBehaviour
+public interface IPlayer
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    bool IsInitialized { get; }
+    void Initialize();
+    void OnGameStarts();
+    void OnGameEnds();
+    void OnDeath();
+    void OnSpawn();
+    void SetGamepad(IGamepad gamepad);
+    void SetGamepadByAssociation(PlayerControllerAssociationDto pcaDto);
 }
