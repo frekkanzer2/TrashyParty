@@ -154,8 +154,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1468634896784324709}
   - component: {fileID: 1468634896784324708}
-  - component: {fileID: 532130501}
   - component: {fileID: 532130504}
+  - component: {fileID: 5290997550196257466}
   - component: {fileID: 532130505}
   m_Layer: 0
   m_Name: Player (lateral view)
@@ -180,7 +180,7 @@ Transform:
   - {fileID: 1468634897540139731}
   - {fileID: 1468634896013382077}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1468634896784324708
 MonoBehaviour:
@@ -194,22 +194,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6fd5279805015e4696befe0540d22a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ModelPrefab: {fileID: 7322479139939081348, guid: a23feaf1d7a3acb449af59db52c27e97, type: 3}
---- !u!114 &532130501
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1468634896784324710}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a38d0185d47df2440844bc365945cf3f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AssociationMock:
-    PlayerNumber: 1
-    ControllerId: 1
+  ModelPrefab: {fileID: 0}
 --- !u!114 &532130504
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -228,6 +213,18 @@ MonoBehaviour:
   groundTag:
     serializedVersion: 2
     m_Bits: 64
+--- !u!114 &5290997550196257466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1468634896784324710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b71bd324a28294408e56d0c029687e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!50 &532130505
 Rigidbody2D:
   serializedVersion: 4

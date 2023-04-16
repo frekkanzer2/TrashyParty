@@ -88,6 +88,7 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
 
     public void SetGamepadByAssociation(PlayerControllerAssociationDto pcaDto)
     {
+        Debug.Log($"Setting gamepad {pcaDto.ControllerId} to player {pcaDto.PlayerNumber} via association");
         SetGamepad(GamepadManager.Instance.GetGamepadByAssociation(pcaDto));
     }
 
