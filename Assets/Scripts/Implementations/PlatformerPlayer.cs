@@ -27,6 +27,7 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
     #region Class variables
     private Vector2 movementData = Vector2.zero;
     private bool isDead = false, canPlay = false;
+    private float originalGravity;
     #endregion
 
     // Start is called before the first frame update
@@ -35,11 +36,17 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
         Invoke("Initialize", 0.5f);
         deathSprite = GetComponent<PlayerModel>().deathSprite;
         birdSprite = GetComponent<PlayerModel>().ModelPrefab.GetComponent<SpriteRenderer>().sprite;
+        originalGravity = rigidbody.gravityScale;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (foots.gameObject.activeInHierarchy == true && isDead && isGrounded())
+        {
+            rigidbody.gravityScale = 0;
+            foots.gameObject.SetActive(false);
+        }
         if (!IsInitialized || isDead || !canPlay)
         {
             rigidbody.velocity = Vector2.zero;
@@ -143,6 +150,8 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
         changeSprite(birdSprite);
         body.GetChild(0).gameObject.GetComponent<Animator>().enabled = true;
         head.gameObject.SetActive(true);
+        foots.gameObject.SetActive(true);
+        rigidbody.gravityScale = originalGravity;
     }
 
     public bool IsDead() => isDead;
