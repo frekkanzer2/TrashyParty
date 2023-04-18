@@ -6,4 +6,5 @@ public interface IGameManager
     void StartPreparationAnimation();
     void SpawnPlayers();
     void ActiveGameObjectsBasedOnPlayerNumber();
+    void GenerateTeams();
 }

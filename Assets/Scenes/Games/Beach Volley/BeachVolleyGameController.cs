@@ -19,6 +19,28 @@ public class BeachVolleyGameController : GameManager
 
     }
 
+    protected override List<TeamDto> GenerateTeamsCriteria(int numberOfPlayers)
+    {
+        switch (numberOfPlayers)
+        {
+            case 2: case 4: case 6: case 8:
+                return new List<TeamDto>()
+                {
+                    new TeamDto(){Id = 1},
+                    new TeamDto(){Id = 2}
+                };
+            case 3:
+                return new List<TeamDto>()
+                {
+                    new TeamDto(){Id = 1},
+                    new TeamDto(){Id = 2},
+                    new TeamDto(){Id = 3}
+                };
+            default:
+                throw new System.ArgumentException("Invalid numberOfPlayers parameter while creating teams");
+        }
+    }
+
     protected override void OnRoomStarts()
     {
 

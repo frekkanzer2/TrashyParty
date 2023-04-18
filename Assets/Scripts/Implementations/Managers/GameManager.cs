@@ -14,9 +14,27 @@ public abstract class GameManager : MonoBehaviour, IGameManager
     public List<GameObject> ActivableFor7Players;
     public List<GameObject> ActivableFor8Players;
     protected List<IPlayer> players = new List<IPlayer>();
-    protected List<GameObject> PlayerSpawnpoints = new List<GameObject>();
+    public List<TeamsForNumberOfPlayers> TeamSpawnpointAssociations;
     private bool isGameStarted;
     private bool isGameEnded;
+
+    private TeamsForNumberOfPlayers TeamSpawnpointAssociationChoise;
+
+    [System.Serializable]
+    public class TeamsForNumberOfPlayers
+    {
+        public int NumberOfPlayersCase;
+        public List<TeamRecord> Teams;
+        [System.Serializable]
+        public class TeamRecord
+        {
+            public int teamId;
+            public List<GameObject> spawnpoints;
+        }
+    }
+
+    [Header("Monitoring section - do not touch!")]
+    public List<TeamDto> Teams;
 
     private static GameManager _instance = null;
     public static GameManager Instance
@@ -29,6 +47,24 @@ public abstract class GameManager : MonoBehaviour, IGameManager
     }
 
     #region IGameManager implementation
+
+    public void GenerateTeams()
+    {
+        int players = (int)AppSettings.Get("N_PLAYERS");
+        Teams = GenerateTeamsCriteria(players) ?? throw new System.NullReferenceException("No Team is provided for this game!");
+        TeamSpawnpointAssociationChoise = TeamSpawnpointAssociations.Find(association => association.NumberOfPlayersCase == players) ?? throw new System.NullReferenceException($"No Team-Spawnpoint association provided for this game and for this number of players ({players})");
+        if (Teams.Count == 0) throw new System.NullReferenceException("No Team is provided for this game!");
+        else if (Teams.Count != TeamSpawnpointAssociationChoise.Teams.Count) throw new System.NullReferenceException("The number of generated teams via GenerateTeamsCriteria(players) must be equals to the number of teams specified inside the inspector, under the attribute Team Spawnpoint Associations");
+        else if (Teams.Find(team => team.players != null) != null) throw new System.ArgumentException("GenerateTeamsCriteria(players) must generate empty teams!");
+        for(int i = 1; i <= TeamSpawnpointAssociationChoise.Teams.Count; i++)
+        {
+            TeamsForNumberOfPlayers.TeamRecord record = TeamSpawnpointAssociationChoise.Teams.Find(team => team.teamId == i);
+            TeamDto teamToPopulateWithSpawners = Teams.Find(team => team.Id == i);
+            teamToPopulateWithSpawners.spawnpositions = new();
+            foreach (GameObject spawnpoint in record.spawnpoints)
+                teamToPopulateWithSpawners.spawnpositions.Add(spawnpoint.transform);
+        }
+    }
 
     public void ActiveGameObjectsBasedOnPlayerNumber()
     {
@@ -59,30 +95,36 @@ public abstract class GameManager : MonoBehaviour, IGameManager
                 break;
         }
         if (toActivate == null) throw new System.NullReferenceException($"No activation for {players} players: they are not supported!");
-        else foreach (GameObject obj in toActivate)
-            {
-                obj.SetActive(true);
-                if (obj.transform.childCount > 0)
-                    foreach (Transform child in obj.transform)
-                        if (child.gameObject.CompareTag("Spawnpoint"))
-                            PlayerSpawnpoints.Add(child.gameObject);
-            }
+        else foreach (GameObject obj in toActivate) obj.SetActive(true);
     }
 
     public void SpawnPlayers()
     {
-        for(int i = 1; i <= (int)AppSettings.Get("N_PLAYERS"); i++)
+        if (Teams.Count == 0) throw new System.ArgumentException("No team was created from minigame! Create at least one team!");
+        List<System.Tuple<GameObject, int, int>> playerRecords = new(); // Tuple<colorPrefab, controllerId, PlayerNumber>
+        int numberOfPlayers = (int)AppSettings.Get("N_PLAYERS");
+        for (int i = 1; i <= numberOfPlayers; i++)
+            playerRecords.Add(new((GameObject)AppSettings.Get("COLOR_PLAYER" + i), (int)AppSettings.Get("GAMEPAD_PLAYER" + i), i));
+        playerRecords.Shuffle();
+        for (int i = 0, teamIndex = 0, teamCycle = 0; i < numberOfPlayers; i++, teamIndex++)
         {
-            GameObject colorPrefab = (GameObject)AppSettings.Get("COLOR_PLAYER" + i);
-            int controllerId = (int)AppSettings.Get("GAMEPAD_PLAYER" + i);
-            GameObject playerGenerated = Instantiate(PlayerPrefab, PlayerSpawnpoints[i - 1].transform);
-            playerGenerated.GetComponent<PlayerModel>().ModelPrefab = colorPrefab;
+            if (teamIndex == Teams.Count)
+            {
+                teamIndex = 0;
+                teamCycle++;
+            }
+            TeamDto toPopulate = Teams[teamIndex];
+            toPopulate.players = new List<IPlayer>();
+            System.Tuple<GameObject, int, int> playerRecord = playerRecords[i];
+            GameObject playerGenerated = Instantiate(PlayerPrefab, toPopulate.spawnpositions[teamCycle]);
+            playerGenerated.GetComponent<PlayerModel>().ModelPrefab = playerRecord.Item1;
             playerGenerated.GetComponent<IControllerProvider>().ControllerAssociation = new()
             {
-                ControllerId = controllerId,
-                PlayerNumber = i
+                ControllerId = playerRecord.Item2,
+                PlayerNumber = playerRecord.Item3
             };
             players.Add(playerGenerated.GetComponent<IPlayer>());
+            toPopulate.players.Add(playerGenerated.GetComponent<IPlayer>());
         }
     }
 
@@ -101,6 +143,7 @@ public abstract class GameManager : MonoBehaviour, IGameManager
 
     private void Start()
     {
+        GenerateTeams();
         SpawnPlayers();
         isGameStarted = false;
         isGameEnded = false;
@@ -127,6 +170,7 @@ public abstract class GameManager : MonoBehaviour, IGameManager
     protected virtual void OnGameEnds() { if (isGameEnded) return; else isGameEnded = true; }
     public abstract void OnPlayerDies();
     public abstract void OnPlayerSpawns();
+    protected abstract List<TeamDto> GenerateTeamsCriteria(int numberOfPlayers);
 
     #endregion
 

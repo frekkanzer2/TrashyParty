@@ -195,6 +195,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ModelPrefab: {fileID: 0}
+  deathSprite: {fileID: 21300000, guid: c560ed4175c3afa4c9defed1a8861863, type: 3}
 --- !u!114 &532130504
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -210,6 +211,7 @@ MonoBehaviour:
   rigidbody: {fileID: 532130505}
   foots: {fileID: 1468634896013382077}
   body: {fileID: 1468634897540139731}
+  head: {fileID: 1468634896163767693}
   groundTag:
     serializedVersion: 2
     m_Bits: 64

@@ -251,4 +251,4 @@ MonoBehaviour:
     ColorIndex: 1
   colorPrefabs:
   - {fileID: 7322479139939081348, guid: a23feaf1d7a3acb449af59db52c27e97, type: 3}
-  - {fileID: 7322479139939081348, guid: 24897ae8a3bb4a54aa01795daf3591e2, type: 3}
+  - {fileID: 7322479139939081348, guid: 0868bd344c52ed646b94d72432aa8345, type: 3}

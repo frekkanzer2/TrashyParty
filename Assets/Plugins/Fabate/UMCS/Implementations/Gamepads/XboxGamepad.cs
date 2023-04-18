@@ -89,7 +89,16 @@ public class XboxGamepad : IGamepad
 
     public bool IsConnected()
     {
-        bool isConnected = this._reference.enabled;
+        if (eventHandler == null) Debug.LogWarning($"No eventHandler is set on gamepad {this.Type}. You should set it to manage gamepad events.");
+        bool isConnected = true;
+        try
+        {
+            Vector2 v = GetAnalogMovement(IGamepad.Analog.Left);
+        } catch (System.InvalidOperationException)
+        {
+            isConnected = false;
+        }
+        if (isConnected) isConnected = _reference.enabled;
         if (eventHandler != null && isConnected) eventHandler.OnGamepadConnected();
         if (eventHandler != null && !isConnected) eventHandler.OnGamepadDeconnected();
         return isConnected;

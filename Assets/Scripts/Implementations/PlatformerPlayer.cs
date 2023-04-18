@@ -16,24 +16,29 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
     [SerializeField] private new Rigidbody2D rigidbody;
     [SerializeField] private Transform foots;
     [SerializeField] private Transform body;
+    [SerializeField] private Transform head;
     [SerializeField] private LayerMask groundTag;
     private IGamepad gamepad;
+    private Sprite birdSprite, deathSprite;
 
     #endregion
     #region Class variables
     private Vector2 movementData = Vector2.zero;
+    private bool isDead = false;
     #endregion
 
     // Start is called before the first frame update
     void Start()
     {
         Invoke("Initialize", 0.5f);
+        deathSprite = GetComponent<PlayerModel>().deathSprite;
+        birdSprite = GetComponent<PlayerModel>().ModelPrefab.GetComponent<SpriteRenderer>().sprite;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!IsInitialized) return;
+        if (!IsInitialized || isDead) return;
         if (gamepad == null) throw new System.NullReferenceException("No gamepad is connected");
         if (gamepad.IsConnected())
         {
@@ -48,7 +53,7 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
 
     void FixedUpdate()
     {
-        if (!IsInitialized) return;
+        if (!IsInitialized || isDead) return;
         rigidbody.velocity = new Vector2(movementData.x * Constants.PLAYER_MOVEMENT_SPEED, rigidbody.velocity.y);
     }
 
@@ -71,7 +76,8 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
 
     public void OnGamepadDeconnected()
     {
-
+        Debug.LogWarning($"Gamepad deconnected for player '{this.gameObject.name}'");
+        OnDeath();
     }
 
     #endregion
@@ -81,9 +87,16 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
     public void SetGamepad(IGamepad gamepad)
     {
         this.gamepad = gamepad;
-        if (this.gamepad == null) Debug.LogError("Player doesn't have a gamepad!");
-        else Debug.Log("Gamepad loaded");
-        OnGamepadDeconnected();
+        if (this.gamepad == null)
+        {
+            Debug.LogError("Player doesn't have a gamepad!");
+            OnGamepadDeconnected();
+        }
+        else
+        {
+            Debug.Log("Gamepad loaded");
+            this.gamepad.SetGamepadEventHandler(this);
+        }
     }
 
     public void SetGamepadByAssociation(PlayerControllerAssociationDto pcaDto)
@@ -111,12 +124,24 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
 
     public void OnDeath()
     {
-        throw new System.NotImplementedException();
+        Debug.Log("Player is dead");
+        isDead = true;
+        body.GetChild(0).gameObject.GetComponent<Animator>().enabled = false;
+        changeSprite(deathSprite);
+        head.gameObject.SetActive(false);
     }
 
     public void OnSpawn()
     {
-        throw new System.NotImplementedException();
+        isDead = false;
+        changeSprite(birdSprite);
+        body.GetChild(0).gameObject.GetComponent<Animator>().enabled = true;
+        head.gameObject.SetActive(true);
+    }
+
+    public bool IsDead()
+    {
+        return isDead;
     }
 
     #endregion
@@ -143,6 +168,8 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
         else if (this.movementData.x < -0.2f)
             body.GetChild(0).gameObject.GetComponent<SpriteRenderer>().flipX = true;
     }
+
+    private void changeSprite(Sprite s) => body.GetChild(0).gameObject.GetComponent<SpriteRenderer>().sprite = s;
 
     #endregion
 
