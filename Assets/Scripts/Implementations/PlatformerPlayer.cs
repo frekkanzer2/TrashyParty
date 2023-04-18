@@ -26,7 +26,7 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
     #endregion
     #region Class variables
     private Vector2 movementData = Vector2.zero;
-    private bool isDead = false;
+    private bool isDead = false, canPlay = false;
     #endregion
 
     // Start is called before the first frame update
@@ -40,7 +40,7 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
     // Update is called once per frame
     void Update()
     {
-        if (!IsInitialized || isDead)
+        if (!IsInitialized || isDead || !canPlay)
         {
             rigidbody.velocity = Vector2.zero;
             return;
@@ -59,7 +59,7 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
 
     void FixedUpdate()
     {
-        if (!IsInitialized || isDead) return;
+        if (!IsInitialized || isDead || !canPlay) return;
         rigidbody.velocity = new Vector2(movementData.x * Constants.PLAYER_MOVEMENT_SPEED, rigidbody.velocity.y);
     }
 
@@ -120,7 +120,7 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
 
     public void OnGameStarts()
     {
-        throw new System.NotImplementedException();
+
     }
 
     public void OnGameEnds()
@@ -145,10 +145,9 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
         head.gameObject.SetActive(true);
     }
 
-    public bool IsDead()
-    {
-        return isDead;
-    }
+    public bool IsDead() => isDead;
+
+    public void SetAsReady() => canPlay = true;
 
     #endregion
 

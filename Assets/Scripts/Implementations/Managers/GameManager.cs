@@ -128,9 +128,14 @@ public abstract class GameManager : MonoBehaviour, IGameManager
         }
     }
 
-    public void StartPreparationAnimation()
+    public void OnPreparationEnds()
     {
-        throw new System.NotImplementedException();
+        foreach (IPlayer p in players)
+        {
+            p.SetAsReady();
+            p.OnGameStarts();
+        }
+        OnPreparationEndsGameSpecific();
     }
 
     #endregion
@@ -147,7 +152,6 @@ public abstract class GameManager : MonoBehaviour, IGameManager
         SpawnPlayers();
         isGameStarted = false;
         isGameEnded = false;
-        StartPreparationAnimation();
         OnRoomStarts();
     }
 
@@ -170,6 +174,7 @@ public abstract class GameManager : MonoBehaviour, IGameManager
     protected virtual void OnGameEnds() { if (isGameEnded) return; else isGameEnded = true; }
     public abstract void OnPlayerDies();
     public abstract void OnPlayerSpawns();
+    public abstract void OnPreparationEndsGameSpecific();
     protected abstract List<TeamDto> GenerateTeamsCriteria(int numberOfPlayers);
 
     #endregion

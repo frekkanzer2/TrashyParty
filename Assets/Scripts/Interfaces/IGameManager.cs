@@ -3,7 +3,7 @@ using UnityEngine;
 
 public interface IGameManager
 {
-    void StartPreparationAnimation();
+    void OnPreparationEnds();
     void SpawnPlayers();
     void ActiveGameObjectsBasedOnPlayerNumber();
     void GenerateTeams();
