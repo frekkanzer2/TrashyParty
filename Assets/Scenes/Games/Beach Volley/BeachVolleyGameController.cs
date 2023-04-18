@@ -43,7 +43,11 @@ public class BeachVolleyGameController : GameManager
 
     protected override void OnRoomStarts()
     {
-
+        foreach(IPlayer player in this.players)
+        {
+            PlatformerPlayer p = (PlatformerPlayer)player;
+            p.GetHead().GetComponent<CapsuleCollider2D>().isTrigger = false;
+        }
     }
 
     protected override void UpdateGameSpecificBehaviour()

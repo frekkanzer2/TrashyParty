@@ -17,6 +17,8 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
     [SerializeField] private Transform foots;
     [SerializeField] private Transform body;
     [SerializeField] private Transform head;
+    public GameObject GetHead() => head.gameObject;
+    public GameObject GetFoots() => foots.gameObject;
     [SerializeField] private LayerMask groundTag;
     private IGamepad gamepad;
     private Sprite birdSprite, deathSprite;
@@ -38,7 +40,11 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
     // Update is called once per frame
     void Update()
     {
-        if (!IsInitialized || isDead) return;
+        if (!IsInitialized || isDead)
+        {
+            rigidbody.velocity = Vector2.zero;
+            return;
+        }
         if (gamepad == null) throw new System.NullReferenceException("No gamepad is connected");
         if (gamepad.IsConnected())
         {
