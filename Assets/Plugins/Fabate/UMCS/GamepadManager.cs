@@ -19,7 +19,6 @@ public class GamepadManager : MonoBehaviour
     {
         get
         {
-            if (_instance == null) throw new System.NullReferenceException("Trying to get the Gamepad Manager, but it's not attached as a component!");
             return _instance;
         }
     }
@@ -73,6 +72,8 @@ public class GamepadManager : MonoBehaviour
     public IGamepad? GetGamepadByIndex(int index) => this.gamepads[index];
     public IGamepad? GetGamepadByAssociation(PlayerControllerAssociationDto pcaDto) => this.gamepads.Find(gamepad => gamepad.Id == pcaDto.ControllerId);
 
+    public List<IGamepad> GetGamepads() => this.gamepads;
+
     public IGamepad? MainGamepad
     {
         get
@@ -82,6 +83,13 @@ public class GamepadManager : MonoBehaviour
                 if (gamepads[i].IsConnected()) return gamepads[i];
             return null;
         }
+    }
+
+    public bool IsButtonPressedFromAnyGamepad(IGamepad.Key key, IGamepad.PressureType pressure)
+    {
+        foreach (IGamepad g in this.gamepads)
+            if (g.IsButtonPressed(key, pressure)) return true;
+        return false;
     }
 
     public void ReloadAvailableGamepads()

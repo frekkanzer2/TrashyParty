@@ -8,6 +8,9 @@ public interface IGamepad
     bool IsConnected();
     bool IsButtonPressed(IGamepad.Key key, IGamepad.PressureType pressure);
     Vector2 GetAnalogMovement(IGamepad.Analog analog);
+    Vector2 GetAnalogMovement(IGamepad.Analog analog, Vector2 friction);
+    void InvertAnalog(IGamepad.Analog analog);
+    void InvertAnalog(IGamepad.Analog analog, IGamepad.Orientation orientation);
     string ControllerSpecificStatus
     {
         get;
@@ -17,7 +20,7 @@ public interface IGamepad
         get { return (IsConnected()) ? $"Gamepad {Id} of type {Type} is connected with status {ControllerSpecificStatus}" : $"Gamepad {Id} of type {Type} is connected, but there's an error. Actual status: {ControllerSpecificStatus}"; }
     }
 
-    enum Key
+    public enum Key
     {
         ActionButtonDown,
         ActionButtonRight,
@@ -37,15 +40,20 @@ public interface IGamepad
         LeftTrigger,
         RightTrigger
     }
-    enum Analog
+    public enum Analog
     {
         Left,
         Right
     }
-    enum PressureType
+    public enum PressureType
     {
         Single,
         Continue
+    }
+    public enum Orientation
+    {
+        Horizontal,
+        Vertical
     }
 
 }

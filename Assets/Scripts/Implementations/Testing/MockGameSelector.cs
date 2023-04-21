@@ -6,30 +6,37 @@ using System.Linq;
 public class MockGameSelector : MonoBehaviour, IGameSelector
 {
 
-    [SerializeField] private int players;
     [SerializeField] private Constants.GameName gameName;
 
-    public void SelectGame(Constants.GameName game)
+    public void SelectGame(Constants.GameName game, int numberOfPlayers)
     {
+        int[] supportedPlayers;
+        switch (game)
+        {
+            case Constants.GameName.BeachVolley:
+                supportedPlayers = new int[] { 2, 3, 4, 6, 8 };
+                break;
+            case Constants.GameName.RocketBirdLeague:
+                supportedPlayers = new int[] { 4, 6, 8 };
+                break;
+            default:
+                throw new System.NullReferenceException("Missing game inside the game selection");
+        }
+        if (!supportedPlayers.Contains(numberOfPlayers)) throw new System.ArgumentException($"The game {game} doesn't supports {numberOfPlayers} players");
         AppSettings.Save("CHOSEN_GAME", game);
     }
 
-    public void SelectRandomGame()
+    public void SelectRandomGame(int numberOfPlayers)
     {
         Constants.GameName game = (Constants.GameName)Random.Range(0, (int)System.Enum.GetValues(typeof(Constants.GameName)).Cast<Constants.GameName>().Max());
-        SelectGame(game);
-    }
-
-    public void SetNumberOfPlayers(int number)
-    {
-        AppSettings.Save("N_PLAYERS", number);
+        SelectGame(game, numberOfPlayers);
     }
 
     private void Awake()
     {
+        int players = (int)AppSettings.Get("N_PLAYERS");
         if (players < 2 || players > 8) throw new System.ArgumentOutOfRangeException("Number of players not allowed. Valid range: 2 to 8.");
-        SetNumberOfPlayers(players);
-        SelectGame(gameName);
+        SelectGame(gameName, players);
     }
 
 }

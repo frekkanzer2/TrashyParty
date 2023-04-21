@@ -1,3 +1,5 @@
+using UnityEngine;
+
 public interface IPlayer
 {
     bool IsInitialized { get; }
@@ -6,6 +8,11 @@ public interface IPlayer
     void OnGameEnds();
     void OnDeath();
     void OnSpawn();
+    void SetAsReady();
+    void SetAsNotReady();
+    bool IsDead();
+    bool IsAlive() => !IsDead();
     void SetGamepad(IGamepad gamepad);
     void SetGamepadByAssociation(PlayerControllerAssociationDto pcaDto);
+    Sprite GetWinSprite();
 }

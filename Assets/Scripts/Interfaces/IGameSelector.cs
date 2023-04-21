@@ -1,5 +1,4 @@
 public interface IGameSelector{
-    public void SetNumberOfPlayers(int number);
-    public void SelectRandomGame();
-    public void SelectGame(Constants.GameName game);
+    public void SelectRandomGame(int numberOfPlayers);
+    public void SelectGame(Constants.GameName game, int numberOfPlayers);
 }

@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - PlayerModel
+  - Spawnpoint
+  - Presentation
+  - WinnerDisplayer
+  - Conclusion
   layers:
   - Default
   - TransparentFX

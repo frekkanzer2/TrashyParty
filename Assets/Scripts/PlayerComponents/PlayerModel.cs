@@ -6,6 +6,7 @@ public class PlayerModel : MonoBehaviour
 {
 
     public GameObject ModelPrefab;
+    public Sprite deathSprite;
 
     void Start()
     {
