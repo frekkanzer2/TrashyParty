@@ -2,14 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BeachVolleyGameController : GameManager, IMultipleMatchesManager
+public class BeachVolleyGameController : GameManager
 {
-    public List<MatchVictoryDto> TeamMatchVictories { get; set; }
-    private int victoriesLimit;
 
     public override void OnPlayerDies()
     {
         List<TeamDto> aliveTeams = this.Teams.FindAll(t => !t.IsEveryoneDead());
+        if (aliveTeams.Count <= 1)
+        {
+            // a team wons!
+            TeamDto winnerTeam = aliveTeams[0];
+            AddMatchVictory(winnerTeam.Id);
+            if (GetTeamIdThatReachedVictoriesLimit() != null)
+                foreach (IPlayer p in this.players)
+                    p.SetAsNotReady();
+        }
         if (aliveTeams.Count <= 1) OnGameEnds();
     }
 
@@ -28,17 +35,11 @@ public class BeachVolleyGameController : GameManager, IMultipleMatchesManager
     {
         yield return new WaitForSeconds(1);
         List<TeamDto> aliveTeams = this.Teams.FindAll(t => !t.IsEveryoneDead());
-        if (aliveTeams.Count == 1)
+        if (aliveTeams.Count == 1 && GetTeamIdThatReachedVictoriesLimit() != null)
         {
-            // a team wons!
-            TeamDto winnerTeam = aliveTeams[0];
-            AddMatchVictory(winnerTeam.Id);
-            if (GetTeamIdThatReachedVictoriesLimit() != null)
-            {
-                // the game is definitely ended
-                OnEveryMatchEnded();
-                yield break;
-            }
+            // the game is definitely ended
+            OnEveryMatchEnded();
+            yield break;
         }
         RestartMatch(); // it will called if there's a draw or if the victory limit is not reached
     }
@@ -102,37 +103,7 @@ public class BeachVolleyGameController : GameManager, IMultipleMatchesManager
         rigidbody.AddForce(generatedForce, ForceMode2D.Impulse);
     }
 
-    public void InitializeTeamMatchVictories(List<TeamDto> teams)
-    {
-        TeamMatchVictories = new();
-        foreach (TeamDto t in teams)
-            TeamMatchVictories.Add(new MatchVictoryDto()
-            {
-                TeamId = t.Id,
-                Victories = 0
-            });
-    }
-
-    public void SetMatchesVictoryLimit(int limit) => victoriesLimit = limit;
-
-    public void AddMatchVictory(int winnerTeamId) => this.TeamMatchVictories.Find(t => t.TeamId == winnerTeamId).Victories += 1;
-
-    public int? GetTeamIdThatReachedVictoriesLimit() {
-        try
-        {
-            return this.TeamMatchVictories.Find(t => t.Victories == this.victoriesLimit).TeamId;
-        } catch (System.NullReferenceException)
-        {
-            return null;
-        }
-    }
-
-    public void OnEveryMatchEnded()
-    {
-        throw new System.NotImplementedException($"EVERY MATCH IS ENDED! THE WINNER IS TEAM {GetTeamIdThatReachedVictoriesLimit()}");
-    }
-
-    public void RestartMatch()
+    public override void RestartMatch()
     {
         this._isGameEnded = false;
         this._isGameStarted = false;

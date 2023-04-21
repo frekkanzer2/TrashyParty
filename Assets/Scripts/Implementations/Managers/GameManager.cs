@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class GameManager : MonoBehaviour, IGameManager
+public abstract class GameManager : MonoBehaviour, IGameManager, IMultipleMatchesManager
 {
     public GameObject PlayerPrefab;
     public List<Sprite> Presentation;
@@ -180,6 +180,47 @@ public abstract class GameManager : MonoBehaviour, IGameManager
 
     public bool IsGameEnded() => this._isGameEnded;
     public bool IsGameStarted() => this._isGameStarted;
+
+    #endregion
+
+    #region Multiple matches
+
+    public List<MatchVictoryDto> TeamMatchVictories { get; set; }
+    private int victoriesLimit;
+
+    public void InitializeTeamMatchVictories(List<TeamDto> teams)
+    {
+        TeamMatchVictories = new();
+        foreach (TeamDto t in teams)
+            TeamMatchVictories.Add(new MatchVictoryDto()
+            {
+                TeamId = t.Id,
+                Victories = 0
+            });
+    }
+
+    public void SetMatchesVictoryLimit(int limit) => victoriesLimit = limit;
+
+    public void AddMatchVictory(int winnerTeamId) => this.TeamMatchVictories.Find(t => t.TeamId == winnerTeamId).Victories += 1;
+
+    public int? GetTeamIdThatReachedVictoriesLimit()
+    {
+        try
+        {
+            return this.TeamMatchVictories.Find(t => t.Victories == this.victoriesLimit).TeamId;
+        }
+        catch (System.NullReferenceException)
+        {
+            return null;
+        }
+    }
+
+    public abstract void RestartMatch();
+
+    public void OnEveryMatchEnded()
+    {
+        throw new System.NotImplementedException($"EVERY MATCH IS ENDED! THE WINNER IS TEAM {GetTeamIdThatReachedVictoriesLimit()}");
+    }
 
     #endregion
 
