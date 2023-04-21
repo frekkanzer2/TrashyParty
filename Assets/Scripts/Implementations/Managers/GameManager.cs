@@ -17,6 +17,7 @@ public abstract class GameManager : MonoBehaviour, IGameManager, IMultipleMatche
     public List<TeamsForNumberOfPlayers> TeamSpawnpointAssociations;
     protected bool _isGameStarted;
     protected bool _isGameEnded;
+    protected ISoundsManager SoundManager;
 
     private TeamsForNumberOfPlayers TeamSpawnpointAssociationChoise;
 
@@ -149,6 +150,8 @@ public abstract class GameManager : MonoBehaviour, IGameManager, IMultipleMatche
 
     private void Start()
     {
+        SoundManager = SoundsManager.Instance;
+        SoundManager.PlayCountdown();
         GenerateTeams();
         SpawnPlayers();
         _isGameStarted = false;
@@ -219,6 +222,7 @@ public abstract class GameManager : MonoBehaviour, IGameManager, IMultipleMatche
 
     public void OnEveryMatchEnded()
     {
+        SoundManager.PlayEndGameSoundtrack();
         throw new System.NotImplementedException($"EVERY MATCH IS ENDED! THE WINNER IS TEAM {GetTeamIdThatReachedVictoriesLimit()}");
     }
 

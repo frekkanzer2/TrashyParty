@@ -28,12 +28,13 @@ public class BeachVolleyGameController : GameManager
     public override void OnGameEnds()
     {
         base.OnGameEnds();
+        SoundManager.StopAllSoundsDelayed(1f);
         StartCoroutine(OnGameEndsDelayed());
     }
 
     private IEnumerator OnGameEndsDelayed()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(2);
         List<TeamDto> aliveTeams = this.Teams.FindAll(t => !t.IsEveryoneDead());
         if (aliveTeams.Count == 1 && GetTeamIdThatReachedVictoriesLimit() != null)
         {
@@ -93,6 +94,7 @@ public class BeachVolleyGameController : GameManager
 
     public override void OnPreparationEndsGameSpecific()
     {
+        SoundManager.PlayRandomGameSoundtrack();
         GameObject ball = GameObject.Find("BeachVolleyBall");
         if (ball == null) throw new System.NullReferenceException("Missing volley ball in the scene");
         Rigidbody2D rigidbody = ball.GetComponent<Rigidbody2D>();
@@ -122,5 +124,6 @@ public class BeachVolleyGameController : GameManager
             p.SetAsNotReady();
             p.OnSpawn();
         }
+        SoundManager.PlayCountdown();
     }
 }

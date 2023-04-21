@@ -28,6 +28,7 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
     private Vector2 movementData = Vector2.zero;
     private bool isDead = false, canPlay = false;
     private float originalGravity;
+    private bool isOnAir = false;
     #endregion
 
     // Start is called before the first frame update
@@ -56,8 +57,9 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
         if (gamepad.IsConnected())
         {
             movementData = gamepad.GetAnalogMovement(IGamepad.Analog.Left);
-            if (isGrounded() && gamepad.IsButtonPressed(IGamepad.Key.ActionButtonDown, IGamepad.PressureType.Continue))
+            if (isGrounded() && gamepad.IsButtonPressed(IGamepad.Key.ActionButtonDown, IGamepad.PressureType.Single))
             {
+                SoundsManager.Instance.PlayPlayerSound(ISoundsManager.PlayerSoundType.Jump);
                 rigidbody.velocity = new Vector2(rigidbody.velocity.x, Constants.PLAYER_JUMPING_POWER);
             }
             flipPlayerAnimation();
@@ -137,7 +139,7 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
 
     public void OnDeath()
     {
-        Debug.Log("Player is dead");
+        SoundsManager.Instance.PlayPlayerSound(ISoundsManager.PlayerSoundType.Dead);
         isDead = true;
         body.GetChild(0).gameObject.GetComponent<Animator>().enabled = false;
         changeSprite(deathSprite);
