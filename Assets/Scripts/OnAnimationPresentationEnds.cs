@@ -19,7 +19,8 @@ public class OnAnimationPresentationEnds : StateMachineBehaviour
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         GameManager.Instance.OnPreparationEnds();
-        Destroy(animator.gameObject);
+        animator.enabled = false;
+        animator.gameObject.GetComponent<SpriteRenderer>().enabled = false;
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

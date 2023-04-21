@@ -142,6 +142,7 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
         body.GetChild(0).gameObject.GetComponent<Animator>().enabled = false;
         changeSprite(deathSprite);
         head.gameObject.SetActive(false);
+        GameManager.Instance.OnPlayerDies();
     }
 
     public void OnSpawn()
@@ -152,11 +153,13 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
         head.gameObject.SetActive(true);
         foots.gameObject.SetActive(true);
         rigidbody.gravityScale = originalGravity;
+        GameManager.Instance.OnPlayerSpawns();
     }
 
     public bool IsDead() => isDead;
 
     public void SetAsReady() => canPlay = true;
+    public void SetAsNotReady() => canPlay = false;
 
     #endregion
 

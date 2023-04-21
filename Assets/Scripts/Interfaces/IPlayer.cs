@@ -7,6 +7,7 @@ public interface IPlayer
     void OnDeath();
     void OnSpawn();
     void SetAsReady();
+    void SetAsNotReady();
     bool IsDead();
     bool IsAlive() => !IsDead();
     void SetGamepad(IGamepad gamepad);

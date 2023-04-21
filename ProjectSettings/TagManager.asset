@@ -6,6 +6,7 @@ TagManager:
   tags:
   - PlayerModel
   - Spawnpoint
+  - Presentation
   layers:
   - Default
   - TransparentFX

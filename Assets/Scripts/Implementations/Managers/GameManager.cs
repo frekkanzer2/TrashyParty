@@ -15,8 +15,8 @@ public abstract class GameManager : MonoBehaviour, IGameManager
     public List<GameObject> ActivableFor8Players;
     protected List<IPlayer> players = new List<IPlayer>();
     public List<TeamsForNumberOfPlayers> TeamSpawnpointAssociations;
-    private bool isGameStarted;
-    private bool isGameEnded;
+    protected bool _isGameStarted;
+    protected bool _isGameEnded;
 
     private TeamsForNumberOfPlayers TeamSpawnpointAssociationChoise;
 
@@ -136,6 +136,7 @@ public abstract class GameManager : MonoBehaviour, IGameManager
             p.OnGameStarts();
         }
         OnPreparationEndsGameSpecific();
+        OnGameStarts();
     }
 
     #endregion
@@ -150,8 +151,8 @@ public abstract class GameManager : MonoBehaviour, IGameManager
     {
         GenerateTeams();
         SpawnPlayers();
-        isGameStarted = false;
-        isGameEnded = false;
+        _isGameStarted = false;
+        _isGameEnded = false;
         OnRoomStarts();
     }
 
@@ -170,12 +171,15 @@ public abstract class GameManager : MonoBehaviour, IGameManager
     protected abstract void UpdateGameSpecificBehaviour();
     protected abstract void FixedUpdateGameSpecificBehaviour();
     protected abstract void OnRoomStarts();
-    protected virtual void OnGameStarts() { if (isGameStarted) return; else isGameStarted = true; }
-    protected virtual void OnGameEnds() { if (isGameEnded) return; else isGameEnded = true; }
+    protected virtual void OnGameStarts() { if (IsGameStarted()) return; else _isGameStarted = true; }
+    public virtual void OnGameEnds() { if (IsGameEnded()) return; else _isGameEnded = true; }
     public abstract void OnPlayerDies();
     public abstract void OnPlayerSpawns();
     public abstract void OnPreparationEndsGameSpecific();
     protected abstract List<TeamDto> GenerateTeamsCriteria(int numberOfPlayers);
+
+    public bool IsGameEnded() => this._isGameEnded;
+    public bool IsGameStarted() => this._isGameStarted;
 
     #endregion
 

@@ -7,4 +7,7 @@ public interface IGameManager
     void SpawnPlayers();
     void ActiveGameObjectsBasedOnPlayerNumber();
     void GenerateTeams();
+    void OnGameEnds();
+    bool IsGameEnded();
+    bool IsGameStarted();
 }
