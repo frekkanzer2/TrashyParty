@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public abstract class GameManager : MonoBehaviour, IGameManager, IMultipleMatchesManager
 {
@@ -150,6 +151,7 @@ public abstract class GameManager : MonoBehaviour, IGameManager, IMultipleMatche
     private void Start()
     {
         SoundManager = SoundsManager.Instance;
+        SoundManager.StopAllSounds();
         SoundManager.PlayCountdown();
         GenerateTeams();
         SpawnPlayers();
@@ -161,6 +163,10 @@ public abstract class GameManager : MonoBehaviour, IGameManager, IMultipleMatche
     private void Update()
     {
         UpdateGameSpecificBehaviour();
+        if (CanChangeGame) {
+            bool pressed = GamepadManager.Instance.IsButtonPressedFromAnyGamepad(IGamepad.Key.Start, IGamepad.PressureType.Single);
+            if (pressed) SceneManager.LoadScene("GameLoader", LoadSceneMode.Single);
+        }
     }
 
     private void FixedUpdate()
@@ -221,8 +227,50 @@ public abstract class GameManager : MonoBehaviour, IGameManager, IMultipleMatche
 
     public void OnEveryMatchEnded()
     {
+        StartCoroutine(DisplayExitDelayed());
         SoundManager.PlayEndGameSoundtrack();
         GameObject.FindGameObjectWithTag("Conclusion").GetComponent<Animator>().Play("StartAnimation");
+        int teamWinnerId = GetTeamIdThatReachedVictoriesLimit() ?? throw new System.NullReferenceException("No Team has won, so this code shouldn't execute");
+        TeamDto team = this.Teams.Find(t => t.Id == teamWinnerId);
+        List<GameObject> WinnerDisplayers = new List<GameObject>();
+        WinnerDisplayers.AddRange(GameObject.FindGameObjectsWithTag("WinnerDisplayer"));
+        for (int i = 0; i < team.players.Count; i++)
+        {
+            IPlayer p = team.players[i];
+            Sprite pSprite = p.GetWinSprite();
+            WinnerDisplayers[i].GetComponent<SpriteRenderer>().sprite = pSprite;
+        }
+        if (team.players.Count == 1)
+        {
+            WinnerDisplayers[0].transform.position = new Vector3(0, -3, 0);
+        }
+        else if (team.players.Count == 2)
+        {
+            WinnerDisplayers[0].transform.position = new Vector3(-2.7f, -3, 0);
+            WinnerDisplayers[1].transform.position = new Vector3(2.7f, -3, 0);
+        }
+        else if (team.players.Count == 3)
+        {
+            WinnerDisplayers[0].transform.position = new Vector3(-5.4f, -3, 0);
+            WinnerDisplayers[1].transform.position = new Vector3(0, -3, 0);
+            WinnerDisplayers[2].transform.position = new Vector3(5.4f, -3, 0);
+        }
+        else if (team.players.Count == 4)
+        {
+            WinnerDisplayers[0].transform.position = new Vector3(-8.1f, -3, 0);
+            WinnerDisplayers[1].transform.position = new Vector3(-2.7f, -3, 0);
+            WinnerDisplayers[2].transform.position = new Vector3(2.7f, -3, 0);
+            WinnerDisplayers[3].transform.position = new Vector3(8.1f, -3, 0);
+        }
+    }
+    private bool CanChangeGame = false;
+    private IEnumerator DisplayExitDelayed()
+    {
+        yield return new WaitForSeconds(10);
+        GameObject continueLabel = GameObject.FindGameObjectWithTag("Conclusion").transform.GetChild(8).gameObject;
+        continueLabel.GetComponent<SpriteRenderer>().enabled = true;
+        continueLabel.GetComponent<Animator>().enabled = true;
+        CanChangeGame = true;
     }
 
     #endregion

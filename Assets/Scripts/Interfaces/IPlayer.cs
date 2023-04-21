@@ -1,3 +1,5 @@
+using UnityEngine;
+
 public interface IPlayer
 {
     bool IsInitialized { get; }
@@ -12,4 +14,5 @@ public interface IPlayer
     bool IsAlive() => !IsDead();
     void SetGamepad(IGamepad gamepad);
     void SetGamepadByAssociation(PlayerControllerAssociationDto pcaDto);
+    Sprite GetWinSprite();
 }

@@ -28,7 +28,6 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
     private Vector2 movementData = Vector2.zero;
     private bool isDead = false, canPlay = false;
     private float originalGravity;
-    private bool isOnAir = false;
     #endregion
 
     // Start is called before the first frame update
@@ -162,6 +161,7 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
 
     public void SetAsReady() => canPlay = true;
     public void SetAsNotReady() => canPlay = false;
+    public Sprite GetWinSprite() => this.birdSprite;
 
     #endregion
 
