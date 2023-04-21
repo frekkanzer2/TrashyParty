@@ -5,7 +5,6 @@ using UnityEngine;
 public abstract class GameManager : MonoBehaviour, IGameManager, IMultipleMatchesManager
 {
     public GameObject PlayerPrefab;
-    public List<Sprite> Presentation;
     public List<GameObject> ActivableFor2Players;
     public List<GameObject> ActivableFor3Players;
     public List<GameObject> ActivableFor4Players;
@@ -223,7 +222,7 @@ public abstract class GameManager : MonoBehaviour, IGameManager, IMultipleMatche
     public void OnEveryMatchEnded()
     {
         SoundManager.PlayEndGameSoundtrack();
-        throw new System.NotImplementedException($"EVERY MATCH IS ENDED! THE WINNER IS TEAM {GetTeamIdThatReachedVictoriesLimit()}");
+        GameObject.FindGameObjectWithTag("Conclusion").GetComponent<Animator>().Play("StartAnimation");
     }
 
     #endregion
