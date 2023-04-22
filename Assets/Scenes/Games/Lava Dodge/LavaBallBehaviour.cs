@@ -7,6 +7,12 @@ public class LavaBallBehaviour : MonoBehaviour
 
     public Vector2 Destination;
     public float Speed = 0;
+    private Rigidbody2D rb;
+
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
 
     public void Initialize(Vector2 destination, float speed)
     {
@@ -16,11 +22,12 @@ public class LavaBallBehaviour : MonoBehaviour
         Physics2D.IgnoreLayerCollision(2, 6);
     }
 
+    private bool forced = false;
     private void FixedUpdate()
     {
-        if (Destination == null || Speed == 0) return;
-        if (GameManager.Instance.IsGameEnded()) return;
-        transform.position = Vector3.MoveTowards(transform.position, Destination, Speed * Time.deltaTime);
+        if (Destination == null || Speed == 0 || forced || GameManager.Instance.IsGameEnded()) return;
+        forced = true;
+        rb.AddForce(Destination * Speed * 50, ForceMode2D.Force);
     }
 
     private void OnPlayerCollision(GameObject other)
