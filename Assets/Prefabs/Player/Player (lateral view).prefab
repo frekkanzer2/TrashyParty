@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1468634896013382077}
   - component: {fileID: 1468634896013382076}
-  m_Layer: 0
+  m_Layer: 30
   m_Name: FootCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,7 +87,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1468634896163767693}
   - component: {fileID: 1468634896163767692}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: HeadCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -157,7 +157,7 @@ GameObject:
   - component: {fileID: 532130504}
   - component: {fileID: 5290997550196257466}
   - component: {fileID: 532130505}
-  m_Layer: 0
+  m_Layer: 30
   m_Name: Player (lateral view)
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -263,7 +263,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1468634897540139731}
-  m_Layer: 0
+  m_Layer: 30
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}

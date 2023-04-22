@@ -15,4 +15,5 @@ public interface IPlayer
     void SetGamepad(IGamepad gamepad);
     void SetGamepadByAssociation(PlayerControllerAssociationDto pcaDto);
     Sprite GetWinSprite();
+    void IgnoreCollisionsWithOtherPlayers(bool active);
 }

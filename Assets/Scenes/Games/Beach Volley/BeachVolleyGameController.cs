@@ -84,6 +84,7 @@ public class BeachVolleyGameController : GameManager
         {
             PlatformerPlayer p = (PlatformerPlayer)player;
             p.GetHead().GetComponent<CapsuleCollider2D>().isTrigger = false;
+            player.IgnoreCollisionsWithOtherPlayers(true);
         }
     }
 

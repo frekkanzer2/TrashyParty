@@ -40,8 +40,8 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
+  - PLateral
+  - PLateral-Coll-Head
   m_SortingLayers:
   - name: Default
     uniqueID: 0

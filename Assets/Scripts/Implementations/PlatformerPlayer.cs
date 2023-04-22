@@ -30,6 +30,16 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
     private float originalGravity;
     #endregion
 
+    public override bool Equals(object other)
+    {
+        GameObject toCheck = null;
+        if (other is PlatformerPlayer) toCheck = ((PlatformerPlayer)other).gameObject;
+        if (other is GameObject) toCheck = (GameObject)other;
+        if (toCheck != null && ((GameObject)toCheck).GetComponent<IPlayer>() != null)
+            return toCheck.GetComponent<PlayerModel>().ModelPrefab.name == this.gameObject.GetComponent<PlayerModel>().ModelPrefab.name;
+        return false;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -97,6 +107,13 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
     #endregion
 
     #region IPlayer implementation
+
+    public void IgnoreCollisionsWithOtherPlayers(bool active)
+    {
+        Physics2D.IgnoreLayerCollision(30, 30, active);
+        Physics2D.IgnoreLayerCollision(30, 31, active);
+        Physics2D.IgnoreLayerCollision(31, 31, active);
+    }
 
     public void SetGamepad(IGamepad gamepad)
     {
