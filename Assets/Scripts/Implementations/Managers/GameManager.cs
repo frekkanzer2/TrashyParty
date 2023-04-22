@@ -140,6 +140,11 @@ public abstract class GameManager : MonoBehaviour, IGameManager, IMultipleMatche
         OnGameStarts();
     }
 
+    public void AssignPoints()
+    {
+        throw new System.NotImplementedException();
+    }
+
     #endregion
 
     private void Awake()
@@ -165,7 +170,12 @@ public abstract class GameManager : MonoBehaviour, IGameManager, IMultipleMatche
         UpdateGameSpecificBehaviour();
         if (CanChangeGame) {
             bool pressed = GamepadManager.Instance.IsButtonPressedFromAnyGamepad(IGamepad.Key.Start, IGamepad.PressureType.Single);
-            if (pressed) SceneManager.LoadScene("GameLoader", LoadSceneMode.Single);
+            if (pressed)
+            {
+                CanChangeGame = false;
+                AssignPoints();
+                SceneManager.LoadScene("GameLoader", LoadSceneMode.Single);
+            }
         }
     }
 
@@ -180,8 +190,42 @@ public abstract class GameManager : MonoBehaviour, IGameManager, IMultipleMatche
     protected abstract void FixedUpdateGameSpecificBehaviour();
     protected abstract void OnRoomStarts();
     protected virtual void OnGameStarts() { if (IsGameStarted()) return; else _isGameStarted = true; }
-    public virtual void OnGameEnds() { if (IsGameEnded()) return; else _isGameEnded = true; }
-    public abstract void OnPlayerDies();
+    public virtual void OnGameEnds() { 
+        if (IsGameEnded()) return;
+        else
+        {
+            _isGameEnded = true;
+            SoundManager.StopAllSoundsDelayed(1f);
+            StartCoroutine(OnGameEndsDelayed());
+        }
+    }
+
+    protected IEnumerator OnGameEndsDelayed()
+    {
+        yield return new WaitForSeconds(2);
+        List<TeamDto> aliveTeams = this.Teams.FindAll(t => !t.IsEveryoneDead());
+        if (aliveTeams.Count == 1 && GetTeamIdThatReachedVictoriesLimit() != null)
+        {
+            // the game is definitely ended
+            OnEveryMatchEnded();
+            yield break;
+        }
+        RestartMatch(); // it will called if there's a draw or if the victory limit is not reached
+    }
+    public virtual void OnPlayerDies()
+    {
+        List<TeamDto> aliveTeams = this.Teams.FindAll(t => !t.IsEveryoneDead());
+        if (aliveTeams.Count <= 1)
+        {
+            // a team wons!
+            TeamDto winnerTeam = aliveTeams[0];
+            AddMatchVictory(winnerTeam.Id);
+            if (GetTeamIdThatReachedVictoriesLimit() != null)
+                foreach (IPlayer p in this.players)
+                    p.SetAsNotReady();
+            OnGameEnds();
+        }
+    }
     public abstract void OnPlayerSpawns();
     public abstract void OnPreparationEndsGameSpecific();
     protected abstract List<TeamDto> GenerateTeamsCriteria(int numberOfPlayers);

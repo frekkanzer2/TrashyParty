@@ -114,7 +114,9 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
         Physics2D.IgnoreLayerCollision(30, 31, active);
         Physics2D.IgnoreLayerCollision(31, 31, active);
     }
-
+    public void ApplyForce(Vector2 force) {
+        this.rigidbody.AddForce(force, ForceMode2D.Impulse);
+    }
     public void SetGamepad(IGamepad gamepad)
     {
         this.gamepad = gamepad;

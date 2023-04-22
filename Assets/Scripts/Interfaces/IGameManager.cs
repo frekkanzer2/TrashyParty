@@ -10,4 +10,5 @@ public interface IGameManager
     void OnGameEnds();
     bool IsGameEnded();
     bool IsGameStarted();
+    void AssignPoints();
 }

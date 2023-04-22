@@ -5,6 +5,7 @@ public static class Constants {
     public enum GameName
     {
         BeachVolley,
-        RocketBirdLeague
+        RocketBirdLeague,
+        CloudyBoxes
     }
 }

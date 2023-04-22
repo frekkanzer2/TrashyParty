@@ -7,17 +7,7 @@ public class BeachVolleyGameController : GameManager
 
     public override void OnPlayerDies()
     {
-        List<TeamDto> aliveTeams = this.Teams.FindAll(t => !t.IsEveryoneDead());
-        if (aliveTeams.Count <= 1)
-        {
-            // a team wons!
-            TeamDto winnerTeam = aliveTeams[0];
-            AddMatchVictory(winnerTeam.Id);
-            if (GetTeamIdThatReachedVictoriesLimit() != null)
-                foreach (IPlayer p in this.players)
-                    p.SetAsNotReady(); 
-            OnGameEnds();
-        }
+        base.OnPlayerDies();
     }
 
     public override void OnPlayerSpawns()
@@ -28,21 +18,6 @@ public class BeachVolleyGameController : GameManager
     public override void OnGameEnds()
     {
         base.OnGameEnds();
-        SoundManager.StopAllSoundsDelayed(1f);
-        StartCoroutine(OnGameEndsDelayed());
-    }
-
-    private IEnumerator OnGameEndsDelayed()
-    {
-        yield return new WaitForSeconds(2);
-        List<TeamDto> aliveTeams = this.Teams.FindAll(t => !t.IsEveryoneDead());
-        if (aliveTeams.Count == 1 && GetTeamIdThatReachedVictoriesLimit() != null)
-        {
-            // the game is definitely ended
-            OnEveryMatchEnded();
-            yield break;
-        }
-        RestartMatch(); // it will called if there's a draw or if the victory limit is not reached
     }
 
     protected override void FixedUpdateGameSpecificBehaviour()

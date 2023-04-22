@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Games/Beach Volley/game_beachvolley.unity
     guid: bb0908bdd23a29b46ba54fadd353bfc6
+  - enabled: 1
+    path: Assets/Scenes/Games/Cloudy Boxes/game_cloudyboxes.unity
+    guid: 16020fd30c939c341a9a50d60509cd55
   m_configObjects: {}
