@@ -1,5 +1,16 @@
 # TrashyParty
 
+## Available Minigames
+In creation order:
+
+![image](https://user-images.githubusercontent.com/24304905/233799181-b5a6047c-85f4-4279-bdf2-3b29fdea8cb6.png)
+
+
+![image](https://user-images.githubusercontent.com/24304905/233799219-140a46c6-3aa4-4a92-aa62-0abc3514683d.png)
+
+
+![image](https://user-images.githubusercontent.com/24304905/233799250-830cb18a-000d-45b0-8800-868c595b156d.png)
+
 ### Font
 - Download the following Paint.net plugin and install it: https://forums.getpaint.net/topic/121343-boltbaits-gpu-accelerated-plugin-pack-for-paintnet-v50-updated-2023-01-28/
 - Open Paint.net, create a 1920x1080px file and select Outlined/Gradient Text from upper bar inner-section
