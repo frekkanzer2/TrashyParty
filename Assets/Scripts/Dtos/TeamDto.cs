@@ -19,6 +19,6 @@ public class TeamDto
         if (IsEveryoneDead()) return;
         foreach (IPlayer p in players) p.OnDeath();
     }
-    public bool IsEveryoneDead() => (players.FindAll(p => p.IsAlive()).Count > 0) ? false : true;
+    public bool IsEveryoneDead() => GetAlivePlayers().Count == 0;
     public List<IPlayer> GetAlivePlayers() => players.FindAll(p => p.IsAlive());
 }

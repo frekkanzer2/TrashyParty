@@ -115,7 +115,7 @@ public abstract class GameManager : MonoBehaviour, IGameManager, IMultipleMatche
                 teamCycle++;
             }
             TeamDto toPopulate = Teams[teamIndex];
-            toPopulate.players = new List<IPlayer>();
+            if (toPopulate.players == null) toPopulate.players = new List<IPlayer>();
             System.Tuple<GameObject, int, int> playerRecord = playerRecords[i];
             GameObject playerGenerated = Instantiate(PlayerPrefab, toPopulate.spawnpositions[teamCycle]);
             playerGenerated.GetComponent<PlayerModel>().ModelPrefab = playerRecord.Item1;

@@ -15,9 +15,9 @@ public class BeachVolleyGameController : GameManager
             AddMatchVictory(winnerTeam.Id);
             if (GetTeamIdThatReachedVictoriesLimit() != null)
                 foreach (IPlayer p in this.players)
-                    p.SetAsNotReady();
+                    p.SetAsNotReady(); 
+            OnGameEnds();
         }
-        if (aliveTeams.Count <= 1) OnGameEnds();
     }
 
     public override void OnPlayerSpawns()
