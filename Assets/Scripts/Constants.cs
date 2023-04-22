@@ -6,6 +6,7 @@ public static class Constants {
     {
         BeachVolley,
         RocketBirdLeague,
-        CloudyBoxes
+        CloudyBoxes,
+        LavaDodge
     }
 }
