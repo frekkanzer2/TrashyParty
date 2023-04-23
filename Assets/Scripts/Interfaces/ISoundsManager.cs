@@ -9,7 +9,8 @@ public interface ISoundsManager {
         Jump,
         Dead,
         Hit,
-        Throw
+        Throw,
+        EnergyRelease
     }
     void PlayRandomGameSoundtrack();
     void PlayCountdown();
