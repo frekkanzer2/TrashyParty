@@ -8,6 +8,7 @@ public static class Constants {
         RocketBirdLeague,
         CloudyBoxes,
         LavaDodge,
-        EnergyRelease
+        EnergyRelease,
+        BirdsFootsteps
     }
 }

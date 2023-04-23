@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Games/Energy Release/game_energyrelease.unity
     guid: 8a2a5b1d79b905c42b0bef8951432b9a
+  - enabled: 1
+    path: Assets/Scenes/Games/Birds Footsteps/game_birdsfootsteps.unity
+    guid: b507751235fa90f4ab3b3299bd55bae9
   m_configObjects: {}
