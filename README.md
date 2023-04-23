@@ -21,7 +21,7 @@ In creation order:
 - Birdway Surfers (don't hit the various obstacles that you should dodge by running)
 - Chicky Marathon (run to the finish line without falling behind)
 
-### Font
+### Create title sprite for Minigames
 - Download the following Paint.net plugin and install it: https://forums.getpaint.net/topic/121343-boltbaits-gpu-accelerated-plugin-pack-for-paintnet-v50-updated-2023-01-28/
 - Open Paint.net, create a 1920x1080px file and select Outlined/Gradient Text from upper bar inner-section
 - Follow this settings:
