@@ -20,6 +20,7 @@ In creation order:
 - Electroshock (occupy the platform that doesn't release electricity)
 - Birdway Surfers (don't hit the various obstacles that you should dodge by running)
 - Chicky Marathon (run to the finish line without falling behind)
+- Birdy Fight (birds can pickup a weapon and shoot the others)
 
 ### Create title sprite for Minigames
 - Download the following Paint.net plugin and install it: https://forums.getpaint.net/topic/121343-boltbaits-gpu-accelerated-plugin-pack-for-paintnet-v50-updated-2023-01-28/
