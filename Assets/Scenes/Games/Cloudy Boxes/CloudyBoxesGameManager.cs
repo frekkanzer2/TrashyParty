@@ -19,6 +19,7 @@ public class CloudyBoxesGameManager : GameManager
         SoundManager.PlayRandomGameSoundtrack();
         foreach (IPlayer player in this.players)
         {
+            player.SetJumpLimit(0);
             PlatformerPlayer pp = (PlatformerPlayer)player;
             pp.GetComponent<Rigidbody2D>().gravityScale = 14;
         }

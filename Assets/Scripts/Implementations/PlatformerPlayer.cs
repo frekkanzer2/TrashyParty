@@ -151,6 +151,9 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
     public void ApplyForce(Vector2 force) {
         this.rigidbody.AddForce(force, ForceMode2D.Impulse);
     }
+    public void SetJumpLimit(int limit) {
+        this.JumpLimit = limit;
+    }
     public void SetGamepad(IGamepad gamepad)
     {
         this.gamepad = gamepad;
