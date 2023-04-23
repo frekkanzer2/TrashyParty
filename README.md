@@ -12,11 +12,13 @@ In creation order:
 ![image](https://user-images.githubusercontent.com/24304905/233799250-830cb18a-000d-45b0-8800-868c595b156d.png)
 
 
+![image](https://user-images.githubusercontent.com/24304905/233852436-ec4d6bce-4681-4b92-9359-19f9df9b23e6.png)
+
+
 ## Future Minigames
 - Head Soccer (a classic soccer game)
 - Bird's Footsteps (move when the alpha bird is not watching)
 - Hunting Season (avoid hunter bullets)
-- Energy Release (release an energy blast to eliminate near enemies)
 - Electroshock (occupy the platform that doesn't release electricity)
 - Birdway Surfers (don't hit the various obstacles that you should dodge by running)
 - Chicky Marathon (run to the finish line without falling behind)
