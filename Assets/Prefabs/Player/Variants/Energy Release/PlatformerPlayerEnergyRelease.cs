@@ -60,7 +60,7 @@ public class PlatformerPlayerEnergyRelease : PlatformerPlayer
     {
         if (collision.gameObject.CompareTag("Finish"))
         {
-            if (!collision.gameObject.GetComponent<EnergyReleaseCreator>().Summoner.Equals(this) && !this.IsDead())
+            if (!collision.gameObject.GetComponent<EnergyReleaseCreator>().Summoner.Equals(this) && !this.IsDead() && !GameManager.Instance.IsGameEnded())
                 this.OnDeath();
         }
     }
