@@ -103,6 +103,7 @@ MonoBehaviour:
   PlayerHit: {fileID: 8300000, guid: de9cf2000e7b1ab41a4ae8e7e3bbce2c, type: 3}
   PlayerDeath: {fileID: 8300000, guid: a97066bd92f511645ad5fcdd86889216, type: 3}
   PlayerThrow: {fileID: 8300000, guid: fd6fb86e2f055d349a459c384c0b2362, type: 3}
+  PlayerEnergyRelease: {fileID: 8300000, guid: b5851d4d48cc4244982919420186b426, type: 3}
 --- !u!82 &1473622241220886674
 AudioSource:
   m_ObjectHideFlags: 0

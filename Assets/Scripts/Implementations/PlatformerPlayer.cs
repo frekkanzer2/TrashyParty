@@ -8,26 +8,29 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
     #region Initialization
 
     public bool IsInitialized { get { return _isInit; } }
-    private bool _isInit = false;
+    protected bool _isInit = false;
 
     #endregion
     #region Components
 
-    [SerializeField] private new Rigidbody2D rigidbody;
-    [SerializeField] private Transform foots;
-    [SerializeField] private Transform body;
-    [SerializeField] private Transform head;
+    [SerializeField] protected new Rigidbody2D rigidbody;
+    [SerializeField] protected Transform foots;
+    [SerializeField] protected Transform body;
+    [SerializeField] protected Transform head;
     public GameObject GetHead() => head.gameObject;
     public GameObject GetFoots() => foots.gameObject;
-    [SerializeField] private LayerMask groundTag;
-    private IGamepad gamepad;
-    private Sprite birdSprite, deathSprite;
+    [SerializeField] protected LayerMask groundTag;
+    protected IGamepad gamepad;
+    protected Sprite birdSprite, deathSprite;
 
     #endregion
     #region Class variables
-    private Vector2 movementData = Vector2.zero;
-    private bool isDead = false, canPlay = false;
-    private float originalGravity;
+    public int JumpLimit = 1;
+    private int jumpCount = 0;
+    protected Vector2 movementData = Vector2.zero;
+    protected bool isDead = false, canPlay = false, canJump = true, canWalk = true;
+    protected float originalGravity;
+    private bool isWaitingRejump = false;
     #endregion
 
     public override bool Equals(object other)
@@ -47,7 +50,10 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
         deathSprite = GetComponent<PlayerModel>().deathSprite;
         birdSprite = GetComponent<PlayerModel>().ModelPrefab.GetComponent<SpriteRenderer>().sprite;
         originalGravity = rigidbody.gravityScale;
+        VariantStart();
     }
+
+    protected virtual void VariantStart() { }
 
     // Update is called once per frame
     void Update()
@@ -65,21 +71,49 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
         if (gamepad == null) throw new System.NullReferenceException("No gamepad is connected");
         if (gamepad.IsConnected())
         {
-            movementData = gamepad.GetAnalogMovement(IGamepad.Analog.Left);
-            if (isGrounded() && gamepad.IsButtonPressed(IGamepad.Key.ActionButtonDown, IGamepad.PressureType.Single))
-            {
-                SoundsManager.Instance.PlayPlayerSound(ISoundsManager.PlayerSoundType.Jump);
-                rigidbody.velocity = new Vector2(rigidbody.velocity.x, Constants.PLAYER_JUMPING_POWER);
-            }
+            ExecuteMovement();
+            ExecuteJump();
             flipPlayerAnimation();
         }
+        VariantUpdate();
     }
+
+    private void ExecuteMovement()
+    {
+        if (canWalk) movementData = gamepad.GetAnalogMovement(IGamepad.Analog.Left);
+        else movementData = Vector2.zero;
+    }
+    private void ExecuteJump()
+    {
+        if (gamepad.IsButtonPressed(IGamepad.Key.ActionButtonDown, IGamepad.PressureType.Single) && canJump && jumpCount < JumpLimit && !isWaitingRejump)
+        {
+            jumpCount++;
+            SoundsManager.Instance.PlayPlayerSound(ISoundsManager.PlayerSoundType.Jump);
+            rigidbody.velocity = new Vector2(rigidbody.velocity.x, Constants.PLAYER_JUMPING_POWER);
+            StartCoroutine(StartWaitingRejump());
+        }
+        if (isGrounded() && !isWaitingRejump)
+            jumpCount = 0;
+    }
+
+    private IEnumerator StartWaitingRejump()
+    {
+        isWaitingRejump = true;
+        yield return new WaitForSeconds(0.05f);
+        isWaitingRejump = false;
+        Debug.Log("Not waiting anymore");
+    }
+
+    protected virtual void VariantUpdate() { }
 
     void FixedUpdate()
     {
         if (!IsInitialized || isDead || !canPlay) return;
         rigidbody.velocity = new Vector2(movementData.x * Constants.PLAYER_MOVEMENT_SPEED, rigidbody.velocity.y);
+        VariantFixedUpdate();
     }
+
+    protected virtual void VariantFixedUpdate() { }
 
     #region IGamepadEventHandler implementation
 
@@ -184,9 +218,9 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
 
     #endregion
 
-    #region Private methods - resource management
+    #region protected methods - resource management
 
-    private void FetchControllerFromProvider()
+    protected void FetchControllerFromProvider()
     {
         IControllerProvider controllerProvider = GetComponent<IControllerProvider>();
         if (controllerProvider == null) throw new System.NullReferenceException($"No ControllerProvider component found on gameobject {this.gameObject.name}");
@@ -195,11 +229,11 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
 
     #endregion
 
-    #region Private methods - behaviour
+    #region protected methods - behaviour
 
-    private bool isGrounded() => Physics2D.OverlapCircle(foots.position, 0.2f, groundTag);
+    protected bool isGrounded() => Physics2D.OverlapCircle(foots.position, 0.2f, groundTag);
 
-    private void flipPlayerAnimation()
+    protected void flipPlayerAnimation()
     {
         if (this.movementData.x > 0.2f)
             body.GetChild(0).gameObject.GetComponent<SpriteRenderer>().flipX = false;
@@ -207,7 +241,7 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
             body.GetChild(0).gameObject.GetComponent<SpriteRenderer>().flipX = true;
     }
 
-    private void changeSprite(Sprite s) => body.GetChild(0).gameObject.GetComponent<SpriteRenderer>().sprite = s;
+    protected void changeSprite(Sprite s) => body.GetChild(0).gameObject.GetComponent<SpriteRenderer>().sprite = s;
 
     #endregion
 
