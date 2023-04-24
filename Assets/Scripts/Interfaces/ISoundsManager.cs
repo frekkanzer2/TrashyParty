@@ -14,6 +14,7 @@ public interface ISoundsManager {
     }
     void PlayRandomGameSoundtrack();
     void PlayCountdown();
+    void PlaySound(AudioClip clip, string tag, float volume);
     void PlayEndGameSoundtrack();
     void PlayPlayerSound(PlayerSoundType soundType);
     void StopAllSounds();

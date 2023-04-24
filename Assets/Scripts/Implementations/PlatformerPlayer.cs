@@ -85,13 +85,14 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
     }
     private void ExecuteJump()
     {
-        if (gamepad.IsButtonPressed(IGamepad.Key.ActionButtonDown, IGamepad.PressureType.Single) && canJump && jumpCount < JumpLimit && !isWaitingRejump)
-        {
-            jumpCount++;
-            SoundsManager.Instance.PlayPlayerSound(ISoundsManager.PlayerSoundType.Jump);
-            rigidbody.velocity = new Vector2(rigidbody.velocity.x, Constants.PLAYER_JUMPING_POWER);
-            StartCoroutine(StartWaitingRejump());
-        }
+        if (canJump)
+            if (gamepad.IsButtonPressed(IGamepad.Key.ActionButtonDown, IGamepad.PressureType.Single) && jumpCount < JumpLimit && !isWaitingRejump)
+            {
+                jumpCount++;
+                SoundsManager.Instance.PlayPlayerSound(ISoundsManager.PlayerSoundType.Jump);
+                rigidbody.velocity = new Vector2(rigidbody.velocity.x, Constants.PLAYER_JUMPING_POWER);
+                StartCoroutine(StartWaitingRejump());
+            }
         if (isGrounded() && !isWaitingRejump)
             jumpCount = 0;
     }
