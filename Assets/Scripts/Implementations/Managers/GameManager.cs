@@ -282,12 +282,11 @@ public abstract class GameManager : MonoBehaviour, IGameManager, IMultipleMatche
         SoundManager.PlayEndGameSoundtrack();
         GameObject.FindGameObjectWithTag("Conclusion").GetComponent<Animator>().Play("StartAnimation");
         int? teamWinnerId = GetTeamIdThatReachedVictoriesLimit();
-        TeamDto team = null;
-        if (teamWinnerId != null) this.Teams.Find(t => t.Id == teamWinnerId);
-        List<GameObject> WinnerDisplayers = new List<GameObject>();
-        WinnerDisplayers.AddRange(GameObject.FindGameObjectsWithTag("WinnerDisplayer"));
-        try
+        if (teamWinnerId != null)
         {
+            List<GameObject> WinnerDisplayers = new List<GameObject>();
+            WinnerDisplayers.AddRange(GameObject.FindGameObjectsWithTag("WinnerDisplayer"));
+            TeamDto team = this.Teams.Find(t => t.Id == teamWinnerId);
             for (int i = 0; i < team.players.Count; i++)
             {
                 IPlayer p = team.players[i];
@@ -316,7 +315,8 @@ public abstract class GameManager : MonoBehaviour, IGameManager, IMultipleMatche
                 WinnerDisplayers[2].transform.position = new Vector3(2.7f, -3, 0);
                 WinnerDisplayers[3].transform.position = new Vector3(8.1f, -3, 0);
             }
-        } catch (System.NullReferenceException) { }
+        }
+        else Debug.Log("There's no winner, it's a draw!");
     }
     private bool CanChangeGame = false;
     private IEnumerator DisplayExitDelayed()
