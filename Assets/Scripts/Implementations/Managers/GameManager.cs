@@ -201,11 +201,17 @@ public abstract class GameManager : MonoBehaviour, IGameManager, IMultipleMatche
 
     protected IEnumerator OnGameEndsDelayed()
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.2f);
+        if (IsGameEnded()) yield break;
         _isGameEnded = true;
-        yield return new WaitForSeconds(1.9f);
+        yield return new WaitForSeconds(1.8f);
         List<TeamDto> aliveTeams = this.Teams.FindAll(t => !t.IsEveryoneDead());
-        if (aliveTeams.Count == 1 && GetTeamIdThatReachedVictoriesLimit() != null)
+        if (aliveTeams.Count == 1)
+        {
+            // There's a winner
+            AddMatchVictory(aliveTeams[0].Id);
+        }
+        if (GetTeamIdThatReachedVictoriesLimit() != null)
         {
             // the game is definitely ended
             OnEveryMatchEnded();
@@ -222,16 +228,12 @@ public abstract class GameManager : MonoBehaviour, IGameManager, IMultipleMatche
     public virtual void OnPlayerDies()
     {
         List<TeamDto> aliveTeams = this.Teams.FindAll(t => !t.IsEveryoneDead());
-        if (aliveTeams.Count == 1)
+        if (aliveTeams.Count <= 1)
         {
-            // a team wons!
-            TeamDto winnerTeam = aliveTeams[0];
-            AddMatchVictory(winnerTeam.Id);
-            if (GetTeamIdThatReachedVictoriesLimit() != null)
-                foreach (IPlayer p in this.players)
-                    p.SetAsNotReady();
+            foreach (IPlayer p in this.players)
+                p.SetAsNotReady();
+            OnGameEnds();
         }
-        if (aliveTeams.Count <= 1) OnGameEnds();
     }
     public abstract void OnPlayerSpawns();
     public abstract void OnPreparationEndsGameSpecific();
@@ -287,6 +289,7 @@ public abstract class GameManager : MonoBehaviour, IGameManager, IMultipleMatche
             List<GameObject> WinnerDisplayers = new List<GameObject>();
             WinnerDisplayers.AddRange(GameObject.FindGameObjectsWithTag("WinnerDisplayer"));
             TeamDto team = this.Teams.Find(t => t.Id == teamWinnerId);
+            
             for (int i = 0; i < team.players.Count; i++)
             {
                 IPlayer p = team.players[i];
@@ -315,8 +318,7 @@ public abstract class GameManager : MonoBehaviour, IGameManager, IMultipleMatche
                 WinnerDisplayers[2].transform.position = new Vector3(2.7f, -3, 0);
                 WinnerDisplayers[3].transform.position = new Vector3(8.1f, -3, 0);
             }
-        }
-        else Debug.Log("There's no winner, it's a draw!");
+        }   
     }
     private bool CanChangeGame = false;
     private IEnumerator DisplayExitDelayed()

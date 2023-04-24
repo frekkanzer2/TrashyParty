@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Presentation
+  m_Name: ElectroshockPresentation
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,7 +21,7 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: 21300000, guid: 2baadf07984ca9143bb90fb5547fd118, type: 3}
+      value: {fileID: 21300000, guid: 4c935623b47396443b031864af4386ea, type: 3}
     - time: 3
       value: {fileID: 21300000, guid: 0946e173e6e9500409d2159f0c02d43d, type: 3}
     - time: 4
@@ -52,7 +52,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: 21300000, guid: 2baadf07984ca9143bb90fb5547fd118, type: 3}
+    - {fileID: 21300000, guid: 4c935623b47396443b031864af4386ea, type: 3}
     - {fileID: 21300000, guid: 0946e173e6e9500409d2159f0c02d43d, type: 3}
     - {fileID: 21300000, guid: 5f381c6c04a0a2a4ea761996f5344473, type: 3}
     - {fileID: 21300000, guid: 4c5926a6954ef184c9edf697032c3e6b, type: 3}

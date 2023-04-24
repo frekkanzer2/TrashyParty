@@ -200,6 +200,7 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
 
     public void OnDeath()
     {
+        if (isDead) return;
         SoundsManager.Instance.PlayPlayerSound(ISoundsManager.PlayerSoundType.Dead);
         isDead = true;
         body.GetChild(0).gameObject.GetComponent<Animator>().enabled = false;
