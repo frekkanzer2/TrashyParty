@@ -21,13 +21,27 @@ In creation order:
 ![image](https://user-images.githubusercontent.com/24304905/234050284-2465cef6-7453-48c3-9f0b-d602cf79c95c.png)
 
 
-## Future Minigames
+## Future Minigames with lateral view
 - Head Soccer (a classic soccer game)
 - Hunting Season (avoid hunter bullets)
 - Electroshock (occupy the platform that doesn't release electricity)
 - Birdway Surfers (don't hit the various obstacles that you should dodge by running)
-- Chicky Marathon (run to the finish line without falling behind)
+- Catch Up (run to the finish line staying inside the screen)
 - Birdy Fight (birds can pickup a weapon and shoot the others)
+- Killer Dance (avoid the killer's sight and survive)
+- Flappy Tap (Flappy Bird with birds)
+- I'm the King (capture the crown first)
+- Crop Circles (hold on and don't get caught by the aliens)
+- Colorful Nests (capture as many nests as possible)
+- Duck Hunt (shoot to the flying duck)
+- Head Smash (jump on the other's head)
+- Trap Run (complete the stage without touching the obstacles)
+- Deadly Drop (jump on the falling platforms to survive)
+## Future Minigames with view from above
+- Rocket Birdy League (Rocket League with birds)
+- Bull Shit (a bull will follow you, keep the distance)
+- Nuclear Bump (push the other birds into the nuclear liquid)
+- Dungate (kill the zombies with your gun and be the last survivor)
 
 ### Create title sprite for Minigames
 - Download the following Paint.net plugin and install it: https://forums.getpaint.net/topic/121343-boltbaits-gpu-accelerated-plugin-pack-for-paintnet-v50-updated-2023-01-28/
