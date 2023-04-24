@@ -15,9 +15,11 @@ In creation order:
 ![image](https://user-images.githubusercontent.com/24304905/233852436-ec4d6bce-4681-4b92-9359-19f9df9b23e6.png)
 
 
+![image](https://user-images.githubusercontent.com/24304905/233938349-3d2c6dc9-bbaf-47d6-ba46-6fcf2b75d7e5.png)
+
+
 ## Future Minigames
 - Head Soccer (a classic soccer game)
-- Bird's Footsteps (move when the alpha bird is not watching)
 - Hunting Season (avoid hunter bullets)
 - Electroshock (occupy the platform that doesn't release electricity)
 - Birdway Surfers (don't hit the various obstacles that you should dodge by running)
