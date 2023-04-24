@@ -15,8 +15,10 @@ public class PlatformerPlayerBirdsFootsteps : PlatformerPlayer
     {
         if (gamepad.IsConnected())
         {
-            if (gamepad.IsButtonPressed(IGamepad.Key.ActionButtonDown, IGamepad.PressureType.Single)) {
+            if (gamepad.IsButtonPressed(IGamepad.Key.ActionButtonDown, IGamepad.PressureType.Single) && !GameManager.Instance.IsGameEnded()) {
                 this.transform.position = new(this.transform.position.x + 0.25f, this.transform.position.y, this.transform.position.z);
+                if (GuardianBehaviour.IsWatching)
+                    OnDeath();
             }
         }
     }

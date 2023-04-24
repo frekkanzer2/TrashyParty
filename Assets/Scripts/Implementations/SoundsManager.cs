@@ -172,4 +172,10 @@ public class SoundsManager : MonoBehaviour, ISoundsManager
         yield return new WaitForSeconds(seconds);
         StopAllSounds();
     }
+
+    public void PlaySound(AudioClip clip, string tag, float volume)
+    {
+        AudioSource source = PickAudioSource(tag, true);
+        InitializeAudioSource(source, clip, false, volume);
+    }
 }

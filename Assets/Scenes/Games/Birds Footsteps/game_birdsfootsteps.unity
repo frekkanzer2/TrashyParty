@@ -305,6 +305,7 @@ MonoBehaviour:
       spawnpoints:
       - {fileID: 1840022935}
   Teams: []
+  guardian: {fileID: 331213782}
 --- !u!1 &240451888
 GameObject:
   m_ObjectHideFlags: 0
@@ -420,6 +421,7 @@ GameObject:
   m_Component:
   - component: {fileID: 331213780}
   - component: {fileID: 331213781}
+  - component: {fileID: 331213782}
   m_Layer: 0
   m_Name: Guardian
   m_TagString: Untagged
@@ -485,7 +487,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: d161f4e0bc4ab9e4e88724e32441c5ae, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 2.56, y: 2.56}
@@ -494,6 +496,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &331213782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 331213779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 297b6f4c32ff97543927afc4b409290b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  normalState: {fileID: 21300000, guid: d161f4e0bc4ab9e4e88724e32441c5ae, type: 3}
+  angryState: {fileID: 21300000, guid: 4ad00625d6d31ff47a2ae065a7dc8e92, type: 3}
+  sound: {fileID: 8300000, guid: 1b9db89be0f93fe4aa5ff0842cf0d598, type: 3}
 --- !u!1 &437119859
 GameObject:
   m_ObjectHideFlags: 0

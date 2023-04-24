@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BirdsFootstepsGameManager : GameManager
 {
+
+    public GuardianBehaviour guardian;
     public override void OnPlayerDies()
     {
         base.OnPlayerDies();
@@ -17,6 +19,7 @@ public class BirdsFootstepsGameManager : GameManager
     public override void OnPreparationEndsGameSpecific()
     {
         SoundManager.PlayRandomGameSoundtrack();
+        guardian.StartWatch();
     }
 
     public override void RestartMatch()
