@@ -43,6 +43,12 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
         return false;
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer == Constants.LAYER_DEADZONE && !GameManager.Instance.IsGameEnded())
+            this.OnDeath();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -102,7 +108,6 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
         isWaitingRejump = true;
         yield return new WaitForSeconds(0.05f);
         isWaitingRejump = false;
-        Debug.Log("Not waiting anymore");
     }
 
     protected virtual void VariantUpdate() { }
