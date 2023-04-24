@@ -15,7 +15,7 @@ In creation order:
 ![image](https://user-images.githubusercontent.com/24304905/233852436-ec4d6bce-4681-4b92-9359-19f9df9b23e6.png)
 
 
-![image](https://user-images.githubusercontent.com/24304905/233938349-3d2c6dc9-bbaf-47d6-ba46-6fcf2b75d7e5.png)
+![image](https://user-images.githubusercontent.com/24304905/233938525-61be30f5-05cf-4a96-9219-50c76fb29ef8.png)
 
 
 ## Future Minigames
