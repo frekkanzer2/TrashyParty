@@ -24,7 +24,6 @@ In creation order:
 ## Future Minigames with lateral view
 - Head Soccer (a classic soccer game)
 - Hunting Season (avoid hunter bullets)
-- Electroshock (occupy the platform that doesn't release electricity)
 - Birdway Surfers (don't hit the various obstacles that you should dodge by running)
 - Catch Up (run to the finish line staying inside the screen)
 - Birdy Fight (birds can pickup a weapon and shoot the others)
