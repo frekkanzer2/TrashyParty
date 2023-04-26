@@ -21,6 +21,9 @@ In creation order:
 ![image](https://user-images.githubusercontent.com/24304905/234050284-2465cef6-7453-48c3-9f0b-d602cf79c95c.png)
 
 
+![image](https://user-images.githubusercontent.com/24304905/234721877-e754527d-056e-4b79-be7b-660c1777a69c.png)
+
+
 ## Future Minigames with lateral view
 - Head Soccer (a classic soccer game)
 - Hunting Season (avoid hunter bullets)
@@ -33,7 +36,6 @@ In creation order:
 - Crop Circles (hold on and don't get caught by the aliens)
 - Colorful Nests (capture as many nests as possible)
 - Duck Hunt (shoot to the flying duck)
-- Head Smash (jump on the other's head)
 - Trap Run (complete the stage without touching the obstacles)
 - Deadly Drop (jump on the falling platforms to survive)
 ## Future Minigames with view from above
