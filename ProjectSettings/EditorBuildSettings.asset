@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Games/Electroshock/game_electroshock.unity
     guid: 72e09233ea530a84e94523ec5a8bcb27
+  - enabled: 1
+    path: Assets/Scenes/Games/Head Smash/game_headsmash.unity
+    guid: c10633388e4c17240a50dbbb90c00249
   m_configObjects: {}
