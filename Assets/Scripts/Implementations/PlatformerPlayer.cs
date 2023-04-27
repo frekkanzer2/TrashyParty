@@ -31,6 +31,7 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
     protected bool isDead = false, canPlay = false, canJump = true, canWalk = true;
     protected float originalGravity;
     private bool isWaitingRejump = false;
+    private bool canKillOtherBirds = false;
     #endregion
 
     public override bool Equals(object other)
@@ -47,6 +48,9 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
     {
         if (collision.gameObject.layer == Constants.LAYER_DEADZONE && !GameManager.Instance.IsGameEnded())
             this.OnDeath();
+        if (collision.gameObject.layer == Constants.LAYER_PLAYERHEAD && this.transform.position.y >= collision.gameObject.transform.position.y + 1.12f && !GameManager.Instance.IsGameEnded())
+            if (collision.gameObject.transform.parent.gameObject.GetComponent<PlatformerPlayer>() != null)
+                collision.gameObject.transform.parent.gameObject.GetComponent<PlatformerPlayer>().OnDeath();
     }
 
     // Start is called before the first frame update
@@ -120,6 +124,8 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
     }
 
     protected virtual void VariantFixedUpdate() { }
+
+    public void SetCanKillOtherBirds(bool canKill) => this.canKillOtherBirds = canKill;
 
     #region IGamepadEventHandler implementation
 
