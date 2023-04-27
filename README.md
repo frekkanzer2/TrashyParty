@@ -35,7 +35,7 @@ In creation order:
 - Birdy Fight (birds can pickup a weapon and shoot the others)
 - Killer Dance (avoid the killer's sight and survive)
 - Flappy Tap (Flappy Bird with birds)
-- I'm the King (capture the crown first)
+- I'm the King (capture the crown first or kill the other birds)
 - Crop Circles (hold on and don't get caught by the aliens)
 - Colorful Nests (capture as many nests as possible)
 - Duck Hunt (shoot to the flying duck)
