@@ -24,6 +24,9 @@ In creation order:
 ![image](https://user-images.githubusercontent.com/24304905/234721877-e754527d-056e-4b79-be7b-660c1777a69c.png)
 
 
+![image](https://user-images.githubusercontent.com/24304905/234732689-ea0fc7f6-a8a9-45f5-ba60-c2ad4087b09e.png)
+
+
 ## Future Minigames with lateral view
 - Head Soccer (a classic soccer game)
 - Hunting Season (avoid hunter bullets)
@@ -37,7 +40,6 @@ In creation order:
 - Colorful Nests (capture as many nests as possible)
 - Duck Hunt (shoot to the flying duck)
 - Trap Run (complete the stage without touching the obstacles)
-- Deadly Drop (jump on the falling platforms to survive)
 ## Future Minigames with view from above
 - Rocket Birdy League (Rocket League with birds)
 - Bull Shit (a bull will follow you, keep the distance)
