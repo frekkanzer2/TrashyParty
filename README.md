@@ -36,7 +36,7 @@ In creation order:
 - Killer Dance (avoid the killer's sight and survive)
 - Tappy Bird (Flappy Bird with birds)
 - I'm the King (capture the crown first or kill the other birds)
-- Crop Circles (hold on and don't get caught by the aliens)
+- Birdy Racing (press multiple time button A to speed up; press B to avoid obstacles)
 - Colorful Nests (capture as many nests as possible)
 - Duck Hunt (shoot to the flying duck)
 - Trap Run (complete the stage without touching the obstacles)
