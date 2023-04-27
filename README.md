@@ -28,19 +28,20 @@ In creation order:
 
 
 ## Future Minigames with lateral view
-- Head Soccer (a classic soccer game)
+- Bird Soccer (a classic soccer game)
 - Hunting Season (avoid hunter bullets)
-- Birdway Surfers (don't hit the various obstacles that you should dodge by running)
+- Reckless Bird (don't hit the various obstacles that you should dodge by jumping into the air)
 - Catch Up (run to the finish line staying inside the screen)
 - Birdy Fight (birds can pickup a weapon and shoot the others)
 - Killer Dance (avoid the killer's sight and survive)
-- Flappy Tap (Flappy Bird with birds)
+- Tappy Bird (Flappy Bird with birds)
 - I'm the King (capture the crown first or kill the other birds)
 - Crop Circles (hold on and don't get caught by the aliens)
 - Colorful Nests (capture as many nests as possible)
 - Duck Hunt (shoot to the flying duck)
 - Trap Run (complete the stage without touching the obstacles)
 - Speedy Replication (replicate the keystroke shown exclusively for your bird)
+- Shooty Perry (summons a shield to protect himself from the hunter shot - the shield will vanish soon)
 ## Future Minigames with view from above
 - Rocket Birdy League (Rocket League with birds)
 - Bull Shit (a bull will follow you, keep the distance)
