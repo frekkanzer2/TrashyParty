@@ -32,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Games/Head Smash/game_headsmash.unity
     guid: c10633388e4c17240a50dbbb90c00249
+  - enabled: 1
+    path: Assets/Scenes/Games/Deadly Drop/game_deadlydrop.unity
+    guid: ddb34d7c38028de4aa50e46156587b20
   m_configObjects: {}
