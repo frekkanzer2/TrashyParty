@@ -40,6 +40,7 @@ In creation order:
 - Colorful Nests (capture as many nests as possible)
 - Duck Hunt (shoot to the flying duck)
 - Trap Run (complete the stage without touching the obstacles)
+- Speedy Replication (replicate the keystroke shown exclusively for your bird)
 ## Future Minigames with view from above
 - Rocket Birdy League (Rocket League with birds)
 - Bull Shit (a bull will follow you, keep the distance)
