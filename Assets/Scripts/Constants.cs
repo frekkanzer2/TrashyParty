@@ -15,6 +15,7 @@ public static class Constants {
         BirdsFootsteps,
         Electroshock,
         HeadSmash,
-        DeadlyDrop
+        DeadlyDrop,
+        TappyBird
     }
 }

@@ -18,4 +18,7 @@ public interface IPlayer
     void IgnoreCollisionsWithOtherPlayers(bool active);
     void ApplyForce(Vector2 force);
     void SetJumpLimit(int limit);
+    void SetCanJump(bool b);
+    void SetCanWalk(bool b);
+    Vector3 RespawnPosition { get; set; }
 }

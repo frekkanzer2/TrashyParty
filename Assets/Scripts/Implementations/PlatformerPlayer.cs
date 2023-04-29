@@ -8,6 +8,7 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
     #region Initialization
 
     public bool IsInitialized { get { return _isInit; } }
+
     protected bool _isInit = false;
 
     #endregion
@@ -154,6 +155,8 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
 
     #region IPlayer implementation
 
+    public Vector3 RespawnPosition { get; set; }
+
     public void IgnoreCollisionsWithOtherPlayers(bool active)
     {
         Physics2D.IgnoreLayerCollision(30, 30, active);
@@ -166,6 +169,8 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
     public void SetJumpLimit(int limit) {
         this.JumpLimit = limit;
     }
+    public void SetCanWalk(bool b) => this.canWalk = b;
+    public void SetCanJump(bool b) => this.canJump = b;
     public void SetGamepad(IGamepad gamepad)
     {
         this.gamepad = gamepad;

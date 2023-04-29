@@ -37,6 +37,9 @@ public class MockGameLoader : MonoBehaviour, IGameLoader
             case Constants.GameName.DeadlyDrop:
                 sceneName += "deadlydrop";
                 break;
+            case Constants.GameName.TappyBird:
+                sceneName += "tappybird";
+                break;
             default:
                 throw new System.NullReferenceException($"No game named {game} is registered inside the loading component");
         }
