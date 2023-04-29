@@ -33,17 +33,17 @@ In creation order:
 ## Future Minigames with lateral view
 - Bird Soccer (a classic soccer game)
 - Hunting Season (avoid hunter bullets)
-- Reckless Bird (don't hit the various obstacles that you should dodge by jumping into the air)
+- **_Reckless Bird (don't hit the various obstacles that you should dodge by jumping into the air)_**
 - Catch Up (run to the finish line staying inside the screen)
 - Birdy Fight (birds can pickup a weapon and shoot the others)
 - Killer Dance (avoid the killer's sight and survive)
-- I'm the King (capture the crown first or kill the other birds)
+- **_I'm the King (capture the crown first or kill the other birds)_**
 - Eggs Kart (change lane to avoid incoming eggs)
-- Colorful Nests (capture as many nests as possible)
+- **_Colorful Nests (capture as many nests as possible)_**
 - Duck Hunt (shoot to the flying duck)
 - Trap Run (complete the stage without touching the obstacles)
 - Speedy Replication (replicate the keystroke shown exclusively for your bird)
-- Shooty Perry (summons a shield to protect himself from the hunter shot - the shield will vanish soon)
+- **_Shooty Perry (summons a shield to protect himself from the hunter shot - the shield will vanish soon)_**
 ## Future Minigames with view from above
 - Rocket Birdy League (Rocket League with birds)
 - Bull Shit (a bull will follow you, keep the distance)
