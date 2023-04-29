@@ -32,6 +32,7 @@ In creation order:
 
 ## Future Minigames with lateral view
 - Bird Soccer (a classic soccer game)
+- Basketegg (a classic basket game)
 - Hunting Season (avoid hunter bullets)
 - **_Reckless Bird (don't hit the various obstacles that you should dodge by jumping into the air)_**
 - Catch Up (run to the finish line staying inside the screen)
