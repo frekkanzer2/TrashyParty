@@ -49,7 +49,7 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
     {
         if (collision.gameObject.layer == Constants.LAYER_DEADZONE && !GameManager.Instance.IsGameEnded())
             this.OnDeath();
-        if (collision.gameObject.layer == Constants.LAYER_PLAYERHEAD && this.transform.position.y >= collision.gameObject.transform.position.y + 1.12f && !GameManager.Instance.IsGameEnded())
+        if (collision.gameObject.layer == Constants.LAYER_PLAYERHEAD && this.transform.position.y >= collision.gameObject.transform.position.y && !GameManager.Instance.IsGameEnded())
             if (collision.gameObject.transform.parent.gameObject.GetComponent<PlatformerPlayer>() != null)
                 collision.gameObject.transform.parent.gameObject.GetComponent<PlatformerPlayer>().OnDeath();
     }
