@@ -38,7 +38,7 @@ In creation order:
 - Birdy Fight (birds can pickup a weapon and shoot the others)
 - Killer Dance (avoid the killer's sight and survive)
 - I'm the King (capture the crown first or kill the other birds)
-- Birdy Racing (press multiple time button A to speed up; press B to avoid obstacles)
+- Birdy Racing (change lane to avoid incoming obstacles)
 - Colorful Nests (capture as many nests as possible)
 - Duck Hunt (shoot to the flying duck)
 - Trap Run (complete the stage without touching the obstacles)
