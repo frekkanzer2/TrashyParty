@@ -34,7 +34,7 @@ In creation order:
 - Bird Soccer (a classic soccer game)
 - Basketegg (a classic basket game)
 - Hunting Season (avoid hunter bullets)
-- **_Reckless Bird (don't hit the various obstacles that you should dodge by jumping into the air)_**
+- **_Ufo Invasion (don't hit the various obstacles that you should dodge by jumping into the air)_**
 - Catch Up (run to the finish line staying inside the screen)
 - Birdy Fight (birds can pickup a weapon and shoot the others)
 - Cat Dance (avoid the cat's paw and survive)
