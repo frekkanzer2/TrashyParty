@@ -12,10 +12,7 @@ public class LaserUfoBehaviour : MonoBehaviour
     {
         init = true;
         v = direction;
-        Destroy(this.gameObject, 30);
-    }
-    private void FixedUpdate()
-    {
-        if (init) this.GetComponent<Rigidbody2D>().AddForce(v, ForceMode2D.Force);
+        this.GetComponent<Rigidbody2D>().AddForce(v, ForceMode2D.Force);
+        Destroy(this.gameObject, 20);
     }
 }

@@ -22,7 +22,7 @@ public class UfoInvasionGameManager : GameManager
         {
             player.SetJumpLimit(10000000);
             PlatformerPlayer pp = (PlatformerPlayer)player;
-            pp.GetComponent<Rigidbody2D>().gravityScale = 14;
+            pp.GetComponent<Rigidbody2D>().gravityScale = 10;
         }
     }
 

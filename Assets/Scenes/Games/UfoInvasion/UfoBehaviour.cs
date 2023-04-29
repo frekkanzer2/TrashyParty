@@ -32,14 +32,15 @@ public class UfoBehaviour : MonoBehaviour
     IEnumerator UseLasers()
     {
         yield return new WaitForSeconds(5);
+        float laserSpd = 0.05f;
         GameObject a = Instantiate(LaserPrefab, this.transform);
         GameObject b = Instantiate(LaserPrefab, this.transform);
         GameObject c = Instantiate(LaserPrefab, this.transform);
         GameObject d = Instantiate(LaserPrefab, this.transform);
-        a.GetComponent<LaserUfoBehaviour>().Initialize(new Vector2(10, 10));
-        b.GetComponent<LaserUfoBehaviour>().Initialize(new Vector2(-10, 10));
-        c.GetComponent<LaserUfoBehaviour>().Initialize(new Vector2(10, -10));
-        d.GetComponent<LaserUfoBehaviour>().Initialize(new Vector2(-10, -10));
+        a.GetComponent<LaserUfoBehaviour>().Initialize(new Vector2(laserSpd, laserSpd));
+        b.GetComponent<LaserUfoBehaviour>().Initialize(new Vector2(-laserSpd, laserSpd));
+        c.GetComponent<LaserUfoBehaviour>().Initialize(new Vector2(laserSpd, -laserSpd));
+        d.GetComponent<LaserUfoBehaviour>().Initialize(new Vector2(-laserSpd, -laserSpd));
         StartCoroutine(UseLasers());
     }
 

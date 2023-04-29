@@ -36,7 +36,7 @@ public class UfoInvasionGenerator : MonoBehaviour
     IEnumerator GenLevel1(float spawnSecondsSpeed) // BEIGE
     {
         GameObject ufo = SpawnUfo(PrefabBeige, new Vector2(44f, Random.Range(-18.1f, 18.1f)));
-        Destroy(ufo, 20);
+        Destroy(ufo, 10);
         yield return new WaitForSeconds(spawnSecondsSpeed);
         StartCoroutine(GenLevel1((spawnSecondsSpeed > 4f) ? spawnSecondsSpeed - 0.05f : spawnSecondsSpeed));
     }
@@ -44,7 +44,6 @@ public class UfoInvasionGenerator : MonoBehaviour
     IEnumerator GenLevel2(float spawnSecondsSpeed) // BLUE
     {
         GameObject ufo = SpawnUfo(PrefabBlue, new Vector2(44f, 0));
-        Destroy(ufo, 20);
         yield return new WaitForSeconds(spawnSecondsSpeed);
         StartCoroutine(GenLevel2((spawnSecondsSpeed > 10f) ? spawnSecondsSpeed - 1f : spawnSecondsSpeed));
     }
@@ -60,7 +59,6 @@ public class UfoInvasionGenerator : MonoBehaviour
     IEnumerator GenLevel4(float spawnSecondsSpeed) // GREEN
     {
         GameObject ufo = SpawnUfo(PrefabGreen, new Vector2(44f, 0));
-        Destroy(ufo, 20);
         yield return new WaitForSeconds(spawnSecondsSpeed);
         StartCoroutine(GenLevel4((spawnSecondsSpeed > 3f) ? spawnSecondsSpeed - 0.25f : spawnSecondsSpeed));
     }
