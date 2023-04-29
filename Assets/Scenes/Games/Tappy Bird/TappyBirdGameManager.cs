@@ -108,6 +108,7 @@ public class TappyBirdGameManager : GameManager
         {
             player.IgnoreCollisionsWithOtherPlayers(true);
             PlatformerPlayer pp = (PlatformerPlayer)player;
+            pp.GetHead().GetComponent<CapsuleCollider2D>().isTrigger = false;
             player.RespawnPosition = pp.gameObject.transform.position;
             pp.GetComponent<Rigidbody2D>().gravityScale = 0;
         }

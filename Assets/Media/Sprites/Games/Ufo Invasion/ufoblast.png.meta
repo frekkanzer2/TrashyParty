@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8e8b60de9f3d1a24d80bbedeb495acf7
+guid: a81ab228081be3b45a175667ef4c8bb3
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -107,7 +107,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: blast_0
+      name: ufoblast_0
       rect:
         serializedVersion: 2
         x: 0
@@ -115,20 +115,20 @@ TextureImporter:
         width: 128
         height: 128
       alignment: 9
-      pivot: {x: 0.472, y: 0.524}
+      pivot: {x: 0.4715, y: 0.524}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 112f4d21f20f63745bd3e9d4b64f936e
-      internalID: -338539112
+      spriteID: e29469d3e0a7ff7429fb800c68867d75
+      internalID: 712398692
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: blast_1
+      name: ufoblast_1
       rect:
         serializedVersion: 2
         x: 128
@@ -136,20 +136,20 @@ TextureImporter:
         width: 128
         height: 128
       alignment: 9
-      pivot: {x: 0.472, y: 0.524}
+      pivot: {x: 0.4715, y: 0.524}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c9dcb3d41230ea9478b31c77fc9c9098
-      internalID: -243399079
+      spriteID: d60d6f761aa6d4844bfe5f014f2d7fa5
+      internalID: -1254263816
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: blast_2
+      name: ufoblast_2
       rect:
         serializedVersion: 2
         x: 256
@@ -157,20 +157,20 @@ TextureImporter:
         width: 128
         height: 128
       alignment: 9
-      pivot: {x: 0.472, y: 0.524}
+      pivot: {x: 0.4715, y: 0.524}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f1c7a8013521d70439b29ec67bff908d
-      internalID: 467865216
+      spriteID: 8aefcb9ff79922344831a1b4cd81a7ac
+      internalID: 1809925663
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: blast_3
+      name: ufoblast_3
       rect:
         serializedVersion: 2
         x: 384
@@ -178,20 +178,20 @@ TextureImporter:
         width: 128
         height: 128
       alignment: 9
-      pivot: {x: 0.472, y: 0.524}
+      pivot: {x: 0.4715, y: 0.524}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eb49fa283f3c98f4196cab51e11faf0e
-      internalID: -142567330
+      spriteID: 1bddde73700e7e54091e93632b6ae337
+      internalID: -1419246968
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: blast_4
+      name: ufoblast_4
       rect:
         serializedVersion: 2
         x: 0
@@ -199,20 +199,20 @@ TextureImporter:
         width: 128
         height: 128
       alignment: 9
-      pivot: {x: 0.472, y: 0.524}
+      pivot: {x: 0.4715, y: 0.524}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3a41133b613d424498e5d9c99668b1d8
-      internalID: -5127955
+      spriteID: 21436f05be4aeb44a8d2425ee204036d
+      internalID: 849785845
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: blast_5
+      name: ufoblast_5
       rect:
         serializedVersion: 2
         x: 128
@@ -220,20 +220,20 @@ TextureImporter:
         width: 128
         height: 128
       alignment: 9
-      pivot: {x: 0.472, y: 0.524}
+      pivot: {x: 0.4715, y: 0.524}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8eff3491967972147afa34f10f25bc3d
-      internalID: 763079282
+      spriteID: 4f04cd4e1f0b82f4093e95af05d375b5
+      internalID: -763037859
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: blast_6
+      name: ufoblast_6
       rect:
         serializedVersion: 2
         x: 256
@@ -241,20 +241,20 @@ TextureImporter:
         width: 128
         height: 128
       alignment: 9
-      pivot: {x: 0.472, y: 0.524}
+      pivot: {x: 0.4715, y: 0.524}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 918a3fe80c67d5a45bea101ded69e7c0
-      internalID: 2013906490
+      spriteID: bd3ca5f118f623246b8001c92b9399a3
+      internalID: -1792217918
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: blast_7
+      name: ufoblast_7
       rect:
         serializedVersion: 2
         x: 384
@@ -262,41 +262,41 @@ TextureImporter:
         width: 128
         height: 128
       alignment: 9
-      pivot: {x: 0.472, y: 0.524}
+      pivot: {x: 0.4715, y: 0.524}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: af97896048917e343b952b2507ae8a25
-      internalID: 99279705
+      spriteID: b643d5cff70343f4d83ce92ddaf66e2e
+      internalID: -2116215276
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: blast_8
+      name: ufoblast_8
       rect:
         serializedVersion: 2
         x: 0
-        y: 257
+        y: 256
         width: 128
         height: 128
       alignment: 9
-      pivot: {x: 0.472, y: 0.524}
+      pivot: {x: 0.4715, y: 0.524}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 080c73ca231fa4e4695d2a7b968aec4c
-      internalID: -534307963
+      spriteID: 9fe26d5a716df524d8134a51f69f4e37
+      internalID: -1937478220
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: blast_9
+      name: ufoblast_9
       rect:
         serializedVersion: 2
         x: 128
@@ -304,20 +304,20 @@ TextureImporter:
         width: 128
         height: 128
       alignment: 9
-      pivot: {x: 0.472, y: 0.524}
+      pivot: {x: 0.4715, y: 0.524}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1475f5e043b5cbf45acb8a6c2c67237a
-      internalID: 540724802
+      spriteID: de4d1ae3bee0aa743b9529bd0bcc1485
+      internalID: 946113157
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: blast_10
+      name: ufoblast_10
       rect:
         serializedVersion: 2
         x: 256
@@ -325,20 +325,20 @@ TextureImporter:
         width: 128
         height: 128
       alignment: 9
-      pivot: {x: 0.472, y: 0.524}
+      pivot: {x: 0.4715, y: 0.524}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ede99137c4c870448bd730485dfe8296
-      internalID: -638410201
+      spriteID: 9b62523a48f3225429566834b296883e
+      internalID: -1964778920
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: blast_11
+      name: ufoblast_11
       rect:
         serializedVersion: 2
         x: 384
@@ -346,20 +346,20 @@ TextureImporter:
         width: 128
         height: 128
       alignment: 9
-      pivot: {x: 0.472, y: 0.524}
+      pivot: {x: 0.4715, y: 0.524}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 06e73417ab66e6b498abc844953a9e30
-      internalID: -1136021114
+      spriteID: 94da54184f943e445ab6702471f77066
+      internalID: 2043167711
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: blast_12
+      name: ufoblast_12
       rect:
         serializedVersion: 2
         x: 0
@@ -367,20 +367,20 @@ TextureImporter:
         width: 128
         height: 128
       alignment: 9
-      pivot: {x: 0.472, y: 0.524}
+      pivot: {x: 0.4715, y: 0.524}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 90d267e4fa755d9489c916e69827342b
-      internalID: 866267403
+      spriteID: 39aadd1295f106543ba55f4158bc8918
+      internalID: -616884700
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: blast_13
+      name: ufoblast_13
       rect:
         serializedVersion: 2
         x: 128
@@ -388,20 +388,20 @@ TextureImporter:
         width: 128
         height: 128
       alignment: 9
-      pivot: {x: 0.472, y: 0.524}
+      pivot: {x: 0.4715, y: 0.524}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1a8c4f6cba108b24b923bda4fba0d52b
-      internalID: 853910510
+      spriteID: 73f77a1a55aefeb4684ce5c982b7ab59
+      internalID: 1580255016
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: blast_14
+      name: ufoblast_14
       rect:
         serializedVersion: 2
         x: 256
@@ -409,20 +409,20 @@ TextureImporter:
         width: 128
         height: 128
       alignment: 9
-      pivot: {x: 0.472, y: 0.524}
+      pivot: {x: 0.4715, y: 0.524}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 457bd8d348e12fd4ba6b02b178886328
-      internalID: -1716221080
+      spriteID: 85bda6f8c4e29e248bfb833babd1f1e6
+      internalID: -1214791466
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: blast_15
+      name: ufoblast_15
       rect:
         serializedVersion: 2
         x: 384
@@ -430,35 +430,35 @@ TextureImporter:
         width: 128
         height: 128
       alignment: 9
-      pivot: {x: 0.472, y: 0.524}
+      pivot: {x: 0.4715, y: 0.524}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0200da6a58eb64f4f98f6143b35d8e9c
-      internalID: -450008867
+      spriteID: d505d1454cc91534b867a127fecb090a
+      internalID: -1879637179
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: blast_16
+      name: ufoblast_16
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 128
         height: 128
-      alignment: 9
-      pivot: {x: 0.472, y: 0.524}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2cc1ee75011012547b0231806a4ccc0a
-      internalID: 688751959
+      spriteID: b5d6a7805322d374db5e37ccb30fb9be
+      internalID: -107051352
       vertices: []
       indices: 
       edges: []
@@ -474,23 +474,23 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      blast_5: 763079282
-      blast_4: -5127955
-      blast_8: -534307963
-      blast_11: -1136021114
-      blast_12: 866267403
-      blast_14: -1716221080
-      blast_0: -338539112
-      blast_13: 853910510
-      blast_1: -243399079
-      blast_7: 99279705
-      blast_2: 467865216
-      blast_16: 688751959
-      blast_15: -450008867
-      blast_3: -142567330
-      blast_6: 2013906490
-      blast_9: 540724802
-      blast_10: -638410201
+      ufoblast_14: -1214791466
+      ufoblast_13: 1580255016
+      ufoblast_6: -1792217918
+      ufoblast_1: -1254263816
+      ufoblast_10: -1964778920
+      ufoblast_5: -763037859
+      ufoblast_12: -616884700
+      ufoblast_15: -1879637179
+      ufoblast_8: -1937478220
+      ufoblast_0: 712398692
+      ufoblast_16: -107051352
+      ufoblast_11: 2043167711
+      ufoblast_3: -1419246968
+      ufoblast_9: 946113157
+      ufoblast_7: -2116215276
+      ufoblast_4: 849785845
+      ufoblast_2: 1809925663
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

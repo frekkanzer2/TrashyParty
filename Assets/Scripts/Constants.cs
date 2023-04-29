@@ -16,6 +16,10 @@ public static class Constants {
         Electroshock,
         HeadSmash,
         DeadlyDrop,
-        TappyBird
+        TappyBird,
+        UfoInvasion,
+        ImTheKing,
+        ColorfulNests,
+        ShootyPerry
     }
 }
