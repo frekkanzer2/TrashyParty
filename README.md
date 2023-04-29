@@ -33,6 +33,9 @@ In creation order:
 ![image](https://user-images.githubusercontent.com/24304905/235312031-0295156b-8ed5-4534-9f50-855d4ca6a361.png)
 
 
+![image](https://user-images.githubusercontent.com/24304905/235318097-b8a32d6c-8512-4fa0-b22c-3293d8cb5d4b.png)
+
+
 ## Future Minigames with lateral view
 - Bird Soccer (a classic soccer game)
 - Basketegg (a classic basket game)
