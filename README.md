@@ -27,6 +27,9 @@ In creation order:
 ![image](https://user-images.githubusercontent.com/24304905/234732689-ea0fc7f6-a8a9-45f5-ba60-c2ad4087b09e.png)
 
 
+![image](https://user-images.githubusercontent.com/24304905/235277098-c86de4e9-1126-40a1-9060-be669473b4d4.png)
+
+
 ## Future Minigames with lateral view
 - Bird Soccer (a classic soccer game)
 - Hunting Season (avoid hunter bullets)
@@ -34,7 +37,6 @@ In creation order:
 - Catch Up (run to the finish line staying inside the screen)
 - Birdy Fight (birds can pickup a weapon and shoot the others)
 - Killer Dance (avoid the killer's sight and survive)
-- Tappy Bird (Flappy Bird with birds)
 - I'm the King (capture the crown first or kill the other birds)
 - Birdy Racing (press multiple time button A to speed up; press B to avoid obstacles)
 - Colorful Nests (capture as many nests as possible)
