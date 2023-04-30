@@ -65,7 +65,7 @@ public class MockGameLoader : MonoBehaviour, IGameLoader
     // Start is called before the first frame update
     void Start()
     {
-        LoadGame();
+
     }
 
     // Update is called once per frame
