@@ -23,6 +23,15 @@ public class ChoosePlayerManager : MonoBehaviour, IPlayersSelectorManager
         public int colorId;
         public GameObject prefab;
         public bool pointed = false;
+        public override bool Equals(object obj)
+        {
+            if (obj is ColorMatch)
+            {
+                ColorMatch cm = (ColorMatch)obj;
+                return (cm.colorId == this.colorId && cm.pointed == this.pointed);
+            }
+            return false;
+        }
     }
 
     [System.Serializable]
@@ -42,12 +51,40 @@ public class ChoosePlayerManager : MonoBehaviour, IPlayersSelectorManager
         _instance = this;
     }
 
-    public ColorMatch GetNextFreeColor()
+    public ColorMatch GetFirstFreeColor()
     {
         List<ColorMatch> actives = colorMatches.FindAll(c => c.pointed == false);
         if (actives.IsEmpty()) return null;
         actives = actives.OrderBy(c => c.colorId).ToList();
         return actives[0];
+    }
+    public ColorMatch GetNextFreeColor(ColorMatch actual)
+    {
+        ColorMatch toReturn = null;
+        int toReturnIndex = -1;
+        for (int i = 0, actualIndex = (actual == null) ? -1 : colorMatches.IndexOf(actual); i < colorMatches.Count; i++)
+        {
+            if (colorMatches[i].pointed || i == actualIndex) continue;
+            if (toReturn != null && i < actualIndex) continue;
+            if (toReturn != null && i > actualIndex && i > toReturnIndex && toReturnIndex > actualIndex) continue;
+            toReturn = colorMatches[i];
+            toReturnIndex = i;
+        }
+        return toReturn;
+    }
+    public ColorMatch GetPreviousFreeColor(ColorMatch actual)
+    {
+        ColorMatch toReturn = null;
+        int toReturnIndex = 100;
+        for (int i = colorMatches.Count-1, actualIndex = (actual == null) ? 100 : colorMatches.IndexOf(actual); i >= 0; i--)
+        {
+            if (colorMatches[i].pointed || i == actualIndex) continue;
+            if (toReturn != null && i > actualIndex) continue;
+            if (toReturn != null && i < actualIndex && i < toReturnIndex && toReturnIndex < actualIndex) continue;
+            toReturn = colorMatches[i];
+            toReturnIndex = i;
+        }
+        return toReturn;
     }
 
     public PlayerDisplayerManager GetNextFreeDisplayer()
@@ -57,12 +94,6 @@ public class ChoosePlayerManager : MonoBehaviour, IPlayersSelectorManager
         actives = actives.OrderBy(go => go.name).ToList();
         return actives[0].GetComponent<PlayerDisplayerManager>();
     }
-
-    void Start()
-    {
-        
-    }
-
 
     void Update()
     {
@@ -76,6 +107,9 @@ public class ChoosePlayerManager : MonoBehaviour, IPlayersSelectorManager
                 {
                     // Gamepad already paired
                     Debug.Log("Already paired case");
+                    PlayerDisplayerManager displayer = usedDisplayer.GetComponent<PlayerDisplayerManager>();
+                    if (!displayer.IsConfirmed())
+                        displayer.SetConfirm(true);
                 }
                 else
                 {
@@ -85,6 +119,35 @@ public class ChoosePlayerManager : MonoBehaviour, IPlayersSelectorManager
                     freeDisplayer.SetActive(true, gamepad);
                 }
             }
+        }
+        if (GamepadManager.Instance.IsButtonPressedFromAnyGamepad(IGamepad.Key.Start, IGamepad.PressureType.Single))
+        {
+            int countReady = playerDisplayers.FindAll(d => d.GetComponent<PlayerDisplayerManager>().IsConfirmed()).Count;
+            if (countReady < 2) return;
+            else
+            {
+                CreatePlayerDtos();
+                ConfirmAndGoToGameChoise();
+            }
+        }
+    }
+
+    private void CreatePlayerDtos()
+    {
+        List<GameObject> dispObjs = playerDisplayers.FindAll(d => d.GetComponent<PlayerDisplayerManager>().IsConfirmed());
+        int playerCounter = 1;
+        foreach (GameObject dobj in dispObjs)
+        {
+            PlayerDisplayerManager pdm = dobj.GetComponent<PlayerDisplayerManager>();
+            PlayerSelectorDto pDto = new PlayerSelectorDto()
+            {
+                ControllerId = pdm.GetGamepadId() ?? throw new System.ArgumentNullException("Cannot assign an empty controller id while generating player profiles."),
+                PlayerNumber = playerCounter,
+                ColorIndex = colorMatches.IndexOf(colorMatches.Find(cm => pdm.GetActualColorMatch().colorId == cm.colorId))
+            };
+            playerDtos.Add(pDto);
+            playerCounter++;
+            Debug.Log($"Created player {pDto.PlayerNumber} with color index {pDto.ColorIndex}");
         }
     }
 
