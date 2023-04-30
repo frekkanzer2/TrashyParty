@@ -142,7 +142,7 @@ public abstract class GameManager : MonoBehaviour, IGameManager, IMultipleMatche
 
     public void AssignPoints()
     {
-        throw new System.NotImplementedException();
+        //throw new System.NotImplementedException();
     }
 
     #endregion

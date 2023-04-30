@@ -6,6 +6,7 @@ public static class Constants {
     public static string LEVEL_SPECIFIC_SOUND_TAG = "LevelSound";
     public static string ANIMATION_PRESENTATION_STATE = "Presentation";
     public static string APPSETTINGS_PLAYABLEGAMES_LABEL = "PLAYABLE_GAMES";
+    public static string END_SCENE_NAME = "endgame";
     public enum GameName
     {
         BeachVolley,

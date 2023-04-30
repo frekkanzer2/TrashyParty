@@ -90,7 +90,7 @@ public class MockGameSelector : MonoBehaviour, IGameSelector
         if (availables.Count == 0)
         {
             // game is ended
-            SceneManager.LoadScene("END", LoadSceneMode.Single);
+            SceneManager.LoadScene(Constants.END_SCENE_NAME, LoadSceneMode.Single);
             return;
         }
         SelectGame(availables[0], numberOfPlayers);

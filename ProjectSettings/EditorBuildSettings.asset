@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Games/GameLoader.unity
     guid: d98d1d59139eb8044a47d47023102b7f
   - enabled: 1
+    path: Assets/Scenes/endgame.unity
+    guid: 1f7c6cdf4b04f9240bbfb513663213f9
+  - enabled: 1
     path: Assets/Scenes/Games/Beach Volley/game_beachvolley.unity
     guid: bb0908bdd23a29b46ba54fadd353bfc6
   - enabled: 1
