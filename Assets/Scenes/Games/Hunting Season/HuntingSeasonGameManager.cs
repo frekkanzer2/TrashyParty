@@ -44,7 +44,10 @@ public class HuntingSeasonGameManager : GameManager
 
     protected override void OnRoomStarts()
     {
-
+        foreach (IPlayer player in players)
+        {
+            player.IgnoreCollisionsWithOtherPlayers(true);
+        }
     }
 
     protected override void UpdateGameSpecificBehaviour()
