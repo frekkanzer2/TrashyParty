@@ -956,7 +956,7 @@ GameObject:
   - component: {fileID: 1324914875}
   - component: {fileID: 1324914877}
   - component: {fileID: 1324914876}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: skyscraper_details
   m_TagString: Untagged
   m_Icon: {fileID: 0}
