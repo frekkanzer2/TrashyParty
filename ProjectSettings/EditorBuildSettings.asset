@@ -20,4 +20,28 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Games/Lava Dodge/game_lavadodge.unity
     guid: d1cd190c726444a4c9852d0c9ad7b7ef
+  - enabled: 1
+    path: Assets/Scenes/Games/Energy Release/game_energyrelease.unity
+    guid: 8a2a5b1d79b905c42b0bef8951432b9a
+  - enabled: 1
+    path: Assets/Scenes/Games/Birds Footsteps/game_birdsfootsteps.unity
+    guid: b507751235fa90f4ab3b3299bd55bae9
+  - enabled: 1
+    path: Assets/Scenes/Games/Electroshock/game_electroshock.unity
+    guid: 72e09233ea530a84e94523ec5a8bcb27
+  - enabled: 1
+    path: Assets/Scenes/Games/Head Smash/game_headsmash.unity
+    guid: c10633388e4c17240a50dbbb90c00249
+  - enabled: 1
+    path: Assets/Scenes/Games/Deadly Drop/game_deadlydrop.unity
+    guid: ddb34d7c38028de4aa50e46156587b20
+  - enabled: 1
+    path: Assets/Scenes/Games/Tappy Bird/game_tappybird.unity
+    guid: 921c3b897e7c46144a36370123501c01
+  - enabled: 1
+    path: Assets/Scenes/Games/UfoInvasion/game_ufoinvasion.unity
+    guid: d0b7f2db2f8e91549b2c33c708091d57
+  - enabled: 1
+    path: Assets/Scenes/Games/Im the King/game_imtheking.unity
+    guid: a0ca7873203781941885c242d8701612
   m_configObjects: {}

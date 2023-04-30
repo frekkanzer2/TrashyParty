@@ -23,6 +23,8 @@ public class SoundsManager : MonoBehaviour, ISoundsManager
     private AudioClip PlayerDeath;
     [SerializeField]
     private AudioClip PlayerThrow;
+    [SerializeField]
+    private AudioClip PlayerEnergyRelease;
 
     private List<RegisteredAudioSourceDto> AudioSources;
 
@@ -81,6 +83,9 @@ public class SoundsManager : MonoBehaviour, ISoundsManager
                 break;
             case ISoundsManager.PlayerSoundType.Throw:
                 toExecute = PlayerThrow;
+                break;
+            case ISoundsManager.PlayerSoundType.EnergyRelease:
+                toExecute = PlayerEnergyRelease;
                 break;
         }
         InitializeAudioSource(PickAudioSource("Player", true), toExecute, false, 1);
@@ -166,5 +171,11 @@ public class SoundsManager : MonoBehaviour, ISoundsManager
     {
         yield return new WaitForSeconds(seconds);
         StopAllSounds();
+    }
+
+    public void PlaySound(AudioClip clip, string tag, float volume)
+    {
+        AudioSource source = PickAudioSource(tag, true);
+        InitializeAudioSource(source, clip, false, volume);
     }
 }

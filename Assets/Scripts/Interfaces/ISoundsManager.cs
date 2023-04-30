@@ -9,10 +9,12 @@ public interface ISoundsManager {
         Jump,
         Dead,
         Hit,
-        Throw
+        Throw,
+        EnergyRelease
     }
     void PlayRandomGameSoundtrack();
     void PlayCountdown();
+    void PlaySound(AudioClip clip, string tag, float volume);
     void PlayEndGameSoundtrack();
     void PlayPlayerSound(PlayerSoundType soundType);
     void StopAllSounds();

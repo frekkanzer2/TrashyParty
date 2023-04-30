@@ -22,6 +22,36 @@ public class MockGameLoader : MonoBehaviour, IGameLoader
             case Constants.GameName.LavaDodge:
                 sceneName += "lavadodge";
                 break;
+            case Constants.GameName.EnergyRelease:
+                sceneName += "energyrelease";
+                break;
+            case Constants.GameName.BirdsFootsteps:
+                sceneName += "birdsfootsteps";
+                break;
+            case Constants.GameName.Electroshock:
+                sceneName += "electroshock";
+                break;
+            case Constants.GameName.HeadSmash:
+                sceneName += "headsmash";
+                break;
+            case Constants.GameName.DeadlyDrop:
+                sceneName += "deadlydrop";
+                break;
+            case Constants.GameName.TappyBird:
+                sceneName += "tappybird";
+                break;
+            case Constants.GameName.UfoInvasion:
+                sceneName += "ufoinvasion";
+                break;
+            case Constants.GameName.ShootyPerry:
+                sceneName += "shootyperry";
+                break;
+            case Constants.GameName.ImTheKing:
+                sceneName += "imtheking";
+                break;
+            case Constants.GameName.ColorfulNests:
+                sceneName += "colorfulnests";
+                break;
             default:
                 throw new System.NullReferenceException($"No game named {game} is registered inside the loading component");
         }

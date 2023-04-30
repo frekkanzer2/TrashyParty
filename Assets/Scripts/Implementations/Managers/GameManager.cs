@@ -194,7 +194,6 @@ public abstract class GameManager : MonoBehaviour, IGameManager, IMultipleMatche
         if (IsGameEnded()) return;
         else
         {
-            _isGameEnded = true;
             SoundManager.StopAllSoundsDelayed(1f);
             StartCoroutine(OnGameEndsDelayed());
         }
@@ -202,27 +201,37 @@ public abstract class GameManager : MonoBehaviour, IGameManager, IMultipleMatche
 
     protected IEnumerator OnGameEndsDelayed()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(0.2f);
+        if (IsGameEnded()) yield break;
+        _isGameEnded = true;
+        yield return new WaitForSeconds(1.8f);
         List<TeamDto> aliveTeams = this.Teams.FindAll(t => !t.IsEveryoneDead());
-        if (aliveTeams.Count == 1 && GetTeamIdThatReachedVictoriesLimit() != null)
+        if (aliveTeams.Count == 1)
+        {
+            // There's a winner
+            AddMatchVictory(aliveTeams[0].Id);
+        }
+        if (GetTeamIdThatReachedVictoriesLimit() != null)
         {
             // the game is definitely ended
             OnEveryMatchEnded();
             yield break;
         }
-        RestartMatch(); // it will called if there's a draw or if the victory limit is not reached
+        try
+        {
+            RestartMatch(); // it will called if there's a draw or if the victory limit is not reached
+        } catch (System.AccessViolationException noAllowedException)
+        {
+            OnEveryMatchEnded(); // it executes if the game doesn't supports multi-match
+        }
     }
     public virtual void OnPlayerDies()
     {
         List<TeamDto> aliveTeams = this.Teams.FindAll(t => !t.IsEveryoneDead());
         if (aliveTeams.Count <= 1)
         {
-            // a team wons!
-            TeamDto winnerTeam = aliveTeams[0];
-            AddMatchVictory(winnerTeam.Id);
-            if (GetTeamIdThatReachedVictoriesLimit() != null)
-                foreach (IPlayer p in this.players)
-                    p.SetAsNotReady();
+            foreach (IPlayer p in this.players)
+                p.SetAsNotReady();
             OnGameEnds();
         }
     }
@@ -274,38 +283,42 @@ public abstract class GameManager : MonoBehaviour, IGameManager, IMultipleMatche
         StartCoroutine(DisplayExitDelayed());
         SoundManager.PlayEndGameSoundtrack();
         GameObject.FindGameObjectWithTag("Conclusion").GetComponent<Animator>().Play("StartAnimation");
-        int teamWinnerId = GetTeamIdThatReachedVictoriesLimit() ?? throw new System.NullReferenceException("No Team has won, so this code shouldn't execute");
-        TeamDto team = this.Teams.Find(t => t.Id == teamWinnerId);
-        List<GameObject> WinnerDisplayers = new List<GameObject>();
-        WinnerDisplayers.AddRange(GameObject.FindGameObjectsWithTag("WinnerDisplayer"));
-        for (int i = 0; i < team.players.Count; i++)
+        int? teamWinnerId = GetTeamIdThatReachedVictoriesLimit();
+        if (teamWinnerId != null)
         {
-            IPlayer p = team.players[i];
-            Sprite pSprite = p.GetWinSprite();
-            WinnerDisplayers[i].GetComponent<SpriteRenderer>().sprite = pSprite;
-        }
-        if (team.players.Count == 1)
-        {
-            WinnerDisplayers[0].transform.position = new Vector3(0, -3, 0);
-        }
-        else if (team.players.Count == 2)
-        {
-            WinnerDisplayers[0].transform.position = new Vector3(-2.7f, -3, 0);
-            WinnerDisplayers[1].transform.position = new Vector3(2.7f, -3, 0);
-        }
-        else if (team.players.Count == 3)
-        {
-            WinnerDisplayers[0].transform.position = new Vector3(-5.4f, -3, 0);
-            WinnerDisplayers[1].transform.position = new Vector3(0, -3, 0);
-            WinnerDisplayers[2].transform.position = new Vector3(5.4f, -3, 0);
-        }
-        else if (team.players.Count == 4)
-        {
-            WinnerDisplayers[0].transform.position = new Vector3(-8.1f, -3, 0);
-            WinnerDisplayers[1].transform.position = new Vector3(-2.7f, -3, 0);
-            WinnerDisplayers[2].transform.position = new Vector3(2.7f, -3, 0);
-            WinnerDisplayers[3].transform.position = new Vector3(8.1f, -3, 0);
-        }
+            List<GameObject> WinnerDisplayers = new List<GameObject>();
+            WinnerDisplayers.AddRange(GameObject.FindGameObjectsWithTag("WinnerDisplayer"));
+            TeamDto team = this.Teams.Find(t => t.Id == teamWinnerId);
+            
+            for (int i = 0; i < team.players.Count; i++)
+            {
+                IPlayer p = team.players[i];
+                Sprite pSprite = p.GetWinSprite();
+                WinnerDisplayers[i].GetComponent<SpriteRenderer>().sprite = pSprite;
+            }
+            if (team.players.Count == 1)
+            {
+                WinnerDisplayers[0].transform.position = new Vector3(0, -3, 0);
+            }
+            else if (team.players.Count == 2)
+            {
+                WinnerDisplayers[0].transform.position = new Vector3(-2.7f, -3, 0);
+                WinnerDisplayers[1].transform.position = new Vector3(2.7f, -3, 0);
+            }
+            else if (team.players.Count == 3)
+            {
+                WinnerDisplayers[0].transform.position = new Vector3(-5.4f, -3, 0);
+                WinnerDisplayers[1].transform.position = new Vector3(0, -3, 0);
+                WinnerDisplayers[2].transform.position = new Vector3(5.4f, -3, 0);
+            }
+            else if (team.players.Count == 4)
+            {
+                WinnerDisplayers[0].transform.position = new Vector3(-8.1f, -3, 0);
+                WinnerDisplayers[1].transform.position = new Vector3(-2.7f, -3, 0);
+                WinnerDisplayers[2].transform.position = new Vector3(2.7f, -3, 0);
+                WinnerDisplayers[3].transform.position = new Vector3(8.1f, -3, 0);
+            }
+        }   
     }
     private bool CanChangeGame = false;
     private IEnumerator DisplayExitDelayed()

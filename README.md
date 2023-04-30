@@ -12,16 +12,50 @@ In creation order:
 ![image](https://user-images.githubusercontent.com/24304905/233799250-830cb18a-000d-45b0-8800-868c595b156d.png)
 
 
-## Future Minigames
-- Head Soccer (a classic soccer game)
-- Bird's Footsteps (move when the alpha bird is not watching)
-- Hunting Season (avoid hunter bullets)
-- Energy Release (release an energy blast to eliminate near enemies)
-- Electroshock (occupy the platform that doesn't release electricity)
-- Birdway Surfers (don't hit the various obstacles that you should dodge by running)
-- Chicky Marathon (run to the finish line without falling behind)
-- Birdy Fight (birds can pickup a weapon and shoot the others)
+![image](https://user-images.githubusercontent.com/24304905/233852436-ec4d6bce-4681-4b92-9359-19f9df9b23e6.png)
 
+
+![image](https://user-images.githubusercontent.com/24304905/233938525-61be30f5-05cf-4a96-9219-50c76fb29ef8.png)
+
+
+![image](https://user-images.githubusercontent.com/24304905/234050284-2465cef6-7453-48c3-9f0b-d602cf79c95c.png)
+
+
+![image](https://user-images.githubusercontent.com/24304905/234721877-e754527d-056e-4b79-be7b-660c1777a69c.png)
+
+
+![image](https://user-images.githubusercontent.com/24304905/234732689-ea0fc7f6-a8a9-45f5-ba60-c2ad4087b09e.png)
+
+
+![image](https://user-images.githubusercontent.com/24304905/235277098-c86de4e9-1126-40a1-9060-be669473b4d4.png)
+
+
+![image](https://user-images.githubusercontent.com/24304905/235312031-0295156b-8ed5-4534-9f50-855d4ca6a361.png)
+
+
+![image](https://user-images.githubusercontent.com/24304905/235318097-b8a32d6c-8512-4fa0-b22c-3293d8cb5d4b.png)
+
+
+## Future Minigames with lateral view
+- Bird Soccer (a classic soccer game)
+- Basketegg (a classic basket game)
+- Hunting Season (avoid hunter bullets)
+- Catch Up (run to the finish line staying inside the screen)
+- Birdy Fight (birds can pickup a weapon and shoot the others)
+- Cat Dance (avoid the cat's paw and survive)
+- Eggs Kart (change lane to avoid incoming eggs)
+- **_Colorful Nests (capture as many nests as possible)_**
+- Duck Hunt (shoot to the flying duck)
+- Trap Run (complete the stage without touching the obstacles)
+- Speedy Replication (replicate the keystroke shown exclusively for your bird)
+- **_Shooty Perry (summons a shield to protect himself from the hunter shot - the shield will vanish soon)_**
+- Chubby and Heavy (the bird must jump on the head of the other bird: he will not be able to jump anymore)
+## Future Minigames with view from above
+- Rocket Birdy League (Rocket League with birds)
+- Bull Shit (a bull will follow you, keep the distance)
+- Nuclear Bump (push the other birds into the nuclear liquid)
+- Dungate (kill the zombies with your gun and be the last survivor)
+- Hide and Seek (one player is the killer, the others are masqueraded as environment props)
 ### Create title sprite for Minigames
 - Download the following Paint.net plugin and install it: https://forums.getpaint.net/topic/121343-boltbaits-gpu-accelerated-plugin-pack-for-paintnet-v50-updated-2023-01-28/
 - Open Paint.net, create a 1920x1080px file and select Outlined/Gradient Text from upper bar inner-section
