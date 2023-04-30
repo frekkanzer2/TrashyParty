@@ -18,6 +18,7 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
     [SerializeField] protected Transform foots;
     [SerializeField] protected Transform body;
     [SerializeField] protected Transform head;
+    [SerializeField] protected GameObject confusionEffect;
     public GameObject GetHead() => head.gameObject;
     public GameObject GetFoots() => foots.gameObject;
     [SerializeField] protected LayerMask groundTag;
@@ -33,6 +34,8 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
     protected float originalGravity;
     private bool isWaitingRejump = false;
     private bool canKillOtherBirds = false;
+    protected bool isConfused = false;
+    private bool canConfuseOtherBirds = false;
     #endregion
 
     public override bool Equals(object other)
@@ -47,11 +50,20 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.layer == Constants.LAYER_DEADZONE && !GameManager.Instance.IsGameEnded())
+        int layer = collision.gameObject.layer;
+        Transform collisionTransform = collision.gameObject.transform;
+        PlatformerPlayer collidedPlayer = collisionTransform.parent.gameObject.GetComponent<PlatformerPlayer>();
+
+        if (layer == Constants.LAYER_DEADZONE && !GameManager.Instance.IsGameEnded())
             this.OnDeath();
-        if (collision.gameObject.layer == Constants.LAYER_PLAYERHEAD && this.transform.position.y >= collision.gameObject.transform.position.y && !GameManager.Instance.IsGameEnded() && this.canKillOtherBirds)
-            if (collision.gameObject.transform.parent.gameObject.GetComponent<PlatformerPlayer>() != null)
-                collision.gameObject.transform.parent.gameObject.GetComponent<PlatformerPlayer>().OnDeath();
+        if (layer == Constants.LAYER_PLAYERHEAD && this.transform.position.y >= collisionTransform.position.y && !GameManager.Instance.IsGameEnded())
+        {
+            if (collidedPlayer != null)
+            {
+                if (this.canKillOtherBirds) collidedPlayer.OnDeath();
+                else if (this.canConfuseOtherBirds && collidedPlayer.isConfused == false && !collidedPlayer.isDead) collidedPlayer.SetConfusion(true);
+            }
+        }
     }
 
     // Start is called before the first frame update
@@ -96,7 +108,7 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
     }
     private void ExecuteJump()
     {
-        if (canJump)
+        if (canJump && !isConfused)
             if (gamepad.IsButtonPressed(IGamepad.Key.ActionButtonDown, IGamepad.PressureType.Single) && jumpCount < JumpLimit && !isWaitingRejump)
             {
                 jumpCount++;
@@ -119,7 +131,7 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
 
     void FixedUpdate()
     {
-        if (!IsInitialized || isDead || !canPlay) return;
+        if (!IsInitialized || isDead || !canPlay || isConfused) return;
         rigidbody.velocity = new Vector2(movementData.x * Constants.PLAYER_MOVEMENT_SPEED, rigidbody.velocity.y);
         VariantFixedUpdate();
     }
@@ -127,6 +139,22 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
     protected virtual void VariantFixedUpdate() { }
 
     public void SetCanKillOtherBirds(bool canKill) => this.canKillOtherBirds = canKill;
+    public void SetCanConfuseOtherBirds(bool canConfuse) => this.canConfuseOtherBirds = canConfuse;
+
+    public void SetConfusion(bool active)
+    {
+        if (this.isDead) return;
+        confusionEffect.SetActive(active);
+        body.GetChild(0).gameObject.GetComponent<SpriteRenderer>().flipY = active;
+        isConfused = active;
+        if (active) StartCoroutine(TimerConfusion());
+    }
+
+    IEnumerator TimerConfusion()
+    {
+        yield return new WaitForSeconds(2);
+        SetConfusion(false);
+    }
 
     #region IGamepadEventHandler implementation
 
@@ -256,6 +284,7 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
 
     protected void flipPlayerAnimation()
     {
+        if (isConfused) return;
         if (this.movementData.x > 0.2f)
             body.GetChild(0).gameObject.GetComponent<SpriteRenderer>().flipX = false;
         else if (this.movementData.x < -0.2f)

@@ -50,8 +50,10 @@ public class BirdSoccerGameController : GameManager
         foreach (IPlayer player in this.players)
         {
             PlatformerPlayer p = (PlatformerPlayer)player;
-            p.GetHead().GetComponent<CapsuleCollider2D>().isTrigger = false;
-            player.IgnoreCollisionsWithOtherPlayers(true); // to change after testing
+            //p.GetHead().GetComponent<CapsuleCollider2D>().isTrigger = false;
+            player.IgnoreCollisionsWithOtherPlayers(false);
+            p.SetCanKillOtherBirds(false);
+            p.SetCanConfuseOtherBirds(true);
             player.SetJumpLimit(5);
             player.RespawnPosition = p.gameObject.transform.position;
         }
