@@ -44,4 +44,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Games/Im the King/game_imtheking.unity
     guid: a0ca7873203781941885c242d8701612
+  - enabled: 1
+    path: Assets/Scenes/Games/Bird Soccer/game_birdsoccer.unity
+    guid: 8f2630ac0a50c834698055fa74951b1d
   m_configObjects: {}

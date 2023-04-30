@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 166774525811452595}
+  - component: {fileID: 8608582971316509548}
   - component: {fileID: 166774525811452594}
   - component: {fileID: 166774525811452597}
   - component: {fileID: 166774525811452596}
@@ -34,6 +35,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8608582971316509548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 166774525811452599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55f4984611127394fb0b977d772cf4b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &166774525811452594
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -95,7 +108,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 166774525811452599}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 0667574fc6dfe994a8517eb1cd5cf620, type: 2}
+  m_Material: {fileID: 6200000, guid: 714d574124b05ae40a571e9d2f192bc0, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0

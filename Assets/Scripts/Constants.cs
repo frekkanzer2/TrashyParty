@@ -20,6 +20,7 @@ public static class Constants {
         UfoInvasion,
         ImTheKing,
         ColorfulNests,
-        ShootyPerry
+        ShootyPerry,
+        BirdSoccer
     }
 }
