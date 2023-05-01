@@ -22,6 +22,7 @@ public static class Constants {
         ColorfulNests,
         ShootyPerry,
         BirdSoccer,
-        CatDance
+        CatDance,
+        Basketegg
     }
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BirdSoccerGameController : GameManager
+public class BasketeggGameController : GameManager
 {
 
     public override void OnPlayerDies()
@@ -41,7 +41,7 @@ public class BirdSoccerGameController : GameManager
                 throw new System.ArgumentException("Invalid numberOfPlayers parameter while creating teams");
         }
         InitializeTeamMatchVictories(teams);
-        SetMatchesVictoryLimit(5);
+        SetMatchesVictoryLimit(3);
         return teams;
     }
 
@@ -50,7 +50,6 @@ public class BirdSoccerGameController : GameManager
         foreach (IPlayer player in this.players)
         {
             PlatformerPlayer p = (PlatformerPlayer)player;
-            //p.GetHead().GetComponent<CapsuleCollider2D>().isTrigger = false;
             player.IgnoreCollisionsWithOtherPlayers(false);
             p.SetCanKillOtherBirds(false);
             p.SetCanConfuseOtherBirds(true);
@@ -67,8 +66,8 @@ public class BirdSoccerGameController : GameManager
     public override void OnPreparationEndsGameSpecific()
     {
         SoundManager.PlayRandomGameSoundtrack();
-        GameObject ball = GameObject.Find("FootballBall");
-        if (ball == null) throw new System.NullReferenceException("Missing soccer ball in the scene");
+        GameObject ball = GameObject.Find("BasketEgg");
+        if (ball == null) throw new System.NullReferenceException("Missing egg in the scene");
         Rigidbody2D rigidbody = ball.GetComponent<Rigidbody2D>();
         rigidbody.gravityScale = 3;
         Vector2 generatedForce = Vector2.zero;
@@ -81,8 +80,8 @@ public class BirdSoccerGameController : GameManager
     {
         this._isGameEnded = false;
         this._isGameStarted = false;
-        GameObject ball = GameObject.Find("FootballBall");
-        if (ball == null) throw new System.NullReferenceException("Missing soccer ball in the scene");
+        GameObject ball = GameObject.Find("BasketEgg");
+        if (ball == null) throw new System.NullReferenceException("Missing egg in the scene");
         Rigidbody2D rigidbody = ball.GetComponent<Rigidbody2D>();
         rigidbody.gravityScale = 0;
         rigidbody.velocity = Vector2.zero;
