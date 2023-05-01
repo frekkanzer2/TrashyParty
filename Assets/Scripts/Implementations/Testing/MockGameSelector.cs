@@ -70,6 +70,12 @@ public class MockGameSelector : MonoBehaviour, IGameSelector
             case Constants.GameName.BirdSoccer:
                 supportedPlayers = new int[] { 2, 4, 6, 8 };
                 break;
+            case Constants.GameName.CatDance:
+                supportedPlayers = new int[] { 2, 3, 4, 5, 6, 7, 8 };
+                break;
+            case Constants.GameName.Basketegg:
+                supportedPlayers = new int[] { 2, 4, 6, 8 };
+                break;
             default:
                 throw new System.NullReferenceException("Missing game inside the game selection");
         }
