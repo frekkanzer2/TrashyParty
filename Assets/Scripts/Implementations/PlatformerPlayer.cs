@@ -53,17 +53,19 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
     {
         int layer = collision.gameObject.layer;
         Transform collisionTransform = collision.gameObject.transform;
+
+        if (layer == Constants.LAYER_DEADZONE && !GameManager.Instance.IsGameEnded())
+            this.OnDeath();
+
         PlatformerPlayer collidedPlayer;
         try
         {
             collidedPlayer = collisionTransform.parent.gameObject.GetComponent<PlatformerPlayer>();
-        } catch (System.NullReferenceException)
+        }
+        catch (System.NullReferenceException)
         {
             return;
         }
-
-        if (layer == Constants.LAYER_DEADZONE && !GameManager.Instance.IsGameEnded())
-            this.OnDeath();
         if (layer == Constants.LAYER_PLAYERHEAD && this.transform.position.y >= collisionTransform.position.y && !GameManager.Instance.IsGameEnded())
         {
             if (collidedPlayer != null)
