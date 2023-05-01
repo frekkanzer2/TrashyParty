@@ -10,7 +10,6 @@ public static class Constants {
     public enum GameName
     {
         BeachVolley,
-        RocketBirdLeague,
         CloudyBoxes,
         LavaDodge,
         EnergyRelease,
@@ -21,8 +20,6 @@ public static class Constants {
         TappyBird,
         UfoInvasion,
         ImTheKing,
-        ColorfulNests,
-        ShootyPerry,
         BirdSoccer,
         CatDance,
         Basketegg

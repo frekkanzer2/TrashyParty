@@ -13,9 +13,6 @@ public class MockGameLoader : MonoBehaviour, IGameLoader
             case Constants.GameName.BeachVolley:
                 sceneName += "beachvolley";
                 break;
-            case Constants.GameName.RocketBirdLeague:
-                sceneName += "rocketbirdleague";
-                break;
             case Constants.GameName.CloudyBoxes:
                 sceneName += "cloudyboxes";
                 break;
@@ -43,14 +40,8 @@ public class MockGameLoader : MonoBehaviour, IGameLoader
             case Constants.GameName.UfoInvasion:
                 sceneName += "ufoinvasion";
                 break;
-            case Constants.GameName.ShootyPerry:
-                sceneName += "shootyperry";
-                break;
             case Constants.GameName.ImTheKing:
                 sceneName += "imtheking";
-                break;
-            case Constants.GameName.ColorfulNests:
-                sceneName += "colorfulnests";
                 break;
             case Constants.GameName.BirdSoccer:
                 sceneName += "birdsoccer";
