@@ -59,6 +59,7 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
         if (collision.gameObject.CompareTag("Repels") && !GameManager.Instance.IsGameEnded())
         {
             this.ApplyForce(new Vector2(0, 100));
+            this.jumpCount = 0;
         }
 
         PlatformerPlayer collidedPlayer;
