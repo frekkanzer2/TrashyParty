@@ -10,6 +10,7 @@ TagManager:
   - WinnerDisplayer
   - Conclusion
   - Repels
+  - TransitionManager
   layers:
   - Default
   - TransparentFX

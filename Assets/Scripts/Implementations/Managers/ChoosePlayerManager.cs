@@ -51,6 +51,11 @@ public class ChoosePlayerManager : MonoBehaviour, IPlayersSelectorManager
         _instance = this;
     }
 
+    private void Start()
+    {
+        GameObject.FindGameObjectWithTag("TransitionManager").GetComponent<TransitionManager>().StartAnimationOnRoomOpens();
+    }
+
     public ColorMatch GetFirstFreeColor()
     {
         List<ColorMatch> actives = colorMatches.FindAll(c => c.pointed == false);
@@ -126,10 +131,17 @@ public class ChoosePlayerManager : MonoBehaviour, IPlayersSelectorManager
             if (countReady < 2) return;
             else
             {
-                CreatePlayerDtos();
-                ConfirmAndGoToGameChoise();
+                StartCoroutine(StartGameChoiseRoom());
             }
         }
+    }
+
+    private IEnumerator StartGameChoiseRoom()
+    {
+        GameObject.FindGameObjectWithTag("TransitionManager").GetComponent<TransitionManager>().StartAnimationOnRoomEnds();
+        CreatePlayerDtos();
+        yield return new WaitForSeconds(2);
+        ConfirmAndGoToGameChoise();
     }
 
     private void CreatePlayerDtos()
