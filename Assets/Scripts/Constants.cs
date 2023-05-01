@@ -21,6 +21,7 @@ public static class Constants {
         ImTheKing,
         ColorfulNests,
         ShootyPerry,
-        BirdSoccer
+        BirdSoccer,
+        CatDance
     }
 }

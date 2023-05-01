@@ -47,4 +47,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Games/Bird Soccer/game_birdsoccer.unity
     guid: 8f2630ac0a50c834698055fa74951b1d
+  - enabled: 1
+    path: Assets/Scenes/Games/Cat Dance/game_catdance.unity
+    guid: 3225e9ffa1b77f7459ae0f7a729528e6
   m_configObjects: {}
