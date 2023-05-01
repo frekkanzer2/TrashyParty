@@ -39,12 +39,16 @@ In creation order:
 ![image](https://user-images.githubusercontent.com/24304905/235359962-f5d45658-d3a5-4f01-8ac9-92f3505c6af3.png)
 
 
+![image](https://user-images.githubusercontent.com/24304905/235471843-26cc86a8-49db-4c39-ba2a-a3daaa232055.png)
+
+
+![image](https://user-images.githubusercontent.com/24304905/235472077-862df1d7-6e5b-4278-aed6-6af47d253cfa.png)
+
+
 ## Future Minigames with lateral view
-- Basketegg (a classic basket game)
 - Hunting Season (avoid hunter bullets)
 - Catch Up (run to the finish line staying inside the screen)
 - Birdy Fight (birds can pickup a weapon and shoot the others)
-- Cat Dance (avoid the cat's paw and survive)
 - Eggs Kart (change lane to avoid incoming eggs)
 - Colorful Nests (capture as many nests as possible)
 - Duck Hunt (shoot to the flying duck)
