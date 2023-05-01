@@ -40,18 +40,16 @@ In creation order:
 
 
 ## Future Minigames with lateral view
-- Bird Soccer (a classic soccer game)
 - Basketegg (a classic basket game)
 - Hunting Season (avoid hunter bullets)
 - Catch Up (run to the finish line staying inside the screen)
 - Birdy Fight (birds can pickup a weapon and shoot the others)
 - Cat Dance (avoid the cat's paw and survive)
 - Eggs Kart (change lane to avoid incoming eggs)
-- **_Colorful Nests (capture as many nests as possible)_**
+- Colorful Nests (capture as many nests as possible)
 - Duck Hunt (shoot to the flying duck)
 - Trap Run (complete the stage without touching the obstacles)
 - Speedy Replication (replicate the keystroke shown exclusively for your bird)
-- **_Shooty Perry (summons a shield to protect himself from the hunter shot - the shield will vanish soon)_**
 - Chubby and Heavy (the bird must jump on the head of the other bird: he will not be able to jump anymore)
 ## Future Minigames with view from above
 - Rocket Birdy League (Rocket League with birds)
