@@ -45,9 +45,13 @@ public class UfoBehaviour : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private bool hasSetMovement = false;
+    void FixedUpdate()
     {
-        if (this.Type == UfoType.Beige || this.Type == UfoType.Pink || this.Type == UfoType.Yellow)
-            this.transform.position = new Vector3(this.transform.position.x - speed, this.transform.position.y, this.transform.position.z);
+        if ((this.Type == UfoType.Beige || this.Type == UfoType.Pink || this.Type == UfoType.Yellow) && !hasSetMovement)
+        {
+            hasSetMovement = true;
+            this.GetComponent<Rigidbody2D>().velocity = new Vector2(speed * -1, 0);
+        }
     }
 }
