@@ -51,16 +51,28 @@ In creation order:
 - Birdy Fight (birds can pickup a weapon and shoot the others)
 - Eggs Kart (change lane to avoid incoming eggs)
 - Colorful Nests (capture as many nests as possible)
-- Duck Hunt (shoot to the flying duck)
 - Trap Run (complete the stage without touching the obstacles)
 - Speedy Replication (replicate the keystroke shown exclusively for your bird)
 - Chubby and Heavy (the bird must jump on the head of the other bird: he will not be able to jump anymore)
+- Laboratory Lights (birds must complete a stage without lights and without falling into nuclear liquid)
+- Fizzle Floor (the blocks under you will randomly destroy after 1 second: don't fall)
+- Bomb Tag (a random player gets a bomb: touch another player to pass it - the player with the bomb can freeze other players)
+- Super Hot (some rockets will spawn in random spaces of the maps: avoid it)
+- Static Stun (the stun on a player will reject both and will create an electricity sphere: avoid it)
+- Detonation Bird (a bird will spawn randomly on the map - it will explode, stay await from it)
+- Eggy Treasure (collect the eggs that will spawn in the map and return them in the chest - the first one that deposits 10 eggs will win - it anyone stuns you, you lose the egg)
+- Eggs Rush (pick the egg that spawns: if you remain without an egg, you will die)
+- Egg Hatching (be the last to touch the egg before it hatches)
+
 ## Future Minigames with view from above
 - Rocket Birdy League (Rocket League with birds)
 - Bull Shit (a bull will follow you, keep the distance)
 - Nuclear Bump (push the other birds into the nuclear liquid)
 - Dungate (kill the zombies with your gun and be the last survivor)
 - Hide and Seek (one player is the killer, the others are masqueraded as environment props)
+- Deadly Race (a player controls a car that always spins: by pressing a button, the car will move in the direction of the spin. If the other players do not get run over within one minute, the car will explode and they will win)
+- Birdjammers (Windjammers-like game)
+
 ### Create title sprite for Minigames
 - Download the following Paint.net plugin and install it: https://forums.getpaint.net/topic/121343-boltbaits-gpu-accelerated-plugin-pack-for-paintnet-v50-updated-2023-01-28/
 - Open Paint.net, create a 1920x1080px file and select Outlined/Gradient Text from upper bar inner-section
