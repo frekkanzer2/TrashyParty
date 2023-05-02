@@ -17,7 +17,7 @@ public class CatPawBehaviour : MonoBehaviour
     {
         this.GetComponent<Rigidbody2D>().velocity = (new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f))).normalized * speed;
         yield return new WaitForSeconds(time);
-        StartCoroutine(Move(speed + 3, (time > 5) ? time - 1 : time));
+        StartCoroutine(Move((speed < 50) ? speed + 3 : speed, (time > 5) ? time - 1 : time));
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
