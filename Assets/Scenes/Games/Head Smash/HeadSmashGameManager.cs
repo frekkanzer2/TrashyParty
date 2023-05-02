@@ -24,6 +24,7 @@ public class HeadSmashGameManager : GameManager
         {
             player.SetJumpLimit(10000000);
             PlatformerPlayer pp = (PlatformerPlayer)player;
+            player.IgnoreCollisionsWithOtherPlayers(false);
             pp.SetCanKillOtherBirds(true);
         }
         StartCoroutine(StartCounterToWallDown());
