@@ -23,6 +23,7 @@ public static class Constants {
         ShootyPerry,
         BirdSoccer,
         CatDance,
-        Basketegg
+        Basketegg,
+        LaboratoryLights
     }
 }
