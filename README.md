@@ -76,6 +76,7 @@ In creation order:
 - Hide and Seek (one player is the killer, the others are masqueraded as environment props)
 - Deadly Race (a player controls a car that always spins: by pressing a button, the car will move in the direction of the spin. If the other players do not get run over within one minute, the car will explode and they will win)
 - Birdjammers (Windjammers-like game)
+- Betrayer Bird (one player is the killer with a shotgun, that will kill every bird in 1 minute)
 
 ### Create title sprite for Minigames
 - Download the following Paint.net plugin and install it: https://forums.getpaint.net/topic/121343-boltbaits-gpu-accelerated-plugin-pack-for-paintnet-v50-updated-2023-01-28/
