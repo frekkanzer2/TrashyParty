@@ -63,7 +63,6 @@ In creation order:
 - Trap Run (complete the stage without touching the obstacles)
 - Speedy Replication (replicate the keystroke shown exclusively for your bird)
 - Chubby and Heavy (the bird must jump on the head of the other bird: he will not be able to jump anymore)
-- Fizzle Floor (the blocks under you will randomly destroy after 1 second: don't fall)
 - Bomb Tag (a random player gets a bomb: touch another player to pass it - the player with the bomb can freeze other players)
 - Super Hot (some rockets will spawn in random spaces of the maps: avoid it)
 - Static Stun (the stun on a player will reject both and will create an electricity sphere: avoid it)
@@ -80,6 +79,7 @@ In creation order:
 - Deadly Race (a player controls a car that always spins: by pressing a button, the car will move in the direction of the spin. If the other players do not get run over within one minute, the car will explode and they will win)
 - Birdjammers (Windjammers-like game)
 - Betrayer Bird (one player is the killer with a shotgun, that will kill every bird in 1 minute)
+- Takeshi's Bird (Takeshi's Castle final round game: https://www.youtube.com/watch?v=3vFZXg4OlFQ&ab_channel=Gambit771)
 
 ### Create title sprite for Minigames
 - Download the following Paint.net plugin and install it: https://forums.getpaint.net/topic/121343-boltbaits-gpu-accelerated-plugin-pack-for-paintnet-v50-updated-2023-01-28/
