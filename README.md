@@ -45,6 +45,12 @@ In creation order:
 ![image](https://user-images.githubusercontent.com/24304905/235472077-862df1d7-6e5b-4278-aed6-6af47d253cfa.png)
 
 
+![image](https://user-images.githubusercontent.com/24304905/236356202-1e3b9d0d-3e8d-45cf-b4e4-f733679bae62.png)
+
+
+![image](https://user-images.githubusercontent.com/24304905/236356222-1808fb4f-4917-4950-a247-c829ba931afb.png)
+
+
 ## Future Minigames with lateral view
 - Hunting Season (avoid hunter bullets)
 - Catch Up (run to the finish line staying inside the screen)
@@ -58,7 +64,6 @@ In creation order:
 - Bomb Tag (a random player gets a bomb: touch another player to pass it - the player with the bomb can freeze other players)
 - Super Hot (some rockets will spawn in random spaces of the maps: avoid it)
 - Static Stun (the stun on a player will reject both and will create an electricity sphere: avoid it)
-- Detonation Bird (a bird will spawn randomly on the map - it will explode, stay await from it)
 - Eggy Treasure (collect the eggs that will spawn in the map and return them in the chest - the first one that deposits 10 eggs will win - it anyone stuns you, you lose the egg)
 - Eggs Rush (pick the egg that spawns: if you remain without an egg, you will die)
 - Egg Hatching (be the last to touch the egg before it hatches)
