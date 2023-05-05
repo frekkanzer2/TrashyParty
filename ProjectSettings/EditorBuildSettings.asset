@@ -59,4 +59,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Games/Detonation Bird/game_detonationbird.unity
     guid: 398a91ec1bed3344aa5048804d36bd38
+  - enabled: 1
+    path: Assets/Scenes/Games/Fizzle Floor/game_fizzlefloor.unity
+    guid: 8ac1b1deb26a70a468b2e3dad0b3cfb7
   m_configObjects: {}

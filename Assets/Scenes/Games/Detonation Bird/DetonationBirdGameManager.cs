@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DetonationBird : GameManager
+public class DetonationBirdGameManager : GameManager
 {
 
     public GameObject BombPrefab;
