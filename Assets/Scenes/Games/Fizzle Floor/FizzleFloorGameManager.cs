@@ -26,6 +26,28 @@ public class FizzleFloorGameManager : GameManager
             p.IgnoreCollisionsWithOtherPlayers(true);
             ((PlatformerPlayer)p).GetHead().GetComponent<Collider2D>().isTrigger = false;
         }
+        StartCoroutine(StartDisappearance());
+    }
+
+    IEnumerator StartDisappearance()
+    {
+        StartCoroutine(Disappearance(2, 1));
+        yield return new WaitForSeconds(6);
+        StartCoroutine(Disappearance(1.6f, 2));
+        yield return new WaitForSeconds(6);
+        StartCoroutine(Disappearance(1.6f, 3));
+    }
+
+    IEnumerator Disappearance(float time, int level)
+    {
+        yield return new WaitForSeconds(time);
+        if (!GameManager.Instance.IsGameEnded())
+        {
+            GameObject block = BlockLines[level - 1].GetRandomAndRemove();
+            block.GetComponent<DisappearanceBlockBehaviour>().Disappear();
+            Destroy(block, 3);
+            StartCoroutine(Disappearance((time > 1) ? time - 0.1f : time, level));
+        }
     }
 
     public override void RestartMatch()
