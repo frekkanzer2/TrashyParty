@@ -60,6 +60,9 @@ In creation order:
 ![image](https://user-images.githubusercontent.com/24304905/236622924-b17ee377-9c39-4ff1-9cb9-1dd84d114bba.png)
 
 
+![image](https://user-images.githubusercontent.com/24304905/236635079-d1f05611-12a3-438e-95b0-3c53fe30c71b.png)
+
+
 ## Future Minigames with lateral view
 - Hunting Season (avoid hunter bullets)
 - Birdy Fight (birds can pickup a weapon and shoot the others)
@@ -68,7 +71,6 @@ In creation order:
 - Trap Run (complete the stage without touching the obstacles)
 - Speedy Replication (replicate the keystroke shown exclusively for your bird)
 - Chubby and Heavy (the bird must jump on the head of the other bird: he will not be able to jump anymore)
-- Bomb Tag (a random player gets a bomb: touch another player to pass it - the player with the bomb can stun other players with an energy wave)
 - Super Hot (some rockets will spawn in random spaces of the maps: avoid it)
 - Static Stun (the stun on a player will reject both and will create an electricity sphere: avoid it)
 - Eggy Treasure (collect the eggs that will spawn in the map and return them in the chest - the first one that deposits 10 eggs will win - it anyone stuns you, you lose the egg)
