@@ -212,25 +212,6 @@ MonoBehaviour:
   ActivableFor7Players: []
   ActivableFor8Players: []
   TeamSpawnpointAssociations:
-  - NumberOfPlayersCase: 2
-    Teams:
-    - teamId: 1
-      spawnpoints:
-      - {fileID: 1840022935}
-    - teamId: 2
-      spawnpoints:
-      - {fileID: 443772350}
-  - NumberOfPlayersCase: 3
-    Teams:
-    - teamId: 1
-      spawnpoints:
-      - {fileID: 1840022935}
-    - teamId: 2
-      spawnpoints:
-      - {fileID: 443772350}
-    - teamId: 3
-      spawnpoints:
-      - {fileID: 1871575964246268520}
   - NumberOfPlayersCase: 4
     Teams:
     - teamId: 1
