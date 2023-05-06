@@ -66,7 +66,7 @@ In creation order:
 - Trap Run (complete the stage without touching the obstacles)
 - Speedy Replication (replicate the keystroke shown exclusively for your bird)
 - Chubby and Heavy (the bird must jump on the head of the other bird: he will not be able to jump anymore)
-- Bomb Tag (a random player gets a bomb: touch another player to pass it - the player with the bomb can freeze other players)
+- Bomb Tag (a random player gets a bomb: touch another player to pass it - the player with the bomb can stun other players with an energy wave)
 - Super Hot (some rockets will spawn in random spaces of the maps: avoid it)
 - Static Stun (the stun on a player will reject both and will create an electricity sphere: avoid it)
 - Eggy Treasure (collect the eggs that will spawn in the map and return them in the chest - the first one that deposits 10 eggs will win - it anyone stuns you, you lose the egg)
