@@ -28,6 +28,7 @@ public static class Constants {
         LaboratoryLights,
         DetonationBird,
         FizzleFloor,
-        UnderTheRain
+        UnderTheRain,
+        CatchUp
     }
 }
