@@ -68,4 +68,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Games/Catch Up/game_catchup.unity
     guid: e8901b7e21d273d4ead4fff4c025fa92
+  - enabled: 1
+    path: Assets/Scenes/Games/Bomb Tag/game_bombtag.unity
+    guid: be709bfc51e470d4094d4f3de740143d
   m_configObjects: {}

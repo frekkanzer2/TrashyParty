@@ -76,6 +76,9 @@ public class MockGameLoader : MonoBehaviour, IGameLoader
             case Constants.GameName.CatchUp:
                 sceneName += "catchup";
                 break;
+            case Constants.GameName.BombTag:
+                sceneName += "bombtag";
+                break;
             default:
                 throw new System.NullReferenceException($"No game named {game} is registered inside the loading component");
         }

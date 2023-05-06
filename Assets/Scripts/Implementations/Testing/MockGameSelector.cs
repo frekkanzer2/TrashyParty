@@ -79,6 +79,9 @@ public class MockGameSelector : MonoBehaviour, IGameSelector
             case Constants.GameName.CatchUp:
                 supportedPlayers = new int[] { 2, 3, 4, 5, 6, 7, 8 };
                 break;
+            case Constants.GameName.BombTag:
+                supportedPlayers = new int[] { 2, 3, 4, 5, 6, 7, 8 };
+                break;
             default:
                 throw new System.NullReferenceException("Missing game inside the game selection");
         }

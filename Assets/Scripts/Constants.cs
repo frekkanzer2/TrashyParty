@@ -29,6 +29,7 @@ public static class Constants {
         DetonationBird,
         FizzleFloor,
         UnderTheRain,
-        CatchUp
+        CatchUp,
+        BombTag
     }
 }
