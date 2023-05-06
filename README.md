@@ -57,9 +57,11 @@ In creation order:
 ![image](https://user-images.githubusercontent.com/24304905/236588147-86e2d199-aa8d-449d-abc4-c8bf21976363.png)
 
 
+![image](https://user-images.githubusercontent.com/24304905/236622924-b17ee377-9c39-4ff1-9cb9-1dd84d114bba.png)
+
+
 ## Future Minigames with lateral view
 - Hunting Season (avoid hunter bullets)
-- Catch Up (run to the finish line staying inside the screen)
 - Birdy Fight (birds can pickup a weapon and shoot the others)
 - Eggs Kart (change lane to avoid incoming eggs)
 - Colorful Nests (capture as many nests as possible)
