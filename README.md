@@ -54,7 +54,7 @@ In creation order:
 ![image](https://user-images.githubusercontent.com/24304905/236575184-62f2cd00-0cc7-4ecb-a9b5-5354d7b1b57b.png)
 
 
-![image](https://user-images.githubusercontent.com/24304905/236588076-9a026b48-a1a3-4a02-82c4-6b9627786877.png)
+![image](https://user-images.githubusercontent.com/24304905/236588147-86e2d199-aa8d-449d-abc4-c8bf21976363.png)
 
 
 ## Future Minigames with lateral view
