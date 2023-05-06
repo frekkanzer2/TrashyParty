@@ -54,6 +54,9 @@ In creation order:
 ![image](https://user-images.githubusercontent.com/24304905/236575184-62f2cd00-0cc7-4ecb-a9b5-5354d7b1b57b.png)
 
 
+![image](https://user-images.githubusercontent.com/24304905/236588076-9a026b48-a1a3-4a02-82c4-6b9627786877.png)
+
+
 ## Future Minigames with lateral view
 - Hunting Season (avoid hunter bullets)
 - Catch Up (run to the finish line staying inside the screen)
