@@ -37,7 +37,14 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
     protected bool isConfused = false;
     private bool canConfuseOtherBirds = false;
     private Vector2 lastPositionBeforeConfusing = Vector2.zero;
+    private float movementSpeed = Constants.PLAYER_MOVEMENT_SPEED, jumpingPower = Constants.PLAYER_JUMPING_POWER;
     #endregion
+
+    public void ChangePlayerStats(float movementSpeed, float jumpingPower)
+    {
+        this.movementSpeed = movementSpeed;
+        this.jumpingPower = jumpingPower;
+    }
 
     public override bool Equals(object other)
     {
@@ -130,7 +137,7 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
             {
                 jumpCount++;
                 SoundsManager.Instance.PlayPlayerSound(ISoundsManager.PlayerSoundType.Jump);
-                rigidbody.velocity = new Vector2(rigidbody.velocity.x, Constants.PLAYER_JUMPING_POWER);
+                rigidbody.velocity = new Vector2(rigidbody.velocity.x, jumpingPower);
                 StartCoroutine(StartWaitingRejump());
             }
         if (isGrounded() && !isWaitingRejump)
@@ -149,7 +156,7 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
     void FixedUpdate()
     {
         if (!IsInitialized || isDead || !canPlay || isConfused) return;
-        rigidbody.velocity = new Vector2(movementData.x * Constants.PLAYER_MOVEMENT_SPEED, rigidbody.velocity.y);
+        rigidbody.velocity = new Vector2(movementData.x * movementSpeed, rigidbody.velocity.y);
         VariantFixedUpdate();
     }
 

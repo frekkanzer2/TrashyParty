@@ -67,6 +67,27 @@ public class MockGameSelector : MonoBehaviour, IGameSelector
             case Constants.GameName.Basketegg:
                 supportedPlayers = new int[] { 2, 4, 6, 8 };
                 break;
+            case Constants.GameName.LaboratoryLights:
+                supportedPlayers = new int[] { 2, 3, 4, 5, 6, 7, 8 };
+                break;
+            case Constants.GameName.DetonationBird:
+                supportedPlayers = new int[] { 2, 3, 4, 5, 6, 7, 8 };
+                break;
+            case Constants.GameName.FizzleFloor:
+                supportedPlayers = new int[] { 2, 3, 4, 5, 6, 7, 8 };
+                break;
+            case Constants.GameName.UnderTheRain:
+                supportedPlayers = new int[] { 2, 3, 4, 5, 6, 7, 8 };
+                break;
+            case Constants.GameName.CatchUp:
+                supportedPlayers = new int[] { 2, 3, 4, 5, 6, 7, 8 };
+                break;
+            case Constants.GameName.BombTag:
+                supportedPlayers = new int[] { 4, 5, 6, 7, 8 };
+                break;
+            case Constants.GameName.SuperHot:
+                supportedPlayers = new int[] { 2, 3, 4, 5, 6, 7, 8 };
+                break;
             default:
                 throw new System.NullReferenceException("Missing game inside the game selection");
         }
