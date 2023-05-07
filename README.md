@@ -63,6 +63,9 @@ In creation order:
 ![image](https://user-images.githubusercontent.com/24304905/236635079-d1f05611-12a3-438e-95b0-3c53fe30c71b.png)
 
 
+![image](https://user-images.githubusercontent.com/24304905/236683957-2347502c-8bd0-41fa-be32-d980a2f1d1dc.png)
+
+
 ## Future Minigames with lateral view
 - Hunting Season (avoid hunter bullets)
 - Birdy Fight (birds can pickup a weapon and shoot the others)
