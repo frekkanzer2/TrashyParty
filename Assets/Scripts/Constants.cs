@@ -30,6 +30,7 @@ public static class Constants {
         FizzleFloor,
         UnderTheRain,
         CatchUp,
-        BombTag
+        BombTag,
+        SuperHot
     }
 }
