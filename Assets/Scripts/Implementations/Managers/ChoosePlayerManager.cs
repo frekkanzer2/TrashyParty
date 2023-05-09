@@ -22,6 +22,7 @@ public class ChoosePlayerManager : MonoBehaviour, IPlayersSelectorManager
     {
         public int colorId;
         public GameObject prefab;
+        public Constants.BirdColor birdColor;
         public bool pointed = false;
         public override bool Equals(object obj)
         {
@@ -40,6 +41,7 @@ public class ChoosePlayerManager : MonoBehaviour, IPlayersSelectorManager
         public int PlayerNumber;
         public int ControllerId;
         public int ColorIndex;
+        public Constants.BirdColor Color;
     }
 
     public List<PlayerSelectorDto> playerDtos;
@@ -155,7 +157,8 @@ public class ChoosePlayerManager : MonoBehaviour, IPlayersSelectorManager
             {
                 ControllerId = pdm.GetGamepadId() ?? throw new System.ArgumentNullException("Cannot assign an empty controller id while generating player profiles."),
                 PlayerNumber = playerCounter,
-                ColorIndex = colorMatches.IndexOf(colorMatches.Find(cm => pdm.GetActualColorMatch().colorId == cm.colorId))
+                ColorIndex = colorMatches.IndexOf(colorMatches.Find(cm => pdm.GetActualColorMatch().colorId == cm.colorId)),
+                Color = (colorMatches.Find(cm => pdm.GetActualColorMatch().birdColor == cm.birdColor)).birdColor
             };
             playerDtos.Add(pDto);
             playerCounter++;
@@ -166,12 +169,17 @@ public class ChoosePlayerManager : MonoBehaviour, IPlayersSelectorManager
     public void ConfirmAndGoToGameChoise()
     {
         AppSettings.Save("N_PLAYERS", playerDtos.Count);
+        List<RankingDto.Rank> emptyRanks = new List<RankingDto.Rank>();
         for (int i = 0; i < playerDtos.Count; i++)
         {
             PlayerSelectorDto playerSelectorDto = playerDtos[i];
             AppSettings.Save("GAMEPAD_PLAYER" + playerSelectorDto.PlayerNumber, playerSelectorDto.ControllerId);
             AppSettings.Save("COLOR_PLAYER" + playerSelectorDto.PlayerNumber, colorMatches[playerSelectorDto.ColorIndex].prefab);
+            AppSettings.Save("COLOR_RAW_PLAYER" + playerSelectorDto.PlayerNumber, Constants.BirdColorToString(playerSelectorDto.Color));
+            emptyRanks.Add(new(playerSelectorDto.PlayerNumber, colorMatches[playerSelectorDto.ColorIndex].prefab.GetComponent<SpriteRenderer>().sprite));
         }
+        AppSettings.Save(Constants.APPSETTINGS_RANKING_LABEL, RankingDto.Generate(emptyRanks));
+        AppSettings.Save(Constants.APPSETTINGS_RANKING_PREVIOUS_LABEL, RankingDto.Generate(emptyRanks));
         SceneManager.LoadScene("GameLoader", LoadSceneMode.Single);
     }
 }

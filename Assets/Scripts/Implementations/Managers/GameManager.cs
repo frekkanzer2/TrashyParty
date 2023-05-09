@@ -124,8 +124,10 @@ public abstract class GameManager : MonoBehaviour, IGameManager, IMultipleMatche
                 ControllerId = playerRecord.Item2,
                 PlayerNumber = playerRecord.Item3
             };
-            players.Add(playerGenerated.GetComponent<IPlayer>());
-            toPopulate.players.Add(playerGenerated.GetComponent<IPlayer>());
+            IPlayer playerComponent = playerGenerated.GetComponent<IPlayer>();
+            playerComponent.Id = playerRecord.Item3;
+            players.Add(playerComponent);
+            toPopulate.players.Add(playerComponent);
         }
     }
 
@@ -142,7 +144,15 @@ public abstract class GameManager : MonoBehaviour, IGameManager, IMultipleMatche
 
     public void AssignPoints()
     {
-        //throw new System.NotImplementedException();
+        TeamDto team = this.Teams.Find(t => t.Id == GetTeamIdThatReachedVictoriesLimit());
+        List<IPlayer> winners = team.players;
+        int[] winnersIds = new int[winners.Count];
+        for (int i = 0; i < winners.Count; i++) winnersIds[i] = winners[i].Id;
+        RankingDto original = (RankingDto)AppSettings.Get(Constants.APPSETTINGS_RANKING_LABEL);
+        RankingDto previous = original.Clone();
+        original.AddPoint(winnersIds);
+        AppSettings.Save(Constants.APPSETTINGS_RANKING_LABEL, original);
+        AppSettings.Save(Constants.APPSETTINGS_RANKING_PREVIOUS_LABEL, previous);
     }
 
     #endregion
@@ -206,11 +216,7 @@ public abstract class GameManager : MonoBehaviour, IGameManager, IMultipleMatche
         _isGameEnded = true;
         yield return new WaitForSeconds(1.8f);
         List<TeamDto> aliveTeams = this.Teams.FindAll(t => !t.IsEveryoneDead());
-        if (aliveTeams.Count == 1)
-        {
-            // There's a winner
-            AddMatchVictory(aliveTeams[0].Id);
-        }
+        if (aliveTeams.Count == 1) AddMatchVictory(aliveTeams[0].Id);
         if (GetTeamIdThatReachedVictoriesLimit() != null)
         {
             // the game is definitely ended

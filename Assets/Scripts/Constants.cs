@@ -7,7 +7,22 @@ public static class Constants {
     public static string LEVEL_SPECIFIC_SOUND_TAG = "LevelSound";
     public static string ANIMATION_PRESENTATION_STATE = "Presentation";
     public static string APPSETTINGS_PLAYABLEGAMES_LABEL = "PLAYABLE_GAMES";
+    public static string APPSETTINGS_RANKING_LABEL = "RANKING";
+    public static string APPSETTINGS_RANKING_PREVIOUS_LABEL = "RANKING_PREV";
     public static string END_SCENE_NAME = "endgame";
+    public enum BirdColor
+    {
+        Red,
+        Blue,
+        Green,
+        Grey,
+        Orange,
+        Pink,
+        Sky,
+        Yellow
+    }
+    public static string BirdColorToString(BirdColor color) => System.Enum.GetName(color.GetType(), color).ToUpper();
+
     public enum GameName
     {
         BeachVolley,

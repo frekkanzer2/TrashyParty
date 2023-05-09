@@ -951,27 +951,35 @@ MonoBehaviour:
   colorMatches:
   - colorId: 1
     prefab: {fileID: 7322479139939081348, guid: a23feaf1d7a3acb449af59db52c27e97, type: 3}
+    birdColor: 0
     pointed: 0
   - colorId: 2
     prefab: {fileID: 7322479139939081348, guid: 24897ae8a3bb4a54aa01795daf3591e2, type: 3}
+    birdColor: 1
     pointed: 0
   - colorId: 3
     prefab: {fileID: 7322479139939081348, guid: a5838aec31d46484dae50507473ee3fb, type: 3}
+    birdColor: 2
     pointed: 0
   - colorId: 4
     prefab: {fileID: 7322479139939081348, guid: 403b70bdd839f28469746e7322ae3f8f, type: 3}
+    birdColor: 4
     pointed: 0
   - colorId: 5
     prefab: {fileID: 7322479139939081348, guid: c3cb180585aeec4469e939d15cc5077d, type: 3}
+    birdColor: 5
     pointed: 0
   - colorId: 6
     prefab: {fileID: 7322479139939081348, guid: b82586ea2f91d5f43823fbb089e4a580, type: 3}
+    birdColor: 6
     pointed: 0
   - colorId: 7
     prefab: {fileID: 7322479139939081348, guid: 55dbc2b7496d9a04f9cc96edea3d5bdf, type: 3}
+    birdColor: 7
     pointed: 0
   - colorId: 8
     prefab: {fileID: 7322479139939081348, guid: 0868bd344c52ed646b94d72432aa8345, type: 3}
+    birdColor: 3
     pointed: 0
   playerDisplayers:
   - {fileID: 258982461}

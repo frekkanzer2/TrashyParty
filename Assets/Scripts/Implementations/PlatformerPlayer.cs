@@ -213,6 +213,7 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
     #region IPlayer implementation
 
     public Vector3 RespawnPosition { get; set; }
+    public int Id { get; set; }
 
     public void IgnoreCollisionsWithOtherPlayers(bool active)
     {
