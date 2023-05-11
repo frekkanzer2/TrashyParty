@@ -64,6 +64,7 @@ public class TappyBirdGameManager : GameManager
     {
         this._isGameEnded = false;
         this._isGameStarted = false;
+        StopCoroutine("Generate");
         instance = 0;
         level = 0;
         GameObject[] tubes = GameObject.FindGameObjectsWithTag("Finish");

@@ -21,4 +21,5 @@ public interface IPlayer
     void SetCanJump(bool b);
     void SetCanWalk(bool b);
     Vector3 RespawnPosition { get; set; }
+    int Id { get; set; }
 }

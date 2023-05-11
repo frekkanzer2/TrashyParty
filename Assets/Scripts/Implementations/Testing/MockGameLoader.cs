@@ -13,9 +13,6 @@ public class MockGameLoader : MonoBehaviour, IGameLoader
             case Constants.GameName.BeachVolley:
                 sceneName += "beachvolley";
                 break;
-            case Constants.GameName.RocketBirdLeague:
-                sceneName += "rocketbirdleague";
-                break;
             case Constants.GameName.CloudyBoxes:
                 sceneName += "cloudyboxes";
                 break;
@@ -43,17 +40,38 @@ public class MockGameLoader : MonoBehaviour, IGameLoader
             case Constants.GameName.UfoInvasion:
                 sceneName += "ufoinvasion";
                 break;
-            case Constants.GameName.ShootyPerry:
-                sceneName += "shootyperry";
-                break;
             case Constants.GameName.ImTheKing:
                 sceneName += "imtheking";
                 break;
-            case Constants.GameName.ColorfulNests:
-                sceneName += "colorfulnests";
-                break;
             case Constants.GameName.BirdSoccer:
                 sceneName += "birdsoccer";
+                break;
+            case Constants.GameName.CatDance:
+                sceneName += "catdance";
+                break;
+            case Constants.GameName.Basketegg:
+                sceneName += "basketegg";
+                break;
+            case Constants.GameName.LaboratoryLights:
+                sceneName += "laboratorylights";
+                break;
+            case Constants.GameName.DetonationBird:
+                sceneName += "detonationbird";
+                break;
+            case Constants.GameName.FizzleFloor:
+                sceneName += "fizzlefloor";
+                break;
+            case Constants.GameName.UnderTheRain:
+                sceneName += "undertherain";
+                break;
+            case Constants.GameName.CatchUp:
+                sceneName += "catchup";
+                break;
+            case Constants.GameName.BombTag:
+                sceneName += "bombtag";
+                break;
+            case Constants.GameName.SuperHot:
+                sceneName += "superhot";
                 break;
             default:
                 throw new System.NullReferenceException($"No game named {game} is registered inside the loading component");
@@ -65,7 +83,7 @@ public class MockGameLoader : MonoBehaviour, IGameLoader
     // Start is called before the first frame update
     void Start()
     {
-        LoadGame();
+
     }
 
     // Update is called once per frame
