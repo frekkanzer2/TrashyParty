@@ -187,9 +187,16 @@ public abstract class GameManager : MonoBehaviour, IGameManager, IMultipleMatche
             {
                 CanChangeGame = false;
                 AssignPoints();
-                SceneManager.LoadScene("Ranking", LoadSceneMode.Single);
+                GameObject.FindGameObjectWithTag("TransitionManager").GetComponent<TransitionManager>().StartAnimationOnRoomEnds();
+                StartCoroutine(ExitGameDelayed());
             }
         }
+    }
+
+    private IEnumerator ExitGameDelayed()
+    {
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene("Ranking", LoadSceneMode.Single);
     }
 
     private void FixedUpdate()
