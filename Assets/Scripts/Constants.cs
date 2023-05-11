@@ -4,7 +4,7 @@ public static class Constants {
     public static int LAYER_DEADZONE = 29;
     public static int LAYER_GROUND = 6;
     public static int LAYER_PLAYERHEAD = 31;
-    public static int VICTORY_POINTS = 2;
+    public static int VICTORY_POINTS = 5;
     public static string LEVEL_SPECIFIC_SOUND_TAG = "LevelSound";
     public static string ANIMATION_PRESENTATION_STATE = "Presentation";
     public static string APPSETTINGS_PLAYABLEGAMES_LABEL = "PLAYABLE_GAMES";
