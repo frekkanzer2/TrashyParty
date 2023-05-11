@@ -11,9 +11,13 @@ public class LeaderboardManager : MonoBehaviour
     private RankingDto oldRanking;
     private int numberOfPlayers;
     public float WaitTimeForUpdate;
+    public ParticleSystem PS1;
+    public ParticleSystem PS2;
+    public ParticleSystem PS3;
 
     private void Start()
     {
+        PS1.gameObject.SetActive(false); PS2.gameObject.SetActive(false); PS3.gameObject.SetActive(false);
         numberOfPlayers = (int)AppSettings.Get("N_PLAYERS");
         MoveRankPositions();
         GameObject.FindGameObjectWithTag("TransitionManager").GetComponent<TransitionManager>().StartAnimationOnRoomOpens();
@@ -85,6 +89,8 @@ public class LeaderboardManager : MonoBehaviour
             Positions[i].SetData(oldRanks[i].PlayerSprite, oldRanks[i].Points, hasWon, oldRanks[i].PlayerId);
         }
         yield return new WaitForSeconds(waitTime);
+        PS1.gameObject.SetActive(true); PS2.gameObject.SetActive(true); PS3.gameObject.SetActive(true);
+        PS1.Play(); PS2.Play(); PS3.Play();
         for (int i = 0; i < numberOfPlayers; i++)
             Positions[i].SetData(newRanks[i].PlayerSprite, newRanks[i].Points, winnerIds.Contains(newRanks[i].PlayerId), newRanks[i].PlayerId);
         UpdateAllRanks(newRanks);
