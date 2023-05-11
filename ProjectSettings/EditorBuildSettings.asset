@@ -18,6 +18,9 @@ EditorBuildSettings:
     path: Assets/Scenes/endgame.unity
     guid: 1f7c6cdf4b04f9240bbfb513663213f9
   - enabled: 1
+    path: Assets/Scenes/Ranking.unity
+    guid: 4dafaf1998226804cb50c1ca739a4ce8
+  - enabled: 1
     path: Assets/Scenes/Games/Beach Volley/game_beachvolley.unity
     guid: bb0908bdd23a29b46ba54fadd353bfc6
   - enabled: 1

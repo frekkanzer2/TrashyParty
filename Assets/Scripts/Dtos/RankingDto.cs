@@ -41,7 +41,7 @@ public class RankingDto
     public List<Rank> GetRanking() {
         List<Rank> cloned = new();
         foreach (Rank r in this.ranks) cloned.Add(r.Clone());
-        cloned.Sort((r1, r2) => r1.Points.CompareTo(r2.Points));
+        cloned.Sort((r1, r2) => r2.Points.CompareTo(r1.Points));
         return cloned;
     }
 

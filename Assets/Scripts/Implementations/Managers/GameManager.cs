@@ -145,14 +145,17 @@ public abstract class GameManager : MonoBehaviour, IGameManager, IMultipleMatche
     public void AssignPoints()
     {
         TeamDto team = this.Teams.Find(t => t.Id == GetTeamIdThatReachedVictoriesLimit());
-        List<IPlayer> winners = team.players;
-        int[] winnersIds = new int[winners.Count];
-        for (int i = 0; i < winners.Count; i++) winnersIds[i] = winners[i].Id;
         RankingDto original = (RankingDto)AppSettings.Get(Constants.APPSETTINGS_RANKING_LABEL);
         RankingDto previous = original.Clone();
-        original.AddPoint(winnersIds);
-        AppSettings.Save(Constants.APPSETTINGS_RANKING_LABEL, original);
-        AppSettings.Save(Constants.APPSETTINGS_RANKING_PREVIOUS_LABEL, previous);
+        if (team != null)
+        {
+            List<IPlayer> winners = team.players;
+            int[] winnersIds = new int[winners.Count];
+            for (int i = 0; i < winners.Count; i++) winnersIds[i] = winners[i].Id;
+            original.AddPoint(winnersIds);
+            AppSettings.Save(Constants.APPSETTINGS_RANKING_LABEL, original);
+            AppSettings.Save(Constants.APPSETTINGS_RANKING_PREVIOUS_LABEL, previous);
+        }
     }
 
     #endregion
@@ -184,7 +187,7 @@ public abstract class GameManager : MonoBehaviour, IGameManager, IMultipleMatche
             {
                 CanChangeGame = false;
                 AssignPoints();
-                SceneManager.LoadScene("GameLoader", LoadSceneMode.Single);
+                SceneManager.LoadScene("Ranking", LoadSceneMode.Single);
             }
         }
     }

@@ -831,7 +831,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7373914986552958912}
-  - component: {fileID: 6560128334192187800}
+  - component: {fileID: 8934833624969052285}
   m_Layer: 0
   m_Name: Position (UI)
   m_TagString: Untagged
@@ -859,7 +859,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6560128334192187800
+--- !u!114 &8934833624969052285
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -868,10 +868,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 7373914986552958915}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0410a8d2b24354a419973874f5fe7a6d, type: 3}
+  m_Script: {fileID: 11500000, guid: d0bcd08c87b6ce349ade967e8f1ce4b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   renderer: {fileID: 7373914987551030437}
+  pointsText: {fileID: 2285853748468683577}
+  rankingText: {fileID: 2285853749791215005}
+  rank: 0
+  winBadge: {fileID: 2285853748903405356}
+  loseBadge: {fileID: 2285853748957291336}
+  neutralBadge: {fileID: 2285853748628316971}
 --- !u!1 &7373914986734975390
 GameObject:
   m_ObjectHideFlags: 0
