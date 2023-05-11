@@ -14,6 +14,9 @@ public class LeaderboardManager : MonoBehaviour
     public ParticleSystem PS1;
     public ParticleSystem PS2;
     public ParticleSystem PS3;
+    public AudioClip soundToExecute1;
+    public AudioClip soundToExecute2;
+    public AudioSource soundSource;
 
     private void Start()
     {
@@ -75,6 +78,9 @@ public class LeaderboardManager : MonoBehaviour
     IEnumerator UpdateLeaderboard(float waitTime)
     {
         yield return new WaitForSeconds(waitTime+1);
+        soundSource.clip = this.soundToExecute1;
+        soundSource.volume = 1;
+        soundSource.Play();
         List<RankingDto.Rank> oldRanks = oldRanking.GetRanking();
         List<RankingDto.Rank> newRanks = newRanking.GetRanking();
         List<int> winnerIds = new();
@@ -89,6 +95,8 @@ public class LeaderboardManager : MonoBehaviour
             Positions[i].SetData(oldRanks[i].PlayerSprite, oldRanks[i].Points, hasWon, oldRanks[i].PlayerId);
         }
         yield return new WaitForSeconds(waitTime);
+        soundSource.clip = this.soundToExecute2;
+        soundSource.Play();
         PS1.gameObject.SetActive(true); PS2.gameObject.SetActive(true); PS3.gameObject.SetActive(true);
         PS1.Play(); PS2.Play(); PS3.Play();
         for (int i = 0; i < numberOfPlayers; i++)
