@@ -107,9 +107,10 @@ public class MockGameSelector : MonoBehaviour, IGameSelector
         List<Constants.GameName> availables = (List<Constants.GameName>)AppSettings.Get(Constants.APPSETTINGS_PLAYABLEGAMES_LABEL);
         if (availables.Count == 0)
         {
-            // game is ended
-            SceneManager.LoadScene(Constants.END_SCENE_NAME, LoadSceneMode.Single);
-            return;
+            List<Constants.GameName> games = FilterGamesByPlayersNumber(numberOfPlayers);
+            games.Shuffle();
+            AppSettings.Save(Constants.APPSETTINGS_PLAYABLEGAMES_LABEL, games);
+            availables = games;
         }
         SelectGame(availables[0], numberOfPlayers);
         availables.RemoveAt(0);

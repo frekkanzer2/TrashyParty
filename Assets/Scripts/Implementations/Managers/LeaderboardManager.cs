@@ -105,10 +105,10 @@ public class LeaderboardManager : MonoBehaviour
         yield return new WaitForSeconds(waitTime*2);
         GameObject.FindGameObjectWithTag("TransitionManager").GetComponent<TransitionManager>().StartAnimationOnRoomEnds();
         yield return new WaitForSeconds(2);
-        if (newRanks.FindAll(r => r.Points >= 5 && r.Points >= newRanks.Max(r => r.Points)).Count == 1)
+        if (newRanks.FindAll(r => r.Points >= Constants.VICTORY_POINTS && r.Points >= newRanks.Max(r => r.Points)).Count == 1)
         {
-            // GAME ENDS
-            throw new System.NotImplementedException("Winner screen");
+            AppSettings.Save("Winner", newRanks.Find(r => r.Points >= newRanks.Max(r => r.Points)));
+            SceneManager.LoadScene("endgame", LoadSceneMode.Single);
         } else SceneManager.LoadScene("GameLoader", LoadSceneMode.Single);
     }
 

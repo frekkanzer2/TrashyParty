@@ -156,6 +156,8 @@ public abstract class GameManager : MonoBehaviour, IGameManager, IMultipleMatche
             AppSettings.Save(Constants.APPSETTINGS_RANKING_LABEL, original);
             AppSettings.Save(Constants.APPSETTINGS_RANKING_PREVIOUS_LABEL, previous);
         }
+        else
+            AppSettings.Save(Constants.APPSETTINGS_RANKING_PREVIOUS_LABEL, original);
     }
 
     #endregion

@@ -17,7 +17,7 @@ public class OpeningSceneBehaviour : MonoBehaviour
 
     IEnumerator EnableEsc()
     {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(4f);
         canPress = true;
     }
 
