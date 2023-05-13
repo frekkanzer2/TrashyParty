@@ -275,4 +275,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsLeftRotation: 0
-  RotationSpeed: 0.05
+  RotationSpeed: 5

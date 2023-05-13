@@ -181,7 +181,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsLeftRotation: 0
-  RotationSpeed: 0.08
+  RotationSpeed: 12
 --- !u!1 &2580905573647868455
 GameObject:
   m_ObjectHideFlags: 0

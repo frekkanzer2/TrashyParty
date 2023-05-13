@@ -7,17 +7,25 @@ public class PlatformerPlayerTrapRun : PlatformerPlayer
 
     private bool isTempDeath = false;
     private Animator bodyAnimator = null;
-    private Vector3 respawnPosition = Vector3.zero;
+    public bool DEBUG;
 
     protected override void VariantStart()
     {
         base.VariantStart();
-        bodyAnimator = body.GetChild(0).gameObject.GetComponent<Animator>();
-        respawnPosition = this.transform.position;
+        RespawnPosition = this.transform.position;
     }
 
     protected override void VariantUpdate()
     {
+        if (DEBUG)
+            Debug.Log($"STATUS OF PLAYER: IsDead {this.IsDead()} | IsTempDeath {this.isTempDeath} | CanJump {this.canJump} | CanWalk {this.canWalk}");
+        if (bodyAnimator is null)
+        {
+            try
+            {
+                bodyAnimator = body.GetChild(0).gameObject.GetComponent<Animator>();
+            } catch (UnityException) { }
+        }
     }
 
     protected override void VariantFixedUpdate()
@@ -27,12 +35,41 @@ public class PlatformerPlayerTrapRun : PlatformerPlayer
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (isDead || isTempDeath) return;
-        if (collision.gameObject.layer == Constants.LAYER_DEADZONE && !GameManager.Instance.IsGameEnded())
+        int layer = collision.gameObject.layer;
+        Transform collisionTransform = collision.gameObject.transform;
+        if (layer == Constants.LAYER_DEADZONE && !GameManager.Instance.IsGameEnded())
         {
             OnTempDeath();
             DestroyableObstacle obstacle = collision.gameObject.GetComponent<DestroyableObstacle>();
             if (obstacle is not null) obstacle.RegisterCollision();
-        } else if (collision.gameObject.name == "downdoor")
+        }
+        PlatformerPlayer collidedPlayer;
+        try
+        {
+            collidedPlayer = collisionTransform.parent.gameObject.GetComponent<PlatformerPlayer>();
+        }
+        catch (System.NullReferenceException)
+        {
+            return;
+        }
+        if (layer == Constants.LAYER_PLAYERHEAD && this.transform.position.y >= collisionTransform.position.y && !GameManager.Instance.IsGameEnded())
+        {
+            if (collidedPlayer != null)
+            {
+                if (
+                    this.canConfuseOtherBirds && 
+                    !this._isConfused && 
+                    !collidedPlayer.IsConfused && 
+                    !collidedPlayer.IsDead() && 
+                    !((PlatformerPlayerTrapRun)collidedPlayer).isTempDeath
+                ) collidedPlayer.SetConfusion(true);
+            }
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.name == "downdoor")
         {
             IPlayer winner = this;
             List<TeamDto> loserTeams = GameManager.Instance.Teams.FindAll(t => t.GetAlivePlayers().Count > 0 && !t.players[0].Equals(winner));
@@ -64,7 +101,7 @@ public class PlatformerPlayerTrapRun : PlatformerPlayer
         yield return new WaitForSeconds(2);
         if (!isDead)
         {
-            this.transform.position = respawnPosition;
+            this.transform.position = RespawnPosition;
             isTempDeath = false;
             this.canWalk = true;
             this.canJump = true;

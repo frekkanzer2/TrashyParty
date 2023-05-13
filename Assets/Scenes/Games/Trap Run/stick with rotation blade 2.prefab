@@ -119,7 +119,7 @@ Transform:
   - {fileID: 8414244342728253797}
   - {fileID: 8414244343260660707}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &8414244342681971990
 CircleCollider2D:
@@ -302,7 +302,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsLeftRotation: 0
-  RotationSpeed: 0.08
+  RotationSpeed: 12
 --- !u!1 &8414244343260660708
 GameObject:
   m_ObjectHideFlags: 0
@@ -401,4 +401,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsLeftRotation: 1
-  RotationSpeed: 0.06
+  RotationSpeed: 16

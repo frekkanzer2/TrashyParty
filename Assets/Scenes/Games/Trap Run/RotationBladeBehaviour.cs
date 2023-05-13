@@ -13,8 +13,8 @@ public class RotationBladeBehaviour : MonoBehaviour
     {
         this.gameObject.transform.eulerAngles = new Vector3(
            this.gameObject.transform.eulerAngles.x,
-           (IsLeftRotation) ? this.gameObject.transform.eulerAngles.y + RotationSpeed : this.gameObject.transform.eulerAngles.y - RotationSpeed,
-           this.gameObject.transform.eulerAngles.z
+           this.gameObject.transform.eulerAngles.y,
+           (IsLeftRotation) ? this.gameObject.transform.eulerAngles.z + RotationSpeed : this.gameObject.transform.eulerAngles.z - RotationSpeed
        );
     }
 }
