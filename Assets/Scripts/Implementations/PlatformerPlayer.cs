@@ -266,7 +266,7 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
         throw new System.NotImplementedException();
     }
 
-    public void OnDeath()
+    public virtual void OnDeath()
     {
         if (isDead) return;
         SetConfusion(false);
