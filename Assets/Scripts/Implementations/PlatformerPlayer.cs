@@ -81,7 +81,7 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
         }
         if (layer == Constants.LAYER_PLAYERHEAD && this.transform.position.y >= collisionTransform.position.y && !GameManager.Instance.IsGameEnded())
         {
-            if (collidedPlayer != null)
+            if (collidedPlayer != null && GameManager.Instance.IsGameStarted())
             {
                 if (this.canKillOtherBirds) collidedPlayer.OnDeath();
                 else if (this.canConfuseOtherBirds && !this._isConfused && !collidedPlayer._isConfused && !collidedPlayer.isDead) collidedPlayer.SetConfusion(true);
