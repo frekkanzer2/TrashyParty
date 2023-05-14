@@ -58,7 +58,7 @@ public class PlatformerPlayerTrapRun : PlatformerPlayer
             {
                 if (
                     this.canConfuseOtherBirds && 
-                    !this._isConfused && 
+                    !this.IsConfused && 
                     !collidedPlayer.IsConfused && 
                     !collidedPlayer.IsDead() && 
                     !((PlatformerPlayerTrapRun)collidedPlayer).isTempDeath

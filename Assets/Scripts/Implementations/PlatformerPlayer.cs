@@ -34,8 +34,9 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
     protected float originalGravity;
     private bool isWaitingRejump = false;
     private bool canKillOtherBirds = false;
-    protected bool isConfused = false;
-    private bool canConfuseOtherBirds = false;
+    private bool _isConfused = false;
+    public bool IsConfused { get { return _isConfused; } }
+    protected bool canConfuseOtherBirds = false;
     private Vector2 lastPositionBeforeConfusing = Vector2.zero;
     private float movementSpeed = Constants.PLAYER_MOVEMENT_SPEED, jumpingPower = Constants.PLAYER_JUMPING_POWER;
     #endregion
@@ -83,7 +84,7 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
             if (collidedPlayer != null)
             {
                 if (this.canKillOtherBirds) collidedPlayer.OnDeath();
-                else if (this.canConfuseOtherBirds && !this.isConfused && !collidedPlayer.isConfused && !collidedPlayer.isDead) collidedPlayer.SetConfusion(true);
+                else if (this.canConfuseOtherBirds && !this._isConfused && !collidedPlayer._isConfused && !collidedPlayer.isDead) collidedPlayer.SetConfusion(true);
             }
         }
     }
@@ -103,7 +104,7 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
     // Update is called once per frame
     void Update()
     {
-        if (isConfused)
+        if (_isConfused)
             this.transform.position = new Vector3(this.lastPositionBeforeConfusing.x, this.transform.position.y, 0);
         if (foots.gameObject.activeInHierarchy == true && isDead && isGrounded())
         {
@@ -132,7 +133,7 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
     }
     private void ExecuteJump()
     {
-        if (canJump && !isConfused)
+        if (canJump && !_isConfused)
             if (gamepad.IsButtonPressed(IGamepad.Key.ActionButtonDown, IGamepad.PressureType.Single) && jumpCount < JumpLimit && !isWaitingRejump)
             {
                 jumpCount++;
@@ -155,7 +156,7 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
 
     void FixedUpdate()
     {
-        if (!IsInitialized || isDead || !canPlay || isConfused) return;
+        if (!IsInitialized || isDead || !canPlay || _isConfused) return;
         rigidbody.velocity = new Vector2(movementData.x * movementSpeed, rigidbody.velocity.y);
         VariantFixedUpdate();
     }
@@ -171,7 +172,7 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
         lastPositionBeforeConfusing = this.transform.position;
         confusionEffect.SetActive(active);
         body.GetChild(0).gameObject.GetComponent<SpriteRenderer>().flipY = active;
-        isConfused = active;
+        _isConfused = active;
         if (active)
         {
             rigidbody.velocity = Vector2.zero;
@@ -267,7 +268,7 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
         throw new System.NotImplementedException();
     }
 
-    public void OnDeath()
+    public virtual void OnDeath()
     {
         if (isDead) return;
         SetConfusion(false);
@@ -316,7 +317,7 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
 
     protected void flipPlayerAnimation()
     {
-        if (isConfused) return;
+        if (_isConfused) return;
         if (this.movementData.x > 0.2f)
             body.GetChild(0).gameObject.GetComponent<SpriteRenderer>().flipX = false;
         else if (this.movementData.x < -0.2f)
