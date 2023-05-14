@@ -203,7 +203,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4320b01beba51b49ad540c9c26341c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxNumberOfCollisions: 5
+  MaxNumberOfCollisions: 3
 --- !u!1 &8414244342728253798
 GameObject:
   m_ObjectHideFlags: 0
