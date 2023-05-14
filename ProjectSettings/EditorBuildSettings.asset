@@ -83,4 +83,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Games/Super Hot/game_superhot.unity
     guid: 46d54e10fd5d64b4b8c630c34fd49cb5
+  - enabled: 1
+    path: Assets/Scenes/Games/Trap Run/game_traprun.unity
+    guid: 4f94380a61e53cb4b93cc381eac405f4
   m_configObjects: {}

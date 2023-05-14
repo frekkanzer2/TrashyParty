@@ -45,6 +45,7 @@ public static class Constants {
         UnderTheRain,
         CatchUp,
         BombTag,
-        SuperHot
+        SuperHot,
+        TrapRun
     }
 }

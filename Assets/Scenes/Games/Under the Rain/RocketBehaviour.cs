@@ -8,15 +8,10 @@ public class RocketBehaviour : MonoBehaviour
     public GameObject ExplosionPrefab;
     public AudioClip BombExplosionSound;
     public Rigidbody2D rb;
-    bool m_oneTime = false;
 
     private void FixedUpdate()
     {
-        if (!m_oneTime)
-        {
-            m_oneTime = true;
-            rb.AddForce(new Vector2(0, -400), ForceMode2D.Force);
-        }
+        rb.MovePosition(transform.position + Vector3.up * -1 * Time.deltaTime * 8);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -33,7 +28,8 @@ public class RocketBehaviour : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.layer == Constants.LAYER_DEADZONE)
-            Destroy(this.gameObject);
+            if (collision.gameObject.name.ToLower().Contains("deadzone"))
+                Destroy(this.gameObject);
     }
 
 }

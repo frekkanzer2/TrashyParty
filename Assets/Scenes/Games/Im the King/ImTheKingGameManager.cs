@@ -48,7 +48,8 @@ public class ImTheKingGameManager : GameManager
         {
             player.IgnoreCollisionsWithOtherPlayers(false);
             player.SetJumpLimit(2);
-            ((PlatformerPlayer)player).SetCanKillOtherBirds(true);
+            ((PlatformerPlayer)player).SetCanKillOtherBirds(false);
+            ((PlatformerPlayer)player).SetCanConfuseOtherBirds(true);
         }
     }
 
