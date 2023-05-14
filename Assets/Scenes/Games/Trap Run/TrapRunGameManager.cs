@@ -5,6 +5,12 @@ using UnityEngine;
 public class TrapRunGameManager : GameManager
 {
 
+    public GameObject Missile;
+    public GameObject SpawnpointRockets1;
+    public GameObject SpawnpointRockets2;
+    public GameObject SpawnpointRockets3;
+    public GameObject Fireball;
+
     public override void OnPlayerDies()
     {
         base.OnPlayerDies();
@@ -18,6 +24,43 @@ public class TrapRunGameManager : GameManager
     public override void OnPreparationEndsGameSpecific()
     {
         SoundManager.PlayRandomGameSoundtrack();
+        StartCoroutine(MissileGeneration(5, SpawnpointRockets1.transform.position));
+        StartCoroutine(MissileGeneration(2.5f, SpawnpointRockets2.transform.position));
+        StartCoroutine(MissileGeneration(3.8f, SpawnpointRockets3.transform.position));
+        StartCoroutine(FireballGeneration(7f, new(37.95078f, 15.53f, 0)));
+        StartCoroutine(FireballGeneration(10f, new(37.95078f, 12.96f, 0)));
+    }
+
+
+
+    IEnumerator MissileGeneration(float timeToWait, Vector3 pos)
+    {
+        yield return new WaitForSeconds(timeToWait);
+        if (!GameManager.Instance.IsGameEnded())
+        {
+            Instantiate(Missile, pos, Quaternion.identity);
+            StartCoroutine(
+                MissileGeneration(
+                    timeToWait,
+                    pos
+                )
+            );
+        }
+    }
+
+    IEnumerator FireballGeneration(float timeToWait, Vector3 pos)
+    {
+        yield return new WaitForSeconds(timeToWait);
+        if (!GameManager.Instance.IsGameEnded())
+        {
+            Instantiate(Fireball, pos, Quaternion.identity);
+            StartCoroutine(
+                FireballGeneration(
+                    timeToWait,
+                    pos
+                )
+            );
+        }
     }
 
     public override void RestartMatch()

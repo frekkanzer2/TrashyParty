@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 8414244342681971990}
   - component: {fileID: 8414244342681971991}
   - component: {fileID: -8038073041154153340}
-  m_Layer: 0
+  m_Layer: 29
   m_Name: stick with rotation blade 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}

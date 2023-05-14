@@ -62,6 +62,7 @@ public class PlatformerPlayerTrapRun : PlatformerPlayer
                     !collidedPlayer.IsConfused && 
                     !collidedPlayer.IsDead() && 
                     !((PlatformerPlayerTrapRun)collidedPlayer).isTempDeath
+                    && GameManager.Instance.IsGameStarted()
                 ) collidedPlayer.SetConfusion(true);
             }
         }
