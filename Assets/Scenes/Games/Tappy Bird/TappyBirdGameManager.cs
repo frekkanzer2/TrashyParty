@@ -7,6 +7,7 @@ public class TappyBirdGameManager : GameManager
 
     public GameObject little, medium, big;
     private int level = 0, instance = 0;
+    private int actualRoundId = 1;
 
     public override void OnPlayerDies()
     {
@@ -30,34 +31,40 @@ public class TappyBirdGameManager : GameManager
         }
         this.level = 1;
         this.instance = 0;
-        StartCoroutine(Generate(2));
+        StartCoroutine(Generate(2, actualRoundId));
     }
 
-    IEnumerator Generate(float waitingTime)
+    IEnumerator Generate(float waitingTime, int roundId)
     {
         Vector3 spawnPosition = new Vector3(42, Random.Range(-12.5f, 12.5f), 0);
         GameObject generated = null;
-        switch(level)
+        if (roundId == actualRoundId)
         {
-            case 1:
-                generated = Instantiate(little, spawnPosition, Quaternion.identity);
-                break;
-            case 2:
-                generated = Instantiate(medium, spawnPosition, Quaternion.identity);
-                break;
-            case 3:
-                generated = Instantiate(big, spawnPosition, Quaternion.identity);
-                break;
-        }
-        if (!GameManager.Instance.IsGameEnded())
-        {
-            instance++;
-            if (instance == 10) level = 2;
-            if (instance == 20) level = 3;
+            switch (level)
+            {
+                case 1:
+                    generated = Instantiate(little, spawnPosition, Quaternion.identity);
+                    break;
+                case 2:
+                    generated = Instantiate(medium, spawnPosition, Quaternion.identity);
+                    break;
+                case 3:
+                    generated = Instantiate(big, spawnPosition, Quaternion.identity);
+                    break;
+            }
+            if (!GameManager.Instance.IsGameEnded())
+            {
+                instance++;
+                if (instance == 10) level = 2;
+                if (instance == 20) level = 3;
+            }
         }
         yield return new WaitForSeconds(waitingTime);
-        if (instance > 30 && waitingTime > 1) waitingTime -= 0.05f;
-        if (!GameManager.Instance.IsGameEnded()) StartCoroutine(Generate(waitingTime));
+        if (roundId == actualRoundId)
+        {
+            if (instance > 30 && waitingTime > 1) waitingTime -= 0.05f;
+            if (!GameManager.Instance.IsGameEnded()) StartCoroutine(Generate(waitingTime, roundId));
+        }
     }
 
     public override void RestartMatch()
@@ -83,6 +90,7 @@ public class TappyBirdGameManager : GameManager
             pp.gameObject.transform.position = p.RespawnPosition;
         }
         SoundManager.PlayCountdown();
+        actualRoundId++;
     }
 
     protected override void FixedUpdateGameSpecificBehaviour()
