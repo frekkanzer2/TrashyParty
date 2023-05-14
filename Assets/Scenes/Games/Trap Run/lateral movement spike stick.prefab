@@ -300,7 +300,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4320b01beba51b49ad540c9c26341c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxNumberOfCollisions: 5
+  MaxNumberOfCollisions: 3
 --- !u!95 &5167006597536378836
 Animator:
   serializedVersion: 5
