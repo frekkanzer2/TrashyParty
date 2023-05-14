@@ -4,10 +4,8 @@ using UnityEngine;
 using System.Linq;
 using UnityEngine.SceneManagement;
 
-public class MockGameSelector : MonoBehaviour, IGameSelector
+public class GameSelector : MonoBehaviour, IGameSelector
 {
-
-    [SerializeField] private Constants.GameName gameName;
 
     public List<Constants.GameName> FilterGamesByPlayersNumber(int numberOfPlayers)
     {

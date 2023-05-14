@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MockGameLoader : MonoBehaviour, IGameLoader
+public class GameLoader : MonoBehaviour, IGameLoader
 {
     public void LoadGame()
     {
