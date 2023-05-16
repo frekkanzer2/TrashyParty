@@ -69,15 +69,16 @@ In creation order:
 ![image](https://github.com/frekkanzer2/TrashyParty/assets/24304905/48e938cb-ec78-4e78-85ca-0670cd1811db)
 
 
+![image](https://github.com/frekkanzer2/TrashyParty/assets/24304905/737fce38-398d-4d09-a78e-f846dd82a77f)
+
+
 ## Future Minigames with lateral view
 - Hunting Season (avoid hunter bullets)
 - Birdy Fight (birds can pickup a weapon and shoot the others)
 - Eggs Kart (change lane to avoid incoming eggs)
 - Colorful Nests (capture as many nests as possible)
-- Trap Run (complete the stage without touching the obstacles)
 - Speedy Replication (replicate the keystroke shown exclusively for your bird)
 - Chubby and Heavy (the bird must jump on the head of the other bird: he will not be able to jump anymore)
-- Static Stun (the stun on a player will reject both and will create an electricity sphere: avoid it)
 - Eggy Treasure (collect the eggs that will spawn in the map and return them in the chest - the first one that deposits 10 eggs will win - it anyone stuns you, you lose the egg)
 - Eggs Rush (pick the egg that spawns: if you remain without an egg, you will die)
 - Egg Hatching (be the last to touch the egg before it hatches)
