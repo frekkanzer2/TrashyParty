@@ -18,7 +18,7 @@ public class PlatformerPlayerStaticStun : PlatformerPlayer
             else if (rigidbody.velocity.x < VelocityResetSpeed)
                 rigidbody.velocity = Extensions.Vector3.FromVector2(rigidbody.velocity).Variation(VelocityResetSpeed, 0, 0);
         }
-        if (!IsInitialized || isDead || !canPlay || _isConfused) return;
+        if (!IsInitialized || isDead || !canPlay || IsConfused) return;
         rigidbody.velocity = new Vector2(movementData.x * Constants.PLAYER_MOVEMENT_SPEED, rigidbody.velocity.y);
     }
 
@@ -63,7 +63,7 @@ public class PlatformerPlayerStaticStun : PlatformerPlayer
         if (layer == Constants.LAYER_PLAYERHEAD && this.transform.position.y >= collisionTransform.position.y && !GameManager.Instance.IsGameEnded())
         {
             if (collidedPlayer != null && GameManager.Instance.IsGameStarted())
-                if (this.canConfuseOtherBirds && !this._isConfused && !collidedPlayer.IsConfused && !collidedPlayer.IsDead())
+                if (this.canConfuseOtherBirds && !this.IsConfused && !collidedPlayer.IsConfused && !collidedPlayer.IsDead())
                 {
                     this.SetConfusion(true);
                     collidedPlayer.SetConfusion(true);
