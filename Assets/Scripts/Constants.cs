@@ -32,6 +32,7 @@ public static class Constants {
         CatchUp,
         BombTag,
         SuperHot,
-        TrapRun
+        TrapRun,
+        StaticStun
     }
 }

@@ -126,12 +126,12 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
         VariantUpdate();
     }
 
-    private void ExecuteMovement()
+    protected void ExecuteMovement()
     {
         if (canWalk) movementData = gamepad.GetAnalogMovement(IGamepad.Analog.Left);
         else movementData = Vector2.zero;
     }
-    private void ExecuteJump()
+    protected void ExecuteJump()
     {
         if (canJump && !_isConfused)
             if (gamepad.IsButtonPressed(IGamepad.Key.ActionButtonDown, IGamepad.PressureType.Single) && jumpCount < JumpLimit && !isWaitingRejump)
