@@ -23,6 +23,11 @@ public class GCEAGameManager : GameManager
     {
         SoundManager.PlayRandomGameSoundtrack();
         StartCoroutine(StartCatching());
+        foreach(TeamDto t in this.Teams) t.players = new();
+        this.players.Shuffle();
+        this.Teams.Find(t => t.Id == 1).players.Add(this.players[0]);
+        for (int i = 1; i < this.players.Count; i++)
+            this.Teams.Find(t => t.Id == 2).players.Add(this.players[i]);
     }
 
     IEnumerator StartCatching()
