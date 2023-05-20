@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8806518394094228669}
   - component: {fileID: 8509662419976997220}
   - component: {fileID: 1069163797879119723}
+  - component: {fileID: 7850782594615480419}
   m_Layer: 0
   m_Name: EggToPick
   m_TagString: Pickable
@@ -99,10 +100,10 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 1.5
   m_LinearDrag: 0
-  m_AngularDrag: 0.1
-  m_GravityScale: 0
+  m_AngularDrag: 1.5
+  m_GravityScale: 1.2
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -123,7 +124,7 @@ PolygonCollider2D:
   m_GameObject: {fileID: 5691801726918503944}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 714d574124b05ae40a571e9d2f192bc0, type: 2}
+  m_Material: {fileID: 6200000, guid: fd089ce372c62e64e95733057d931fc4, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -333,3 +334,15 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &7850782594615480419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5691801726918503944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4816fa786b5511840a332425cd43d48e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

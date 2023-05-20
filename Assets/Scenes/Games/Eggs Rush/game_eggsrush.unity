@@ -200,10 +200,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 196811533}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 582d1ac84f9d6a6438ea71fb30f9e66d, type: 3}
+  m_Script: {fileID: 11500000, guid: 64013bc39cf7be3439471ebb6759c12e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerPrefab: {fileID: 1468634896784324710, guid: 81d2229bce7ef1b4b8ccb2c975b755c9, type: 3}
+  PlayerPrefab: {fileID: 1468634896784324710, guid: 9c8c002abb8c4e045bbf71d7e39cd15d, type: 3}
   ActivableFor2Players: []
   ActivableFor3Players: []
   ActivableFor4Players: []
@@ -332,7 +332,24 @@ MonoBehaviour:
       spawnpoints:
       - {fileID: 443772350}
   Teams: []
-  BombPrefab: {fileID: 6446092175580194405, guid: 8683a004b62822b47988d1997e8b3d00, type: 3}
+  EggSpawners:
+  - {fileID: 1127642229}
+  - {fileID: 345699069}
+  - {fileID: 815075319}
+  - {fileID: 1326243988}
+  - {fileID: 1963216884}
+  - {fileID: 1278017752}
+  - {fileID: 1273401346}
+  - {fileID: 1517034435}
+  - {fileID: 551759487}
+  - {fileID: 967302499}
+  - {fileID: 671560583}
+  - {fileID: 1230402676}
+  - {fileID: 282145169}
+  - {fileID: 274737726}
+  - {fileID: 1795249719}
+  - {fileID: 1880439158}
+  EggPrefab: {fileID: 5691801726918503944, guid: b7ff6960e9f03d040b0f573ef2b75261, type: 3}
 --- !u!1 &240451888
 GameObject:
   m_ObjectHideFlags: 0

@@ -33,6 +33,7 @@ public static class Constants {
         BombTag,
         SuperHot,
         TrapRun,
-        StaticStun
+        StaticStun,
+        EggsRush
     }
 }
