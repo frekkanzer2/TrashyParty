@@ -19,7 +19,7 @@ public class EggToPickBehaviour : MonoBehaviour
         this.GetComponent<Animator>().Play("hidingegg");
         yield return new WaitForSeconds(5);
         ((EggsRushGameManager)GameManager.Instance).OnEggCollided(this.gameObject);
-        Destroy(this.gameObject, 2);
+        Destroy(this.gameObject, 1);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
