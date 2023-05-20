@@ -105,7 +105,11 @@ public abstract class GameManager : MonoBehaviour, IGameManager, IMultipleMatche
         List<System.Tuple<GameObject, int, int>> playerRecords = new(); // Tuple<colorPrefab, controllerId, PlayerNumber>
         int numberOfPlayers = (int)AppSettings.Get("N_PLAYERS");
         for (int i = 1; i <= numberOfPlayers; i++)
-            playerRecords.Add(new((GameObject)AppSettings.Get("COLOR_PLAYER" + i), (int)AppSettings.Get("GAMEPAD_PLAYER" + i), i));
+        {
+            GameObject color = (GameObject)AppSettings.Get("COLOR_PLAYER" + i);
+            int gp = (int)AppSettings.Get("GAMEPAD_PLAYER" + i);
+            playerRecords.Add(new(color, gp, i));
+        }
         playerRecords.Shuffle();
         for (int i = 0, teamIndex = 0, teamCycle = 0; i < numberOfPlayers; i++, teamIndex++)
         {
