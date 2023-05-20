@@ -92,4 +92,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Games/Eggs Rush/game_eggsrush.unity
     guid: 5f4939892dfb7eb41ac5ae9eec8e1571
+  - enabled: 1
+    path: Assets/Scenes/Games/GottaCatchEmAll/game_gottacatchemall.unity
+    guid: d534849dab836ab4fbcb4eb73400965c
   m_configObjects: {}

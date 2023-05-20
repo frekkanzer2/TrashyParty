@@ -82,6 +82,9 @@ public class GameLoader : MonoBehaviour, IGameLoader
             case Constants.GameName.EggsRush:
                 sceneName += "eggsrush";
                 break;
+            case Constants.GameName.GCEA:
+                sceneName += "gottacatchemall";
+                break;
             default:
                 throw new System.NullReferenceException($"No game named {game} is registered inside the loading component");
         }
