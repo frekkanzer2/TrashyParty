@@ -80,10 +80,13 @@ In creation order:
 - Birdy Fight (birds can pickup a weapon and shoot the others)
 - Eggs Kart (change lane to avoid incoming eggs)
 - Colorful Nests (capture as many nests as possible)
-- Speedy Replication (replicate the keystroke shown exclusively for your bird)
+- Aura Replication (replicate the keystroke shown exclusively for your bird (each key will show an aura))
 - Chubby and Heavy (the bird must jump on the head of the other bird: he will not be able to jump anymore)
 - Eggy Treasure (collect the eggs that will spawn in the map and return them in the chest - the first one that deposits 10 eggs will win - it anyone stuns you, you lose the egg)
 - Egg Hatching (be the last to touch the egg before it hatches)
+- Hottie Floor (like Fizzle Floor, but players jumps continuously like in Cloudy Boxes: cubes will disappear when player touches them)
+- Galaxian Birds (two teams: first one are birds like ufo, second one are galaxips - the galaxips will shot to the ufo-birds that must avoid projectiles)
+- As the Kagome Will (some Kagomes will dance around the bird: press the right button to stop in the right time the Kagomes - you should have the femake Kagome behind you to win)
 
 ## Future Minigames with view from above
 - Rocket Birdy League (Rocket League with birds)
@@ -95,6 +98,7 @@ In creation order:
 - Birdjammers (Windjammers-like game)
 - Betrayer Bird (one player is the killer with a shotgun, that will kill every bird in 1 minute)
 - Takeshi's Bird (Takeshi's Castle final round game: https://www.youtube.com/watch?v=3vFZXg4OlFQ&ab_channel=Gambit771)
+- Laser Dodge (Laser League game)
 
 ### Create title sprite for Minigames
 - Download the following Paint.net plugin and install it: https://forums.getpaint.net/topic/121343-boltbaits-gpu-accelerated-plugin-pack-for-paintnet-v50-updated-2023-01-28/
