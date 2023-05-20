@@ -85,8 +85,8 @@ In creation order:
 - Eggy Treasure (collect the eggs that will spawn in the map and return them in the chest - the first one that deposits 10 eggs will win - it anyone stuns you, you lose the egg)
 - Egg Hatching (be the last to touch the egg before it hatches)
 - Hottie Floor (like Fizzle Floor, but players jumps continuously like in Cloudy Boxes: cubes will disappear when player touches them)
-- Galaxian Birds (two teams: first one are birds like ufo, second one are galaxips - the galaxips will shot to the ufo-birds that must avoid projectiles)
-- As the Kagome Will (some Kagomes will dance around the bird: press the right button to stop in the right time the Kagomes - you should have the femake Kagome behind you to win)
+- Galaxian Birds (two teams: first one are birds like ufo, second one are galaxips - the galaxips will shot to the ufo-birds that must avoid projectiles - time limit: 1 minute)
+- As the Kagome Will (some Kagomes will dance around the bird: press the right button to stop in the right time the Kagomes - you should have the femake Kagome behind you to win - round time limit: 10 seconds)
 
 ## Future Minigames with view from above
 - Rocket Birdy League (Rocket League with birds)
