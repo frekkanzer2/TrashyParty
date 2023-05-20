@@ -72,6 +72,9 @@ In creation order:
 ![image](https://github.com/frekkanzer2/TrashyParty/assets/24304905/737fce38-398d-4d09-a78e-f846dd82a77f)
 
 
+![image](https://github.com/frekkanzer2/TrashyParty/assets/24304905/a7ba42b3-6d98-49da-9b4c-4249baf45c34)
+
+
 ## Future Minigames with lateral view
 - Hunting Season (avoid hunter bullets)
 - Birdy Fight (birds can pickup a weapon and shoot the others)
@@ -80,7 +83,6 @@ In creation order:
 - Speedy Replication (replicate the keystroke shown exclusively for your bird)
 - Chubby and Heavy (the bird must jump on the head of the other bird: he will not be able to jump anymore)
 - Eggy Treasure (collect the eggs that will spawn in the map and return them in the chest - the first one that deposits 10 eggs will win - it anyone stuns you, you lose the egg)
-- Eggs Rush (pick the egg that spawns: if you remain without an egg, you will die)
 - Egg Hatching (be the last to touch the egg before it hatches)
 
 ## Future Minigames with view from above
