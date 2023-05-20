@@ -34,6 +34,7 @@ public static class Constants {
         SuperHot,
         TrapRun,
         StaticStun,
-        EggsRush
+        EggsRush,
+        GCEA
     }
 }
