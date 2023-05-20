@@ -79,6 +79,9 @@ public class GameLoader : MonoBehaviour, IGameLoader
             case Constants.GameName.StaticStun:
                 sceneName += "staticstun";
                 break;
+            case Constants.GameName.EggsRush:
+                sceneName += "eggsrush";
+                break;
             default:
                 throw new System.NullReferenceException($"No game named {game} is registered inside the loading component");
         }
