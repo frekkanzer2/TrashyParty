@@ -169,6 +169,8 @@ public class ChoosePlayerManager : MonoBehaviour, IPlayersSelectorManager
     public void ConfirmAndGoToGameChoise()
     {
         AppSettings.Save("N_PLAYERS", playerDtos.Count);
+        if (playerDtos.Count <= 4) Constants.VICTORY_POINTS = 5;
+        else Constants.VICTORY_POINTS = 10;
         List<RankingDto.Rank> emptyRanks = new List<RankingDto.Rank>();
         for (int i = 0; i < playerDtos.Count; i++)
         {
