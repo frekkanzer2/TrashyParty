@@ -70,9 +70,10 @@ public class GCEAGameManager : GameManager
             ((PlatformerPlayerGCEA)player).SetCanConfuseOtherBirds(false);
             ((PlatformerPlayer)player).GetHead().GetComponent<Collider2D>().isTrigger = false;
         }
-        if (this.players.Count == 2) TimeLeft = 90;
-        else if (this.players.Count == 4 || this.players.Count == 6) TimeLeft = 60;
-        else if (this.players.Count == 8) TimeLeft = 40;
+        if (this.players.Count == 2) TimeLeft = 45;
+        else if (this.players.Count <= 4) TimeLeft = 80;
+        else if (this.players.Count <= 6) TimeLeft = 120;
+        else if (this.players.Count <= 8) TimeLeft = 180;
     }
 
     private float TimeLeft = 0;
