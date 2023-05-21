@@ -18,6 +18,7 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
     [SerializeField] protected Transform foots;
     [SerializeField] protected Transform body;
     [SerializeField] protected Transform head;
+    [SerializeField] protected GameObject confusionEffect;
     public GameObject GetHead() => head.gameObject;
     public GameObject GetFoots() => foots.gameObject;
     [SerializeField] protected LayerMask groundTag;
@@ -33,7 +34,18 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
     protected float originalGravity;
     private bool isWaitingRejump = false;
     private bool canKillOtherBirds = false;
+    public bool IsConfused { get { return _isConfused; } }
+    protected bool _isConfused = false;
+    protected bool canConfuseOtherBirds = false;
+    private Vector2 lastPositionBeforeConfusing = Vector2.zero;
+    private float movementSpeed = Constants.PLAYER_MOVEMENT_SPEED, jumpingPower = Constants.PLAYER_JUMPING_POWER;
     #endregion
+
+    public void ChangePlayerStats(float movementSpeed, float jumpingPower)
+    {
+        this.movementSpeed = movementSpeed;
+        this.jumpingPower = jumpingPower;
+    }
 
     public override bool Equals(object other)
     {
@@ -47,11 +59,39 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.layer == Constants.LAYER_DEADZONE && !GameManager.Instance.IsGameEnded())
+        OnTriggerEnterWithPlayer(collision);
+    }
+
+    protected virtual void OnTriggerEnterWithPlayer(Collider2D collision)
+    {
+        int layer = collision.gameObject.layer;
+        Transform collisionTransform = collision.gameObject.transform;
+
+        if (layer == Constants.LAYER_DEADZONE && !GameManager.Instance.IsGameEnded())
             this.OnDeath();
-        if (collision.gameObject.layer == Constants.LAYER_PLAYERHEAD && this.transform.position.y >= collision.gameObject.transform.position.y && !GameManager.Instance.IsGameEnded())
-            if (collision.gameObject.transform.parent.gameObject.GetComponent<PlatformerPlayer>() != null)
-                collision.gameObject.transform.parent.gameObject.GetComponent<PlatformerPlayer>().OnDeath();
+        if (collision.gameObject.CompareTag("Repels") && !GameManager.Instance.IsGameEnded())
+        {
+            this.ApplyForce(new Vector2(0, 100));
+            this.jumpCount = 0;
+        }
+
+        PlatformerPlayer collidedPlayer;
+        try
+        {
+            collidedPlayer = collisionTransform.parent.gameObject.GetComponent<PlatformerPlayer>();
+        }
+        catch (System.NullReferenceException)
+        {
+            return;
+        }
+        if (layer == Constants.LAYER_PLAYERHEAD && this.transform.position.y >= collisionTransform.position.y && !GameManager.Instance.IsGameEnded())
+        {
+            if (collidedPlayer != null && GameManager.Instance.IsGameStarted())
+            {
+                if (this.canKillOtherBirds) collidedPlayer.OnDeath();
+                else if (this.canConfuseOtherBirds && !this.IsConfused && !collidedPlayer.IsConfused && !collidedPlayer.isDead) collidedPlayer.SetConfusion(true);
+            }
+        }
     }
 
     // Start is called before the first frame update
@@ -69,6 +109,8 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
     // Update is called once per frame
     void Update()
     {
+        if (_isConfused)
+            this.transform.position = new Vector3(this.lastPositionBeforeConfusing.x, this.transform.position.y, 0);
         if (foots.gameObject.activeInHierarchy == true && isDead && isGrounded())
         {
             rigidbody.gravityScale = 0;
@@ -89,19 +131,19 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
         VariantUpdate();
     }
 
-    private void ExecuteMovement()
+    protected void ExecuteMovement()
     {
         if (canWalk) movementData = gamepad.GetAnalogMovement(IGamepad.Analog.Left);
         else movementData = Vector2.zero;
     }
-    private void ExecuteJump()
+    protected void ExecuteJump()
     {
-        if (canJump)
+        if (canJump && !_isConfused)
             if (gamepad.IsButtonPressed(IGamepad.Key.ActionButtonDown, IGamepad.PressureType.Single) && jumpCount < JumpLimit && !isWaitingRejump)
             {
                 jumpCount++;
                 SoundsManager.Instance.PlayPlayerSound(ISoundsManager.PlayerSoundType.Jump);
-                rigidbody.velocity = new Vector2(rigidbody.velocity.x, Constants.PLAYER_JUMPING_POWER);
+                rigidbody.velocity = new Vector2(rigidbody.velocity.x, jumpingPower);
                 StartCoroutine(StartWaitingRejump());
             }
         if (isGrounded() && !isWaitingRejump)
@@ -119,14 +161,35 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
 
     void FixedUpdate()
     {
-        if (!IsInitialized || isDead || !canPlay) return;
-        rigidbody.velocity = new Vector2(movementData.x * Constants.PLAYER_MOVEMENT_SPEED, rigidbody.velocity.y);
+        if (!IsInitialized || isDead || !canPlay || _isConfused) return;
+        rigidbody.velocity = new Vector2(movementData.x * movementSpeed, rigidbody.velocity.y);
         VariantFixedUpdate();
     }
 
     protected virtual void VariantFixedUpdate() { }
 
     public void SetCanKillOtherBirds(bool canKill) => this.canKillOtherBirds = canKill;
+    public void SetCanConfuseOtherBirds(bool canConfuse) => this.canConfuseOtherBirds = canConfuse;
+
+    public void SetConfusion(bool active)
+    {
+        if (this.isDead || !this.canConfuseOtherBirds) return;
+        lastPositionBeforeConfusing = this.transform.position;
+        confusionEffect.SetActive(active);
+        body.GetChild(0).gameObject.GetComponent<SpriteRenderer>().flipY = active;
+        _isConfused = active;
+        if (active)
+        {
+            rigidbody.velocity = Vector2.zero;
+            StartCoroutine(TimerConfusion());
+        }
+    }
+
+    IEnumerator TimerConfusion()
+    {
+        yield return new WaitForSeconds(2);
+        SetConfusion(false);
+    }
 
     #region IGamepadEventHandler implementation
 
@@ -209,9 +272,10 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
         throw new System.NotImplementedException();
     }
 
-    public void OnDeath()
+    public virtual void OnDeath()
     {
         if (isDead) return;
+        SetConfusion(false);
         SoundsManager.Instance.PlayPlayerSound(ISoundsManager.PlayerSoundType.Dead);
         isDead = true;
         body.GetChild(0).gameObject.GetComponent<Animator>().enabled = false;
@@ -223,6 +287,7 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
     public void OnSpawn()
     {
         isDead = false;
+        SetConfusion(false);
         changeSprite(birdSprite);
         body.GetChild(0).gameObject.GetComponent<Animator>().enabled = true;
         head.gameObject.SetActive(true);
@@ -256,6 +321,7 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
 
     protected void flipPlayerAnimation()
     {
+        if (_isConfused) return;
         if (this.movementData.x > 0.2f)
             body.GetChild(0).gameObject.GetComponent<SpriteRenderer>().flipX = false;
         else if (this.movementData.x < -0.2f)

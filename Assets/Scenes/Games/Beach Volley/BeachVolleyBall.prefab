@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4096837904190215947}
   - component: {fileID: 4096837904190215948}
   - component: {fileID: 4096837904190215949}
+  - component: {fileID: 1429971530398456232}
   m_Layer: 0
   m_Name: BeachVolleyBall
   m_TagString: Untagged
@@ -148,3 +149,16 @@ Rigidbody2D:
   m_SleepingMode: 0
   m_CollisionDetection: 1
   m_Constraints: 0
+--- !u!114 &1429971530398456232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4096837904190215950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3d3bba2df29ac548bca98726eae0916, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb2D: {fileID: 4096837904190215949}

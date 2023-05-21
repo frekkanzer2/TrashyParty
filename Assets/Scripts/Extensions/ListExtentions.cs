@@ -25,4 +25,24 @@ public static class ListExtentions
         return list[rnd.Next(list.Count)];
     }
 
+    public static T GetAndRemove<T>(this IList<T> list, int index)
+    {
+        lock (list)
+        {
+            T value = list[index];
+            list.RemoveAt(index);
+            return value;
+        }
+    }
+
+    public static T GetRandomAndRemove<T>(this IList<T> list)
+    {
+        lock (list)
+        {
+            System.Random rnd = new();
+            int index = rnd.Next(list.Count);
+            return GetAndRemove(list, index);
+        }
+    }
+
 }
