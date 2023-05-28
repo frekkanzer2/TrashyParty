@@ -211,7 +211,7 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
     public void OnGamepadDeconnected()
     {
         Debug.LogWarning($"Gamepad deconnected for player '{this.gameObject.name}'");
-        OnDeath();
+        //OnDeath();
     }
 
     #endregion
