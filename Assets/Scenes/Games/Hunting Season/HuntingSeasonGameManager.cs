@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class HuntingSeasonGameManager : GameManager
 {
+
+    public GameObject hunter_prefab;
+    public Vector3 yhunterpos;
+    
     public override void OnPlayerDies()
     {
         base.OnPlayerDies();
@@ -47,6 +51,13 @@ public class HuntingSeasonGameManager : GameManager
         foreach (IPlayer player in players)
         {
             player.IgnoreCollisionsWithOtherPlayers(true);
+        }
+
+        for (int i = 1; i<players.Count+1; i++)
+        {
+            Debug.Log($"messaggino {i}");
+            Instantiate(hunter_prefab, yhunterpos, Quaternion.identity) ;
+            yhunterpos.y = yhunterpos.y - 3.81f;
         }
     }
 

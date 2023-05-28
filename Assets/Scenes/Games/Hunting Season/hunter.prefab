@@ -98,3 +98,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 1743816308491072280, guid: 34766b08a443e4541b5046b773d810a9, type: 3}
+  objcoords: {x: 4.06, y: 6.83, z: 0}
