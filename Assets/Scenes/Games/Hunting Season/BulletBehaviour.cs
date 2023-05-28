@@ -17,6 +17,6 @@ public class BulletBehaviour : MonoBehaviour
         Transform component;
         
         component = this.gameObject.GetComponent<Transform>();
-        component.position = new Vector3(component.position.x-0.02f, component.position.y, component.position.z);
+        component.position = new Vector3(component.position.x-0.01f, component.position.y, component.position.z);
     }
 }
