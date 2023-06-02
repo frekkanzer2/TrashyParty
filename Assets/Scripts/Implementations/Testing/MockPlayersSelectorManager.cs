@@ -31,7 +31,9 @@ public class MockPlayersSelectorManager : MonoBehaviour, IPlayersSelectorManager
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("MockPlayersSelectorManager > Press 'S' to load player testing data and to start the game");
+#if UNITY_EDITOR
+        Singleton<ILogManager>.Instance.Write("MockPlayersSelectorManager > Press 'S' to load player testing data and to start the game");
+#endif
     }
 
     private bool confirmed = false;

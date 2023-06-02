@@ -97,7 +97,6 @@ public class SoundsManager : Singleton<SoundsManager>, ISoundsManager
                 Tag = null,
                 Source = a
             });
-        Debug.Log($"Loaded {AudioSources.Count} Audio Sources");
     }
 
     private AudioSource? PickAudioSource(string tag, bool shouldBeFree)
