@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SoundsManager : MonoBehaviour, ISoundsManager
+public class SoundsManager : Singleton<SoundsManager>, ISoundsManager
 {
 
     [SerializeField]
@@ -30,17 +30,7 @@ public class SoundsManager : MonoBehaviour, ISoundsManager
 
     private void Awake()
     {
-        _instance = this;
-    }
-
-    private static SoundsManager _instance = null;
-    public static SoundsManager Instance
-    {
-        get
-        {
-            if (_instance == null) throw new System.NullReferenceException("Trying to get the Sounds Manager, but it's not attached as a component!");
-            return _instance;
-        }
+        InitializeSingleton(this);
     }
 
     public void PlayCountdown() => StartCoroutine(ExecutorPlayCountdown());

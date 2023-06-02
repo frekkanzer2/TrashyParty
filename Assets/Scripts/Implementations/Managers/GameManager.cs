@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public abstract class GameManager : MonoBehaviour, IGameManager, IMultipleMatchesManager
+public abstract class GameManager : Singleton<GameManager>, IGameManager, IMultipleMatchesManager
 {
     public GameObject PlayerPrefab;
     public List<GameObject> ActivableFor2Players;
@@ -36,16 +36,6 @@ public abstract class GameManager : MonoBehaviour, IGameManager, IMultipleMatche
 
     [Header("Monitoring section - do not touch!")]
     public List<TeamDto> Teams;
-
-    private static GameManager _instance = null;
-    public static GameManager Instance
-    {
-        get
-        {
-            if (_instance == null) throw new System.NullReferenceException("Trying to get the Gamepad Manager, but it's not attached as a component!");
-            return _instance;
-        }
-    }
 
     #region IGameManager implementation
 
@@ -149,7 +139,7 @@ public abstract class GameManager : MonoBehaviour, IGameManager, IMultipleMatche
 
     private void Awake()
     {
-        _instance = this;
+        InitializeSingleton(this);
         ActiveGameObjectsBasedOnPlayerNumber();
     }
 
