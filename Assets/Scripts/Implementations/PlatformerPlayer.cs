@@ -121,14 +121,20 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
             rigidbody.velocity = Vector2.zero;
             return;
         }
-        if (gamepad == null) throw new System.NullReferenceException("No gamepad is connected");
-        if (gamepad.IsConnected())
+        try
         {
-            ExecuteMovement();
-            ExecuteJump();
-            flipPlayerAnimation();
+            if (gamepad == null) throw new System.NullReferenceException("No gamepad is connected");
+            if (gamepad.IsConnected())
+            {
+                ExecuteMovement();
+                ExecuteJump();
+                flipPlayerAnimation();
+            }
+            VariantUpdate();
+        } catch (System.NullReferenceException ex)
+        {
+            Singleton<ILogManager>.Instance.Write(ILogManager.Level.Important, $"{ex.GetType()} thrown: {ex.Message}");
         }
-        VariantUpdate();
     }
 
     protected void ExecuteMovement()
@@ -210,8 +216,8 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
 
     public void OnGamepadDeconnected()
     {
-        Debug.LogWarning($"Gamepad deconnected for player '{this.gameObject.name}'");
-        OnDeath();
+        Singleton<ILogManager>.Instance.Write(ILogManager.Level.Important, "Gamepad deconnected");
+        //OnDeath();
     }
 
     #endregion
@@ -240,19 +246,18 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
         this.gamepad = gamepad;
         if (this.gamepad == null)
         {
-            Debug.LogError("Player doesn't have a gamepad!");
+            Singleton<ILogManager>.Instance.Write(ILogManager.Level.Warning, "Player doesn't have a gamepad!");
             OnGamepadDeconnected();
         }
         else
         {
-            Debug.Log("Gamepad loaded");
             this.gamepad.SetGamepadEventHandler(this);
         }
     }
 
     public void SetGamepadByAssociation(PlayerControllerAssociationDto pcaDto)
     {
-        Debug.Log($"Setting gamepad {pcaDto.ControllerId} to player {pcaDto.PlayerNumber} via association");
+        Singleton<ILogManager>.Instance.Write($"Setting gamepad {pcaDto.ControllerId} to player {pcaDto.PlayerNumber} via association");
         SetGamepad(GamepadManager.Instance.GetGamepadByAssociation(pcaDto));
     }
 

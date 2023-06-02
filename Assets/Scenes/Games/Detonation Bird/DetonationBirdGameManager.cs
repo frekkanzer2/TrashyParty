@@ -27,22 +27,21 @@ public class DetonationBirdGameManager : GameManager
             p.IgnoreCollisionsWithOtherPlayers(true);
             ((PlatformerPlayer)p).GetHead().GetComponent<Collider2D>().isTrigger = false;
         }
-        StartCoroutine(Generation(10, 6, 1));
+        StartCoroutine(Generation());
     }
 
-    IEnumerator Generation(float timeToWait, float bombLoadingTime, float explosionDimension)
+    private int GenerationIteration = 1;
+    IEnumerator Generation()
     {
+        float timeToWait = 7f - MathfFunction.Logarithmic(GenerationIteration) * 1.6f;
+        float bombLoadingTime = 7f - MathfFunction.Logarithmic(GenerationIteration) * 1.15f;
+        float explosionDimension = 1.7f + MathfFunction.Logarithmic(GenerationIteration / 1.5f);
+        GenerationIteration++;
         GameObject bomb = Instantiate(BombPrefab, BombSpawns.GetRandom().transform);
         bomb.GetComponent<BombBehaviour>().Initialize(bombLoadingTime, explosionDimension);
         yield return new WaitForSeconds(timeToWait);
         if (!GameManager.Instance.IsGameEnded())
-            StartCoroutine(
-                Generation(
-                    (timeToWait > 1) ? timeToWait - 1f : timeToWait, 
-                    (bombLoadingTime > 3) ? bombLoadingTime - 0.5f : bombLoadingTime,
-                    (explosionDimension < 5) ? explosionDimension + 0.2f : explosionDimension
-                )
-            );
+            StartCoroutine(Generation());
     }
 
     public override void RestartMatch()
