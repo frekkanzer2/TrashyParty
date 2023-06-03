@@ -64,7 +64,7 @@ public class HeadSmashGameManager : GameManager
                 Id = i+1
             });
         InitializeTeamMatchVictories(teams);
-        SetMatchesVictoryLimit(3);
+        SetMatchesVictoryLimit((numberOfPlayers <= 4) ? 3 : 2);
         return teams;
     }
 
