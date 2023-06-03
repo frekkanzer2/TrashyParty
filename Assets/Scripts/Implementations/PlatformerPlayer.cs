@@ -59,11 +59,14 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        OnTriggerEnterWithPlayer(collision);
+        OnTriggerEnterOverridable(collision);
     }
 
-    protected virtual void OnTriggerEnterWithPlayer(Collider2D collision)
+    protected virtual void OnTriggerEnterOverridable(Collider2D collision)
     {
+
+        if (this.isDead) return;
+
         int layer = collision.gameObject.layer;
         Transform collisionTransform = collision.gameObject.transform;
 
@@ -86,10 +89,10 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
         }
         if (layer == Constants.LAYER_PLAYERHEAD && this.transform.position.y >= collisionTransform.position.y && !GameManager.Instance.IsGameEnded())
         {
-            if (collidedPlayer != null && GameManager.Instance.IsGameStarted())
+            if (collidedPlayer != null && !collidedPlayer.isDead && GameManager.Instance.IsGameStarted())
             {
                 if (this.canKillOtherBirds) collidedPlayer.OnDeath();
-                else if (this.canConfuseOtherBirds && !this.IsConfused && !collidedPlayer.IsConfused && !collidedPlayer.isDead) collidedPlayer.SetConfusion(true);
+                else if (this.canConfuseOtherBirds && !this.IsConfused && !collidedPlayer.IsConfused) collidedPlayer.SetConfusion(true);
             }
         }
     }

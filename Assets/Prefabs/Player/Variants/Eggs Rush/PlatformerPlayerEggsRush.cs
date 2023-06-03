@@ -9,7 +9,7 @@ public class PlatformerPlayerEggsRush : PlatformerPlayer
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        base.OnTriggerEnterWithPlayer(collision);
+        base.OnTriggerEnterOverridable(collision);
         if (collision.gameObject.CompareTag("Pickable") && !GameManager.Instance.IsGameEnded())
         {
             HasPickedInThisRound = true;
