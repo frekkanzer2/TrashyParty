@@ -76,10 +76,25 @@ public class GameLoader : MonoBehaviour, IGameLoader
             case Constants.GameName.TrapRun:
                 sceneName += "traprun";
                 break;
+            case Constants.GameName.StaticStun:
+                sceneName += "staticstun";
+                break;
+            case Constants.GameName.EggsRush:
+                sceneName += "eggsrush";
+                break;
+            case Constants.GameName.GCEA:
+                sceneName += "gottacatchemall";
+                break;
+            case Constants.GameName.HottieFloor:
+                sceneName += "hottiefloor";
+                break;
+            case Constants.GameName.KagomeKagome:
+                sceneName += "kagomekagome";
+                break;
             default:
                 throw new System.NullReferenceException($"No game named {game} is registered inside the loading component");
         }
-        Debug.Log($"Loading game {game} on scene {sceneName} with {players} players");
+        Log.Logger.Write($"Loading game {game} on scene {sceneName} with {players} players");
         SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
     }
 

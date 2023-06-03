@@ -59,6 +59,14 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        OnTriggerEnterOverridable(collision);
+    }
+
+    protected virtual void OnTriggerEnterOverridable(Collider2D collision)
+    {
+
+        if (this.isDead) return;
+
         int layer = collision.gameObject.layer;
         Transform collisionTransform = collision.gameObject.transform;
 
@@ -81,10 +89,10 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
         }
         if (layer == Constants.LAYER_PLAYERHEAD && this.transform.position.y >= collisionTransform.position.y && !GameManager.Instance.IsGameEnded())
         {
-            if (collidedPlayer != null && GameManager.Instance.IsGameStarted())
+            if (collidedPlayer != null && !collidedPlayer.isDead && GameManager.Instance.IsGameStarted())
             {
                 if (this.canKillOtherBirds) collidedPlayer.OnDeath();
-                else if (this.canConfuseOtherBirds && !this._isConfused && !collidedPlayer._isConfused && !collidedPlayer.isDead) collidedPlayer.SetConfusion(true);
+                else if (this.canConfuseOtherBirds && !this.IsConfused && !collidedPlayer.IsConfused) collidedPlayer.SetConfusion(true);
             }
         }
     }
@@ -126,12 +134,12 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
         VariantUpdate();
     }
 
-    private void ExecuteMovement()
+    protected void ExecuteMovement()
     {
         if (canWalk) movementData = gamepad.GetAnalogMovement(IGamepad.Analog.Left);
         else movementData = Vector2.zero;
     }
-    private void ExecuteJump()
+    protected void ExecuteJump()
     {
         if (canJump && !_isConfused)
             if (gamepad.IsButtonPressed(IGamepad.Key.ActionButtonDown, IGamepad.PressureType.Single) && jumpCount < JumpLimit && !isWaitingRejump)
@@ -205,8 +213,8 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
 
     public void OnGamepadDeconnected()
     {
-        Debug.LogWarning($"Gamepad deconnected for player '{this.gameObject.name}'");
-        OnDeath();
+        Log.Logger.Write(ILogManager.Level.Important, "Gamepad deconnected");
+        //OnDeath();
     }
 
     #endregion
@@ -225,6 +233,21 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
     public void ApplyForce(Vector2 force) {
         this.rigidbody.AddForce(force, ForceMode2D.Impulse);
     }
+    private bool canApplyForce = true;
+    public void ApplyForce(Vector2 force, float countdownInSeconds)
+    {
+        if (canApplyForce)
+        {
+            canApplyForce = false;
+            ApplyForce(force);
+            StartCoroutine(ForceWaiting(countdownInSeconds));
+        }
+    }
+    IEnumerator ForceWaiting(float t)
+    {
+        yield return new WaitForSeconds(t);
+        canApplyForce = true;
+    }
     public void SetJumpLimit(int limit) {
         this.JumpLimit = limit;
     }
@@ -235,19 +258,18 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
         this.gamepad = gamepad;
         if (this.gamepad == null)
         {
-            Debug.LogError("Player doesn't have a gamepad!");
+            Log.Logger.Write(ILogManager.Level.Warning, "Player doesn't have a gamepad!");
             OnGamepadDeconnected();
         }
         else
         {
-            Debug.Log("Gamepad loaded");
             this.gamepad.SetGamepadEventHandler(this);
         }
     }
 
     public void SetGamepadByAssociation(PlayerControllerAssociationDto pcaDto)
     {
-        Debug.Log($"Setting gamepad {pcaDto.ControllerId} to player {pcaDto.PlayerNumber} via association");
+        Log.Logger.Write($"Setting gamepad {pcaDto.ControllerId} to player {pcaDto.PlayerNumber} via association");
         SetGamepad(GamepadManager.Instance.GetGamepadByAssociation(pcaDto));
     }
 

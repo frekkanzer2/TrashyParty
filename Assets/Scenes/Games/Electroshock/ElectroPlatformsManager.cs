@@ -14,7 +14,7 @@ public class ElectroPlatformsManager : MonoBehaviour
         platforms = new List<ElectroPlatformBehaviour>();
         foreach (GameObject p in plats)
             platforms.Add(p.GetComponent<ElectroPlatformBehaviour>());
-        StartCoroutine(Cycle(7));
+        StartCoroutine(Cycle(5));
     }
 
     IEnumerator Cycle(float time)

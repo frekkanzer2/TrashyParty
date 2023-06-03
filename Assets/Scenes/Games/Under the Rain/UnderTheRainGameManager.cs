@@ -25,20 +25,23 @@ public class UnderTheRainGameManager : GameManager
             p.IgnoreCollisionsWithOtherPlayers(true);
             ((PlatformerPlayer)p).GetHead().GetComponent<Collider2D>().isTrigger = false;
         }
-        StartCoroutine(Generation(3, 38f));
+        StartCoroutine(Generation(38f));
     }
 
-    IEnumerator Generation(float timeToWait, float rangeValue)
+    private int GenerationIteration = 1;
+    IEnumerator Generation(float rangeValue)
     {
         Instantiate(Missile, new Vector3(Random.Range(-1 * rangeValue, rangeValue), 26, 0), Quaternion.identity);
+        float timeToWait; 
+        if (GenerationIteration <= 60) timeToWait = 3.4f - MathfFunction.SquareRoot(GenerationIteration) / 2.5f;
+        else timeToWait = 0.63f - MathfFunction.SquareRoot(30 + GenerationIteration - 60) / 17f;
+        if (timeToWait < 0.15f) timeToWait = 0.15f;
         yield return new WaitForSeconds(timeToWait);
+        GenerationIteration++;
         if (!GameManager.Instance.IsGameEnded())
         {
-            if (timeToWait > 1 && rangeValue > 25f) timeToWait -= 0.15f;
-            else if (timeToWait > 0.15f && rangeValue < 25f) timeToWait -= 0.005f;
             StartCoroutine(
                 Generation(
-                    timeToWait,
                     (rangeValue > 24f) ? rangeValue - 0.25f : rangeValue
                 )
             );

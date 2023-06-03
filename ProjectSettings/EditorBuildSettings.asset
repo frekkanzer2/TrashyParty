@@ -86,4 +86,19 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Games/Trap Run/game_traprun.unity
     guid: 4f94380a61e53cb4b93cc381eac405f4
+  - enabled: 1
+    path: Assets/Scenes/Games/Static Stun/game_staticstun.unity
+    guid: da3dfffda9ab1f845a5833c9a286f0ef
+  - enabled: 1
+    path: Assets/Scenes/Games/Eggs Rush/game_eggsrush.unity
+    guid: 5f4939892dfb7eb41ac5ae9eec8e1571
+  - enabled: 1
+    path: Assets/Scenes/Games/GottaCatchEmAll/game_gottacatchemall.unity
+    guid: d534849dab836ab4fbcb4eb73400965c
+  - enabled: 1
+    path: Assets/Scenes/Games/HottieFloor/game_hottiefloor.unity
+    guid: 9f0296aff3990ce42aff8e5285668f34
+  - enabled: 1
+    path: Assets/Scenes/Games/Kagome Kagome/game_kagomekagome.unity
+    guid: 5759922eb2814754b8e8583d0ba02a65
   m_configObjects: {}

@@ -5,7 +5,8 @@ using UnityEngine;
 public class HeadSmashGameManager : GameManager
 {
 
-    public Animator WallKillAnimator;
+    public GameObject UpperGroundPrefab;
+    private GameObject UpperGroundInstance;
 
     public override void OnPlayerDies()
     {
@@ -26,19 +27,27 @@ public class HeadSmashGameManager : GameManager
             PlatformerPlayer pp = (PlatformerPlayer)player;
             player.IgnoreCollisionsWithOtherPlayers(false);
             pp.SetCanKillOtherBirds(true);
+            player.RespawnPosition = pp.gameObject.transform.position;
         }
-        StartCoroutine(StartCounterToWallDown());
-    }
-
-    private IEnumerator StartCounterToWallDown()
-    {
-        yield return new WaitForSeconds(180);
-        WallKillAnimator.Play("DOWN");
     }
 
     public override void RestartMatch()
     {
-        throw new System.AccessViolationException("No restart is allowed for Head Smash game");
+        this._isGameEnded = false;
+        this._isGameStarted = false;
+        Destroy(this.UpperGroundInstance);
+        this.UpperGroundInstance = Instantiate(this.UpperGroundPrefab, new(0, 37.42f, 0), Quaternion.identity);
+        GameObject presentation = GameObject.FindGameObjectWithTag("Presentation");
+        presentation.GetComponent<SpriteRenderer>().enabled = true;
+        presentation.GetComponent<Animator>().enabled = true;
+        presentation.GetComponent<Animator>().Play(Constants.ANIMATION_PRESENTATION_STATE);
+        foreach (IPlayer p in players)
+        {
+            p.SetAsNotReady();
+            p.OnSpawn();
+            ((PlatformerPlayer)p).transform.position = p.RespawnPosition;
+        }
+        SoundManager.PlayCountdown();
     }
 
     protected override void FixedUpdateGameSpecificBehaviour()
@@ -55,13 +64,13 @@ public class HeadSmashGameManager : GameManager
                 Id = i+1
             });
         InitializeTeamMatchVictories(teams);
-        SetMatchesVictoryLimit(1);
+        SetMatchesVictoryLimit((numberOfPlayers <= 4) ? 3 : 2);
         return teams;
     }
 
     protected override void OnRoomStarts()
     {
-
+        this.UpperGroundInstance = Instantiate(this.UpperGroundPrefab, new(0, 37.42f, 0), Quaternion.identity);
     }
 
     protected override void UpdateGameSpecificBehaviour()

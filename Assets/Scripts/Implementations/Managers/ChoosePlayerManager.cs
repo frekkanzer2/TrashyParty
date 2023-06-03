@@ -102,6 +102,7 @@ public class ChoosePlayerManager : MonoBehaviour, IPlayersSelectorManager
         return actives[0].GetComponent<PlayerDisplayerManager>();
     }
 
+    private bool HasEveryoneChosen = false;
     void Update()
     {
         List<IGamepad> pressingA = GamepadManager.Instance.GetGamepadsByPressingButton(IGamepad.Key.ActionButtonDown, IGamepad.PressureType.Single);
@@ -127,12 +128,13 @@ public class ChoosePlayerManager : MonoBehaviour, IPlayersSelectorManager
                 }
             }
         }
-        if (GamepadManager.Instance.IsButtonPressedFromAnyGamepad(IGamepad.Key.Start, IGamepad.PressureType.Single))
+        if (GamepadManager.Instance.IsButtonPressedFromAnyGamepad(IGamepad.Key.Start, IGamepad.PressureType.Single) && !HasEveryoneChosen)
         {
             int countReady = playerDisplayers.FindAll(d => d.GetComponent<PlayerDisplayerManager>().IsConfirmed()).Count;
             if (countReady < 2) return;
             else
             {
+                HasEveryoneChosen = true;
                 StartCoroutine(StartGameChoiseRoom());
             }
         }
@@ -169,12 +171,16 @@ public class ChoosePlayerManager : MonoBehaviour, IPlayersSelectorManager
     public void ConfirmAndGoToGameChoise()
     {
         AppSettings.Save("N_PLAYERS", playerDtos.Count);
+        if (playerDtos.Count <= 4) Constants.VICTORY_POINTS = 5;
+        else Constants.VICTORY_POINTS = 10;
         List<RankingDto.Rank> emptyRanks = new List<RankingDto.Rank>();
         for (int i = 0; i < playerDtos.Count; i++)
         {
             PlayerSelectorDto playerSelectorDto = playerDtos[i];
             AppSettings.Save("GAMEPAD_PLAYER" + playerSelectorDto.PlayerNumber, playerSelectorDto.ControllerId);
+            Debug.Log($"Saved GAMEPAD_PLAYER{playerSelectorDto.PlayerNumber}: {AppSettings.Get("GAMEPAD_PLAYER" + playerSelectorDto.PlayerNumber)}");
             AppSettings.Save("COLOR_PLAYER" + playerSelectorDto.PlayerNumber, colorMatches[playerSelectorDto.ColorIndex].prefab);
+            Debug.Log($"Saved COLOR_PLAYER{playerSelectorDto.PlayerNumber}: {AppSettings.Get("COLOR_PLAYER" + playerSelectorDto.PlayerNumber)}");
             AppSettings.Save("COLOR_RAW_PLAYER" + playerSelectorDto.PlayerNumber, Constants.BirdColorToString(playerSelectorDto.Color));
             emptyRanks.Add(new(playerSelectorDto.PlayerNumber, colorMatches[playerSelectorDto.ColorIndex].prefab.GetComponent<SpriteRenderer>().sprite));
         }
