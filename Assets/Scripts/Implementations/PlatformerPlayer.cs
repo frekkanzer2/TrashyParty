@@ -112,7 +112,6 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
     // Update is called once per frame
     void Update()
     {
-        PreVariantUpdate();
         if (_isConfused)
             this.transform.position = new Vector3(this.lastPositionBeforeConfusing.x, this.transform.position.y, 0);
         if (foots.gameObject.activeInHierarchy == true && isDead && isGrounded())
@@ -162,7 +161,6 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
     }
 
     protected virtual void VariantUpdate() { }
-    protected virtual void PreVariantUpdate() { }
 
     void FixedUpdate()
     {

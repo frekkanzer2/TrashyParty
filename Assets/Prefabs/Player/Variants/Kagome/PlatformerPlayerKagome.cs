@@ -55,25 +55,30 @@ public class PlatformerPlayerKagome : PlatformerPlayer
         yield return new WaitForSeconds(1);
         this.KokeshiDown.SetActive(true);
         yield return new WaitForSeconds(0.4f);
-        StartCoroutine(Rotation(0.614f));
+        canRun = true;
     }
 
-    IEnumerator Rotation(float time)
-    {
-        yield return new WaitForSeconds(time);
-        GameObject kokeshi0 = Associations[0].Kokeshi;
-        Associations[0].ChangeKokeshi(Associations[3].Kokeshi);
-        Associations[3].ChangeKokeshi(Associations[2].Kokeshi);
-        Associations[2].ChangeKokeshi(Associations[1].Kokeshi);
-        Associations[1].ChangeKokeshi(kokeshi0);
-        if (!GameManager.Instance.IsGameEnded() && !hasStopped) StartCoroutine(Rotation(time > 0.114f ? time - 0.1f : time));
-    }
-
+    private float time = 0.0f;
+    private float interpolationPeriod = 0.095f;
+    private bool canRun = false;
     private bool hasStopped = false;
     private GameObject kokeshiStopped = null;
     protected override void VariantUpdate()
     {
         base.VariantUpdate();
+        if (canRun && !hasStopped && !GameManager.Instance.IsGameEnded() && !hasStopped)
+        {
+            time += Time.deltaTime;
+            if (time >= interpolationPeriod)
+            {
+                time = 0.0f;
+                GameObject kokeshi0 = Associations[0].Kokeshi;
+                Associations[0].ChangeKokeshi(Associations[3].Kokeshi);
+                Associations[3].ChangeKokeshi(Associations[2].Kokeshi);
+                Associations[2].ChangeKokeshi(Associations[1].Kokeshi);
+                Associations[1].ChangeKokeshi(kokeshi0);
+            }
+        }
         if (gamepad.IsButtonPressed(IGamepad.Key.ActionButtonLeft, IGamepad.PressureType.Single))
         {
             hasStopped = true;
@@ -86,41 +91,6 @@ public class PlatformerPlayerKagome : PlatformerPlayer
                     team.players[0].OnDeath();
             }
             else this.OnDeath();
-        }
-    }
-
-    protected override void PreVariantUpdate()
-    {
-        base.PreVariantUpdate();
-        if (kokeshiStopped is not null)
-        {
-            switch (kokeshiStopped.name)
-            {
-                case "F":
-                    Associations[0].ChangeKokeshi(KokeshiUp);
-                    Associations[1].ChangeKokeshi(KokeshiLeft);
-                    Associations[2].ChangeKokeshi(KokeshiDown);
-                    Associations[3].ChangeKokeshi(KokeshiRight);
-                    break;
-                case "MR":
-                    Associations[0].ChangeKokeshi(KokeshiRight);
-                    Associations[1].ChangeKokeshi(KokeshiUp);
-                    Associations[2].ChangeKokeshi(KokeshiLeft);
-                    Associations[3].ChangeKokeshi(KokeshiDown);
-                    break;
-                case "MD":
-                    Associations[0].ChangeKokeshi(KokeshiDown);
-                    Associations[1].ChangeKokeshi(KokeshiRight);
-                    Associations[2].ChangeKokeshi(KokeshiUp);
-                    Associations[3].ChangeKokeshi(KokeshiLeft);
-                    break;
-                case "ML":
-                    Associations[0].ChangeKokeshi(KokeshiLeft);
-                    Associations[1].ChangeKokeshi(KokeshiDown);
-                    Associations[2].ChangeKokeshi(KokeshiRight);
-                    Associations[3].ChangeKokeshi(KokeshiUp);
-                    break;
-            }
         }
     }
 
