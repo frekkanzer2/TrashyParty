@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 public class GameSelector : MonoBehaviour, IGameSelector
 {
 
+    public List<Constants.GameName> gamesToTest;
+
     public List<Constants.GameName> FilterGamesByPlayersNumber(int numberOfPlayers)
     {
         List<Constants.GameName> playables = new();
@@ -121,6 +123,13 @@ public class GameSelector : MonoBehaviour, IGameSelector
     public void SelectRandomGame(int numberOfPlayers)
     {
         List<Constants.GameName> availables = (List<Constants.GameName>)AppSettings.Get(Constants.APPSETTINGS_PLAYABLEGAMES_LABEL);
+#if UNITY_EDITOR
+        if ((availables is null || availables.Count == 0) && (gamesToTest is not null && !gamesToTest.IsEmpty()))
+        {
+            AppSettings.Save(Constants.APPSETTINGS_PLAYABLEGAMES_LABEL, gamesToTest);
+            availables = gamesToTest;
+        }
+#else
         if (availables.Count == 0)
         {
             List<Constants.GameName> games = FilterGamesByPlayersNumber(numberOfPlayers);
@@ -128,6 +137,7 @@ public class GameSelector : MonoBehaviour, IGameSelector
             AppSettings.Save(Constants.APPSETTINGS_PLAYABLEGAMES_LABEL, games);
             availables = games;
         }
+#endif
         SelectGame(availables[0], numberOfPlayers);
         availables.RemoveAt(0);
         AppSettings.Save(Constants.APPSETTINGS_PLAYABLEGAMES_LABEL, availables);
@@ -140,10 +150,12 @@ public class GameSelector : MonoBehaviour, IGameSelector
         if (AppSettings.Get(Constants.APPSETTINGS_PLAYABLEGAMES_LABEL) == null)
         {
             if (players < 2 || players > 8) throw new System.ArgumentOutOfRangeException("Number of players not allowed. Valid range: 2 to 8.");
+#if !UNITY_EDITOR
             List<Constants.GameName> games = FilterGamesByPlayersNumber(players);
             games.Shuffle();
             AppSettings.Save(Constants.APPSETTINGS_PLAYABLEGAMES_LABEL, games);
             Debug.Log($"Loaded {games.Count} playable games");
+#endif
         }
         SelectRandomGame(players);
     }

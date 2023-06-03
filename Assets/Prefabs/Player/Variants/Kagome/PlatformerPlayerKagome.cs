@@ -93,7 +93,10 @@ public class PlatformerPlayerKagome : PlatformerPlayer
             else
             {
                 if (GameManager.Instance.Teams.FindAll(team => !team.IsEveryoneDead()).Count == 2)
+                {
+                    Log.Logger.Write("2 teams remaining (dummy included). Removing the dummy team.");
                     GameManager.Instance.Teams.Find(team => team.Id == 100).KillAllPlayers();
+                }
                 this.OnDeath();
             }
         }
