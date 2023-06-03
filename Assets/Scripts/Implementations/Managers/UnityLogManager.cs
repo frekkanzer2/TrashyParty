@@ -44,4 +44,14 @@ public class UnityLogManager : Singleton<ILogManager>, ILogManager
         Debug.LogError($" | {Id} | Thrown exception {exception.GetType()} with stack trace in the next log");
         Debug.LogError($"{exception.StackTrace}");
     }
+
+    public void LogCallback(string condition, string stackTrace, LogType type)
+    {
+        throw new NotImplementedException();
+    }
+
+    public void Write(string exceptionName, string details, string stackTrace)
+    {
+        throw new NotImplementedException();
+    }
 }

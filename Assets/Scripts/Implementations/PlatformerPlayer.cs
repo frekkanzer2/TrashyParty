@@ -124,20 +124,14 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
             rigidbody.velocity = Vector2.zero;
             return;
         }
-        try
+        if (gamepad == null) throw new System.NullReferenceException("No gamepad is connected");
+        if (gamepad.IsConnected())
         {
-            if (gamepad == null) throw new System.NullReferenceException("No gamepad is connected");
-            if (gamepad.IsConnected())
-            {
-                ExecuteMovement();
-                ExecuteJump();
-                flipPlayerAnimation();
-            }
-            VariantUpdate();
-        } catch (System.NullReferenceException ex)
-        {
-            Log.Logger.Write(ex);
+            ExecuteMovement();
+            ExecuteJump();
+            flipPlayerAnimation();
         }
+        VariantUpdate();
     }
 
     protected void ExecuteMovement()
