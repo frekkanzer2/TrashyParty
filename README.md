@@ -91,7 +91,7 @@ In creation order:
 - Eggy Treasure (collect the eggs that will spawn in the map and return them in the chest - the first one that deposits 10 eggs will win - it anyone stuns you, you lose the egg)
 - Egg Hatching (be the last to touch the egg before it hatches)
 - Galaxian Birds (two teams: first one are birds like ufo, second one are galaxips - the galaxips will shot to the ufo-birds that must avoid projectiles - time limit: 1 minute)
-- As the Kagome Will (some Kagomes will dance around the bird: press the right button to stop in the right time the Kagomes - you should have the femake Kagome behind you to win - round time limit: 10 seconds)
+- Kagome Kagome (some Kokeshi will dance around the bird: press the right button to stop in the right time the Kokeshi - you should have the female Kokeshi behind you to win - round time limit: 10 seconds)
 
 ## Future Minigames with view from above
 - Rocket Birdy League (Rocket League with birds)
