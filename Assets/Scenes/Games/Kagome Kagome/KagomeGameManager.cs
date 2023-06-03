@@ -50,10 +50,11 @@ public class KagomeGameManager : GameManager
 
     protected override void OnRoomStarts()
     {
-        foreach (IPlayer player in this.players)
-        {
-
-        }
+        TeamDto dummyTeam = new(){Id = 100};
+        this.Teams.Add(dummyTeam);
+        dummyTeam.players = new();
+        dummyTeam.players.Add(new DummyPlayer());
+        Log.Logger.Write("Added dummy player");
     }
 
     protected override void UpdateGameSpecificBehaviour()

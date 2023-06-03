@@ -90,7 +90,12 @@ public class PlatformerPlayerKagome : PlatformerPlayer
                 foreach (TeamDto team in loserTeams)
                     team.players[0].OnDeath();
             }
-            else this.OnDeath();
+            else
+            {
+                if (GameManager.Instance.Teams.FindAll(team => !team.IsEveryoneDead()).Count == 2)
+                    GameManager.Instance.Teams.Find(team => team.Id == 100).KillAllPlayers();
+                this.OnDeath();
+            }
         }
     }
 
