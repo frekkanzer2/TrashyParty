@@ -39,9 +39,9 @@ public class PlatformerPlayerKagome : PlatformerPlayer
         Positions[2] = KokeshiDown.transform.position;
         Positions[3] = KokeshiRight.transform.position;
         Associations[0] = new(KokeshiUp, Positions[0], -10);
-        Associations[1] = new(KokeshiLeft, Positions[1], 1);
-        Associations[2] = new(KokeshiDown, Positions[2], 1);
-        Associations[3] = new(KokeshiRight, Positions[3], 10);
+        Associations[1] = new(KokeshiLeft, Positions[1], 11);
+        Associations[2] = new(KokeshiDown, Positions[2], 11);
+        Associations[3] = new(KokeshiRight, Positions[3], 20);
         StartCoroutine(StartDisplay());
     }
 
