@@ -77,7 +77,7 @@ public class MockGameSelector : MonoBehaviour, IGameSelector
                 supportedPlayers = new int[] { 2, 3, 4, 5, 6, 7, 8 };
                 break;
             case Constants.GameName.CatchUp:
-                supportedPlayers = new int[] { 2, 3, 4, 5, 6, 7, 8 };
+                supportedPlayers = new int[] { 6, 7, 8 };
                 break;
             case Constants.GameName.BombTag:
                 supportedPlayers = new int[] { 4, 5, 6, 7, 8 };
@@ -86,7 +86,7 @@ public class MockGameSelector : MonoBehaviour, IGameSelector
                 supportedPlayers = new int[] { 2, 3, 4, 5, 6, 7, 8 };
                 break;
             case Constants.GameName.TrapRun:
-                supportedPlayers = new int[] { 2, 3, 4, 5, 6, 7, 8 };
+                supportedPlayers = new int[] { 3, 4, 5, 6, 7, 8 };
                 break;
             case Constants.GameName.StaticStun:
                 supportedPlayers = new int[] { 2, 3, 4, 5, 6, 7, 8 };
