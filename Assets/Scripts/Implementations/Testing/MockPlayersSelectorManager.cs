@@ -32,7 +32,7 @@ public class MockPlayersSelectorManager : MonoBehaviour, IPlayersSelectorManager
     void Start()
     {
 #if UNITY_EDITOR
-        Singleton<ILogManager>.Instance.Write("MockPlayersSelectorManager > Press 'S' to load player testing data and to start the game");
+        Log.Logger.Write("MockPlayersSelectorManager > Press 'S' to load player testing data and to start the game");
 #endif
     }
 

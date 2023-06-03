@@ -8,12 +8,14 @@ public interface ILogManager
     public void Initialize();
     public void Write(string message);
     public void Write(Level level, string message);
+    public void Write(System.Exception exception);
     public void SaveAndClose();
 
     enum Level
     {
         Info,
         Warning,
-        Important
+        Important,
+        Exception
     }
 }

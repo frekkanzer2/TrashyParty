@@ -97,7 +97,7 @@ public class MockGameLoader : MonoBehaviour, IGameLoader
             default:
                 throw new System.NullReferenceException($"No game named {game} is registered inside the loading component");
         }
-        Singleton<ILogManager>.Instance.Write($"Loading game {game} on scene {sceneName} with {players} players");
+        Log.Logger.Write($"Loading game {game} on scene {sceneName} with {players} players");
         SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
     }
 

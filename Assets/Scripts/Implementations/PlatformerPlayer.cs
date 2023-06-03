@@ -136,7 +136,7 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
             VariantUpdate();
         } catch (System.NullReferenceException ex)
         {
-            Singleton<ILogManager>.Instance.Write(ILogManager.Level.Important, $"{ex.GetType()} thrown: {ex.Message}");
+            Log.Logger.Write(ex);
         }
     }
 
@@ -219,7 +219,7 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
 
     public void OnGamepadDeconnected()
     {
-        Singleton<ILogManager>.Instance.Write(ILogManager.Level.Important, "Gamepad deconnected");
+        Log.Logger.Write(ILogManager.Level.Important, "Gamepad deconnected");
         //OnDeath();
     }
 
@@ -248,7 +248,7 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
         this.gamepad = gamepad;
         if (this.gamepad == null)
         {
-            Singleton<ILogManager>.Instance.Write(ILogManager.Level.Warning, "Player doesn't have a gamepad!");
+            Log.Logger.Write(ILogManager.Level.Warning, "Player doesn't have a gamepad!");
             OnGamepadDeconnected();
         }
         else
@@ -259,7 +259,7 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
 
     public void SetGamepadByAssociation(PlayerControllerAssociationDto pcaDto)
     {
-        Singleton<ILogManager>.Instance.Write($"Setting gamepad {pcaDto.ControllerId} to player {pcaDto.PlayerNumber} via association");
+        Log.Logger.Write($"Setting gamepad {pcaDto.ControllerId} to player {pcaDto.PlayerNumber} via association");
         SetGamepad(GamepadManager.Instance.GetGamepadByAssociation(pcaDto));
     }
 

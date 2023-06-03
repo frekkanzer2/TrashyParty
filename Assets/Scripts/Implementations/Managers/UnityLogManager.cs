@@ -35,6 +35,13 @@ public class UnityLogManager : Singleton<ILogManager>, ILogManager
         string msgToDisplay = $" | {Id} | {message}";
         if (level == ILogManager.Level.Info) Debug.Log(msgToDisplay);
         else if (level == ILogManager.Level.Warning) Debug.LogWarning(msgToDisplay);
-        if (level == ILogManager.Level.Important) Debug.LogError(msgToDisplay);
+        if (level == ILogManager.Level.Important || level == ILogManager.Level.Exception) Debug.LogError(msgToDisplay);
+    }
+
+    public void Write(Exception exception)
+    {
+        Id++;
+        Debug.LogError($" | {Id} | Thrown exception {exception.GetType()} with stack trace in the next log");
+        Debug.LogError($"{exception.StackTrace}");
     }
 }
