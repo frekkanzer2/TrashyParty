@@ -7,6 +7,7 @@ public class DummyPlayer : IPlayer
     public bool IsInitialized => true;
 
     public Vector3 RespawnPosition { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
+    public int Id { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
 
     public void ApplyForce(Vector2 force)
     {
