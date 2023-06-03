@@ -75,10 +75,6 @@ public class PlatformerPlayerKagome : PlatformerPlayer
             Log.Logger.Write("Stopped with kokeshi " + Associations[0].Kokeshi.gameObject.name + " with tag " + Associations[0].Kokeshi.gameObject.tag);
             if (Associations[0].Kokeshi.gameObject.CompareTag("Finish"))
             {
-                Associations[0].ChangeKokeshi(KokeshiUp);
-                Associations[1].ChangeKokeshi(KokeshiLeft);
-                Associations[2].ChangeKokeshi(KokeshiDown);
-                Associations[3].ChangeKokeshi(KokeshiRight);
                 List<TeamDto> loserTeams = GameManager.Instance.Teams.FindAll(t => t.GetAlivePlayers().Count > 0 && !t.players[0].Equals(this));
                 foreach (TeamDto team in loserTeams)
                     team.players[0].OnDeath();
