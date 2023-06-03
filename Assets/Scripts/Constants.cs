@@ -49,6 +49,8 @@ public static class Constants {
         TrapRun,
         StaticStun,
         EggsRush,
-        GCEA
+        GCEA,
+        HottieFloor,
+        KagomeKagome
     }
 }

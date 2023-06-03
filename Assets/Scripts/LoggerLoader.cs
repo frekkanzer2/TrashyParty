@@ -11,8 +11,9 @@ public class LoggerLoader : MonoBehaviour
         this.gameObject.AddComponent<UnityLogManager>();
         Singleton<ILogManager>.Instance.Write("Initialized Unity Logger as default logger");
 #else
-        this.gameObject.AddComponent<ExcelLogManager>();
-        Singleton<ILogManager>.Instance.Write("Initialized Excel file as default logger destination");
+        this.gameObject.AddComponent<FileLogManager>();
+        Singleton<ILogManager>.Instance.Write("Initialized file logger as default logger destination");
 #endif
+        Log.Logger = Singleton<ILogManager>.Instance;
     }
 }

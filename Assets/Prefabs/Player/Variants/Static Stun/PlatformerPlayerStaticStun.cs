@@ -50,7 +50,7 @@ public class PlatformerPlayerStaticStun : PlatformerPlayer
 
         if (layer == Constants.LAYER_DEADZONE && !GameManager.Instance.IsGameEnded())
             this.OnDeath();
-
+        if (this.isDead) return;
         PlatformerPlayer collidedPlayer;
         try
         {
@@ -79,8 +79,8 @@ public class PlatformerPlayerStaticStun : PlatformerPlayer
                         else
                             forceDirection = new(-1, 0.7f);
                     }
-                    this.ApplyForce((Extensions.Vector3.FromVector2(forceDirection).Variation(new(0, 1.2f, 0)) * ForcePower).Opposite(true, false, false));
-                    collidedPlayer.ApplyForce(Extensions.Vector3.FromVector2(forceDirection * ForcePower));
+                    this.ApplyForce((Extensions.Vector3.FromVector2(forceDirection).Variation(new(0, 1f, 0)) * ForcePower).Opposite(true, false, false));
+                    collidedPlayer.ApplyForce((Extensions.Vector3.FromVector2(forceDirection).Variation(new(forceDirection.x/2.5f, 1.25f, 0)) * ForcePower));
                     Instantiate(PrefabStaticStunSphere, this.transform.position.Variation(0, 1.5f, 0), Quaternion.identity);
                 }
         }
