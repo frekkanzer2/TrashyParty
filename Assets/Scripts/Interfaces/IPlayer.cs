@@ -17,6 +17,7 @@ public interface IPlayer
     Sprite GetWinSprite();
     void IgnoreCollisionsWithOtherPlayers(bool active);
     void ApplyForce(Vector2 force);
+    void ApplyForce(Vector2 force, float countdownInSeconds);
     void SetJumpLimit(int limit);
     void SetCanJump(bool b);
     void SetCanWalk(bool b);

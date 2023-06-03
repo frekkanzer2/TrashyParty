@@ -232,6 +232,21 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
     public void ApplyForce(Vector2 force) {
         this.rigidbody.AddForce(force, ForceMode2D.Impulse);
     }
+    private bool canApplyForce = true;
+    public void ApplyForce(Vector2 force, float countdownInSeconds)
+    {
+        if (canApplyForce)
+        {
+            canApplyForce = false;
+            ApplyForce(force);
+            StartCoroutine(ForceWaiting(countdownInSeconds));
+        }
+    }
+    IEnumerator ForceWaiting(float t)
+    {
+        yield return new WaitForSeconds(t);
+        canApplyForce = true;
+    }
     public void SetJumpLimit(int limit) {
         this.JumpLimit = limit;
     }
