@@ -234,7 +234,7 @@ MonoBehaviour:
     ColorIndex: 0
   - PlayerNumber: 2
     ControllerId: 2
-    ColorIndex: 1
+    ColorIndex: 2
   colorPrefabs:
   - {fileID: 7322479139939081348, guid: a23feaf1d7a3acb449af59db52c27e97, type: 3}
   - {fileID: 7322479139939081348, guid: b82586ea2f91d5f43823fbb089e4a580, type: 3}

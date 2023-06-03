@@ -36,6 +36,7 @@ public static class Constants {
         StaticStun,
         EggsRush,
         GCEA,
-        HottieFloor
+        HottieFloor,
+        KagomeKagome
     }
 }
