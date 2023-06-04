@@ -12,6 +12,7 @@ TagManager:
   - Repels
   - TransitionManager
   - Pickable
+  - Teleport
   layers:
   - Default
   - TransparentFX

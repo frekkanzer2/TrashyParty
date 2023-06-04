@@ -86,4 +86,8 @@ public class DummyPlayer : IPlayer
     public void SetJumpLimit(int limit)
     {
     }
+
+    public string GetName() => null;
+
+    public bool CheckName(string name) => false;
 }
