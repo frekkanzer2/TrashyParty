@@ -84,6 +84,9 @@ In creation order:
 ![image](https://github.com/frekkanzer2/TrashyParty/assets/24304905/e635d726-07df-4381-b335-64393cddbd7c)
 
 
+![image](https://github.com/frekkanzer2/TrashyParty/assets/24304905/92fde424-eaa2-4bd1-912b-93602fa7eacc)
+
+
 ## Future Minigames with lateral view
 - Hunting Season (avoid hunter bullets)
 - Birdy Fight (birds can pickup a weapon and shoot the others)
