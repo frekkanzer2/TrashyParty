@@ -77,6 +77,12 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
             this.ApplyForce(new Vector2(0, 100));
             this.jumpCount = 0;
         }
+        if (collision.gameObject.CompareTag("Teleport") && !GameManager.Instance.IsGameEnded())
+        {
+            GameObject toTp = collision.gameObject.transform.GetChild(0).gameObject;
+            if (toTp is null) throw new System.NullReferenceException("No teleport point set");
+            this.transform.position = toTp.transform.position;
+        }
 
         PlatformerPlayer collidedPlayer;
         try
@@ -220,6 +226,26 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
     #endregion
 
     #region IPlayer implementation
+
+    public string GetName()
+    {
+        string _name = this.body.GetChild(0).gameObject.name;
+        if (_name.ToLower().Contains("red")) return "RED";
+        if (_name.ToLower().Contains("blue")) return "BLUE";
+        if (_name.ToLower().Contains("green")) return "GREEN";
+        if (_name.ToLower().Contains("orange")) return "ORANGE";
+        if (_name.ToLower().Contains("pink")) return "PINK";
+        if (_name.ToLower().Contains("yellow")) return "YELLOW";
+        if (_name.ToLower().Contains("sky")) return "SKY";
+        if (_name.ToLower().Contains("grey")) return "GREY";
+        return null;
+    }
+
+    public bool CheckName(string name)
+    {
+        string _name = GetName();
+        return name.ToUpper().Equals(_name);
+    }
 
     public Vector3 RespawnPosition { get; set; }
 

@@ -21,5 +21,7 @@ public interface IPlayer
     void SetJumpLimit(int limit);
     void SetCanJump(bool b);
     void SetCanWalk(bool b);
+    string GetName();
+    bool CheckName(string name);
     Vector3 RespawnPosition { get; set; }
 }

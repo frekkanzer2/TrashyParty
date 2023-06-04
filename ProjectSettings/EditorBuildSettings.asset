@@ -92,4 +92,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Games/Kagome Kagome/game_kagomekagome.unity
     guid: 5759922eb2814754b8e8583d0ba02a65
+  - enabled: 1
+    path: Assets/Scenes/Games/Colorful Nests/game_colorfulnests.unity
+    guid: d4f9cc28e8e8fce4cbd3680a78d3a3a3
   m_configObjects: {}
