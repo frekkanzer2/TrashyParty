@@ -99,6 +99,7 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
             {
                 if (this.canKillOtherBirds) collidedPlayer.OnDeath();
                 else if (this.canConfuseOtherBirds && !this.IsConfused && !collidedPlayer.IsConfused) collidedPlayer.SetConfusion(true);
+                jumpCount = 0;
             }
         }
     }
