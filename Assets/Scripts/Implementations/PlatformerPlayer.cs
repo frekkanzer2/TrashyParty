@@ -121,7 +121,8 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
             rigidbody.velocity = Vector2.zero;
             return;
         }
-        if (gamepad == null) throw new System.NullReferenceException("No gamepad is connected");
+        if (gamepad == null)
+            return;
         if (gamepad.IsConnected())
         {
             ExecuteMovement();
@@ -210,8 +211,7 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
 
     public void OnGamepadDeconnected()
     {
-        Debug.LogWarning($"Gamepad deconnected for player '{this.gameObject.name}'");
-        OnDeath();
+        
     }
 
     #endregion
