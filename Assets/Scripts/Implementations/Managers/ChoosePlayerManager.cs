@@ -142,6 +142,7 @@ public class ChoosePlayerManager : MonoBehaviour, IPlayersSelectorManager
 
     private IEnumerator StartGameChoiseRoom()
     {
+        Log.Logger.Write("Player choise confirmed");
         GameObject.FindGameObjectWithTag("TransitionManager").GetComponent<TransitionManager>().StartAnimationOnRoomEnds();
         CreatePlayerDtos();
         yield return new WaitForSeconds(2);
@@ -151,6 +152,7 @@ public class ChoosePlayerManager : MonoBehaviour, IPlayersSelectorManager
     private void CreatePlayerDtos()
     {
         List<GameObject> dispObjs = playerDisplayers.FindAll(d => d.GetComponent<PlayerDisplayerManager>().IsConfirmed());
+        Log.Logger.Write($"Creating {dispObjs.Count} player data");
         int playerCounter = 1;
         foreach (GameObject dobj in dispObjs)
         {
@@ -163,8 +165,8 @@ public class ChoosePlayerManager : MonoBehaviour, IPlayersSelectorManager
                 Color = (colorMatches.Find(cm => pdm.GetActualColorMatch().birdColor == cm.birdColor)).birdColor
             };
             playerDtos.Add(pDto);
+            Log.Logger.Write($"Created player data for player {playerCounter}");
             playerCounter++;
-            Debug.Log($"Created player {pDto.PlayerNumber} with color index {pDto.ColorIndex}");
         }
     }
 
@@ -173,19 +175,22 @@ public class ChoosePlayerManager : MonoBehaviour, IPlayersSelectorManager
         AppSettings.Save("N_PLAYERS", playerDtos.Count);
         if (playerDtos.Count <= 4) Constants.VICTORY_POINTS = 5;
         else Constants.VICTORY_POINTS = 10;
+        Log.Logger.Write($"Set the victories limit at {Constants.VICTORY_POINTS}");
         List<RankingDto.Rank> emptyRanks = new List<RankingDto.Rank>();
         for (int i = 0; i < playerDtos.Count; i++)
         {
             PlayerSelectorDto playerSelectorDto = playerDtos[i];
             AppSettings.Save("GAMEPAD_PLAYER" + playerSelectorDto.PlayerNumber, playerSelectorDto.ControllerId);
-            Debug.Log($"Saved GAMEPAD_PLAYER{playerSelectorDto.PlayerNumber}: {AppSettings.Get("GAMEPAD_PLAYER" + playerSelectorDto.PlayerNumber)}");
+            Log.Logger.Write($"Saved GAMEPAD_PLAYER{playerSelectorDto.PlayerNumber}: {AppSettings.Get("GAMEPAD_PLAYER" + playerSelectorDto.PlayerNumber)}");
             AppSettings.Save("COLOR_PLAYER" + playerSelectorDto.PlayerNumber, colorMatches[playerSelectorDto.ColorIndex].prefab);
-            Debug.Log($"Saved COLOR_PLAYER{playerSelectorDto.PlayerNumber}: {AppSettings.Get("COLOR_PLAYER" + playerSelectorDto.PlayerNumber)}");
+            Log.Logger.Write($"Saved COLOR_PLAYER{playerSelectorDto.PlayerNumber}: {AppSettings.Get("COLOR_PLAYER" + playerSelectorDto.PlayerNumber)}");
             AppSettings.Save("COLOR_RAW_PLAYER" + playerSelectorDto.PlayerNumber, Constants.BirdColorToString(playerSelectorDto.Color));
+            Log.Logger.Write($"Saved COLOR_RAW_PLAYER{playerSelectorDto.PlayerNumber}: {Constants.BirdColorToString(playerSelectorDto.Color)}");
             emptyRanks.Add(new(playerSelectorDto.PlayerNumber, colorMatches[playerSelectorDto.ColorIndex].prefab.GetComponent<SpriteRenderer>().sprite));
         }
         AppSettings.Save(Constants.APPSETTINGS_RANKING_LABEL, RankingDto.Generate(emptyRanks));
         AppSettings.Save(Constants.APPSETTINGS_RANKING_PREVIOUS_LABEL, RankingDto.Generate(emptyRanks));
+        Log.Logger.Write($"Generated ranks");
         SceneManager.LoadScene("GameLoader", LoadSceneMode.Single);
     }
 }

@@ -106,6 +106,9 @@ public class GameSelector : MonoBehaviour, IGameSelector
             case Constants.GameName.KagomeKagome:
                 supportedPlayers = new int[] { 2, 3, 4, 5, 6 };
                 break;
+            case Constants.GameName.ColorfulNests:
+                supportedPlayers = new int[] { 2, 3, 4, 5, 6, 7, 8 };
+                break;
             default:
                 throw new System.NullReferenceException("Missing game inside the game selection");
         }
@@ -133,6 +136,8 @@ public class GameSelector : MonoBehaviour, IGameSelector
         if (availables.Count == 0)
         {
             List<Constants.GameName> games = FilterGamesByPlayersNumber(numberOfPlayers);
+            foreach(Constants.GameName game in games)
+                Log.Logger.Write($"Prepared game {game}");
             games.Shuffle();
             AppSettings.Save(Constants.APPSETTINGS_PLAYABLEGAMES_LABEL, games);
             availables = games;

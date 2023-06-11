@@ -8,7 +8,7 @@ public class LeaderboardPositionManager : MonoBehaviour
     public SpriteRenderer renderer;
     public TextMeshProUGUI pointsText;
     public TextMeshProUGUI rankingText;
-    public int rank;
+    public int? rank = null;
     public int connectedPlayerId;
     private bool active = true;
     public GameObject winBadge, loseBadge, neutralBadge;
@@ -41,14 +41,20 @@ public class LeaderboardPositionManager : MonoBehaviour
 
     private void Start()
     {
-        rankingText.text = $"{rank}";
         winBadge.SetActive(false);
         loseBadge.SetActive(false);
     }
 
+    private void Update()
+    {
+        if (this.rank is not null) this.rankingText.text = $"{this.rank}";
+        else this.rankingText.text = $"";
+    }
+
     public void SetRankingText(int rank)
     {
-        this.rankingText.text = $"{rank}";
+        this.rank = rank;
+        Log.Logger.Write($"Setting rank {rank} on player {connectedPlayerId}");
     }
 
 }
