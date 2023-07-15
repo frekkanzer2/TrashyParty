@@ -94,11 +94,9 @@ In creation order:
 - Hunting Season (avoid hunter bullets)
 - Birdy Fight (birds can pickup a weapon and shoot the others)
 - Eggs Kart (change lane to avoid incoming eggs)
-- Colorful Nests (capture as many nests as possible)
 - Aura Replication (replicate the keystroke shown exclusively for your bird (each key will show an aura))
 - Chubby and Heavy (the bird must jump on the head of the other bird: he will not be able to jump anymore)
 - Eggy Treasure (collect the eggs that will spawn in the map and return them in the chest - the first one that deposits 10 eggs will win - it anyone stuns you, you lose the egg)
-- Egg Hatching (be the last to touch the egg before it hatches)
 - Galaxian Birds (two teams: first one are birds like ufo, second one are galaxips - the galaxips will shot to the ufo-birds that must avoid projectiles - time limit: 1 minute)
 
 ## Future Minigames with view from above
