@@ -95,4 +95,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Games/Colorful Nests/game_colorfulnests.unity
     guid: d4f9cc28e8e8fce4cbd3680a78d3a3a3
+  - enabled: 1
+    path: Assets/Scenes/Games/Egg Hatching/game_egghatching.unity
+    guid: 294ee445db34da243822192ebfe30b50
   m_configObjects: {}

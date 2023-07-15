@@ -344,7 +344,7 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
 
     public void SetAsReady() => canPlay = true;
     public void SetAsNotReady() => canPlay = false;
-    public Sprite GetWinSprite() => this.birdSprite;
+    public Sprite GetBirdSprite() => this.birdSprite;
 
     #endregion
 

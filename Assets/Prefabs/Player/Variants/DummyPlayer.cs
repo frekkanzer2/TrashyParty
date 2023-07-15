@@ -18,7 +18,7 @@ public class DummyPlayer : IPlayer
         throw new System.NotImplementedException();
     }
 
-    public Sprite GetWinSprite()
+    public Sprite GetBirdSprite()
     {
         throw new System.NotImplementedException();
     }

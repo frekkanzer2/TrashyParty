@@ -14,7 +14,7 @@ public interface IPlayer
     bool IsAlive() => !IsDead();
     void SetGamepad(IGamepad gamepad);
     void SetGamepadByAssociation(PlayerControllerAssociationDto pcaDto);
-    Sprite GetWinSprite();
+    Sprite GetBirdSprite();
     void IgnoreCollisionsWithOtherPlayers(bool active);
     void ApplyForce(Vector2 force);
     void ApplyForce(Vector2 force, float countdownInSeconds);
