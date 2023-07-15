@@ -15,7 +15,6 @@ public class TopDownPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
 
     [SerializeField] protected new Rigidbody2D rigidbody;
     [SerializeField] protected Transform body;
-    [SerializeField] protected LayerMask groundTag;
     protected IGamepad gamepad;
     protected Sprite birdSprite, deathSprite;
 
