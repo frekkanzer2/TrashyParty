@@ -9,6 +9,7 @@ public class MockControllerProvider : MonoBehaviour, IControllerProvider
     {
         public int PlayerNumber;
         public int ControllerId;
+        public Sprite PlayerSprite;
     }
     public PlayerControllerAssociationDto ControllerAssociation { get; set; }
     public MockAssociationData AssociationMock;
@@ -19,5 +20,10 @@ public class MockControllerProvider : MonoBehaviour, IControllerProvider
             ControllerId = AssociationMock.ControllerId,
             PlayerNumber = AssociationMock.PlayerNumber,
         };
+    }
+    private void Start()
+    {
+        this.GetComponent<IPlayer>().SetAsReady();
+        this.GetComponent<IPlayer>().SetCanWalk(true);
     }
 }

@@ -22,7 +22,6 @@ public class TopDownPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
     #region Class variables
     protected Vector2 movementData = Vector2.zero;
     protected bool isDead = false, canPlay = false, canWalk = true;
-    private Vector2 lastPositionBeforeConfusing = Vector2.zero;
     private float movementSpeed = Constants.PLAYER_MOVEMENT_SPEED;
     #endregion
 
@@ -97,6 +96,7 @@ public class TopDownPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
     {
         if (canWalk) movementData = gamepad.GetAnalogMovement(IGamepad.Analog.Left);
         else movementData = Vector2.zero;
+        Debug.Log(movementData);
     }
 
     protected virtual void VariantUpdate() { }
@@ -207,7 +207,13 @@ public class TopDownPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
 
     public void SetGamepadByAssociation(PlayerControllerAssociationDto pcaDto)
     {
-        Log.Logger.Write($"Setting gamepad {pcaDto.ControllerId} to player {pcaDto.PlayerNumber} via association");
+        try
+        {
+            Log.Logger.Write($"Setting gamepad {pcaDto.ControllerId} to player {pcaDto.PlayerNumber} via association");
+        } catch (System.NullReferenceException)
+        {
+            Debug.Log($"Setting gamepad {pcaDto.ControllerId} to player {pcaDto.PlayerNumber} via association");
+        }
         SetGamepad(GamepadManager.Instance.GetGamepadByAssociation(pcaDto));
     }
 
@@ -260,6 +266,7 @@ public class TopDownPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
     {
         IControllerProvider controllerProvider = GetComponent<IControllerProvider>();
         if (controllerProvider == null) throw new System.NullReferenceException($"No ControllerProvider component found on gameobject {this.gameObject.name}");
+        if (controllerProvider.ControllerAssociation == null) throw new System.NullReferenceException($"No controller association fetched from gamepad provider on gameobject {this.gameObject.name}");
         SetGamepadByAssociation(controllerProvider.ControllerAssociation);
     }
 
