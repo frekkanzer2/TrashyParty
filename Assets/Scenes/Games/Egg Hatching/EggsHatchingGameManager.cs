@@ -51,7 +51,7 @@ public class EggsHatchingGameManager : GameManager
         foreach (IPlayer player in this.players)
         {
             player.IgnoreCollisionsWithOtherPlayers(false);
-            player.SetJumpLimit(1);
+            ((PlatformerPlayer)player).SetJumpLimit(1);
             ((PlatformerPlayer)player).GetHead().GetComponent<Collider2D>().isTrigger = true;
             ((PlatformerPlayer)player).SetCanKillOtherBirds(false);
             ((PlatformerPlayer)player).SetCanConfuseOtherBirds(true);

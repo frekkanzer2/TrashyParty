@@ -210,7 +210,7 @@ public abstract class GameManager : Singleton<GameManager>, IGameManager, IMulti
         try
         {
             RestartMatch(); // it will called if there's a draw or if the victory limit is not reached
-        } catch (System.AccessViolationException noAllowedException)
+        } catch (System.AccessViolationException)
         {
             OnEveryMatchEnded(); // it executes if the game doesn't supports multi-match
         }

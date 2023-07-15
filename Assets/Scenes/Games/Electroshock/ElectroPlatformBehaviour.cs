@@ -6,7 +6,7 @@ public class ElectroPlatformBehaviour : MonoBehaviour
 {
 
     public Sprite activated, deactivated;
-    public SpriteRenderer renderer;
+    public new SpriteRenderer renderer;
     public GameObject thunderPrefab;
 
     void Start()

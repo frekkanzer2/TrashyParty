@@ -21,7 +21,7 @@ public class KagomeGameManager : GameManager
         foreach (IPlayer p in players)
         {
             p.SetCanWalk(false);
-            p.SetCanJump(false);
+            ((PlatformerPlayer)p).SetCanJump(false);
         }
     }
 

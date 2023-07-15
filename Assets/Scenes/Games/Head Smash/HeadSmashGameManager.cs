@@ -23,8 +23,8 @@ public class HeadSmashGameManager : GameManager
         SoundManager.PlayRandomGameSoundtrack();
         foreach (IPlayer player in this.players)
         {
-            player.SetJumpLimit(10000000);
             PlatformerPlayer pp = (PlatformerPlayer)player;
+            pp.SetJumpLimit(10000000);
             player.IgnoreCollisionsWithOtherPlayers(false);
             pp.SetCanKillOtherBirds(true);
             player.RespawnPosition = pp.gameObject.transform.position;

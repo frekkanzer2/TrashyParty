@@ -46,7 +46,7 @@ public class CatDanceGameController : GameManager
             player.IgnoreCollisionsWithOtherPlayers(false);
             p.SetCanKillOtherBirds(false);
             p.SetCanConfuseOtherBirds(true);
-            player.SetJumpLimit(3);
+            p.SetJumpLimit(3);
         }
     }
 

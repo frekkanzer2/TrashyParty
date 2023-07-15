@@ -20,8 +20,8 @@ public class UfoInvasionGameManager : GameManager
         this.gameObject.GetComponent<UfoInvasionGenerator>().StartGeneration();
         foreach (IPlayer player in this.players)
         {
-            player.SetJumpLimit(10000000);
             PlatformerPlayer pp = (PlatformerPlayer)player;
+            pp.SetJumpLimit(10000000);
             pp.GetComponent<Rigidbody2D>().gravityScale = 10;
         }
     }

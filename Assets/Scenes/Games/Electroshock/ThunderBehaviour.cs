@@ -6,7 +6,7 @@ public class ThunderBehaviour : MonoBehaviour
 {
 
     public List<Sprite> sprites;
-    public SpriteRenderer renderer;
+    public new SpriteRenderer renderer;
 
     void Start()
     {
