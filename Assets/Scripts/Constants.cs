@@ -38,6 +38,7 @@ public static class Constants {
         GCEA,
         HottieFloor,
         KagomeKagome,
-        EggHatching
+        EggHatching,
+        BullShit
     }
 }

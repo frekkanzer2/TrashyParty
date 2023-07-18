@@ -51,7 +51,6 @@ public class TopDownPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
         if (this.isDead) return;
 
         int layer = collision.gameObject.layer;
-        Transform collisionTransform = collision.gameObject.transform;
 
         if (layer == Constants.LAYER_DEADZONE && !GameManager.Instance.IsGameEnded())
             this.OnDeath();
@@ -96,7 +95,6 @@ public class TopDownPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
     {
         if (canWalk) movementData = gamepad.GetAnalogMovement(IGamepad.Analog.Left);
         else movementData = Vector2.zero;
-        Debug.Log(movementData);
     }
 
     protected virtual void VariantUpdate() { }
