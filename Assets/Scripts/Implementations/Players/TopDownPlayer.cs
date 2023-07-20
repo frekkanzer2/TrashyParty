@@ -21,13 +21,15 @@ public class TopDownPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
     #endregion
     #region Class variables
     protected Vector2 movementData = Vector2.zero;
-    protected bool isDead = false, canPlay = false, canWalk = true;
-    private float movementSpeed = Constants.PLAYER_MOVEMENT_SPEED;
+    protected bool isDead = false, canPlay = false, canWalk = true, canSprint = true, isSprinting = false;
+    private float movementSpeed = Constants.PLAYER_MOVEMENT_SPEED, sprintSpeed = Constants.PLAYER_SPRINT_MOVEMENT_SPEED;
+
     #endregion
 
-    public void ChangePlayerStats(float movementSpeed)
+    public void ChangePlayerStats(float movementSpeed, float sprintSpeed)
     {
         this.movementSpeed = movementSpeed;
+        this.sprintSpeed = sprintSpeed;
     }
 
     public override bool Equals(object other)
@@ -85,6 +87,9 @@ public class TopDownPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
         if (gamepad == null) throw new System.NullReferenceException("No gamepad is connected");
         if (gamepad.IsConnected())
         {
+            if (canSprint && gamepad.IsButtonPressed(IGamepad.Key.ActionButtonRight, IGamepad.PressureType.Continue))
+                isSprinting = true;
+            else isSprinting = false;
             ExecuteMovement();
             flipPlayerAnimation();
         }
@@ -102,7 +107,9 @@ public class TopDownPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
     void FixedUpdate()
     {
         if (!IsInitialized || isDead || !canPlay) return;
-        rigidbody.velocity = new Vector2(movementData.x * movementSpeed, movementData.y * movementSpeed);
+        float realMovementSpeed = movementSpeed;
+        if (canSprint && isSprinting) realMovementSpeed = sprintSpeed;
+        rigidbody.velocity = new Vector2(movementData.x * realMovementSpeed, movementData.y * realMovementSpeed);
         rigidbody.velocity.Normalize();
         VariantFixedUpdate();
     }
@@ -188,6 +195,9 @@ public class TopDownPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
     }
 
     public void SetCanWalk(bool b) => this.canWalk = b;
+    public void SetCanSprint(bool b) => this.canSprint = b;
+
+    public bool IsSprinting() => this.isSprinting;
 
     public void SetGamepad(IGamepad gamepad)
     {

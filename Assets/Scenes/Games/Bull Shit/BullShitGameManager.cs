@@ -45,8 +45,11 @@ public class BullShitGameManager : GameManager
 
     protected override void OnRoomStarts()
     {
-        foreach (IPlayer player in this.players)
+        foreach (IPlayer player in this.players) {
             player.IgnoreCollisionsWithOtherPlayers(false);
+            TopDownPlayer p = (TopDownPlayer)player;
+            p.SetCanSprint(false);
+        }
     }
 
     protected override void UpdateGameSpecificBehaviour()

@@ -14,7 +14,7 @@ public class MockGameLoader : MonoBehaviour, IGameLoader
                 sceneName += "beachvolley";
                 break;
             case Constants.GameName.RocketBirdLeague:
-                sceneName += "rocketbirdleague";
+                sceneName += "rocketbirdyleague";
                 break;
             case Constants.GameName.CloudyBoxes:
                 sceneName += "cloudyboxes";
