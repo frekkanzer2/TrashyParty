@@ -143,8 +143,16 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
 
     protected void ExecuteMovement()
     {
-        if (canWalk) movementData = gamepad.GetAnalogMovement(IGamepad.Analog.Left);
-        else movementData = Vector2.zero;
+        try
+        {
+            if (canWalk) movementData = gamepad.GetAnalogMovement(IGamepad.Analog.Left);
+            else movementData = Vector2.zero;
+        } catch (System.InvalidOperationException)
+        {
+            Log.Logger.Write(ILogManager.Level.Important, $"Gamepad disconnected from player {this.GetName()}, cannot retrieve movement data.");
+            OnGamepadDeconnected();
+            movementData = Vector2.zero;
+        }
     }
     protected void ExecuteJump()
     {
