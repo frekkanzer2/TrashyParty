@@ -90,6 +90,12 @@ In creation order:
 ![image](https://github.com/frekkanzer2/TrashyParty/assets/24304905/3d559385-61d7-45bd-b2ec-a0beed0f9a18)
 
 
+![image](https://github.com/frekkanzer2/TrashyParty/assets/24304905/336f8ba9-6199-49a2-92b3-65383bef1298)
+
+
+![image](https://github.com/frekkanzer2/TrashyParty/assets/24304905/b54ae867-fefe-42a9-adb6-3861a560fb33)
+
+
 ## Future Minigames with lateral view
 - Hunting Season (avoid hunter bullets)
 - Birdy Fight (birds can pickup a weapon and shoot the others)
@@ -100,8 +106,6 @@ In creation order:
 - Galaxian Birds (two teams: first one are birds like ufo, second one are galaxips - the galaxips will shot to the ufo-birds that must avoid projectiles - time limit: 1 minute)
 
 ## Future Minigames with view from above
-- Rocket Birdy League (Rocket League with birds)
-- Bull Shit (a bull will follow you, keep the distance)
 - Nuclear Bump (push the other birds into the nuclear liquid)
 - Dungate (kill the zombies with your gun and be the last survivor)
 - Hide and Seek (one player is the killer, the others are masqueraded as environment props)
