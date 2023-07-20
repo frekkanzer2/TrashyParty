@@ -22,7 +22,9 @@ public class TopDownPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
     #region Class variables
     protected Vector2 movementData = Vector2.zero;
     protected bool isDead = false, canPlay = false, canWalk = true, canSprint = true, isSprinting = false;
+    public bool CanSprintBySprintBar { get; set; }
     private float movementSpeed = Constants.PLAYER_MOVEMENT_SPEED, sprintSpeed = Constants.PLAYER_SPRINT_MOVEMENT_SPEED;
+    private SprintBar sprintBar = null;
 
     #endregion
 
@@ -31,6 +33,11 @@ public class TopDownPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
         this.movementSpeed = movementSpeed;
         this.sprintSpeed = sprintSpeed;
     }
+
+    public void ChangeSprintBarRecoveryValue(float recoveryValue) => sprintBar.RecoveryValue = recoveryValue;
+    public void ChangeSprintBarSprintConsumingValue(float sprintConsumingValue) => sprintBar.SprintConsumingValue = sprintConsumingValue;
+
+    public Vector2 Speeds { get { return new Vector2(this.movementSpeed, this.sprintSpeed); } }
 
     public override bool Equals(object other)
     {
@@ -65,6 +72,12 @@ public class TopDownPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
 
     }
 
+    private void Awake()
+    {
+        CanSprintBySprintBar = true;
+        sprintBar = GetComponent<SprintBar>();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -87,7 +100,7 @@ public class TopDownPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
         if (gamepad == null) throw new System.NullReferenceException("No gamepad is connected");
         if (gamepad.IsConnected())
         {
-            if (canSprint && gamepad.IsButtonPressed(IGamepad.Key.ActionButtonRight, IGamepad.PressureType.Continue))
+            if (canSprint && CanSprintBySprintBar && gamepad.IsButtonPressed(IGamepad.Key.ActionButtonRight, IGamepad.PressureType.Continue))
                 isSprinting = true;
             else isSprinting = false;
             ExecuteMovement();
@@ -108,7 +121,15 @@ public class TopDownPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
     {
         if (!IsInitialized || isDead || !canPlay) return;
         float realMovementSpeed = movementSpeed;
-        if (canSprint && isSprinting) realMovementSpeed = sprintSpeed;
+        if (canSprint && isSprinting)
+        {
+            realMovementSpeed = sprintSpeed;
+            sprintBar.UseSprint();
+        }
+        else if (canSprint && !isSprinting)
+        {
+            sprintBar.Recover();
+        }
         rigidbody.velocity = new Vector2(movementData.x * realMovementSpeed, movementData.y * realMovementSpeed);
         rigidbody.velocity.Normalize();
         VariantFixedUpdate();
@@ -249,6 +270,7 @@ public class TopDownPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
         isDead = true;
         body.GetChild(0).gameObject.GetComponent<Animator>().enabled = false;
         changeSprite(deathSprite);
+        sprintBar.CanView = false;
         GameManager.Instance.OnPlayerDies();
     }
 
@@ -257,6 +279,7 @@ public class TopDownPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
         isDead = false;
         changeSprite(birdSprite);
         body.GetChild(0).gameObject.GetComponent<Animator>().enabled = true;
+        if (sprintBar.Value < sprintBar.MaxValue) sprintBar.CanView = true;
         GameManager.Instance.OnPlayerSpawns();
     }
 

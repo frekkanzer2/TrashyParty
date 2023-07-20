@@ -53,6 +53,8 @@ public class RocketLeagueGameController : GameManager
             player.IgnoreCollisionsWithOtherPlayers(false);
             player.RespawnPosition = p.gameObject.transform.position;
             p.ChangePlayerStats(Constants.PLAYER_MOVEMENT_SPEED - 5, Constants.PLAYER_SPRINT_MOVEMENT_SPEED - 4);
+            p.ChangeSprintBarRecoveryValue(0.05f);
+            p.ChangeSprintBarSprintConsumingValue(0.5f);
             p.gameObject.transform.localScale = new Vector3(0.75f, 0.75f, 1);
         }
     }
