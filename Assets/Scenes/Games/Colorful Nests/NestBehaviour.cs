@@ -10,7 +10,7 @@ public class NestBehaviour : MonoBehaviour
     public void CollisionWithPlayer(PlatformerPlayerColorfulNests player)
     {
         this.player = player.GetName();
-        this.displayer.sprite = player.GetWinSprite();
+        this.displayer.sprite = player.GetBirdSprite();
     }
     public string GetAttachedPlayerName() => this.player;
 }

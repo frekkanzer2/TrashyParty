@@ -98,7 +98,7 @@ public class EggsRushGameManager : GameManager
         foreach (IPlayer player in this.players)
         {
             player.IgnoreCollisionsWithOtherPlayers(false);
-            player.SetJumpLimit(2);
+            ((PlatformerPlayer)player).SetJumpLimit(2);
             ((PlatformerPlayer)player).GetHead().GetComponent<Collider2D>().isTrigger = true;
             ((PlatformerPlayer)player).SetCanKillOtherBirds(false);
             ((PlatformerPlayer)player).SetCanConfuseOtherBirds(true);

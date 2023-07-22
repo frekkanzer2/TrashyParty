@@ -13,6 +13,9 @@ public class GameLoader : MonoBehaviour, IGameLoader
             case Constants.GameName.BeachVolley:
                 sceneName += "beachvolley";
                 break;
+            case Constants.GameName.RocketBirdLeague:
+                sceneName += "rocketbirdyleague";
+                break;
             case Constants.GameName.CloudyBoxes:
                 sceneName += "cloudyboxes";
                 break;
@@ -93,6 +96,12 @@ public class GameLoader : MonoBehaviour, IGameLoader
                 break;
             case Constants.GameName.ColorfulNests:
                 sceneName += "colorfulnests";
+                break;
+            case Constants.GameName.EggHatching:
+                sceneName += "egghatching";
+                break;
+            case Constants.GameName.BullShit:
+                sceneName += "bullshit";
                 break;
             default:
                 throw new System.NullReferenceException($"No game named {game} is registered inside the loading component");

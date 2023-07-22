@@ -99,13 +99,15 @@ public class SoundsManager : Singleton<SoundsManager>, ISoundsManager
             });
     }
 
+#pragma warning disable CS8632 // L'annotazione per i tipi riferimento nullable deve essere usata solo nel codice in un contesto di annotations '#nullable'.
     private AudioSource? PickAudioSource(string tag, bool shouldBeFree)
+#pragma warning restore CS8632 // L'annotazione per i tipi riferimento nullable deve essere usata solo nel codice in un contesto di annotations '#nullable'.
     {
-        AudioSource source = _PickExistingAudioSource(tag, shouldBeFree);
+        AudioSource source = PickExistingAudioSource(tag, shouldBeFree);
         if (source == null)
             try
             {
-                source = _PickNewAudioSource(tag);
+                source = PickNewAudioSource(tag);
             }
             catch (System.NullReferenceException)
             {
@@ -126,7 +128,9 @@ public class SoundsManager : Singleton<SoundsManager>, ISoundsManager
         source.Play();
     }
 
-    private AudioSource? _PickExistingAudioSource(string tag, bool shouldBeFree)
+#pragma warning disable CS8632 // L'annotazione per i tipi riferimento nullable deve essere usata solo nel codice in un contesto di annotations '#nullable'.
+    private AudioSource? PickExistingAudioSource(string tag, bool shouldBeFree)
+#pragma warning restore CS8632 // L'annotazione per i tipi riferimento nullable deve essere usata solo nel codice in un contesto di annotations '#nullable'.
     {
         try
         {
@@ -142,7 +146,9 @@ public class SoundsManager : Singleton<SoundsManager>, ISoundsManager
         }
     }
 
-    private AudioSource? _PickNewAudioSource(string tag)
+#pragma warning disable CS8632 // L'annotazione per i tipi riferimento nullable deve essere usata solo nel codice in un contesto di annotations '#nullable'.
+    private AudioSource? PickNewAudioSource(string tag)
+#pragma warning restore CS8632 // L'annotazione per i tipi riferimento nullable deve essere usata solo nel codice in un contesto di annotations '#nullable'.
     {
         RegisteredAudioSourceDto source = AudioSources.Find(audioSource => audioSource.Source.isPlaying == false && audioSource.Tag is null);
         if (source == null) return null;

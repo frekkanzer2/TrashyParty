@@ -20,8 +20,8 @@ public class StaticStunGameManager : GameManager
         SoundManager.PlayRandomGameSoundtrack();
         foreach (IPlayer player in this.players)
         {
-            player.SetJumpLimit(2);
             PlatformerPlayer pp = (PlatformerPlayer)player;
+            pp.SetJumpLimit(2);
             pp.SetCanConfuseOtherBirds(true);
             pp.SetCanKillOtherBirds(false);
             pp.IgnoreCollisionsWithOtherPlayers(false);

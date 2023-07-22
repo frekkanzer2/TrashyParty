@@ -232,7 +232,7 @@ public abstract class GameManager : Singleton<GameManager>, IGameManager, IMulti
         try
         {
             RestartMatch(); // it will called if there's a draw or if the victory limit is not reached
-        } catch (System.AccessViolationException noAllowedException)
+        } catch (System.AccessViolationException)
         {
             OnEveryMatchEnded(); // it executes if the game doesn't supports multi-match
         }
@@ -305,7 +305,7 @@ public abstract class GameManager : Singleton<GameManager>, IGameManager, IMulti
             for (int i = 0; i < team.players.Count; i++)
             {
                 IPlayer p = team.players[i];
-                Sprite pSprite = p.GetWinSprite();
+                Sprite pSprite = p.GetBirdSprite();
                 WinnerDisplayers[i].GetComponent<SpriteRenderer>().sprite = pSprite;
             }
             if (team.players.Count == 1)

@@ -20,7 +20,7 @@ public class ElectroshockGameManager : GameManager
         this.GetComponent<ElectroPlatformsManager>().StartManager();
         foreach (IPlayer p in players)
         {
-            p.SetJumpLimit(2);
+            ((PlatformerPlayer)p).SetJumpLimit(2);
             ((PlatformerPlayer)p).GetHead().GetComponent<Collider2D>().isTrigger = false;
         }
     }
