@@ -61,6 +61,9 @@ public class BeachVolleyGameController : GameManager
             p.GetHead().GetComponent<CapsuleCollider2D>().isTrigger = false;
             player.IgnoreCollisionsWithOtherPlayers(true);
         }
+        GameObject ball = GameObject.Find("BeachVolleyBall");
+        if (ball == null) throw new System.NullReferenceException("Missing volley ball in the scene");
+        ball.GetComponent<VolleyBallBehaviour>().Ready = false;
     }
 
     protected override void UpdateGameSpecificBehaviour()
@@ -79,6 +82,7 @@ public class BeachVolleyGameController : GameManager
         while (generatedForce.x < 0.4f && generatedForce.x > -0.4f)
             generatedForce = new Vector2(Random.Range(-1f, 1f), Random.Range(0.5f, 1f));
         rigidbody.AddForce(generatedForce, ForceMode2D.Impulse);
+        ball.GetComponent<VolleyBallBehaviour>().Ready = true;
     }
 
     public override void RestartMatch()
@@ -100,6 +104,7 @@ public class BeachVolleyGameController : GameManager
             p.SetAsNotReady();
             p.OnSpawn();
         }
+        ball.GetComponent<VolleyBallBehaviour>().Ready = false;
         SoundManager.PlayCountdown();
     }
 }
