@@ -1,100 +1,36 @@
 # TrashyParty
 
 ## Available Minigames
-In creation order:
-
-![image](https://user-images.githubusercontent.com/24304905/233799181-b5a6047c-85f4-4279-bdf2-3b29fdea8cb6.png)
-
-
-![image](https://user-images.githubusercontent.com/24304905/233799219-140a46c6-3aa4-4a92-aa62-0abc3514683d.png)
-
-
-![image](https://user-images.githubusercontent.com/24304905/233799250-830cb18a-000d-45b0-8800-868c595b156d.png)
-
-
-![image](https://user-images.githubusercontent.com/24304905/233852436-ec4d6bce-4681-4b92-9359-19f9df9b23e6.png)
-
-
-![image](https://user-images.githubusercontent.com/24304905/233938525-61be30f5-05cf-4a96-9219-50c76fb29ef8.png)
-
-
-![image](https://user-images.githubusercontent.com/24304905/234050284-2465cef6-7453-48c3-9f0b-d602cf79c95c.png)
-
-
-![image](https://user-images.githubusercontent.com/24304905/234721877-e754527d-056e-4b79-be7b-660c1777a69c.png)
-
-
-![image](https://user-images.githubusercontent.com/24304905/234732689-ea0fc7f6-a8a9-45f5-ba60-c2ad4087b09e.png)
-
-
-![image](https://user-images.githubusercontent.com/24304905/235277098-c86de4e9-1126-40a1-9060-be669473b4d4.png)
-
-
-![image](https://user-images.githubusercontent.com/24304905/235312031-0295156b-8ed5-4534-9f50-855d4ca6a361.png)
-
-
-![image](https://user-images.githubusercontent.com/24304905/235318097-b8a32d6c-8512-4fa0-b22c-3293d8cb5d4b.png)
-
-
-![image](https://user-images.githubusercontent.com/24304905/235359962-f5d45658-d3a5-4f01-8ac9-92f3505c6af3.png)
-
-
-![image](https://user-images.githubusercontent.com/24304905/235471843-26cc86a8-49db-4c39-ba2a-a3daaa232055.png)
-
-
-![image](https://user-images.githubusercontent.com/24304905/235472077-862df1d7-6e5b-4278-aed6-6af47d253cfa.png)
-
-
-![image](https://user-images.githubusercontent.com/24304905/236356202-1e3b9d0d-3e8d-45cf-b4e4-f733679bae62.png)
-
-
-![image](https://user-images.githubusercontent.com/24304905/236356222-1808fb4f-4917-4950-a247-c829ba931afb.png)
-
-
-![image](https://user-images.githubusercontent.com/24304905/236575184-62f2cd00-0cc7-4ecb-a9b5-5354d7b1b57b.png)
-
-
-![image](https://user-images.githubusercontent.com/24304905/236588147-86e2d199-aa8d-449d-abc4-c8bf21976363.png)
-
-
-![image](https://user-images.githubusercontent.com/24304905/236622924-b17ee377-9c39-4ff1-9cb9-1dd84d114bba.png)
-
-
-![image](https://user-images.githubusercontent.com/24304905/236635079-d1f05611-12a3-438e-95b0-3c53fe30c71b.png)
-
-
-![image](https://user-images.githubusercontent.com/24304905/236683957-2347502c-8bd0-41fa-be32-d980a2f1d1dc.png)
-
-
-![image](https://github.com/frekkanzer2/TrashyParty/assets/24304905/48e938cb-ec78-4e78-85ca-0670cd1811db)
-
-
-![image](https://github.com/frekkanzer2/TrashyParty/assets/24304905/737fce38-398d-4d09-a78e-f846dd82a77f)
-
-
-![image](https://github.com/frekkanzer2/TrashyParty/assets/24304905/a7ba42b3-6d98-49da-9b4c-4249baf45c34)
-
-
-![image](https://github.com/frekkanzer2/TrashyParty/assets/24304905/af156c1a-0531-4926-945b-bb0d08ec2579)
-
-
-![image](https://github.com/frekkanzer2/TrashyParty/assets/24304905/b262cc66-423f-43b4-8d8d-9720e3b597b3)
-
-
-![image](https://github.com/frekkanzer2/TrashyParty/assets/24304905/e635d726-07df-4381-b335-64393cddbd7c)
-
-
-![image](https://github.com/frekkanzer2/TrashyParty/assets/24304905/92fde424-eaa2-4bd1-912b-93602fa7eacc)
-
-
-![image](https://github.com/frekkanzer2/TrashyParty/assets/24304905/3d559385-61d7-45bd-b2ec-a0beed0f9a18)
-
-
-![image](https://github.com/frekkanzer2/TrashyParty/assets/24304905/336f8ba9-6199-49a2-92b3-65383bef1298)
-
-
-![image](https://github.com/frekkanzer2/TrashyParty/assets/24304905/b54ae867-fefe-42a9-adb6-3861a560fb33)
-
+- Basketegg
+- Beach Volley
+- Bird Soccer
+- Birds Footsteps
+- Bomb Tag
+- Bull Shit
+- Cat Dance
+- Catch Up
+- Cloudy Boxes
+- Colorful Nests
+- Deadly Drop
+- Detonation Bird
+- Egg Hatching
+- Electroshock
+- Energy Release
+- Fizzle Floor
+- Gotta Catch Em' All
+- Head Smash
+- Hottie Floor
+- I'm the King
+- Kagome Kagome
+- Laboratory Lights
+- Lava Dodge
+- Rocket Birdy League
+- Static Stun
+- Super Hot
+- Tappy Bird
+- Trap Run
+- Ufo Invasion
+- Under the Rain
 
 ## Future Minigames with lateral view
 - Hunting Season (avoid hunter bullets)
