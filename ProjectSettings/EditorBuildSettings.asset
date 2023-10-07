@@ -104,4 +104,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Games/Rocket Birdy League/game_rocketbirdyleague.unity
     guid: 05b1e47bc9c917a4da39940128bf8d34
+  - enabled: 1
+    path: Assets/Scenes/Games/ChubbyAndHeavy/game_chubbyandheavy.unity
+    guid: bcdbf6c36c898d740aabf28bdd433b8f
   m_configObjects: {}

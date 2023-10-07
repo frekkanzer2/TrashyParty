@@ -40,6 +40,7 @@ public static class Constants {
         HottieFloor,
         KagomeKagome,
         EggHatching,
-        BullShit
+        BullShit,
+        ChubbyAndHeavy
     }
 }
