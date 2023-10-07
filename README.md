@@ -34,6 +34,7 @@
 | Hottie Floor  | 1.5.0a  |
 | Kagome Kagome  | 1.5.0a  |
 | Rocket Birdy League  | 1.5.0a  |
+| Chubby and Heavy  | 1.6.0a  |
 
 ## Future Minigames with lateral view
 - Hunting Season (avoid hunter bullets)
