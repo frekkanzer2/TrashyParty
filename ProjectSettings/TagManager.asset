@@ -41,7 +41,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - SpecialDeadzone
   - Deadzone
   - PLateral
   - PLateral-Coll-Head

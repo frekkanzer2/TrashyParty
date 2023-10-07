@@ -3,6 +3,7 @@ public static class Constants {
     public static int PLAYER_SPRINT_MOVEMENT_SPEED = 20;
     public static int PLAYER_JUMPING_POWER = 38;
     public static int LAYER_DEADZONE = 29;
+    public static int LAYER_SPECIAL_DEADZONE = 28;
     public static int LAYER_GROUND = 6;
     public static int LAYER_PLAYERHEAD = 31;
     public static string LEVEL_SPECIFIC_SOUND_TAG = "LevelSound";
@@ -41,6 +42,7 @@ public static class Constants {
         KagomeKagome,
         EggHatching,
         BullShit,
-        ChubbyAndHeavy
+        ChubbyAndHeavy,
+        LaserDodge
     }
 }
