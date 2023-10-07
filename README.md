@@ -1,36 +1,39 @@
 # TrashyParty
 
 ## Available Minigames
-- Basketegg
-- Beach Volley
-- Bird Soccer
-- Birds Footsteps
-- Bomb Tag
-- Bull Shit
-- Cat Dance
-- Catch Up
-- Cloudy Boxes
-- Colorful Nests
-- Deadly Drop
-- Detonation Bird
-- Egg Hatching
-- Electroshock
-- Energy Release
-- Fizzle Floor
-- Gotta Catch Em' All
-- Head Smash
-- Hottie Floor
-- I'm the King
-- Kagome Kagome
-- Laboratory Lights
-- Lava Dodge
-- Rocket Birdy League
-- Static Stun
-- Super Hot
-- Tappy Bird
-- Trap Run
-- Ufo Invasion
-- Under the Rain
+| Game  | Version |
+| ------------- | ------------- |
+| Basketegg  | 1.1a  |
+| Beach Volley  | 1.1a  |
+| Bird Soccer  | 1.1a  |
+| Birds Footsteps  | 1.1a  |
+| Cat Dance  | 1.1a  |
+| Cloudy Boxes  | 1.1a  |
+| Deadly Drop  | 1.1a  |
+| Electroshock  | 1.1a  |
+| Energy Release  | 1.1a  |
+| Head Smash  | 1.1a  |
+| I'm the King  | 1.1a  |
+| Lava Dodge  | 1.1a  |
+| Tappy Bird  | 1.1a  |
+| Ufo Invasion  | 1.1a  |
+| Bomb Tag  | 1.2a  |
+| Catch Up  | 1.2a  |
+| Detonation Bird  | 1.2a  |
+| Fizzle Floor  | 1.2a  |
+| Laboratory Lights  | 1.2a  |
+| Super Hot  | 1.2a  |
+| Under the Rain  | 1.2a  |
+| Trap Run  | 1.3.1a  |
+| Eggs Rush  | 1.4.1a  |
+| Gotta Catch Em' All  | 1.4.1a  |
+| Static Stun  | 1.4.1a  |
+| Bull Shit  | 1.5.0a  |
+| Colorful Nests  | 1.5.0a  |
+| Egg Hatching  | 1.5.0a  |
+| Hottie Floor  | 1.5.0a  |
+| Kagome Kagome  | 1.5.0a  |
+| Rocket Birdy League  | 1.5.0a  |
 
 ## Future Minigames with lateral view
 - Hunting Season (avoid hunter bullets)
