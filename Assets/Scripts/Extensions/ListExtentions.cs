@@ -45,4 +45,7 @@ public static class ListExtentions
         }
     }
 
+    public static bool IsNullOrEmpty<T>(this IList<T> list)
+        => list == null || list.Count == 0;
+
 }

@@ -60,10 +60,6 @@ public class LaserDodgeGameController : GameManager
             p.ChangePlayerStats(Constants.PLAYER_MOVEMENT_SPEED - 3, 0);
             p.gameObject.transform.localScale = new Vector3(0.85f, 0.85f, 1);
         }
-        // TESTING LASER
-        ILaser laser = (Instantiate(LaserPrefab, new Vector3(0, 0, 0), Quaternion.identity)).GetComponent<ILaser>();
-        laser.Initialize(true, 10, 20, 5, 0.05f, 0.75f);
-        laser.OnSpawn();
     }
 
     float _timer = 0;
@@ -80,6 +76,7 @@ public class LaserDodgeGameController : GameManager
     public override void OnPreparationEndsGameSpecific()
     {
         SoundManager.PlayRandomGameSoundtrack();
+        this.gameObject.GetComponent<LaserGenerator>().StartWaves();
     }
 
     public override void RestartMatch()

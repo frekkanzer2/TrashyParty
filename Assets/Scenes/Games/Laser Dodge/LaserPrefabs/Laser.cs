@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 /// <summary>
 /// When instantiate a Laser object, follow these steps:
@@ -11,27 +12,32 @@ using UnityEngine;
 public class Laser : MonoBehaviour, ILaser
 {
     #region Private attributes
-    private int _team, _aliveTime, _rotationDirection;
+    private int _team, _aliveTime, _rotationDirection, _pathIndex;
     private bool _isAlive, _canRotate, _isInit, _timeEnded;
-    private float _maxScale, _growingSpeedWhenAlive, _timer, _rotationSpeed;
+    private float _maxScale, _growingSpeedWhenAlive, _timer, _rotationSpeed, _movementSpeed;
     private IEnumerator _executingCoroutine;
+    private List<Vector2> _path;
     private const float SPAWN_SPEED = 0.005f;
     #endregion
 
     #region Laser methods' implementation
-    public void Initialize(bool canRotate, int notAliveTimer, int aliveTimer, float maxScaleWhenAlive, float growingSpeedWhenAlive, float rotationSpeed)
+    public void Initialize(LaserInitializationDto initDto)
     {
         this._team = -1;
         this._isAlive = false;
-        this._timer = notAliveTimer;
-        this._aliveTime = aliveTimer;
-        this._canRotate = canRotate;
-        this._maxScale = maxScaleWhenAlive;
-        this._growingSpeedWhenAlive = growingSpeedWhenAlive;
+        this._timer = initDto.NotAliveTimer;
+        this._aliveTime = initDto.AliveTimer;
+        this._canRotate = initDto.CanRotate;
+        this._maxScale = initDto.MaxScaleWhenAlive;
+        Debug.LogError("Injected max scale: " + initDto.MaxScaleWhenAlive);
+        this._growingSpeedWhenAlive = initDto.GrowingSpeedWhenAlive;
         this._executingCoroutine = null;
         this._timeEnded = false;
-        this._rotationSpeed = rotationSpeed;
-        this._rotationDirection = Random.Range(1, 11) % 2;
+        this._rotationSpeed = initDto.RotationSpeed;
+        this._rotationDirection = initDto.RotationDirection ?? Random.Range(1, 11) % 2;
+        this._pathIndex = 0;
+        this.Path = initDto.Path.IsNullOrEmpty() ? null : initDto.Path;
+        this._movementSpeed = initDto.MovementSpeed ?? 0;
         this._isInit = true;
     }
 
@@ -65,6 +71,11 @@ public class Laser : MonoBehaviour, ILaser
         StartCoroutine(OnTimerEndsScaling());
     }
 
+    public void MoveOnPath(Vector2 nextPoint)
+    {
+        
+    }
+
     public int Team => _team;
 
     public bool IsAlive => _isAlive;
@@ -72,6 +83,18 @@ public class Laser : MonoBehaviour, ILaser
     public bool CanRotate => _canRotate;
 
     public bool IsInitialized => _isInit;
+
+    public List<Vector2> Path { 
+        get => _path;
+        set {
+            _path = value;
+            if (value != null)
+            {
+                _path.Insert(0, this.transform.position.ToVector2()); // add as first element the actual position
+                _pathIndex = 1;
+            }
+        }
+    }
     #endregion
 
     #region Scaling implementation
@@ -81,11 +104,11 @@ public class Laser : MonoBehaviour, ILaser
         NEGATIVE
     }
     private Scaling GetScalingType(float startingScale, float destinationScale)
-        => startingScale == destinationScale ? throw new System.ArgumentException("Arguments are equals -> Invalid scaling type")
+        => startingScale == destinationScale ? throw new System.ArgumentException($"Arguments are equals (scaling value: {startingScale}) -> Invalid scaling type")
         : (startingScale < destinationScale ? Scaling.POSITIVE : Scaling.NEGATIVE);
     private IEnumerator ScaleOverTime(float startingScale, float destinationScale, float growingSpeed)
     {
-        if (growingSpeed <= 0) throw new System.ArgumentException("Growing speed is equals or less than zero -> Growing speed must be greater than zero");
+        if (growingSpeed <= 0) throw new System.ArgumentException($"Growing speed is equals or less than zero ({growingSpeed}) -> Growing speed must be greater than zero");
         Scaling scalingType = GetScalingType(startingScale, destinationScale);
         while (scalingType == Scaling.POSITIVE ? startingScale < destinationScale : startingScale > destinationScale)
         {
@@ -137,6 +160,7 @@ public class Laser : MonoBehaviour, ILaser
     public GameObject Center;
     public Sprite[] TeamRaySprites;
     public CircleCollider2D CentralCollider;
+
     private Sprite GetRaySprite(int team) => TeamRaySprites[team - 1];
 
     void Awake()
@@ -168,6 +192,13 @@ public class Laser : MonoBehaviour, ILaser
     {
         if (!IsInitialized) return;
         if (CanRotate) transform.Rotate(0, 0, _rotationDirection == 0 ? _rotationSpeed : _rotationSpeed * -1);
+        if (!Path.IsNullOrEmpty() && !_timeEnded)
+        {
+            Vector2 pointToFollow = Path[_pathIndex];
+            Vector2 direction = pointToFollow - this.transform.position.ToVector2();
+            if (direction.magnitude <= 0.1f) _pathIndex = _pathIndex + 1 == Path.Count ? 0 : _pathIndex + 1;
+            else this.transform.position = Vector2.MoveTowards(this.transform.position, pointToFollow, _movementSpeed * Time.deltaTime);
+        }
     }
 
     #endregion

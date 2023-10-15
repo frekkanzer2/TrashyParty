@@ -97,8 +97,8 @@ public class TopDownPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
             rigidbody.velocity = Vector2.zero;
             return;
         }
-        if (gamepad == null) throw new System.NullReferenceException("No gamepad is connected");
-        if (gamepad.IsConnected())
+        if (gamepad == null) Log.Logger.Write(ILogManager.Level.Warning, "No gamepad is connected");
+        if (gamepad != null && gamepad.IsConnected())
         {
             if (canSprint && CanSprintBySprintBar && gamepad.IsButtonPressed(IGamepad.Key.ActionButtonRight, IGamepad.PressureType.Continue))
                 isSprinting = true;
