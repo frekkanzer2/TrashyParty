@@ -29,7 +29,6 @@ public class Laser : MonoBehaviour, ILaser
         this._aliveTime = initDto.AliveTimer;
         this._canRotate = initDto.CanRotate;
         this._maxScale = initDto.MaxScaleWhenAlive;
-        Debug.LogError("Injected max scale: " + initDto.MaxScaleWhenAlive);
         this._growingSpeedWhenAlive = initDto.GrowingSpeedWhenAlive;
         this._executingCoroutine = null;
         this._timeEnded = false;
@@ -47,9 +46,7 @@ public class Laser : MonoBehaviour, ILaser
         Debug.Log("LASER > Detected collision with player");
         if (!this._isAlive)
         {
-            // Ray is default status
             this._timer = this._aliveTime;
-            /// GETTING PLAYER TEAM ID
             int team = 1; // mocked
             CentralCollider.enabled = false;
             StartCoroutine(OnPlayerCollisionScaling(team));
@@ -59,21 +56,21 @@ public class Laser : MonoBehaviour, ILaser
 
     public void OnSpawn()
     {
-        Debug.Log("LASER > Spawn scaling");
         CentralCollider.enabled = true;
         StartCoroutine(OnSpawnScaling());
     }
 
     public void OnTimerEnds()
     {
-        Debug.Log("LASER > Time ended");
         this._timeEnded = true;
         StartCoroutine(OnTimerEndsScaling());
     }
 
     public void MoveOnPath(Vector2 nextPoint)
     {
-        
+        Vector2 direction = nextPoint - this.transform.position.ToVector2();
+        if (direction.magnitude <= 0.1f) _pathIndex = _pathIndex + 1 == Path.Count ? 0 : _pathIndex + 1;
+        else this.transform.position = Vector2.MoveTowards(this.transform.position, nextPoint, _movementSpeed * Time.deltaTime);
     }
 
     public int Team => _team;
@@ -127,7 +124,7 @@ public class Laser : MonoBehaviour, ILaser
         yield return new WaitForSeconds(0.001f);
         _executingCoroutine = ScaleOverTime(0, 1, SPAWN_SPEED);
         StartCoroutine(_executingCoroutine);
-        Debug.Log("LASER > Spawn scaling ended");
+
     }
     private IEnumerator OnPlayerCollisionScaling(int team)
     {
@@ -144,7 +141,6 @@ public class Laser : MonoBehaviour, ILaser
         _isAlive = true;
         _executingCoroutine = ScaleOverTime(0, _maxScale, _growingSpeedWhenAlive);
         StartCoroutine(_executingCoroutine);
-        Debug.Log("LASER > Collision scaling ended");
     }
     private IEnumerator OnTimerEndsScaling()
     {
@@ -192,13 +188,7 @@ public class Laser : MonoBehaviour, ILaser
     {
         if (!IsInitialized) return;
         if (CanRotate) transform.Rotate(0, 0, _rotationDirection == 0 ? _rotationSpeed : _rotationSpeed * -1);
-        if (!Path.IsNullOrEmpty() && !_timeEnded)
-        {
-            Vector2 pointToFollow = Path[_pathIndex];
-            Vector2 direction = pointToFollow - this.transform.position.ToVector2();
-            if (direction.magnitude <= 0.1f) _pathIndex = _pathIndex + 1 == Path.Count ? 0 : _pathIndex + 1;
-            else this.transform.position = Vector2.MoveTowards(this.transform.position, pointToFollow, _movementSpeed * Time.deltaTime);
-        }
+        if (!Path.IsNullOrEmpty() && !_timeEnded) MoveOnPath(Path[_pathIndex]);
     }
 
     #endregion
