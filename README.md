@@ -37,24 +37,18 @@
 | Chubby and Heavy  | 1.6.0a  |
 | Laser Dodge  | 1.6.0a  |
 
+Total games: 33 / 50
+
 ## Future Minigames with lateral view
 - Hunting Season (avoid hunter bullets)
-- Birdy Fight (birds can pickup a weapon and shoot the others)
 - Eggs Kart (change lane to avoid incoming eggs)
-- Aura Replication (replicate the keystroke shown exclusively for your bird (each key will show an aura))
-- Chubby and Heavy (the bird must jump on the head of the other bird: he will not be able to jump anymore)
 - Eggy Treasure (collect the eggs that will spawn in the map and return them in the chest - the first one that deposits 10 eggs will win - it anyone stuns you, you lose the egg)
-- Galaxian Birds (two teams: first one are birds like ufo, second one are galaxips - the galaxips will shot to the ufo-birds that must avoid projectiles - time limit: 1 minute)
 
 ## Future Minigames with view from above
 - Nuclear Bump (push the other birds into the nuclear liquid)
-- Dungate (kill the zombies with your gun and be the last survivor)
-- Hide and Seek (one player is the killer, the others are masqueraded as environment props)
 - Deadly Race (a player controls a car that always spins: by pressing a button, the car will move in the direction of the spin. If the other players do not get run over within one minute, the car will explode and they will win)
 - Birdjammers (Windjammers-like game)
 - Betrayer Bird (one player is the killer with a shotgun, that will kill every bird in 1 minute)
-- Takeshi's Bird (Takeshi's Castle final round game: https://www.youtube.com/watch?v=3vFZXg4OlFQ&ab_channel=Gambit771)
-- Laser Dodge (Laser League game)
 
 ### Create title sprite for Minigames
 - Download the following Paint.net plugin and install it: https://forums.getpaint.net/topic/121343-boltbaits-gpu-accelerated-plugin-pack-for-paintnet-v50-updated-2023-01-28/
