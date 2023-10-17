@@ -6,6 +6,9 @@ public class DummyPlayer : IPlayer
 {
     public bool IsInitialized => true;
 
+    protected int? _team = null;
+    public int? Team { get => _team; set => _team = value; }
+
     public Vector3 RespawnPosition { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
 
     public void ApplyForce(Vector2 force)

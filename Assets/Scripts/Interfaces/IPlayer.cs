@@ -22,4 +22,5 @@ public interface IPlayer
     string GetName();
     bool CheckName(string name);
     Vector3 RespawnPosition { get; set; }
+    int? Team { get; set; }
 }

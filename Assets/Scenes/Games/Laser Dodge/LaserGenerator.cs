@@ -102,7 +102,7 @@ public class LaserGenerator : MonoBehaviour
                 CanRotate = laser.CanRotate,
                 RotationDirection = laser.CanRotate && laser.RotationDirection != null ? laser.RotationDirection : null,
                 NotAliveTimer = (int) this.Waves[_wave].TimeToWaitForNextGeneration,
-                AliveTimer = (int)this.Waves[_wave].TimeToWaitForNextGeneration + (_waveCycle <= 5 ? _waveCycle : 5) * 2,
+                AliveTimer = (int)(this.Waves[_wave].TimeToWaitForNextGeneration * 1.5f) + (_waveCycle <= 5 ? _waveCycle : 5) * 2,
                 MaxScaleWhenAlive = laser.Scale + (_waveCycle <= 20 ? _waveCycle : 20),
                 GrowingSpeedWhenAlive = StartingGrowingSpeed + (_waveCycle <= 10 ? _waveCycle : 10) * 0.005f,
                 RotationSpeed = laser.RotationSpeed + (_waveCycle <= 10 ? _waveCycle : 10) * 0.025f,
@@ -286,14 +286,14 @@ public class LaserGenerator : MonoBehaviour
             CanRotate = false,
             LaserRays = 4,
             Scale = 3,
-            SpawnPosition = new(17, 0)
+            SpawnPosition = new(18, 0)
         });
         waveObj.Lasers.Add(new()
         {
             CanRotate = false,
             LaserRays = 4,
             Scale = 3,
-            SpawnPosition = new(-17, 0)
+            SpawnPosition = new(-18, 0)
         });
         waveObj.Lasers.Add(new()
         {

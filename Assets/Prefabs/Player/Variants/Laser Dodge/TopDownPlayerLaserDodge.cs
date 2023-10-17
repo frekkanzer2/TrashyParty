@@ -27,8 +27,13 @@ public class TopDownPlayerLaserDodge : TopDownPlayer
 
         if (tag == "Pickable" && !GameManager.Instance.IsGameEnded())
         {
+            Debug.Log($"Team {this.Team} picked laser");
             ILaser laser = collision.gameObject.GetComponent<ILaser>();
             laser.OnPlayerCollision(this);
+        } else if (layer == Constants.LAYER_SPECIAL_DEADZONE)
+        {
+            ILaser laser = collision.gameObject.transform.parent.parent.GetComponent<ILaser>(); // getting laser component from ray
+            if (this.Team != laser.Team && laser.IsAlive) this.OnDeath();
         }
 
     }

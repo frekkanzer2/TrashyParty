@@ -45,10 +45,10 @@ public class Laser : MonoBehaviour, ILaser
         if (_timer <= 0 || playerCollided.IsDead()) return;
         if (!this._isAlive)
         {
+            this._team = playerCollided.Team ?? throw new System.ArgumentNullException("Team value cannot be null");
             this._timer = this._aliveTime;
-            int team = 1; // mocked
             CentralCollider.enabled = false;
-            StartCoroutine(OnPlayerCollisionScaling(team));
+            StartCoroutine(OnPlayerCollisionScaling(_team));
         }
     }
 
@@ -126,6 +126,7 @@ public class Laser : MonoBehaviour, ILaser
     }
     private IEnumerator OnPlayerCollisionScaling(int team)
     {
+        Debug.Log($"Received ID {team}");
         yield return new WaitForSeconds(0.001f);
         StopCoroutine(_executingCoroutine);
         _executingCoroutine = ScaleOverTime(Rays[0].transform.localScale.x, 0, _growingSpeedWhenAlive);

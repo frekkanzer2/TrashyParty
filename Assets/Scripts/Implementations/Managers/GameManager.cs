@@ -114,8 +114,10 @@ public abstract class GameManager : Singleton<GameManager>, IGameManager, IMulti
                 ControllerId = playerRecord.Item2,
                 PlayerNumber = playerRecord.Item3
             };
-            players.Add(playerGenerated.GetComponent<IPlayer>());
-            toPopulate.players.Add(playerGenerated.GetComponent<IPlayer>());
+            IPlayer player = playerGenerated.GetComponent<IPlayer>();
+            players.Add(player);
+            toPopulate.players.Add(player);
+            player.Team = toPopulate.Id;
         }
     }
 
