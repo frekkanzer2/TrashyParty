@@ -35,6 +35,7 @@
 | Kagome Kagome  | 1.5.0a  |
 | Rocket Birdy League  | 1.5.0a  |
 | Chubby and Heavy  | 1.6.0a  |
+| Laser Dodge  | 1.6.0a  |
 
 ## Future Minigames with lateral view
 - Hunting Season (avoid hunter bullets)
