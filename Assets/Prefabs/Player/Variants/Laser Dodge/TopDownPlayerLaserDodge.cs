@@ -20,12 +20,12 @@ public class TopDownPlayerLaserDodge : TopDownPlayer
     protected override void OnTriggerEnterOverridable(Collider2D collision)
     {
 
-        if (this.isDead) return;
+        if (this.isDead || GameManager.Instance.IsGameEnded()) return;
 
         int layer = collision.gameObject.layer;
         string tag = collision.gameObject.tag;
 
-        if (tag == "Pickable" && !GameManager.Instance.IsGameEnded())
+        if (tag == "Pickable")
         {
             Debug.Log($"Team {this.Team} picked laser");
             ILaser laser = collision.gameObject.GetComponent<ILaser>();

@@ -140,10 +140,15 @@ public class LaserGenerator : MonoBehaviour
     private void Populate()
     {
         this.Waves = new();
+        this.Waves.Add(GenerateLasersForWave8());
         this.Waves.Add(GenerateLasersForWave1());
         this.Waves.Add(GenerateLasersForWave2());
         this.Waves.Add(GenerateLasersForWave3());
         this.Waves.Add(GenerateLasersForWave4());
+        this.Waves.Add(GenerateLasersForWave5());
+        this.Waves.Add(GenerateLasersForWave6());
+        this.Waves.Add(GenerateLasersForWave7());
+        this.Waves.Shuffle();
     }
     private LaserGeneratorDataWave GenerateLasersForWave1()
     {
@@ -174,6 +179,46 @@ public class LaserGenerator : MonoBehaviour
             RotationDirection = 0,
             Scale = 2,
             SpawnPosition = new(-20, 12)
+        });
+        waveObj.Lasers.Add(new()
+        {
+            CanRotate = true,
+            RotationSpeed = 1f,
+            LaserRays = 3,
+            Scale = 2,
+            SpawnPosition = new(26, 0)
+        });
+        waveObj.Lasers.Add(new()
+        {
+            CanRotate = true,
+            RotationSpeed = 1f,
+            LaserRays = 3,
+            Scale = 2,
+            SpawnPosition = new(13, 0)
+        });
+        waveObj.Lasers.Add(new()
+        {
+            CanRotate = true,
+            RotationSpeed = 1f,
+            LaserRays = 3,
+            Scale = 2,
+            SpawnPosition = new(0, 0)
+        });
+        waveObj.Lasers.Add(new()
+        {
+            CanRotate = true,
+            RotationSpeed = 1f,
+            LaserRays = 3,
+            Scale = 2,
+            SpawnPosition = new(-13, 0)
+        });
+        waveObj.Lasers.Add(new()
+        {
+            CanRotate = true,
+            RotationSpeed = 1f,
+            LaserRays = 3,
+            Scale = 2,
+            SpawnPosition = new(-26, 0)
         });
         waveObj.Lasers.Add(new()
         {
@@ -217,7 +262,7 @@ public class LaserGenerator : MonoBehaviour
             RotationSpeed = 0.7f,
             LaserRays = 3,
             RotationDirection = 0,
-            Scale = 2,
+            Scale = 3,
             SpawnPosition = new(25, 10),
             Path = path,
             MovementSpeed = 3
@@ -232,7 +277,7 @@ public class LaserGenerator : MonoBehaviour
             RotationSpeed = 0.7f,
             LaserRays = 3,
             RotationDirection = 0,
-            Scale = 2,
+            Scale = 3,
             SpawnPosition = new(-25, 10),
             Path = path,
             MovementSpeed = 3
@@ -247,7 +292,7 @@ public class LaserGenerator : MonoBehaviour
             RotationSpeed = 0.7f,
             LaserRays = 3,
             RotationDirection = 0,
-            Scale = 2,
+            Scale = 3,
             SpawnPosition = new(-25, -10),
             Path = path,
             MovementSpeed = 3
@@ -262,7 +307,7 @@ public class LaserGenerator : MonoBehaviour
             RotationSpeed = 0.7f,
             LaserRays = 3,
             RotationDirection = 0,
-            Scale = 2,
+            Scale = 3,
             SpawnPosition = new(25, -10),
             Path = path,
             MovementSpeed = 3
@@ -280,34 +325,66 @@ public class LaserGenerator : MonoBehaviour
     }
     private LaserGeneratorDataWave GenerateLasersForWave3()
     {
-        LaserGeneratorDataWave waveObj = new();
+        LaserGeneratorDataWave waveObj = new(8);
         waveObj.Lasers.Add(new()
         {
             CanRotate = false,
             LaserRays = 4,
-            Scale = 3,
+            Scale = 5,
             SpawnPosition = new(18, 0)
         });
         waveObj.Lasers.Add(new()
         {
             CanRotate = false,
             LaserRays = 4,
-            Scale = 3,
+            Scale = 5,
             SpawnPosition = new(-18, 0)
         });
         waveObj.Lasers.Add(new()
         {
             CanRotate = false,
             LaserRays = 4,
-            Scale = 3,
+            Scale = 5,
             SpawnPosition = new(0, 9)
         });
         waveObj.Lasers.Add(new()
         {
             CanRotate = false,
             LaserRays = 4,
-            Scale = 3,
+            Scale = 5,
             SpawnPosition = new(0, -9)
+        });
+        waveObj.Lasers.Add(new()
+        {
+            CanRotate = true,
+            RotationSpeed = 0.5f,
+            LaserRays = 3,
+            Scale = 2,
+            SpawnPosition = new(-35, 18)
+        });
+        waveObj.Lasers.Add(new()
+        {
+            CanRotate = true,
+            RotationSpeed = 0.5f,
+            LaserRays = 3,
+            Scale = 2,
+            SpawnPosition = new(35, 18)
+        });
+        waveObj.Lasers.Add(new()
+        {
+            CanRotate = true,
+            RotationSpeed = 0.5f,
+            LaserRays = 3,
+            Scale = 2,
+            SpawnPosition = new(35, -18)
+        });
+        waveObj.Lasers.Add(new()
+        {
+            CanRotate = true,
+            RotationSpeed = 0.5f,
+            LaserRays = 3,
+            Scale = 2,
+            SpawnPosition = new(-35, -18)
         });
         return waveObj;
     }
@@ -388,6 +465,388 @@ public class LaserGenerator : MonoBehaviour
             SpawnPosition = new(30, 5),
             Path = path,
             MovementSpeed = 3.25f
+        });
+        return waveObj;
+    }
+    private LaserGeneratorDataWave GenerateLasersForWave5()
+    {
+        LaserGeneratorDataWave waveObj = new(12);
+        waveObj.Lasers.Add(new()
+        {
+            LaserRays = 2,
+            Scale = 4,
+            SpawnPosition = new(-20, 0)
+        });
+        waveObj.Lasers.Add(new()
+        {
+            LaserRays = 2,
+            Scale = 4,
+            SpawnPosition = new(20, 0)
+        });
+        List<Vector2> path = new();
+        path.Add(new(-35, 16));
+        waveObj.Lasers.Add(new()
+        {
+            CanRotate = false,
+            LaserRays = 4,
+            Scale = 4,
+            SpawnPosition = new(35, 16),
+            Path = path,
+            MovementSpeed = 4.5f
+        });
+        path = new();
+        path.Add(new(35, -16));
+        waveObj.Lasers.Add(new()
+        {
+            CanRotate = false,
+            LaserRays = 4,
+            Scale = 4,
+            SpawnPosition = new(-35, -16),
+            Path = path,
+            MovementSpeed = 4.5f
+        });
+        waveObj.Lasers.Add(new()
+        {
+            CanRotate = true,
+            RotationSpeed = 0.45f,
+            LaserRays = 5,
+            Scale = 3,
+            SpawnPosition = new(0, 0)
+        });
+        path = new();
+        path.Add(new(20, 16));
+        waveObj.Lasers.Add(new()
+        {
+            CanRotate = false,
+            LaserRays = 2,
+            Scale = 4,
+            SpawnPosition = new(20, -16),
+            Path = path,
+            MovementSpeed = 3.85f
+        });
+        path = new();
+        path.Add(new(-20, -16));
+        waveObj.Lasers.Add(new()
+        {
+            CanRotate = false,
+            LaserRays = 2,
+            Scale = 4,
+            SpawnPosition = new(-20, 16),
+            Path = path,
+            MovementSpeed = 3.85f
+        });
+        return waveObj;
+    }
+    private LaserGeneratorDataWave GenerateLasersForWave6()
+    {
+        LaserGeneratorDataWave waveObj = new(15);
+        List<Vector2> path = new();
+        path.Add(new(0, 17));
+        path.Add(new(0, -17));
+        waveObj.Lasers.Add(new()
+        {
+            CanRotate = true,
+            RotationSpeed = 0.5f,
+            LaserRays = 3,
+            Scale = 5,
+            SpawnPosition = new(0, 4),
+            Path = path,
+            MovementSpeed = 3.85f
+        });
+        path = new();
+        path.Add(new(0, -17));
+        path.Add(new(0, 17));
+        waveObj.Lasers.Add(new()
+        {
+            CanRotate = true,
+            RotationSpeed = 0.5f,
+            LaserRays = 3,
+            Scale = 5,
+            SpawnPosition = new(0, -4),
+            Path = path,
+            MovementSpeed = 3.85f
+        });
+        path = new();
+        path.Add(new(17, 0));
+        path.Add(new(-17, 0));
+        waveObj.Lasers.Add(new()
+        {
+            CanRotate = true,
+            RotationSpeed = 0.5f,
+            LaserRays = 3,
+            Scale = 5,
+            SpawnPosition = new(4, 0),
+            Path = path,
+            MovementSpeed = 3.85f
+        });
+        path = new();
+        path.Add(new(-17, 0));
+        path.Add(new(17, 0));
+        waveObj.Lasers.Add(new()
+        {
+            CanRotate = true,
+            RotationSpeed = 0.5f,
+            LaserRays = 3,
+            Scale = 5,
+            SpawnPosition = new(-4, 0),
+            Path = path,
+            MovementSpeed = 3.85f
+        });
+        path = new();
+        path.Add(new(17, 17));
+        path.Add(new(-17, -17));
+        waveObj.Lasers.Add(new()
+        {
+            CanRotate = true,
+            RotationSpeed = 0.4f,
+            LaserRays = 4,
+            Scale = 5,
+            SpawnPosition = new(3, 3),
+            Path = path,
+            MovementSpeed = 4.25f
+        });
+        path = new();
+        path.Add(new(-17, -17));
+        path.Add(new(17, 17));
+        waveObj.Lasers.Add(new()
+        {
+            CanRotate = true,
+            RotationSpeed = 0.4f,
+            LaserRays = 4,
+            Scale = 5,
+            SpawnPosition = new(-3, -3),
+            Path = path,
+            MovementSpeed = 4.25f
+        });
+        path = new();
+        path.Add(new(17, -17));
+        path.Add(new(-17, 17));
+        waveObj.Lasers.Add(new()
+        {
+            CanRotate = true,
+            RotationSpeed = 0.4f,
+            LaserRays = 4,
+            Scale = 5,
+            SpawnPosition = new(3, -3),
+            Path = path,
+            MovementSpeed = 4.25f
+        });
+        path = new();
+        path.Add(new(-17, 17));
+        path.Add(new(17, -17));
+        waveObj.Lasers.Add(new()
+        {
+            CanRotate = true,
+            RotationSpeed = 0.4f,
+            LaserRays = 4,
+            Scale = 5,
+            SpawnPosition = new(-3, 3),
+            Path = path,
+            MovementSpeed = 4.25f
+        });
+        path = new();
+        path.Add(new(-20, 13));
+        waveObj.Lasers.Add(new()
+        {
+            CanRotate = true,
+            RotationSpeed = 0.3f,
+            LaserRays = 5,
+            Scale = 8,
+            SpawnPosition = new(-32, 15),
+            Path = path,
+            MovementSpeed = 3.75f
+        });
+        path = new();
+        path.Add(new(-20, -13));
+        waveObj.Lasers.Add(new()
+        {
+            CanRotate = true,
+            RotationSpeed = 0.3f,
+            LaserRays = 5,
+            Scale = 8,
+            SpawnPosition = new(-32, -15),
+            Path = path,
+            MovementSpeed = 3.75f
+        });
+        path = new();
+        path.Add(new(20, -13));
+        waveObj.Lasers.Add(new()
+        {
+            CanRotate = true,
+            RotationSpeed = 0.3f,
+            LaserRays = 5,
+            Scale = 8,
+            SpawnPosition = new(32, -15),
+            Path = path,
+            MovementSpeed = 3.75f
+        });
+        path = new();
+        path.Add(new(20, 13));
+        waveObj.Lasers.Add(new()
+        {
+            CanRotate = true,
+            RotationSpeed = 0.3f,
+            LaserRays = 5,
+            Scale = 8,
+            SpawnPosition = new(32, 15),
+            Path = path,
+            MovementSpeed = 3.75f
+        });
+        return waveObj;
+    }
+    private LaserGeneratorDataWave GenerateLasersForWave7()
+    {
+        LaserGeneratorDataWave waveObj = new(12);
+        List<Vector2> path = new();
+        path.Add(new(-34, -16));
+        waveObj.Lasers.Add(new()
+        {
+            CanRotate = false,
+            LaserRays = 4,
+            Scale = 6,
+            SpawnPosition = new(-34, 16),
+            Path = path,
+            MovementSpeed = 1.4f
+        });
+        path = new();
+        path.Add(new(-33, -17));
+        waveObj.Lasers.Add(new()
+        {
+            CanRotate = false,
+            LaserRays = 4,
+            Scale = 6,
+            SpawnPosition = new(33, -17),
+            Path = path,
+            MovementSpeed = 2f
+        });
+        path = new();
+        path.Add(new(34, 16));
+        waveObj.Lasers.Add(new()
+        {
+            CanRotate = false,
+            LaserRays = 4,
+            Scale = 6,
+            SpawnPosition = new(34, -16),
+            Path = path,
+            MovementSpeed = 1.4f
+        });
+        path = new();
+        path.Add(new(33, 17));
+        waveObj.Lasers.Add(new()
+        {
+            CanRotate = false,
+            LaserRays = 4,
+            Scale = 6,
+            SpawnPosition = new(-33, 17),
+            Path = path,
+            MovementSpeed = 2f
+        });
+        waveObj.Lasers.Add(new()
+        {
+            CanRotate = true,
+            RotationDirection = 1,
+            RotationSpeed = 0.85f,
+            LaserRays = 4,
+            Scale = 5,
+            SpawnPosition = new(-15, 0)
+        });
+        waveObj.Lasers.Add(new()
+        {
+            CanRotate = true,
+            RotationDirection = 0,
+            RotationSpeed = 0.85f,
+            LaserRays = 4,
+            Scale = 5,
+            SpawnPosition = new(15, 0)
+        });
+        return waveObj;
+    }
+    private LaserGeneratorDataWave GenerateLasersForWave8()
+    {
+        LaserGeneratorDataWave waveObj = new();
+        List<Vector2> path = new();
+        path.Add(new(0, -17));
+        waveObj.Lasers.Add(new()
+        {
+            CanRotate = false,
+            LaserRays = 2,
+            Scale = 8,
+            SpawnPosition = new(-34, 17),
+            Path = path,
+            MovementSpeed = 3.5f
+        });
+        path = new();
+        path.Add(new(0, 17));
+        waveObj.Lasers.Add(new()
+        {
+            CanRotate = false,
+            LaserRays = 2,
+            Scale = 8,
+            SpawnPosition = new(-34, -17),
+            Path = path,
+            MovementSpeed = 3.5f
+        });
+        path = new();
+        path.Add(new(0, -17));
+        waveObj.Lasers.Add(new()
+        {
+            CanRotate = false,
+            LaserRays = 2,
+            Scale = 8,
+            SpawnPosition = new(34, 17),
+            Path = path,
+            MovementSpeed = 3.5f
+        });
+        path = new();
+        path.Add(new(0, 17));
+        waveObj.Lasers.Add(new()
+        {
+            CanRotate = false,
+            LaserRays = 2,
+            Scale = 8,
+            SpawnPosition = new(34, -17),
+            Path = path,
+            MovementSpeed = 3.5f
+        });
+        waveObj.Lasers.Add(new()
+        {
+            CanRotate = true,
+            RotationSpeed = 1f,
+            LaserRays = 3,
+            Scale = 3,
+            SpawnPosition = new(15, 6)
+        });
+        waveObj.Lasers.Add(new()
+        {
+            CanRotate = true,
+            RotationSpeed = 1f,
+            LaserRays = 3,
+            Scale = 3,
+            SpawnPosition = new(15, -6)
+        });
+        waveObj.Lasers.Add(new()
+        {
+            CanRotate = true,
+            RotationSpeed = 1f,
+            LaserRays = 3,
+            Scale = 3,
+            SpawnPosition = new(-15, 6)
+        });
+        waveObj.Lasers.Add(new()
+        {
+            CanRotate = true,
+            RotationSpeed = 1f,
+            LaserRays = 3,
+            Scale = 3,
+            SpawnPosition = new(-15, -6)
+        });
+        waveObj.Lasers.Add(new()
+        {
+            CanRotate = true,
+            RotationSpeed = 0.1f,
+            LaserRays = 3,
+            Scale = 30,
+            SpawnPosition = new(0, 0)
         });
         return waveObj;
     }
