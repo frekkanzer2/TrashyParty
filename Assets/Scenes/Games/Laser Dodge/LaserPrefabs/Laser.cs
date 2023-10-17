@@ -43,7 +43,6 @@ public class Laser : MonoBehaviour, ILaser
     public void OnPlayerCollision(IPlayer playerCollided)
     {
         if (_timer <= 0 || playerCollided.IsDead()) return;
-        Debug.Log("LASER > Detected collision with player");
         if (!this._isAlive)
         {
             this._timer = this._aliveTime;
@@ -51,7 +50,6 @@ public class Laser : MonoBehaviour, ILaser
             CentralCollider.enabled = false;
             StartCoroutine(OnPlayerCollisionScaling(team));
         }
-        else playerCollided.OnDeath();
     }
 
     public void OnSpawn()
