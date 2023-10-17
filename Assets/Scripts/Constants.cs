@@ -57,7 +57,7 @@ public static class Constants {
         ColorfulNests,
         EggHatching,
         BullShit,
-        RocketBirdLeague
+        RocketBirdLeague,
         ChubbyAndHeavy,
         LaserDodge
     }
