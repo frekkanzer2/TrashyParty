@@ -236,6 +236,8 @@ public class PlatformerPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
 
     #region IPlayer implementation
 
+    protected int? _team = null;
+    public int? Team { get => _team; set => _team = value; }
     public string GetName()
     {
         string _name = this.body.GetChild(0).gameObject.name;

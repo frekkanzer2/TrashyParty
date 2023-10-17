@@ -1,119 +1,54 @@
 # TrashyParty
 
 ## Available Minigames
-In creation order:
+| Game  | Version |
+| ------------- | ------------- |
+| Basketegg  | 1.1a  |
+| Beach Volley  | 1.1a  |
+| Bird Soccer  | 1.1a  |
+| Birds Footsteps  | 1.1a  |
+| Cat Dance  | 1.1a  |
+| Cloudy Boxes  | 1.1a  |
+| Deadly Drop  | 1.1a  |
+| Electroshock  | 1.1a  |
+| Energy Release  | 1.1a  |
+| Head Smash  | 1.1a  |
+| I'm the King  | 1.1a  |
+| Lava Dodge  | 1.1a  |
+| Tappy Bird  | 1.1a  |
+| Ufo Invasion  | 1.1a  |
+| Bomb Tag  | 1.2a  |
+| Catch Up  | 1.2a  |
+| Detonation Bird  | 1.2a  |
+| Fizzle Floor  | 1.2a  |
+| Laboratory Lights  | 1.2a  |
+| Super Hot  | 1.2a  |
+| Under the Rain  | 1.2a  |
+| Trap Run  | 1.3.1a  |
+| Eggs Rush  | 1.4.1a  |
+| Gotta Catch Em' All  | 1.4.1a  |
+| Static Stun  | 1.4.1a  |
+| Bull Shit  | 1.5.0a  |
+| Colorful Nests  | 1.5.0a  |
+| Egg Hatching  | 1.5.0a  |
+| Hottie Floor  | 1.5.0a  |
+| Kagome Kagome  | 1.5.0a  |
+| Rocket Birdy League  | 1.5.0a  |
+| Chubby and Heavy  | 1.6.0a  |
+| Laser Dodge  | 1.6.0a  |
 
-![image](https://user-images.githubusercontent.com/24304905/233799181-b5a6047c-85f4-4279-bdf2-3b29fdea8cb6.png)
-
-
-![image](https://user-images.githubusercontent.com/24304905/233799219-140a46c6-3aa4-4a92-aa62-0abc3514683d.png)
-
-
-![image](https://user-images.githubusercontent.com/24304905/233799250-830cb18a-000d-45b0-8800-868c595b156d.png)
-
-
-![image](https://user-images.githubusercontent.com/24304905/233852436-ec4d6bce-4681-4b92-9359-19f9df9b23e6.png)
-
-
-![image](https://user-images.githubusercontent.com/24304905/233938525-61be30f5-05cf-4a96-9219-50c76fb29ef8.png)
-
-
-![image](https://user-images.githubusercontent.com/24304905/234050284-2465cef6-7453-48c3-9f0b-d602cf79c95c.png)
-
-
-![image](https://user-images.githubusercontent.com/24304905/234721877-e754527d-056e-4b79-be7b-660c1777a69c.png)
-
-
-![image](https://user-images.githubusercontent.com/24304905/234732689-ea0fc7f6-a8a9-45f5-ba60-c2ad4087b09e.png)
-
-
-![image](https://user-images.githubusercontent.com/24304905/235277098-c86de4e9-1126-40a1-9060-be669473b4d4.png)
-
-
-![image](https://user-images.githubusercontent.com/24304905/235312031-0295156b-8ed5-4534-9f50-855d4ca6a361.png)
-
-
-![image](https://user-images.githubusercontent.com/24304905/235318097-b8a32d6c-8512-4fa0-b22c-3293d8cb5d4b.png)
-
-
-![image](https://user-images.githubusercontent.com/24304905/235359962-f5d45658-d3a5-4f01-8ac9-92f3505c6af3.png)
-
-
-![image](https://user-images.githubusercontent.com/24304905/235471843-26cc86a8-49db-4c39-ba2a-a3daaa232055.png)
-
-
-![image](https://user-images.githubusercontent.com/24304905/235472077-862df1d7-6e5b-4278-aed6-6af47d253cfa.png)
-
-
-![image](https://user-images.githubusercontent.com/24304905/236356202-1e3b9d0d-3e8d-45cf-b4e4-f733679bae62.png)
-
-
-![image](https://user-images.githubusercontent.com/24304905/236356222-1808fb4f-4917-4950-a247-c829ba931afb.png)
-
-
-![image](https://user-images.githubusercontent.com/24304905/236575184-62f2cd00-0cc7-4ecb-a9b5-5354d7b1b57b.png)
-
-
-![image](https://user-images.githubusercontent.com/24304905/236588147-86e2d199-aa8d-449d-abc4-c8bf21976363.png)
-
-
-![image](https://user-images.githubusercontent.com/24304905/236622924-b17ee377-9c39-4ff1-9cb9-1dd84d114bba.png)
-
-
-![image](https://user-images.githubusercontent.com/24304905/236635079-d1f05611-12a3-438e-95b0-3c53fe30c71b.png)
-
-
-![image](https://user-images.githubusercontent.com/24304905/236683957-2347502c-8bd0-41fa-be32-d980a2f1d1dc.png)
-
-
-![image](https://github.com/frekkanzer2/TrashyParty/assets/24304905/48e938cb-ec78-4e78-85ca-0670cd1811db)
-
-
-![image](https://github.com/frekkanzer2/TrashyParty/assets/24304905/737fce38-398d-4d09-a78e-f846dd82a77f)
-
-
-![image](https://github.com/frekkanzer2/TrashyParty/assets/24304905/a7ba42b3-6d98-49da-9b4c-4249baf45c34)
-
-
-![image](https://github.com/frekkanzer2/TrashyParty/assets/24304905/af156c1a-0531-4926-945b-bb0d08ec2579)
-
-
-![image](https://github.com/frekkanzer2/TrashyParty/assets/24304905/b262cc66-423f-43b4-8d8d-9720e3b597b3)
-
-
-![image](https://github.com/frekkanzer2/TrashyParty/assets/24304905/e635d726-07df-4381-b335-64393cddbd7c)
-
-
-![image](https://github.com/frekkanzer2/TrashyParty/assets/24304905/92fde424-eaa2-4bd1-912b-93602fa7eacc)
-
-
-![image](https://github.com/frekkanzer2/TrashyParty/assets/24304905/3d559385-61d7-45bd-b2ec-a0beed0f9a18)
-
-
-![image](https://github.com/frekkanzer2/TrashyParty/assets/24304905/336f8ba9-6199-49a2-92b3-65383bef1298)
-
-
-![image](https://github.com/frekkanzer2/TrashyParty/assets/24304905/b54ae867-fefe-42a9-adb6-3861a560fb33)
-
+Total games: 33 / 50
 
 ## Future Minigames with lateral view
 - Hunting Season (avoid hunter bullets)
-- Birdy Fight (birds can pickup a weapon and shoot the others)
 - Eggs Kart (change lane to avoid incoming eggs)
-- Aura Replication (replicate the keystroke shown exclusively for your bird (each key will show an aura))
-- Chubby and Heavy (the bird must jump on the head of the other bird: he will not be able to jump anymore)
 - Eggy Treasure (collect the eggs that will spawn in the map and return them in the chest - the first one that deposits 10 eggs will win - it anyone stuns you, you lose the egg)
-- Galaxian Birds (two teams: first one are birds like ufo, second one are galaxips - the galaxips will shot to the ufo-birds that must avoid projectiles - time limit: 1 minute)
 
 ## Future Minigames with view from above
 - Nuclear Bump (push the other birds into the nuclear liquid)
-- Dungate (kill the zombies with your gun and be the last survivor)
-- Hide and Seek (one player is the killer, the others are masqueraded as environment props)
 - Deadly Race (a player controls a car that always spins: by pressing a button, the car will move in the direction of the spin. If the other players do not get run over within one minute, the car will explode and they will win)
 - Birdjammers (Windjammers-like game)
 - Betrayer Bird (one player is the killer with a shotgun, that will kill every bird in 1 minute)
-- Takeshi's Bird (Takeshi's Castle final round game: https://www.youtube.com/watch?v=3vFZXg4OlFQ&ab_channel=Gambit771)
-- Laser Dodge (Laser League game)
 
 ### Create title sprite for Minigames
 - Download the following Paint.net plugin and install it: https://forums.getpaint.net/topic/121343-boltbaits-gpu-accelerated-plugin-pack-for-paintnet-v50-updated-2023-01-28/
