@@ -376,6 +376,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4ca55ab20b86504394d6102438d34fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GameName: Beach Volley
+  GameDescription: The team that scores 3 points wins.
+  KeySuggestions:
+  - Key: 0
+    Action: Jump
   PlayerPrefab: {fileID: 1468634896784324710, guid: 81d2229bce7ef1b4b8ccb2c975b755c9, type: 3}
   ActivableFor2Players:
   - {fileID: 92920723}

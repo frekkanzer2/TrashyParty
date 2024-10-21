@@ -358,6 +358,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d913d81859feaa469791aa81af391ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GameName: Cloudy Boxes
+  GameDescription: Jump on the boxes to decrement their number. If a box reaches
+    zero it is destroyed. Stay alive as long as possible.
+  KeySuggestions: []
   PlayerPrefab: {fileID: 1468634896784324710, guid: 81d2229bce7ef1b4b8ccb2c975b755c9, type: 3}
   ActivableFor2Players: []
   ActivableFor3Players: []

@@ -270,6 +270,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1a5b775fe9408344b9e65685f712d06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GameName: Colorful Nests
+  GameDescription: Take possession of as many nests as possible.
+  KeySuggestions:
+  - Key: 0
+    Action: Jump
   PlayerPrefab: {fileID: 1468634896784324710, guid: 9b77edad784b98e4f9bb95095d45e13f, type: 3}
   ActivableFor2Players: []
   ActivableFor3Players: []
@@ -400,6 +405,7 @@ MonoBehaviour:
       - {fileID: 443772350}
   Teams: []
   timerDisplay: {fileID: 1265983798}
+  TimeLeft: 0
 --- !u!1 &240451888
 GameObject:
   m_ObjectHideFlags: 0

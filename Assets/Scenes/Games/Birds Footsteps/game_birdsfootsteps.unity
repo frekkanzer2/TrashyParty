@@ -202,6 +202,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6363ea6b0ee87cd4f9fab4aee86884d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GameName: Bird's Footsteps
+  GameDescription: Reach the finish line without being seen by the big black bird.
+  KeySuggestions:
+  - Key: 0
+    Action: Move one step
   PlayerPrefab: {fileID: 1468634896784324710, guid: 8432d0d00f6d91147984003a2889436e, type: 3}
   ActivableFor2Players: []
   ActivableFor3Players: []

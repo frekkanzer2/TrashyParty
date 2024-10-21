@@ -203,6 +203,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c6f9f4caab25fc4f806eec4dcb1ec81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GameName: Bomb Tag
+  GameDescription: Touch another bird to give him the bomb before it explodes.
+  KeySuggestions:
+  - Key: 0
+    Action: Jump (max 2 in a row)
   PlayerPrefab: {fileID: 1468634896784324710, guid: fbe5e1dffa299ad4d9ce5d816dfe6ff4, type: 3}
   ActivableFor2Players: []
   ActivableFor3Players: []

@@ -274,6 +274,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47e8fa0e83139d04ea594f8f670d1b6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GameName: Laser Dodge
+  GameDescription: Touch a white laser to make it the color of your team. If a colored
+    laser touches an enemy bird, it is eliminated. The team that survives in 3 matches
+    wins.
+  KeySuggestions: []
   PlayerPrefab: {fileID: 1489424026377635082, guid: bf7c3e4652051f2469e00816e6a06275, type: 3}
   ActivableFor2Players:
   - {fileID: 437119859}

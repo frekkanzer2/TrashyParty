@@ -291,6 +291,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 790d84826df68ce419106ad364700adb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GameName: Hottie Floor
+  GameDescription: Ouch, the floor is hot! If you touch it, it crumbles! Survive
+    as long as you can.
+  KeySuggestions:
+  - Key: 0
+    Action: Jump
   PlayerPrefab: {fileID: 1468634896784324710, guid: 81d2229bce7ef1b4b8ccb2c975b755c9, type: 3}
   ActivableFor2Players: []
   ActivableFor3Players: []

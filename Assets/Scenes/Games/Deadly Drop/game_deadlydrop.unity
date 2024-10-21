@@ -470,6 +470,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2aec99d90a3210e4dab47cc1ddb3a34c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GameName: Deadly Drop
+  GameDescription: Get to the top.
+  KeySuggestions:
+  - Key: 0
+    Action: Jump (max 2 in a row)
   PlayerPrefab: {fileID: 1468634896784324710, guid: 81d2229bce7ef1b4b8ccb2c975b755c9, type: 3}
   ActivableFor2Players: []
   ActivableFor3Players: []
