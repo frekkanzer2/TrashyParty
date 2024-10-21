@@ -202,6 +202,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c420b24c604db85408d7165c20014cfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GameName: Tappy Bird
+  GameDescription: Don't hit your face on the pipes.
+  KeySuggestions:
+  - Key: 0
+    Action: Jump (unlimited pushes)
   PlayerPrefab: {fileID: 1468634896784324710, guid: 81d2229bce7ef1b4b8ccb2c975b755c9, type: 3}
   ActivableFor2Players: []
   ActivableFor3Players: []

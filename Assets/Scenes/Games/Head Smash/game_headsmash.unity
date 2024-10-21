@@ -462,6 +462,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88789a0986c94cf4ca0518b8b18b2707, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GameName: Head Smash
+  GameDescription: 'Jump on another bird''s head to eliminate it. The bird wins if
+    he survives: 3 rounds if there are 4 or fewer birds; 2 otherwise.'
+  KeySuggestions:
+  - Key: 0
+    Action: Jump (unlimited pushes)
   PlayerPrefab: {fileID: 1468634896784324710, guid: 81d2229bce7ef1b4b8ccb2c975b755c9, type: 3}
   ActivableFor2Players:
   - {fileID: 540963536}

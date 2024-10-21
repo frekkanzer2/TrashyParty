@@ -350,6 +350,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54e75553ba705a542b0c651acae10288, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GameName: Rocket Birdy League
+  GameDescription: The team that scores 3 points wins.
+  KeySuggestions:
+  - Key: 1
+    Action: Sprint
   PlayerPrefab: {fileID: 1489424026377635082, guid: 63364d3e40a9c3a48984494d39ba217b, type: 3}
   ActivableFor2Players:
   - {fileID: 437119859}

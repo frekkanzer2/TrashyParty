@@ -284,6 +284,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a14c66a487f79b49855ddc75c453a06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GameName: Super Hot
+  GameDescription: Dodge the bullets
+  KeySuggestions:
+  - Key: 0
+    Action: Jump (max 2 in a row)
   PlayerPrefab: {fileID: 1468634896784324710, guid: 81d2229bce7ef1b4b8ccb2c975b755c9, type: 3}
   ActivableFor2Players: []
   ActivableFor3Players: []

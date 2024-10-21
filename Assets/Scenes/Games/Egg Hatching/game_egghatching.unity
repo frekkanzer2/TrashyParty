@@ -203,6 +203,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c35c7fb0e1ea47d4aa8ea41e60ff8d53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GameName: Egg Hatching
+  GameDescription: Touch or roll the egg to make it smaller and smaller until it
+    hatches. The one who touched it last wins.
+  KeySuggestions:
+  - Key: 0
+    Action: Jump
   PlayerPrefab: {fileID: 1468634896784324710, guid: 81d2229bce7ef1b4b8ccb2c975b755c9, type: 3}
   ActivableFor2Players: []
   ActivableFor3Players: []

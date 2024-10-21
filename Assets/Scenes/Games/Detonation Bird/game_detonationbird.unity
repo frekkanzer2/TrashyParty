@@ -297,6 +297,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 582d1ac84f9d6a6438ea71fb30f9e66d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GameName: Detonation Bird
+  GameDescription: Stay away from the bombs. They will explode faster and faster
+    as time goes on.
+  KeySuggestions:
+  - Key: 0
+    Action: Jump (max 2 in a row)
   PlayerPrefab: {fileID: 1468634896784324710, guid: 81d2229bce7ef1b4b8ccb2c975b755c9, type: 3}
   ActivableFor2Players: []
   ActivableFor3Players: []

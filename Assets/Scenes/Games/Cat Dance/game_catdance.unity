@@ -344,6 +344,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca3ed6f71969a2449b5a594697557a0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GameName: Cat Dance
+  GameDescription: Don't get hit by the cat's paw.
+  KeySuggestions:
+  - Key: 0
+    Action: Jump (max 3 in a row)
   PlayerPrefab: {fileID: 1468634896784324710, guid: 81d2229bce7ef1b4b8ccb2c975b755c9, type: 3}
   ActivableFor2Players: []
   ActivableFor3Players: []

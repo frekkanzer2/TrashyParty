@@ -202,6 +202,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48f443a7b9f8d4643a6abcf8967f6ab1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GameName: Bull Shit
+  GameDescription: Stay away and dodge the big black bird.
+  KeySuggestions: []
   PlayerPrefab: {fileID: 1489424026377635082, guid: 63364d3e40a9c3a48984494d39ba217b, type: 3}
   ActivableFor2Players: []
   ActivableFor3Players: []

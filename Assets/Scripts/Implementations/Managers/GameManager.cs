@@ -5,6 +5,16 @@ using UnityEngine.SceneManagement;
 
 public abstract class GameManager : Singleton<GameManager>, IGameManager, IMultipleMatchesManager
 {
+    public string GameName, GameDescription;
+    public List<SuggestionUI> KeySuggestions;
+
+    [System.Serializable]
+    public class SuggestionUI
+    {
+        public IGamepad.Key Key;
+        public string Action;
+    }
+
     public GameObject PlayerPrefab;
     public List<GameObject> ActivableFor2Players;
     public List<GameObject> ActivableFor3Players;
@@ -18,6 +28,7 @@ public abstract class GameManager : Singleton<GameManager>, IGameManager, IMulti
     protected bool _isGameStarted;
     protected bool _isGameEnded;
     protected ISoundsManager SoundManager;
+    private GameObject Canvas;
 
     private TeamsForNumberOfPlayers TeamSpawnpointAssociationChoise;
 
@@ -165,6 +176,14 @@ public abstract class GameManager : Singleton<GameManager>, IGameManager, IMulti
 
     private void Start()
     {
+        if (KeySuggestions.Find(
+            key => key.Key != IGamepad.Key.ActionButtonDown && 
+            key.Key != IGamepad.Key.ActionButtonUp && 
+            key.Key != IGamepad.Key.ActionButtonRight && 
+            key.Key != IGamepad.Key.ActionButtonLeft) is not null)
+            throw new System.ArgumentException("Action button not valid into key suggestions");
+        Canvas = GameObject.Instantiate(Resources.Load("Canvas"), new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
+        Canvas.SetActive(false);
         SoundManager = SoundsManager.Instance;
         SoundManager.StopAllSounds();
         SoundManager.PlayCountdown();
@@ -178,6 +197,10 @@ public abstract class GameManager : Singleton<GameManager>, IGameManager, IMulti
     private void Update()
     {
         UpdateGameSpecificBehaviour();
+        if (!IsGameEnded())
+        {
+            Canvas.SetActive(GamepadManager.Instance.IsButtonPressedFromAnyGamepad(IGamepad.Key.Select, IGamepad.PressureType.Continue));
+        }
         if (CanChangeGame) {
             bool pressed = GamepadManager.Instance.IsButtonPressedFromAnyGamepad(IGamepad.Key.Start, IGamepad.PressureType.Single);
             if (pressed)
