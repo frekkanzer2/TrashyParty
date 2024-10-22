@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class LaserDodgeGameController : GameManager
@@ -87,6 +88,8 @@ public class LaserDodgeGameController : GameManager
         presentation.GetComponent<SpriteRenderer>().enabled = true;
         presentation.GetComponent<Animator>().enabled = true;
         presentation.GetComponent<Animator>().Play(Constants.ANIMATION_PRESENTATION_STATE);
+        GameObject[] lasers = GameObject.FindGameObjectsWithTag("Pickable");
+        lasers.ToList().ForEach(l => Destroy(l));
         foreach (IPlayer p in players)
         {
             p.SetAsNotReady();
