@@ -43,6 +43,7 @@ public static class Constants {
         EggHatching,
         BullShit,
         ChubbyAndHeavy,
-        LaserDodge
+        LaserDodge,
+        CannonEgg
     }
 }
