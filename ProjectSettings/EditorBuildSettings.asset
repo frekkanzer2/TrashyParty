@@ -119,4 +119,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Games/Laser Dodge/game_laserdodge.unity
     guid: f290c748c457d994385d60a40310b23b
+  - enabled: 1
+    path: Assets/Scenes/Games/Cannon Egg/game_cannonegg.unity
+    guid: e16865d99de0c514dbf3c9f44664d250
   m_configObjects: {}

@@ -59,6 +59,7 @@ public static class Constants {
         BullShit,
         RocketBirdLeague,
         ChubbyAndHeavy,
-        LaserDodge
+        LaserDodge,
+        CannonEgg
     }
 }
