@@ -36,34 +36,23 @@
 | Rocket Birdy League  | 1.5.0a  | 2, X, 4, X, 6, X, 8 |
 | Chubby and Heavy  | 1.6.0a  | 2, 3, 4, 5, 6, 7, 8 |
 | Laser Dodge  | 1.6.0a  | 2, X, 4, X, 6, X, 8 |
+| Cannon Egg  | 1.6.0a  | 2, 3, 4, 5, 6, 7, 8 |
 
-Total games: 33 / 50
+Total games: 34 / 50
 
-2p games: 29
+2p games: 30
 
-3p games: 26
+3p games: 27
 
-4p games: 32
+4p games: 33
 
-5p games: 26
+5p games: 27
 
-6p games: 33
+6p games: 34
 
-7p games: 25
+7p games: 26
 
-8p games: 30
-
-
-## Future Minigames with lateral view
-- Hunting Season (avoid hunter bullets)
-- Eggs Kart (change lane to avoid incoming eggs)
-- Eggy Treasure (collect the eggs that will spawn in the map and return them in the chest - the first one that deposits 10 eggs will win - it anyone stuns you, you lose the egg)
-
-## Future Minigames with view from above
-- Nuclear Bump (push the other birds into the nuclear liquid)
-- Deadly Race (a player controls a car that always spins: by pressing a button, the car will move in the direction of the spin. If the other players do not get run over within one minute, the car will explode and they will win)
-- Birdjammers (Windjammers-like game)
-- Betrayer Bird (one player is the killer with a shotgun, that will kill every bird in 1 minute)
+8p games: 31
 
 ### Create title sprite for Minigames
 - Download the following Paint.net plugin and install it: https://forums.getpaint.net/topic/121343-boltbaits-gpu-accelerated-plugin-pack-for-paintnet-v50-updated-2023-01-28/
