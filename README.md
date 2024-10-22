@@ -39,6 +39,21 @@
 
 Total games: 33 / 50
 
+2p games: 29
+
+3p games: 26
+
+4p games: 32
+
+5p games: 26
+
+6p games: 33
+
+7p games: 25
+
+8p games: 30
+
+
 ## Future Minigames with lateral view
 - Hunting Season (avoid hunter bullets)
 - Eggs Kart (change lane to avoid incoming eggs)
