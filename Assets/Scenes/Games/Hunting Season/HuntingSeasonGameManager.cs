@@ -25,7 +25,7 @@ public class HuntingSeasonGameManager : GameManager
 
     public override void RestartMatch()
     {
-        throw new System.AccessViolationException("No restart is allowed for Lava Dodge game");
+        throw new System.AccessViolationException("No restart is allowed");
     }
 
     protected override void FixedUpdateGameSpecificBehaviour()
@@ -51,11 +51,13 @@ public class HuntingSeasonGameManager : GameManager
         foreach (IPlayer player in players)
         {
             player.IgnoreCollisionsWithOtherPlayers(true);
+            player.SetCanJump(true);
+            player.SetCanWalk(false);
+            player.SetJumpLimit(1);
         }
 
         for (int i = 1; i<players.Count+1; i++)
         {
-            Debug.Log($"messaggino {i}");
             Instantiate(hunter_prefab, yhunterpos, Quaternion.identity) ;
             yhunterpos.y = yhunterpos.y - 3.81f;
         }
