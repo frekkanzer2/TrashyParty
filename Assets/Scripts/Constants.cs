@@ -44,6 +44,7 @@ public static class Constants {
         BullShit,
         ChubbyAndHeavy,
         LaserDodge,
-        CannonEgg
+        CannonEgg,
+        HuntingSeason
     }
 }

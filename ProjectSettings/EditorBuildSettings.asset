@@ -113,4 +113,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Games/Cannon Egg/game_cannonegg.unity
     guid: e16865d99de0c514dbf3c9f44664d250
+  - enabled: 1
+    path: Assets/Scenes/Games/Hunting Season/game_huntingseason.unity
+    guid: eeb556c98c185df46a48aad7bf7654f0
   m_configObjects: {}

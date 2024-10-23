@@ -7,6 +7,7 @@ public class HuntingSeasonGameManager : GameManager
 
     public GameObject hunter_prefab;
     public Vector3 yhunterpos;
+    private List<HunterBehaviour> hunters;
     
     public override void OnPlayerDies()
     {
@@ -21,6 +22,7 @@ public class HuntingSeasonGameManager : GameManager
     public override void OnPreparationEndsGameSpecific()
     {
         SoundManager.PlayRandomGameSoundtrack();
+        hunters.ForEach(h => h.StartGeneration());
     }
 
     public override void RestartMatch()
@@ -50,16 +52,18 @@ public class HuntingSeasonGameManager : GameManager
     {
         foreach (IPlayer player in players)
         {
+            PlatformerPlayer pp = (PlatformerPlayer)player;
+            pp.SetJumpLimit(1);
+            pp.SetCanJump(true);
             player.IgnoreCollisionsWithOtherPlayers(true);
-            player.SetCanJump(true);
             player.SetCanWalk(false);
-            player.SetJumpLimit(1);
+            pp.gameObject.transform.localScale = new Vector3(0.85f, 0.85f, 1);
         }
-
+        hunters = new();
         for (int i = 1; i<players.Count+1; i++)
         {
-            Instantiate(hunter_prefab, yhunterpos, Quaternion.identity) ;
-            yhunterpos.y = yhunterpos.y - 3.81f;
+            hunters.Add(Instantiate(hunter_prefab, yhunterpos, Quaternion.identity).GetComponent<HunterBehaviour>());
+            yhunterpos.y = yhunterpos.y - 4.75f;
         }
     }
 
