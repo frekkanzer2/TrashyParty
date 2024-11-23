@@ -22,7 +22,7 @@ public class BombTagGameManager : GameManager
         SoundManager.PlayRandomGameSoundtrack();
         foreach (IPlayer p in players)
         {
-            p.SetJumpLimit(2);
+            ((PlatformerPlayer)p).SetJumpLimit(2);
             p.IgnoreCollisionsWithOtherPlayers(false);
             ((PlatformerPlayer)p).GetHead().GetComponent<Collider2D>().isTrigger = false;
             ((PlatformerPlayer)p).SetCanKillOtherBirds(false);

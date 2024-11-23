@@ -7,7 +7,6 @@ public class SuperHotGameManager : GameManager
 
     public GameObject SpawnPrefab;
     public GameObject FireballPrefab;
-    int level = 1;
 
     public override void OnPlayerDies()
     {
@@ -24,7 +23,7 @@ public class SuperHotGameManager : GameManager
         SoundManager.PlayRandomGameSoundtrack();
         foreach (IPlayer p in players)
         {
-            p.SetJumpLimit(2);
+            ((PlatformerPlayer)p).SetJumpLimit(2);
             p.IgnoreCollisionsWithOtherPlayers(true);
             ((PlatformerPlayer)p).GetHead().GetComponent<Collider2D>().isTrigger = false;
         }

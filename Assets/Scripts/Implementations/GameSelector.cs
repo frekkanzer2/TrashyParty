@@ -28,6 +28,9 @@ public class GameSelector : MonoBehaviour, IGameSelector
             case Constants.GameName.BeachVolley:
                 supportedPlayers = new int[] { 2, 3, 4, 6, 8 };
                 break;
+            case Constants.GameName.RocketBirdLeague:
+                supportedPlayers = new int[] { 2, 4, 6, 8 };
+                break;
             case Constants.GameName.CloudyBoxes:
                 supportedPlayers = new int[] { 2, 3, 4, 5, 6, 7, 8 };
                 break;
@@ -98,6 +101,39 @@ public class GameSelector : MonoBehaviour, IGameSelector
                 supportedPlayers = new int[] { 3, 4, 5, 6, 7, 8 };
                 break;
             case Constants.GameName.GCEA:
+                supportedPlayers = new int[] { 2, 4, 6, 8 };
+                break;
+            case Constants.GameName.HottieFloor:
+                supportedPlayers = new int[] { 2, 3, 4, 5, 6, 7, 8 };
+                break;
+            case Constants.GameName.KagomeKagome:
+                supportedPlayers = new int[] { 2, 3, 4, 5, 6 };
+                break;
+            case Constants.GameName.ColorfulNests:
+                supportedPlayers = new int[] { 2, 3, 4, 5, 6, 7, 8 };
+                break;
+            case Constants.GameName.EggHatching:
+                supportedPlayers = new int[] { 2, 3, 4, 5, 6, 7, 8 };
+                break;
+            case Constants.GameName.BullShit:
+                supportedPlayers = new int[] { 2, 3, 4, 5, 6, 7, 8 };
+                break;
+            case Constants.GameName.ChubbyAndHeavy:
+                supportedPlayers = new int[] { 2, 3, 4, 5, 6, 7, 8 };
+                break;
+            case Constants.GameName.LaserDodge:
+                supportedPlayers = new int[] { 2, 4, 6, 8 };
+                break;
+            case Constants.GameName.CannonEgg:
+                supportedPlayers = new int[] { 2, 3, 4, 5, 6, 7, 8 };
+                break;
+            case Constants.GameName.HuntingSeason:
+                supportedPlayers = new int[] { 2, 3, 4, 5, 6, 7, 8 };
+                break;
+            case Constants.GameName.EggsRush:
+                supportedPlayers = new int[] { 3, 4, 5, 6, 7, 8 };
+                break;
+            case Constants.GameName.GCEA:
                 supportedPlayers = new int[] { 2, 3, 4, 5, 6, 7, 8 };
                 break;
             case Constants.GameName.HottieFloor:
@@ -133,6 +169,8 @@ public class GameSelector : MonoBehaviour, IGameSelector
         if (availables.Count == 0)
         {
             List<Constants.GameName> games = FilterGamesByPlayersNumber(numberOfPlayers);
+            foreach(Constants.GameName game in games)
+                Log.Logger.Write($"Prepared game {game}");
             games.Shuffle();
             AppSettings.Save(Constants.APPSETTINGS_PLAYABLEGAMES_LABEL, games);
             availables = games;

@@ -1,12 +1,14 @@
 public static class Constants {
     public static int PLAYER_MOVEMENT_SPEED = 15;
+    public static int PLAYER_SPRINT_MOVEMENT_SPEED = 20;
     public static int PLAYER_JUMPING_POWER = 38;
     public static int LAYER_DEADZONE = 29;
+    public static int LAYER_SPECIAL_DEADZONE = 28;
     public static int LAYER_GROUND = 6;
     public static int LAYER_PLAYERHEAD = 31;
-    public static int VICTORY_POINTS = 5;
     public static string LEVEL_SPECIFIC_SOUND_TAG = "LevelSound";
     public static string ANIMATION_PRESENTATION_STATE = "Presentation";
+    public static int VICTORY_POINTS = 5;
     public static string APPSETTINGS_PLAYABLEGAMES_LABEL = "PLAYABLE_GAMES";
     public static string APPSETTINGS_RANKING_LABEL = "RANKING";
     public static string APPSETTINGS_RANKING_PREVIOUS_LABEL = "RANKING_PREV";
@@ -26,6 +28,7 @@ public static class Constants {
     public enum GameName
     {
         BeachVolley,
+        RocketBirdLeague,
         CloudyBoxes,
         LavaDodge,
         EnergyRelease,
@@ -36,6 +39,7 @@ public static class Constants {
         TappyBird,
         UfoInvasion,
         ImTheKing,
+        ColorfulNests,
         BirdSoccer,
         CatDance,
         Basketegg,
@@ -51,6 +55,12 @@ public static class Constants {
         EggsRush,
         GCEA,
         HottieFloor,
-        KagomeKagome
+        KagomeKagome,
+        EggHatching,
+        BullShit,
+        ChubbyAndHeavy,
+        LaserDodge,
+        CannonEgg,
+        HuntingSeason
     }
 }

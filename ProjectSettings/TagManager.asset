@@ -12,6 +12,7 @@ TagManager:
   - Repels
   - TransitionManager
   - Pickable
+  - Teleport
   layers:
   - Default
   - TransparentFX
@@ -41,7 +42,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - SpecialDeadzone
   - Deadzone
   - PLateral
   - PLateral-Coll-Head

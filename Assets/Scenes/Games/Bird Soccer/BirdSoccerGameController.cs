@@ -54,7 +54,7 @@ public class BirdSoccerGameController : GameManager
             player.IgnoreCollisionsWithOtherPlayers(false);
             p.SetCanKillOtherBirds(false);
             p.SetCanConfuseOtherBirds(true);
-            player.SetJumpLimit(5);
+            p.SetJumpLimit(5);
             player.RespawnPosition = p.gameObject.transform.position;
         }
     }

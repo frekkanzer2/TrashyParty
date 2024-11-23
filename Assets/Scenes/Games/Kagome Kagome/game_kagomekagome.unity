@@ -291,6 +291,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9da24c9cc46a02e4082c38fe53af2452, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GameName: Kagome Kagome
+  GameDescription: Stop the Kokeshis at the exact moment when the female Kokeshi
+    is standing behind you.
+  KeySuggestions:
+  - Key: 3
+    Action: Stop the Kokeshi
   PlayerPrefab: {fileID: 1468634896784324710, guid: c3b9a9ecc5aca7841b597524cb8a23aa, type: 3}
   ActivableFor2Players: []
   ActivableFor3Players: []

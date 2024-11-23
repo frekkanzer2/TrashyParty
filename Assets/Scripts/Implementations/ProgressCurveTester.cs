@@ -5,14 +5,16 @@ using UnityEngine;
 public class ProgressCurveTester : MonoBehaviour
 {
 
+    public int MaxGenerationIndex;
+
     // Start is called before the first frame update
     void Start()
     {
-        for (int GenerationIteration = 1; GenerationIteration <= 500; GenerationIteration++)
+        for (int GenerationIteration = 1; GenerationIteration <= MaxGenerationIndex; GenerationIteration++)
         {
-            float timeToWaitA = 3.4f - MathfFunction.SquareRoot(GenerationIteration) / 2.5f;
-            float timeToWaitB = 0.63f - MathfFunction.SquareRoot(30 + GenerationIteration) / 17f;
-            Debug.Log($"Iteration {GenerationIteration} | TimeToWait: {timeToWaitA} | TimeToWait OVER 60: {timeToWaitB}");
+            float timeToWaitA = 2 - MathfFunction.Exponential(1.4f, GenerationIteration)/1000; // max index 22
+            float timeToWaitB = MathfFunction.SquareRoot(GenerationIteration) * 2;
+            Debug.Log($"Iteration {GenerationIteration} | TimeToWaitA: {timeToWaitA} | TimeToWaitB: {timeToWaitB}");
         }
     }
 

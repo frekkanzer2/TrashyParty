@@ -13,6 +13,9 @@ public class GameLoader : MonoBehaviour, IGameLoader
             case Constants.GameName.BeachVolley:
                 sceneName += "beachvolley";
                 break;
+            case Constants.GameName.RocketBirdLeague:
+                sceneName += "rocketbirdyleague";
+                break;
             case Constants.GameName.CloudyBoxes:
                 sceneName += "cloudyboxes";
                 break;
@@ -91,10 +94,31 @@ public class GameLoader : MonoBehaviour, IGameLoader
             case Constants.GameName.KagomeKagome:
                 sceneName += "kagomekagome";
                 break;
+            case Constants.GameName.ColorfulNests:
+                sceneName += "colorfulnests";
+                break;
+            case Constants.GameName.EggHatching:
+                sceneName += "egghatching";
+                break;
+            case Constants.GameName.BullShit:
+                sceneName += "bullshit";
+                break;
+            case Constants.GameName.ChubbyAndHeavy:
+                sceneName += "chubbyandheavy";
+                break;
+            case Constants.GameName.LaserDodge:
+                sceneName += "laserdodge";
+                break;
+            case Constants.GameName.CannonEgg:
+                sceneName += "cannonegg";
+                break;
+            case Constants.GameName.HuntingSeason:
+                sceneName += "huntingseason";
+                break;
             default:
                 throw new System.NullReferenceException($"No game named {game} is registered inside the loading component");
         }
-        Log.Logger.Write($"Loading game {game} on scene {sceneName} with {players} players");
+        Log.Logger.Write($"Loaded game {game} on scene {sceneName} with {players} players");
         SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
     }
 

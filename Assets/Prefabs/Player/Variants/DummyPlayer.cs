@@ -6,6 +6,9 @@ public class DummyPlayer : IPlayer
 {
     public bool IsInitialized => true;
 
+    protected int? _team = null;
+    public int? Team { get => _team; set => _team = value; }
+
     public Vector3 RespawnPosition { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
     public int Id { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
 
@@ -19,7 +22,7 @@ public class DummyPlayer : IPlayer
         throw new System.NotImplementedException();
     }
 
-    public Sprite GetWinSprite()
+    public Sprite GetBirdSprite()
     {
         throw new System.NotImplementedException();
     }
@@ -86,4 +89,8 @@ public class DummyPlayer : IPlayer
     public void SetJumpLimit(int limit)
     {
     }
+
+    public string GetName() => null;
+
+    public bool CheckName(string name) => false;
 }

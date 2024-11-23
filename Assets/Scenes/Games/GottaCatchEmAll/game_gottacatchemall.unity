@@ -204,6 +204,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c21a6db3c7f31f940bf15c12952accb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GameName: Gotta Catch 'Em All
+  GameDescription: One of the birds will turn into an assassin who must capture all
+    the other birds.
+  KeySuggestions:
+  - Key: 0
+    Action: Jump (max 2 in a row)
   PlayerPrefab: {fileID: 1468634896784324710, guid: 181b78e71d0278c4c96bb1e7d5a784f3, type: 3}
   ActivableFor2Players: []
   ActivableFor3Players: []

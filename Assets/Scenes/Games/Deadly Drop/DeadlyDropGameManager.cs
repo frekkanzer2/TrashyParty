@@ -22,7 +22,7 @@ public class DeadlyDropGameManager : GameManager
         SoundManager.PlayRandomGameSoundtrack();
         foreach (IPlayer player in this.players)
         {
-            player.SetJumpLimit(2);
+            ((PlatformerPlayer)player).SetJumpLimit(2);
             player.IgnoreCollisionsWithOtherPlayers(true);
             ((PlatformerPlayer)player).GetHead().GetComponent<Collider2D>().isTrigger = false;
         }

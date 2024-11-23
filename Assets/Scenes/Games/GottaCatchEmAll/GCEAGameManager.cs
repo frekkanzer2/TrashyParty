@@ -64,7 +64,7 @@ public class GCEAGameManager : GameManager
             middleSpawnpointToMove.transform.position = new(-2.94f, 2.125f, 0.1820703f);
         foreach (IPlayer player in this.players)
         {
-            player.SetJumpLimit(2);
+            ((PlatformerPlayerGCEA)player).SetJumpLimit(2);
             player.IgnoreCollisionsWithOtherPlayers(false);
             ((PlatformerPlayerGCEA)player).SetCanKillOtherBirds(false);
             ((PlatformerPlayerGCEA)player).SetCanConfuseOtherBirds(false);

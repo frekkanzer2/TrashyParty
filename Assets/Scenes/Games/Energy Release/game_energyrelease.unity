@@ -203,6 +203,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54612f5768895784e93b8c91d81131bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GameName: Energy Release
+  GameDescription: Accumulate and release a wave of energy to eliminate enemies.
+    The longer you wait, the larger the energy wave will be.
+  KeySuggestions:
+  - Key: 0
+    Action: 'Jump '
+  - Key: 3
+    Action: Release the energy
   PlayerPrefab: {fileID: 1468634896784324710, guid: de4b3c26419c10b4a9647cfa3eec120d, type: 3}
   ActivableFor2Players: []
   ActivableFor3Players: []

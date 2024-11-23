@@ -7,7 +7,6 @@ public class PlatformerPlayerTrapRun : PlatformerPlayer
 
     private bool isTempDeath = false;
     private Animator bodyAnimator = null;
-    public bool DEBUG;
 
     protected override void VariantStart()
     {
@@ -17,8 +16,6 @@ public class PlatformerPlayerTrapRun : PlatformerPlayer
 
     protected override void VariantUpdate()
     {
-        if (DEBUG)
-            Debug.Log($"STATUS OF PLAYER: IsDead {this.IsDead()} | IsTempDeath {this.isTempDeath} | CanJump {this.canJump} | CanWalk {this.canWalk}");
         if (bodyAnimator is null)
         {
             try

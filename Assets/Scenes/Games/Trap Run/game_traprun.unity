@@ -720,6 +720,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf443fe05ccea8c46a0c32622b6ced78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GameName: Trap Run
+  GameDescription: Reach the open door.
+  KeySuggestions:
+  - Key: 0
+    Action: Jump
   PlayerPrefab: {fileID: 1468634896784324710, guid: 42eeeaf600247b742bdda886ddb69d69, type: 3}
   ActivableFor2Players: []
   ActivableFor3Players: []

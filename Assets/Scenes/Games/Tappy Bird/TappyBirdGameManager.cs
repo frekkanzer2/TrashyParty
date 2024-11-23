@@ -24,9 +24,9 @@ public class TappyBirdGameManager : GameManager
         SoundManager.PlayRandomGameSoundtrack();
         foreach (IPlayer player in this.players)
         {
-            player.SetJumpLimit(10000000);
             player.SetCanWalk(false);
             PlatformerPlayer pp = (PlatformerPlayer)player;
+            pp.SetJumpLimit(10000000);
             pp.GetComponent<Rigidbody2D>().gravityScale = 14;
         }
         this.level = 1;

@@ -5,7 +5,7 @@ using UnityEngine;
 public class GuardianBehaviour : MonoBehaviour
 {
 
-    private SpriteRenderer renderer;
+    private new SpriteRenderer renderer;
     private int iteration = 0;
 
     private void Start()

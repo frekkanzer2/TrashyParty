@@ -30,6 +30,9 @@ public class LeaderboardManager : MonoBehaviour
         for (int i = numberOfPlayers; i < 8; i++)
             Positions[i].SetActive(false);
         List<RankingDto.Rank> oldRanks = oldRanking.GetRanking();
+        Log.Logger.Write(ILogManager.Level.Important, "Loaded ranks from previous match");
+        foreach(RankingDto.Rank r in oldRanks)
+            Log.Logger.Write($"Player {r.PlayerId} with {r.Points} points");
         for (int i = 0; i < numberOfPlayers; i++) Positions[i].SetData(oldRanks[i].PlayerSprite, oldRanks[i].Points, null, oldRanks[i].PlayerId);
         UpdateAllRanks(oldRanks);
         StartCoroutine(UpdateLeaderboard(WaitTimeForUpdate));
@@ -94,6 +97,9 @@ public class LeaderboardManager : MonoBehaviour
             }
             Positions[i].SetData(oldRanks[i].PlayerSprite, oldRanks[i].Points, hasWon, oldRanks[i].PlayerId);
         }
+        Log.Logger.Write(ILogManager.Level.Important, "Loaded ranks from latest match");
+        foreach (RankingDto.Rank r in newRanks)
+            Log.Logger.Write($"Player {r.PlayerId} with {r.Points} points");
         yield return new WaitForSeconds(waitTime);
         soundSource.clip = this.soundToExecute2;
         soundSource.Play();
@@ -114,22 +120,28 @@ public class LeaderboardManager : MonoBehaviour
 
     private void UpdateAllRanks(List<RankingDto.Rank> ranks)
     {
+        Log.Logger.Write(ILogManager.Level.Important, "Updating ranks");
         int lastRank = 1;
         for (int i = 0; i < numberOfPlayers; i++, lastRank++)
         {
+            Log.Logger.Write($"Working on player {Positions[i].connectedPlayerId}");
             if (i == 0)
             {
+                Log.Logger.Write($"Player {Positions[i].connectedPlayerId} is the first one, so it will be applied position n. 1");
                 Positions[i].SetRankingText(lastRank);
                 continue;
             }
             else if (ranks[i].Points == ranks[i-1].Points)
             {
                 lastRank--;
+                Log.Logger.Write($"Player {ranks[i].PlayerId} is compared with the previous one (player {ranks[i - 1].PlayerId}): they have same points number ({ranks[i].Points} vs {ranks[i-1].Points}), so they have the same rank ({lastRank})");
                 Positions[i].SetRankingText(lastRank);
                 continue;
             }
+            Log.Logger.Write($"Player {ranks[i].PlayerId} is compared with the previous one (player {ranks[i - 1].PlayerId}): they doesn't have same points number ({ranks[i].Points} vs {ranks[i - 1].Points}), so the rank {lastRank} is applying");
             Positions[i].SetRankingText(lastRank);
         }
+        Log.Logger.Write(ILogManager.Level.Important, "All ranks are applied!");
     }
 
 }

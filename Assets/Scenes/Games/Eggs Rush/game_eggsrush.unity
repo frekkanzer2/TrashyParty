@@ -203,6 +203,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64013bc39cf7be3439471ebb6759c12e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GameName: Eggs Rush
+  GameDescription: Get at least one egg to survive. The person who did not touch
+    any eggs during the round dies.
+  KeySuggestions:
+  - Key: 0
+    Action: Jump (max 2 in a row)
   PlayerPrefab: {fileID: 1468634896784324710, guid: 9c8c002abb8c4e045bbf71d7e39cd15d, type: 3}
   ActivableFor2Players: []
   ActivableFor3Players: []

@@ -43,10 +43,21 @@ public class FizzleFloorGameManager : GameManager
         yield return new WaitForSeconds(time);
         if (!GameManager.Instance.IsGameEnded())
         {
-            GameObject block = BlockLines[level - 1].GetRandomAndRemove();
-            block.GetComponent<DisappearanceBlockBehaviour>().Disappear();
-            Destroy(block, 3);
-            StartCoroutine(Disappearance((time > 1) ? time - 0.1f : time, level));
+            GameObject block = null;
+            bool canRemove = true;
+            try
+            {
+                block = BlockLines[level - 1].GetRandomAndRemove();
+            } catch (System.ArgumentOutOfRangeException)
+            {
+                canRemove = false;
+            }
+            if (canRemove)
+            {
+                block.GetComponent<DisappearanceBlockBehaviour>().Disappear();
+                Destroy(block, 3);
+                StartCoroutine(Disappearance((time > 1) ? time - 0.1f : time, level));
+            }
         }
     }
 

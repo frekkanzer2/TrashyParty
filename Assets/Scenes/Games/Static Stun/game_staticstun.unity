@@ -205,6 +205,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156fce4776ca1aa4181e57df2f246d7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GameName: Static Stun
+  GameDescription: Jump on an enemy to create a shockwave and subsequently a magic
+    sphere. Create shock waves to launch enemies into magic orbs.
+  KeySuggestions:
+  - Key: 0
+    Action: Jump (max 2 in a row)
   PlayerPrefab: {fileID: 1468634896784324710, guid: 9bcc230ae9cf702478843a663e9f19ad, type: 3}
   ActivableFor2Players: []
   ActivableFor3Players: []

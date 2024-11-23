@@ -47,7 +47,7 @@ public class ImTheKingGameManager : GameManager
         foreach (IPlayer player in this.players)
         {
             player.IgnoreCollisionsWithOtherPlayers(false);
-            player.SetJumpLimit(2);
+            ((PlatformerPlayer)player).SetJumpLimit(2);
             ((PlatformerPlayer)player).SetCanKillOtherBirds(false);
             ((PlatformerPlayer)player).SetCanConfuseOtherBirds(true);
         }

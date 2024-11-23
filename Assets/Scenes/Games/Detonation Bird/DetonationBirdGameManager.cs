@@ -23,7 +23,7 @@ public class DetonationBirdGameManager : GameManager
         SoundManager.PlayRandomGameSoundtrack();
         foreach (IPlayer p in players)
         {
-            p.SetJumpLimit(2);
+            ((PlatformerPlayer)p).SetJumpLimit(2);
             p.IgnoreCollisionsWithOtherPlayers(true);
             ((PlatformerPlayer)p).GetHead().GetComponent<Collider2D>().isTrigger = false;
         }

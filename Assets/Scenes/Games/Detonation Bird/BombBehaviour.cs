@@ -7,7 +7,7 @@ public class BombBehaviour : MonoBehaviour
 
     public Sprite NormalSprite, ActiveSprite;
     public GameObject ExplosionPrefab;
-    public SpriteRenderer renderer;
+    public new SpriteRenderer renderer;
     private float EachSpriteSpeed = 0, expDim = 0;
     public AudioClip BombExplosionSound;
 
