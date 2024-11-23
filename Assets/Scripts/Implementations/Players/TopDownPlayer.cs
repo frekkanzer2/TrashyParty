@@ -328,5 +328,15 @@ public class TopDownPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
 
     protected void changeSprite(Sprite s) => body.GetChild(0).gameObject.GetComponent<SpriteRenderer>().sprite = s;
 
+    public void SetJumpLimit(int limit)
+    {
+        return;
+    }
+
+    public void SetCanJump(bool b)
+    {
+        return;
+    }
+
     #endregion
 }
