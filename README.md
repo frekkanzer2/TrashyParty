@@ -37,22 +37,23 @@
 | Chubby and Heavy  | 1.6.0a  | 2, 3, 4, 5, 6, 7, 8 |
 | Laser Dodge  | 1.6.0a  | 2, X, 4, X, 6, X, 8 |
 | Cannon Egg  | 1.6.0a  | 2, 3, 4, 5, 6, 7, 8 |
+| Hunting Season  | 1.6.0a  | 2, 3, 4, 5, 6, 7, 8 |
 
-Total games: 34 / 50
+Total games: 35 / 50
 
-2p games: 30
+2p games: 31
 
-3p games: 27
+3p games: 28
 
-4p games: 33
+4p games: 34
 
-5p games: 27
+5p games: 28
 
-6p games: 34
+6p games: 35
 
-7p games: 26
+7p games: 27
 
-8p games: 31
+8p games: 32
 
 ### Create title sprite for Minigames
 - Download the following Paint.net plugin and install it: https://forums.getpaint.net/topic/121343-boltbaits-gpu-accelerated-plugin-pack-for-paintnet-v50-updated-2023-01-28/
