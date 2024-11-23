@@ -199,6 +199,9 @@ public class TopDownPlayer : MonoBehaviour, IGamepadEventHandler, IPlayer
     protected int? _team = null;
     public int? Team { get => _team; set => _team = value; }
 
+    protected int? _team = null;
+    public int? Team { get => _team; set => _team = value; }
+
     public void IgnoreCollisionsWithOtherPlayers(bool active)
     {
         Physics2D.IgnoreLayerCollision(30, 30, active);
